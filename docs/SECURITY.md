@@ -1,21 +1,23 @@
-# 安全与完整性说明
+# Security and integrity
 
-## 开发期间的命令行告警
+## Development-time command-line detection
 
-2026-09-07 12:26，本机 Microsoft Defender 对一条生成安装脚本的 PowerShell 命令报告了 `Trojan:Win32/PowhidSubExec.B`。检测对象为命令行。对应日志显示处置成功、未执行，之后状态为非活动。
+On September 7, 2026, at 12:26 local time (UTC+8), Microsoft Defender reported **Trojan:Win32/PowhidSubExec.B** for a PowerShell command used to generate installation scripts. The detected resource was a command line. The corresponding record reported successful remediation, no execution, and an inactive state afterward.
 
-该记录可以对应到开发中的脚本生成操作；来源确认不能代替安全确认，也没有得到微软的误报认定。发行流程随后改为可见的本地校验流程，移除了隐藏 PowerShell 启动和执行策略绕过。未关闭实时防护、行为监测或添加排除项。
+The record was traced to that development operation. Identifying its origin does not establish safety, and no Microsoft false-positive determination was obtained. The release workflow was changed to visible local verification, removing hidden PowerShell launchers and execution-policy bypass. Real-time protection and behavior monitoring were not disabled, and no exclusions were added.
 
-当前扫描与实际运行结果列在 [验证记录](VALIDATION.md)。一次通过扫描不能保证所有安全软件都给出相同结果；若遇到告警，应停止安装并保留检测详情，不要直接放行。
+Current scan and execution results are documented in [validation](VALIDATION.md). A clean scan does not guarantee that every security product will give the same result. If a detection occurs, stop installation and retain its details instead of allowing it automatically.
 
-微软的 [检测更新记录](https://www.microsoft.com/en-us/wdsi/definitions/antimalware-definition-release-notes?Version=1.161.256.0) 收录了该检测名称；这并不说明本项目的命令就是对应恶意软件样本。
+Microsoft's [detection-update record](https://www.microsoft.com/en-us/wdsi/definitions/antimalware-definition-release-notes?Version=1.161.256.0) includes the detection name. That does not establish that the project's command was the corresponding malware sample.
 
-## 安装做什么
+## Installer behavior
 
-- 从已安装的官方客户端取得运行文件，校验版本、官方签名和 SHA-256 摘要。
-- 在用户目录生成独立副本；每个修补片段同时检查输入摘要、替换位置与输出摘要。
-- 重建资源完整性信息，并核对全部打包条目。可执行文件只更新资源头部的摘要记录，因此副本的官方数字签名会失效。
-- 为每次安装保留文件备份和事务记录；恢复时检查文件是否发生后续变动。
-- 只修补匹配版本及摘要的浏览器组件缓存。账号凭据和对话数据库不进入发行包。
+- Use the installed official client after checking its version, official signature, and SHA-256 hashes.
+- Build a separate copy in the user directory. Each patch checks the input digest, replacement offsets, inserted bytes, and output digest.
+- Rebuild resource integrity metadata and verify every packed entry. Only the executable's resource-header digest record changes, which invalidates the copied executable's official signature.
+- Keep file backups and a transaction record for each installation. Check for subsequent file changes before restoring.
+- Modify browser-component caches only when their versions and hashes match. Credentials and conversation databases are excluded from release packages.
 
-仓库无第三方软件包依赖。安装无需从网络下载可执行文件。启动校验窗口可见，实际应用仍由本地客户端副本运行。
+The repair tools have no third-party package dependencies. Installation does not download executable files from the network. Startup verification remains visible, and the actual app runs from the local runtime copy.
+
+The English edition translates documentation, entry-command names, project-owned sidebar labels, and console messages. It uses a separate release identifier and regenerated integrity hashes. The original Chinese branch and the user's active Chinese installation are preserved.

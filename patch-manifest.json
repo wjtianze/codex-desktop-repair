@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "releaseVersion": "1.0.1",
+  "releaseVersion": "1.0.1-en.1",
   "performanceRevision": 7,
   "sidebarVersion": "1.1.0",
   "packageName": "OpenAI.Codex",
@@ -313,7 +313,7 @@
       "id": "primary",
       "entry": "webview/assets/app-primary-428a0a65766f.js",
       "originalSHA256": "b901ac16b6d81e888e1a5a44f4c6d97ef00c1814212ac6a3ecd4e069e76d9acd",
-      "patchedSHA256": "03b08dd16e29128ec37cf2e0def85826e0f3ca30d8425359a261d4e0c1cf211c",
+      "patchedSHA256": "55e0d6d557fc49e77adaf20c57fa9a136c94bff500080fdb6b0719c5bf9def6a",
       "preprocess": null,
       "operations": [
         {
@@ -391,7 +391,7 @@
           "deleteBytes": 1120,
           "removedSHA256": "45e2d230cdb5d0ee207cd52b64520a0b771c08776bf1cef6930483dd9eb37aa0",
           "insert": "patches/primary/010.txt",
-          "insertSHA256": "e45976024b3c63b795ac214ba1f41fe8e688c4d09d659606d2f9501131a6bd36"
+          "insertSHA256": "c63855a16f82a14016e7fe1376401e411b1194191e238587dc53916ae8115f7b"
         },
         {
           "offset": 6269567,
@@ -782,7 +782,7 @@
   "assets": {
     "assets/bounded-rollout-reader.mjs": "ff522dd98b367f5c80e35992ed943f2571bd33f62c308ebbe9c1b1db26990a1e",
     "assets/local-composer-recovery-v1.mjs": "f52f7a81f26f34f1af7d9f19a6ee8db9c5e13b8b65d53e21e85611bda4a78b78",
-    "assets/chat-history-filter-1.1.0.mjs": "df76f09a4f7180b350a695f81d1694e2974e4a79af0b3d70c5458107493c62b3",
+    "assets/chat-history-filter-1.1.0.mjs": "b9f6664c190b5760b86732b4ec40a0dedee80155e433f3f40faa6e82420189d9",
     "assets/local-conversation-render-fixes-v1.mjs": "c85721968c3d3d4a9b4f3f17444727e7f3a16c1cc76198ace05642d1f7e455df",
     "assets/local-conversation-model-preferences-v1.mjs": "0ee84c0256d48a3f9b0a1cf3375dd041d173c37924249d547bce0d080e1d6b07",
     "assets/local-conversation-performance-v1.mjs": "bf9340a7db9f05ddfc3239d9f89993326180ad49ecb638d94b0f9c46a2bb6a47",
@@ -798,11 +798,12 @@
     ".vite/build/bounded-desktop-log.cjs": "assets/bounded-desktop-log.cjs",
     "webview/assets/local-mention-search-v1.js": "assets/local-mention-search-v1.mjs"
   },
+  "language": "en",
   "expectedBuilds": {
     "full": {
-      "archiveSHA256": "310e3106fe0f2c029671514d9a2c55a4aec3775f6f4e8f0178fded96646ce66e",
-      "executableSHA256": "9b3c593a175f8a02138a7d5019a721976c09f26d0a99f4021efae49b33e78e09",
-      "archiveHeaderSHA256": "aa4d4887e2f119370201c097f2c0e22ef3ffb4bd48e92c6cb90839b803ad996c",
+      "archiveSHA256": "72f24bc1a5723b4319a26f2a2dab1905d3836f30ecef54a2b444bdfb274ac70e",
+      "executableSHA256": "09dc4011c247f424dba7833ea03aa9fca9cc2dc843011d342984c974564649c9",
+      "archiveHeaderSHA256": "d507f01400b2a27d5e2a512ca75d9652f35a67f56198eba9000dd223b80f3ca4",
       "verifiedPackedEntries": 8799
     },
     "performanceOnly": {

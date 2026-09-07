@@ -1,41 +1,56 @@
-# 验证记录
+# Validation record
 
-版本：1.0.1；日期：2026-09-07。
+Base repair: 1.0.1. English edition: 1.0.1-en.1. Date: September 7, 2026.
 
-| 检查 | 结果 |
+## Behavior coverage
+
+| Check | Coverage |
 | --- | --- |
-| 有界记录读取 | 10 项通过，包括大字段、多批读取、UTF-8 边界、重复键、无效 JSON 和文件轮换 |
-| 输入框恢复 | 9 项通过，包括权限错误停止、有限重试、切换取消与共享请求保护 |
-| 侧栏分类 | 10 项通过，包括项目、置顶、手动覆盖、默认自动跟随和原生菜单 |
-| 文件安装与恢复 | 8 项通过，包括首次安装、升级、写入失败恢复、后续文件变更与重复恢复 |
-| 修补及资源打包 | 6 项通过，包括摘要、位置、路径和空文件完整性 |
-| 监听、闲置回收、浏览器队列、崩溃与窗口保护 | 19 项通过 |
-| 性能记录、按需窗口、界面标题、主进程标题 | 分别 7、5、8、9 项通过 |
-| 检索图片、对话模型、历史转换、单图比例、完整引用组件 | 分别 7、10、10、6、7 项通过 |
-| 日志队列、状态保存、提及搜索、草稿保存 | 分别 11、10、8、3 项通过 |
-| 跨平台新增辅助模块 | 16 项通过，覆盖语义分类、偏好隔离、缓存更新及搜索取消 |
-| 首次安装资料目录 | 3 项通过；按商店包关闭文件写入虚拟化的配置选择 Roaming\Codex，升级保留已有绝对路径 |
-| 快速聊天跨模式入口 | 6 项通过，直接验证原生菜单组件、独立按钮行为、快捷键呈现偏好和不可用状态保护 |
-| 合计 | 188 项通过；包含 62 项可独立运行的跨平台测试，126 项从官方资源生成的行为测试 |
-| 真实应用资源 | 完整修复版 8799 项、无侧栏版 8798 项，逐项校验通过 |
-| 1.0.0 实际安装与恢复 | 使用仓库入口安装，28 项写入校验通过；恢复后原资源和可执行文件摘要吻合；再次安装通过 |
-| 1.0.0 从官方文件全新安装 | 完整复制路径验证通过，三项原生依赖保持普通文件且摘要吻合，17 项写入校验与恢复通过 |
-| 实际客户端 | 恢复模块、闲置容量和回调清理代码已加载；存在可编辑输入区，没有页面警告；六处浏览器辅助模块可导入 |
-| 实际使用确认 | 用户已确认启动与输入框、模型相关问题、海报完整显示、卡片、Markdown 渲染和生成内容消失等问题恢复 |
-| 1.0.1 预览升级 | 28 项事务写入校验通过；前序预览中的引用组件回归曾实际回退，修复后重新安装成功 |
-| 新版日志 | 启动后消息订阅连接成功，所检查日志未出现局部变量提前访问、模块缺失或状态保存失败；超长日志实际限制为 24000 字符 |
+| Bounded record reader | 10 cases: large fields, multiple batches, UTF-8 boundaries, duplicate keys, invalid JSON, and rotation. |
+| Composer recovery | 9 cases: permission failures, bounded retries, cancellation on switching, and shared-request protection. |
+| Sidebar filtering | 10 cases: projects, pins, manual choice, automatic context following, and the native menu. |
+| Installation transactions | 8 cases: fresh installation, upgrade, rollback after failure, subsequent changes, and repeated restore. |
+| Patching and resource assembly | 6 cases: hashes, offsets, paths, and empty-file integrity. |
+| Listener cleanup, idle eviction, browser queue, crash and window guards | 19 cases. |
+| Performance records, on-demand windows, renderer titles, main-process titles | 7, 5, 8, and 9 cases respectively. |
+| Retrieval images, conversation models, history conversion, image proportions, full citation renderer | 7, 10, 10, 6, and 7 cases respectively. |
+| Log queue, state persistence, mention search, draft saving | 11, 10, 8, and 3 cases respectively. |
+| Additional portable helpers | 16 cases covering classification, preference isolation, cache invalidation, and search cancellation. |
+| Initial profile selection | 3 cases: nonvirtualized profile, preserving an existing absolute path, and rejecting invalid saved paths. |
+| Quick chat across modes | 6 cases exercising the native component, separate button action, keyboard presentation preferences, and unavailable-state protection. |
+| Total | 188 cases: 62 portable tests and 126 tests using fixtures generated from official resources. |
+| Packed resources | 8,799 entries in the complete edition; 8,798 without sidebar filtering. Every entry is verified. |
 
-1.0.1 在主界面连续采集 15 分钟、共 31 个样本：JavaScript 堆从约 164 MiB 开始，范围 162–309 MiB，结束约 198 MiB；过程中有多次回落。记录到的 9484 条交互事件，中位耗时 24 毫秒、95 分位 48 毫秒、最大 336 毫秒；记录到 36 个长任务，最长约 217 毫秒。每 30 秒最多保存 500 条事件，测量仅覆盖主界面进程，不能代表所有异步导航完成时间，也不能排除数小时后的桌面合成故障。随后 55 秒处理器采样没有捕获到同类慢交互，未能据此定位剩余停顿的调用栈。
+The English edition changes project-owned text and entry-command names and regenerates the relevant digests. It reruns the same 188 cases. Multilingual synthetic test data remains unchanged to preserve Unicode coverage.
 
-包含快速聊天修改的最终构建已安装：28 项事务校验通过，原有 18 项对话模型偏好全部保留，用户后来新增的偏好也保留。当前客户端采用普通启动，诊断模式已关闭。另在隔离目录完成 1.0.1 全新复制、17 项安装写入和恢复验证，三项原生依赖均为普通文件且摘要一致。
+## Base-version runtime evidence
 
-在同一台机器的前后采样中，主进程原有约 19.39 秒、11.79 秒的定时心跳间隔，修复后最大约 0.20 秒；不启用处理器采样的另一次检查约 0.45 秒。该间隔包含调度延迟，不等于应用启动耗时，也不能外推到所有机器。
+The 1.0.0 package was installed, restored, and reinstalled through its actual entry points. All 28 transaction writes verified; restored archive and executable hashes matched the pre-installation state. A fresh ordinary-directory copy also passed 17 transaction checks and rollback, with three native dependencies verified as regular files with matching hashes.
 
-持续运行后的 0.x 至 1 秒点击延迟尚不能仅凭内存占用判定为泄漏，也未宣称彻底消除。本发行版通过有界数据和任务保护场景验证持续运行相关修复，尚未完成不同电脑上的长期试用。语音点击、宠物定位、部分远程连接等未复现项见 [排查说明](AUDIT.md)。
+The final 1.0.1 build was installed with 28 verified operations. Eighteen existing per-conversation model choices were retained, as was a later added choice. The user confirmed image display, file cards, conversation Markdown rendering, model selection, streaming-content recovery, and both quick-chat entry points. The client returned to normal launch with diagnostics disabled.
 
-1.0.0 的安全软件首次自定义扫描已完成，改后的检查、安装、恢复和启动期间没有新增检测，实时防护与行为监测保持开启。发行文件自定义扫描已完成，没有新增检测；从 Git 暂存内容生成的发行目录还通过了环境检查和 43 项当时可独立运行的测试。
+A separate 1.0.1 fresh-copy test verified 17 installation operations and rollback, plus the same three native dependencies. During one upgrade attempt, reopening the client caused a file-rename failure. The transaction restored the exact preceding build and a subsequent installation succeeded.
 
-可复现命令为 node tests/run.cjs --installed。从官方客户端生成的完整脚本夹具、日志和运行副本均保留在本机忽略目录中，不进入仓库。
+Logs after the logging and persistence changes showed successful message-subscription connection and no matched temporal-dead-zone, missing-module, or state-persistence failure. Oversized log records were actually limited to 24,000 code units.
 
+## Performance observations
 
-1.0.1 的最终源文件目录通过隐私内容检查、修补片段摘要检查、环境检查和 62 项可独立运行测试。最终发行压缩包经过 Defender 自定义扫描；扫描期间实时防护与行为监测保持开启，没有新增检测。
+A 15-minute main-renderer observation collected 31 samples. JavaScript heap usage began near 164 MiB, ranged from 162 to 309 MiB, and ended near 198 MiB, with several decreases. Among 9,484 retained interaction events, median duration was 24 ms, the 95th percentile was 48 ms, and the maximum was 336 ms. There were 36 recorded long tasks, with a maximum near 217 ms.
+
+The recorder kept at most 500 events per 30-second interval and covered only the main renderer. Event timing does not measure completion of every asynchronous navigation. This observation does not exclude multi-hour memory problems or Windows compositor faults. A subsequent 55-second CPU profile captured no matching slow interaction and did not identify the remaining occasional delay.
+
+Earlier main-process heartbeat intervals of approximately 19.39 and 11.79 seconds fell to about 0.20 seconds in a same-machine comparison; another check without CPU profiling reached about 0.45 seconds. These intervals include scheduling delay. They are not application startup times and cannot be generalized to every machine.
+
+## Security and reproducibility
+
+The Chinese 1.0.1 source package passed privacy checks, patch-fragment and helper hashes, its environment checker, and all 62 portable tests. Defender completed a custom scan of its final ZIP with no new detection; real-time protection and behavior monitoring remained enabled.
+
+English artifacts receive their own rebuild, package-integrity checks, portable/native test runs, and custom scan. Results specific to the English edition are recorded with its release. Actual signed-in runtime acceptance described above belongs to the base repair and is not presented as a separate English UI acceptance test.
+
+Run **node tests/run.cjs --installed** to generate native fixtures from the supported official installation. Complete client scripts, profiles, logs, and runtime copies remain in ignored local build directories and are not published.
+
+Unresolved reports, including Windows desktop-wide stutter and file-editor math rendering, are listed in [the audit](AUDIT.md). Occasional 0.x-to-1-second delays cannot be diagnosed as a memory leak from a single memory reading.
+
+## English edition results
+
+All 188 tests passed for 1.0.1-en.1. A separate fresh-copy installation verified 17 transaction operations and successful rollback, including three native dependencies checked as regular files with matching hashes. The actual English environment-check entry point also passed. Both full and no-sidebar resource builds were rebuilt and pinned to their verified digests. The English release ZIP received a separate Defender custom scan with no new detection; protection remained enabled.

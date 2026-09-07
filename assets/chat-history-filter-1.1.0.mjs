@@ -2,8 +2,8 @@
 export const VERSION = '1.1.0';
 export const STORAGE_KEY = 'chatgpt.local.sidebar-history-filter.v2';
 export const MODES = Object.freeze(['all','online','local']);
-export const LABELS = Object.freeze({all:'合并显示',online:'聊天与云端工作',local:'本地工作与 Codex'});
-export const COMPACT_LABELS = Object.freeze({all:'合并',online:'聊天与云端',local:'本地与 Codex'});
+export const LABELS = Object.freeze({all:'All chats',online:'Chat and cloud work',local:'Local work and Codex'});
+export const COMPACT_LABELS = Object.freeze({all:'All',online:'Chat and cloud',local:'Local and Codex'});
 const listeners=new Set();
 let listening=false,context=null,lastDetected='online';
 const defaults=Object.freeze({followContext:true,manualMode:'all'});

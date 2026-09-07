@@ -1,3 +1,4 @@
+// Non-English strings below are intentional synthetic Unicode test data.
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
 const dir=path.join(__dirname,'../build/fixtures/host-title');const tests=[];
 function env(kind){const calls=[],delegations=[];const source=fs.readFileSync(path.join(dir,'title-'+kind+'.js'),'utf8');const api=vm.runInNewContext(source+';({title:kb,cache:typeof __localCatalogPreviewCache!=="undefined"?__localCatalogPreviewCache:null})',{vb:80,ub:s=>{calls.push(s);return s.trim().replace(/\*\*/g,'')},te:s=>{delegations.push(s.length);if(!s.trim().startsWith('<codex_delegation>')||!s.trim().endsWith('</codex_delegation>'))return null;const m=/<input>([\s\S]*?)<\/input>/.exec(s);return m?{input:m[1]}:null},_b:s=>s.split(/## My request(?: for Codex)?:/g).at(-1).trim()});return{...api,calls,delegations}}

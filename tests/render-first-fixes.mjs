@@ -1,3 +1,4 @@
+// Non-English strings below are intentional synthetic Unicode test data.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';

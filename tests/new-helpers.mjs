@@ -1,4 +1,5 @@
-﻿import assert from 'node:assert/strict';
+// Non-English strings below are intentional synthetic Unicode test data.
+import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 import {isInternalRetrievalImageMessage,isCompactFileCitation} from '../assets/local-conversation-render-fixes-v1.mjs';
 import {writeConversationChoice,readConversationChoice,historicalModelChoice,effectiveThinkingEffort} from '../assets/local-conversation-model-preferences-v1.mjs';

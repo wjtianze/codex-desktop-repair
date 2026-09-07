@@ -1,10 +1,10 @@
-﻿'use strict';
+'use strict';
 const {spawnSync}=require('node:child_process'),path=require('node:path');
 function powershell(code,extraEnv={}){
  const command="[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new($false);$ErrorActionPreference='Stop';"+code;
  const result=spawnSync(path.join(process.env.SystemRoot,'System32','WindowsPowerShell','v1.0','powershell.exe'),['-NoLogo','-NoProfile','-NonInteractive','-Command',command],{encoding:'utf8',env:{...process.env,...extraEnv},maxBuffer:4*1024*1024});
  if(result.error)throw result.error;
- if(result.status!==0)throw Error((result.stderr||result.stdout||'Windows 查询失败').trim());
+ if(result.status!==0)throw Error((result.stderr||result.stdout||'Windows query failed').trim());
  return result.stdout.replace(/^\uFEFF/,'').trim();
 }
 function packageInfo(){const text=powershell("Get-AppxPackage -Name OpenAI.Codex | Select-Object -First 1 Name,@{Name='Version';Expression={[string]$_.Version}},@{Name='Architecture';Expression={[string]$_.Architecture}},InstallLocation,PackageFamilyName,PackageFullName | ConvertTo-Json -Compress");return text?JSON.parse(text):null}

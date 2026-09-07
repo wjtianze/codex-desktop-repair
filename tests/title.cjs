@@ -1,3 +1,4 @@
+// Non-English strings below are intentional synthetic Unicode test data.
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
 const root=path.join(__dirname,'../build/fixtures/title'),tests=[];
 const parseDelegation=s=>{const t=s.trim();if(!t.startsWith('<codex_delegation>')||!t.endsWith('</codex_delegation>'))return null;const get=k=>new RegExp('<'+k+'>\\s*([\\s\\S]*?)\\s*</'+k+'>','i').exec(t)?.[1].trim();const source=get('source_thread_id'),input=get('input');return source==null||input==null?null:{input}};

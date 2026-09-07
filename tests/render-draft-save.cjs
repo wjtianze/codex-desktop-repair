@@ -1,3 +1,4 @@
+// Non-English strings below are intentional synthetic Unicode test data.
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
 const root=path.resolve(__dirname,'../build/fixtures/render'),source=fs.readFileSync(path.join(root,'patches/initial.js'),'utf8'),a=source.indexOf('function j4r('),b=source.indexOf('var M4r,',a),calls=[];
 const create=vm.runInNewContext(source.slice(a,b)+';j4r',{hE:()=>({}),qy:()=>({}),Q:{},PT:()=>({}),xSn:(key,value,delay)=>calls.push({key,value,delay}),M4r:250});

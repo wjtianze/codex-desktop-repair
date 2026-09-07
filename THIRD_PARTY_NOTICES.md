@@ -1,7 +1,7 @@
-# 第三方内容
+# Third-party notices
 
-本仓库的 MIT 许可适用于新编写的修复工具、辅助模块与测试。修补片段中的必要客户端接口和上下文标识仍受其原有权利约束。
+The MIT license in this repository applies to the newly written repair tools, helpers, and tests. Necessary client interfaces and contextual identifiers appearing in patch fragments remain subject to their original rights.
 
-OpenAI、ChatGPT 和 Codex 的名称用于说明兼容目标。本项目为社区本地补丁，与 OpenAI 的官方发行无关联。
+OpenAI, ChatGPT, and Codex names identify the compatibility target. This is a community local repair package, not an official OpenAI distribution.
 
-仓库不分发完整客户端、客户端资源包、运行环境或用户数据。安装程序使用本机已有的官方文件；这些文件继续适用其原有许可。
+The repository does not distribute the complete client, its resource archive, its runtime, or user data. The installer uses official files already present on the user's computer; their original licenses continue to apply.

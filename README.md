@@ -1,59 +1,63 @@
-# Codex / ChatGPT 桌面修复与优化
+# Codex / ChatGPT Desktop Repair
 
-针对 Windows 桌面客户端的非官方本地补丁，包含经验证的性能修复、消息与图片显示修复、对话模型记忆、输入框恢复和侧栏分类功能。补丁在本机生成独立运行副本，复用现有登录状态。
+An unofficial local repair package for the Windows desktop app. It addresses verified performance, message rendering, image layout, per-conversation model selection, composer recovery, and sidebar filtering issues. The installer builds a separate runtime copy and reuses the existing profile.
 
-**当前仅支持 Windows x64，微软商店包 `OpenAI.Codex 26.901.6511.0`，界面版本 `26.901.51231`。其他版本会停止安装，等待重新适配。**
+This is the English edition of [wjtianze/codex-desktop-repair](https://github.com/wjtianze/codex-desktop-repair). The original main branch remains in Chinese.
 
-## 安装
+**Supported target only: Windows x64, Microsoft Store package OpenAI.Codex 26.901.6511.0, application version 26.901.51231. Other versions are rejected before patching.**
 
-1. 从 [发行页面](https://github.com/wjtianze/codex-desktop-repair/releases/latest) 下载压缩包并解压。
-2. 保存未发送的内容，退出 ChatGPT。
-3. 双击 **安装修复.cmd**。安装程序会校验官方签名、版本和文件，生成补丁并保留恢复备份。
-4. 以后使用开始菜单中的 **ChatGPT**。启动时会短暂显示校验窗口。
+## Installation
 
-不需要另外安装 Python、Node.js 或软件包；安装工具使用官方客户端自带、经过摘要校验的运行环境。安装过程在本地完成。
+1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.0.1-en.1) and extract the ZIP.
+2. Save any unsent content and quit ChatGPT.
+3. Double-click **Install-Repair.cmd**. The installer checks the official signature, version, and file hashes, then builds the repair and keeps rollback backups.
+4. Use **ChatGPT** in the Start menu afterward. A visible verification window appears briefly before the app starts.
 
-双击 **检查环境.cmd** 可以先检查兼容性。不需要侧栏分类功能，可在终端运行：
+No separate Python, Node.js, or package installation is required. The installer uses the official app's bundled runtime after verifying its hash. Installation runs locally.
 
-```bat
-安装修复.cmd --without-sidebar
-```
+Run **Check-Environment.cmd** to check compatibility first. To install without sidebar filtering, run:
 
-## 包含哪些修复
+    Install-Repair.cmd --without-sidebar
 
-| 范围 | 改进 |
+## Included changes
+
+| Area | Behavior |
 | --- | --- |
-| 启动、历史列表 | 主进程优先使用已有标题，限制长预览解析并缓存结果；界面进程采用相同的解析长度保护 |
-| 持续运行 | 限制性能记录数量，回收空监听表和已处理的日志记录，按原有容量目标释放闲置历史 |
-| 对话切换与渲染 | 复用未变化的历史转换结果，减少重复元数据解析；普通聊天不再计算未使用的工作摘要 |
-| 消息与图片 | 正确处理检索返回的页面图片，保留流式正文，单张图片按原始比例完整显示 |
-| 文件引用 | PDF、Markdown、HTML、表格等上传引用使用紧凑卡片，生成的下载文件保留大卡片 |
-| 模型与思考档位 | 每段对话分别记住选择，重启后恢复；修正缺失默认档位时的滑块位置 |
-| 配置与草稿保存 | 合并积压的重复写入，普通刷新改为等待异步写盘；文本草稿在停止输入 750 毫秒后提交保存，清空仍即时提交 |
-| 提及搜索 | 输入稳定后再搜索；过时任务取消，同一主机的历史搜索串行执行 |
-| 快捷聊天窗口 | 备用窗口按需创建；ChatGPT 与 Codex 模式都支持 Ctrl+Alt+N，且新聊天行右侧提供同款快速聊天按钮 |
-| 浏览器与 Chrome 组件 | 分批读取大记录文件，合并重复文件通知，并处理队列收尾时的新通知 |
-| 稳定性 | 限制连续崩溃后的自动重启，处理可选设备初始化失败时的清理异常 |
-| 窗口恢复 | 限制异常尺寸，并将缩回的超大窗口移入桌面工作区 |
-| 聊天输入框 | 对本地已知的私有对话，保留短暂 404 期间的输入框并有限重试查询 |
-| 侧栏 | 合并显示、聊天与云端工作、本地工作与 Codex 三种视图；默认自动跟随模式，支持手动选择，项目同步分类 |
+| Startup and history lists | Prefer existing titles; bound and cache long-preview parsing in the main and renderer processes. |
+| Long sessions | Bound performance records, release empty listener collections and consumed log records, and enforce the existing idle-history capacity target. |
+| Conversation rendering | Reuse unchanged history conversions and metadata parsing; avoid computing an unused Work summary in ordinary chats. |
+| Messages and images | Identify internal retrieval images correctly, retain streaming content, and preserve the natural aspect ratio of a single image. |
+| File citations | Use compact chips for uploaded PDF, Markdown, HTML, spreadsheet, and other references; retain full cards for generated downloads. |
+| Models and reasoning effort | Remember choices per conversation across restarts; select the correct slider slot when the catalog has no explicit default. |
+| State and drafts | Coalesce queued writes and await asynchronous ordinary flushes. Text drafts wait 750 ms after editing; clearing remains immediate. |
+| Mention search | Wait for stable input, discard obsolete queued work, and serialize history searches for each host. |
+| Quick chat | Create spare windows on demand. Both ChatGPT and Codex modes support Ctrl+Alt+N and the round button beside New chat. |
+| Browser and Chrome components | Read large records in bounded batches; coalesce file notifications and process notifications arriving during queue cleanup. |
+| Stability | Bound repeated renderer-crash recovery and handle cleanup after optional-device initialization failures. |
+| Window restoration | Cap invalid dimensions and move capped oversized windows into the desktop work area. |
+| Composer recovery | Keep the composer during a transient cached 404 for a locally known private conversation, with bounded retry. |
+| Sidebar | All chats, Chat and cloud work, and Local work and Codex views. Follow the current mode by default, with manual selection and matching project filtering. |
 
-输入框恢复保留原来的提交、归档、共享和权限检查。闲置清理保护正在运行、正在查看、存在关注者、等待用户决定或正在补载历史的任务。
+Composer recovery preserves the native submit, archive, sharing, and access checks. Idle cleanup protects active, viewed, observed, approval-blocked, and history-loading tasks.
 
-## 恢复
+## Restore
 
-退出修复版，双击 **卸载恢复.cmd**，或运行本地安装目录中的 `Uninstall-Fixed.cmd`。它会逐份撤销本仓库的安装记录，恢复安装前的入口与文件。已有的其他本地修复会回到安装前的状态。
+Quit the repaired app and run **Uninstall-Restore.cmd**, or **Uninstall-Fixed.cmd** in the installation directory. It unwinds this project's installation records and restores the previous files and entry point. Any earlier local repairs return to their pre-installation state.
 
-安装目录为 `%LOCALAPPDATA%\ChatGPT-PerformanceFix`。备份保留在其中的 `backups` 目录；聊天和账号数据不会作为卸载对象。安装后被其他程序更新的浏览器缓存会保留，程序会给出提示。
+The installation directory is **%LOCALAPPDATA%\ChatGPT-PerformanceFix**. Backups remain in its **backups** directory. Chat and account data are not removed. Browser caches changed by another program after installation are preserved and reported.
 
-## 验证与限制
+## Validation and limits
 
-1.0.1 已通过 188 项本地行为测试，并逐项校验完整修复版的 8799 个打包资源。实际安装和恢复结果见 [验证记录](docs/VALIDATION.md)，公开反馈的核对范围见 [排查说明](docs/AUDIT.md)。
+The base 1.0.1 repair passed 188 behavior tests and verification of all 8,799 packed resources. The English edition reruns the same tests and rebuilds hashes after translating its own interface and console messages. See [validation](docs/VALIDATION.md), [audit findings](docs/AUDIT.md), and the [upstream evidence guide](docs/UPSTREAM_REPORT.md).
 
-尚未确认所有长时间使用后的点击延迟均已消除。草稿仍沿用官方整体状态文件与备份格式，优化减少写入频率和重复排队，不会消除每次保存的全文件写入。
+Some occasional input delay remains unexplained. Drafts still use the native whole-state file and backup format; these changes reduce repeated work and save frequency, rather than eliminating whole-file writes.
 
-本项目只发布修补片段、辅助代码、测试和说明。运行副本的可执行文件因资源摘要更新而不再具有有效的官方数字签名，原商店安装仍保持完整。官方升级后需要重新适配。
+Only patch fragments, helper code, tests, and documentation are distributed. Updating the copied executable's resource-header digest invalidates its official digital signature; the original Store installation remains intact. An official update requires a newly validated adaptation.
 
-遇到安全软件告警时，停止安装并保留检测详情。**不需要关闭防护或添加信任。** 本次开发期间的一条命令行告警及处理见 [安全说明](docs/SECURITY.md)。
+If security software reports a detection, stop installation and keep the details. Do not disable protection or add an exclusion. The development-time command-line detection and response are documented in [security notes](docs/SECURITY.md).
 
-开发者可用 Node.js 24 执行 `node tests/run.cjs`；在安装了受支持客户端的 Windows 上，执行 `node tests/run.cjs --installed`，会额外从官方资源生成测试夹具，验证实际修补代码。
+Developers can run **node tests/run.cjs** with Node.js 24. On Windows with the supported official app installed, **node tests/run.cjs --installed** additionally generates native fixtures from that installation and executes the actual modified functions. Multilingual strings retained inside synthetic test data exercise Unicode handling; project documentation and user-facing messages are in English.
+
+## Original project
+
+These repairs were developed in [wjtianze/codex-desktop-repair](https://github.com/wjtianze/codex-desktop-repair). If this work helps you, please consider starring the original repository.
