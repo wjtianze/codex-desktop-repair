@@ -1,0 +1,24 @@
+const __localCatalogPreviewCache=new Map();
+function __localCatalogTitleText(value){
+ const text=value.replace(/\s+/g," ").trim();
+ return text.length===0?null:text.length<=vb?text:text.slice(0,vb-1).trimEnd()+"…";
+}
+function __localCatalogPreviewText(text){
+ if(text.length>4096){text=text.trimStart();let end=4096;const c=text.charCodeAt(end-1);if(c>=55296&&c<=56319)end--;text=text.slice(0,end)}
+ const cached=__localCatalogPreviewCache.get(text);
+ if(cached!==undefined){__localCatalogPreviewCache.delete(text);__localCatalogPreviewCache.set(text,cached);return cached}
+ const parsed=ub(text);
+ __localCatalogPreviewCache.set(text,parsed);
+ if(__localCatalogPreviewCache.size>512)__localCatalogPreviewCache.delete(__localCatalogPreviewCache.keys().next().value);
+ return parsed;
+}
+function kb({cwd:e,name:t,preview:n,threadId:r}){
+ const named=__localCatalogTitleText(ub(t??""));
+ if(named!==null)return named;
+ const input=te(n??"")?.input??(n?.trimStart().startsWith("<codex_delegation>")?"":n);
+ const preview=__localCatalogTitleText(__localCatalogPreviewText(_b(input??"")));
+ if(preview!==null)return preview;
+ return __localCatalogTitleText(e)??__localCatalogTitleText(r)??r;
+}
+
+var A

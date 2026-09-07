@@ -1,0 +1,10 @@
+
+const selection=__localHistoryFilter.useSelectionContext($()),selected=selection.mode;
+const items=[...__localHistoryFilter.MODES.map(mode=>({id:`local-history-filter-${mode}`,type:`radio`,checked:selected===mode,message:{id:`local.historyFilter.v2.${mode}`,defaultMessage:__localHistoryFilter.LABELS[mode]},onSelect:()=>__localHistoryFilter.setMode(mode)})),{id:`local-history-filter-separator`,type:`separator`},{id:`local-history-filter-follow`,type:`checkbox`,checked:selection.followContext,message:{id:`local.historyFilter.followContext`,defaultMessage:`自动跟随当前模式`},onSelect:()=>__localHistoryFilter.setFollowContext(!selection.followContext,selected)}];
+return a2.jsx(Mn,{trigger:`click`,align:`end`,items,children:a2.jsxs(OO,{
+className:`sidebar-icon-button`,color:selected===`all`?`ghostMuted`:`secondary`,size:`compact`,style:{width:`auto`,maxWidth:152,paddingInline:6,gap:4},
+"aria-label":`筛选聊天与项目：${__localHistoryFilter.LABELS[selected]}`,"aria-pressed":selected!==`all`,"data-local-history-filter":selected,"data-local-history-auto":String(selection.followContext),title:`${__localHistoryFilter.LABELS[selected]}${selection.followContext?` · 自动跟随`:``}`,
+children:[a2.jsx(`span`,{style:{fontSize:12,whiteSpace:`nowrap`,overflow:`hidden`,textOverflow:`ellipsis`},children:__localHistoryFilter.COMPACT_LABELS[selected]}),a2.jsx(Dv,{"aria-hidden":true,asset:Vl})]
+})});
+}
+var L4n,a

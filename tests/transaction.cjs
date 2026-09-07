@@ -1,0 +1,34 @@
+﻿'use strict';
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const {ROOT,manifest,sha}=require('../scripts/patcher.cjs'),api=require('../scripts/transaction.cjs');
+const originalArchive=manifest.originalArchiveSHA256,originalBrowser=manifest.files.find(x=>x.id==='browser').originalSHA256;
+manifest.originalArchiveSHA256=sha('official archive fixture');manifest.files.find(x=>x.id==='browser').originalSHA256=sha('official browser fixture');
+const parent=path.join(ROOT,'build','transaction-tests');fs.mkdirSync(parent,{recursive:true});
+function fixture({existing=false}={}){
+ const dir=fs.mkdtempSync(path.join(parent,'case-')),base=path.join(dir,'local','ChatGPT-PerformanceFix'),source=path.join(dir,'official'),runtime=path.join(base,manifest.appVersion,'runtime'),staging=path.join(dir,'staging'),output=path.join(staging,'full'),profile=path.join(dir,'profile'),codexHome=path.join(dir,'codex'),shortcut=path.join(dir,'menu','ChatGPT.lnk');
+ const put=(file,data)=>{fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,data)};
+ put(path.join(source,'ChatGPT.exe'),'official exe fixture');put(path.join(source,'resources','app.asar'),'official archive fixture');
+ for(const kind of['browser','chrome'])put(path.join(source,'resources','plugins','openai-bundled','plugins',kind,'scripts','browser-service.mjs'),'official browser fixture');
+ put(path.join(output,'ChatGPT.exe'),'patched exe fixture');put(path.join(output,'app.asar'),'patched archive fixture');
+ put(path.join(output,'external','browser-service.mjs'),'patched browser fixture');put(path.join(output,'external','bounded-rollout-reader.mjs'),'patched helper fixture');
+ const report={releaseVersion:manifest.releaseVersion,sidebarVersion:manifest.sidebarVersion,archiveSHA256:sha('patched archive fixture'),executableSHA256:sha('patched exe fixture'),archiveHeaderSHA256:'test-header',externalFiles:{'browser-service.mjs':sha('patched browser fixture'),'bounded-rollout-reader.mjs':sha('patched helper fixture')}};
+ put(path.join(output,'build-verification.json'),JSON.stringify(report));
+ if(existing){fs.mkdirSync(path.dirname(runtime),{recursive:true});fs.cpSync(source,runtime,{recursive:true});put(path.join(base,'installation.json'),JSON.stringify({Runtime:runtime,ArchiveSHA256:sha('official archive fixture'),ExecutableSHA256:sha('official exe fixture')}))}
+ put(shortcut,'existing shortcut fixture');const shortcutSource=path.join(staging,'ChatGPT.lnk');put(shortcutSource,'new shortcut fixture');
+ const cache=path.join(profile,'web','Codex','Default','Cache');put(path.join(cache,'test-data'),'old cache fixture');
+ const cached=path.join(codexHome,'plugins','cache','openai-bundled','browser',manifest.appVersion,'scripts');put(path.join(cached,'browser-service.mjs'),'official browser fixture');
+ return{dir,base,source,runtime,staging,output,profile,codexHome,shortcut,shortcutSource,repo:ROOT,cache,cached,put};
+}
+const cases=[];function test(name,fn){fn();cases.push(name);console.log('PASS '+name)}
+try{
+ test('Fresh install verifies its writes and restores the original shortcut, cache and browser',()=>{const f=fixture(),installed=api.install(f);assert.equal(api.verify(installed.transaction).failures.length,0);f.put(path.join(f.cache,'new-data'),'new cache fixture');api.rollback(installed.transaction);assert.equal(fs.existsSync(f.runtime),false);assert.equal(fs.existsSync(path.join(f.base,'installation.json')),false);assert.equal(fs.readFileSync(f.shortcut,'utf8'),'existing shortcut fixture');assert.equal(fs.readFileSync(path.join(f.cache,'test-data'),'utf8'),'old cache fixture');assert.equal(fs.readFileSync(path.join(f.cached,'browser-service.mjs'),'utf8'),'official browser fixture')});
+ test('Upgrade and rollback preserve the previous local installation',()=>{const f=fixture({existing:true}),before=fs.readFileSync(path.join(f.base,'installation.json')),installed=api.install(f);api.rollback(installed.transaction);assert.deepEqual(fs.readFileSync(path.join(f.base,'installation.json')),before);assert.equal(fs.readFileSync(path.join(f.runtime,'ChatGPT.exe'),'utf8'),'official exe fixture')});
+ test('Rollback refuses an edited application before restoring any file',()=>{const f=fixture({existing:true}),installed=api.install(f);f.put(path.join(f.runtime,'resources','app.asar'),'user edit');assert.throws(()=>api.rollback(installed.transaction),/changed after installation/);assert.equal(fs.readFileSync(f.shortcut,'utf8'),'new shortcut fixture')});
+ test('Newer external browser components and their helper are preserved together',()=>{const f=fixture(),installed=api.install(f);f.put(path.join(f.cached,'browser-service.mjs'),'newer browser version');api.rollback(installed.transaction,{allowExternalChanges:true});assert.equal(fs.readFileSync(path.join(f.cached,'browser-service.mjs'),'utf8'),'newer browser version');assert.equal(fs.readFileSync(path.join(f.cached,'bounded-rollout-reader.mjs'),'utf8'),'patched helper fixture')});
+ test('An interrupted apply restores completed file writes',()=>{const f=fixture({existing:true}),rename=fs.renameSync;let fail=true;fs.renameSync=function(a,b){if(fail&&b===path.join(f.base,'installation.json')){fail=false;throw Error('fixture write failure')}return rename.apply(this,arguments)};try{assert.throws(()=>api.install(f),/fixture write failure/)}finally{fs.renameSync=rename}assert.equal(fs.readFileSync(path.join(f.runtime,'ChatGPT.exe'),'utf8'),'official exe fixture');assert.equal(fs.readFileSync(f.shortcut,'utf8'),'existing shortcut fixture')});
+ test('A backup failure leaves no unregistered fresh runtime',()=>{const f=fixture(),copy=fs.copyFileSync;let fail=true;fs.copyFileSync=function(a,b){if(fail&&String(b).endsWith(path.join('files','000.bin'))){fail=false;throw Error('fixture backup failure')}return copy.apply(this,arguments)};try{assert.throws(()=>api.install(f),/fixture backup failure/)}finally{fs.copyFileSync=copy}assert.equal(fs.existsSync(f.runtime),false);assert.equal(fs.existsSync(path.join(f.base,'installation.json')),false)});
+ test('A second rollback is a harmless no-op',()=>{const f=fixture(),installed=api.install(f);api.rollback(installed.transaction);assert.equal(api.rollback(installed.transaction).alreadyRestored,true)});
+ test('Rollback rejects paths outside its recorded installation',()=>{const f=fixture(),installed=api.install(f),journal=JSON.parse(fs.readFileSync(installed.transaction,'utf8'));journal.operations[0].target=path.join(f.dir,'unrelated-file');fs.writeFileSync(installed.transaction,JSON.stringify(journal));assert.throws(()=>api.rollback(installed.transaction),/Invalid rollback target/)});
+}finally{manifest.originalArchiveSHA256=originalArchive;manifest.files.find(x=>x.id==='browser').originalSHA256=originalBrowser}
+fs.writeFileSync(path.join(ROOT,'build','results','transaction-tests.json'),JSON.stringify({passed:true,cases},null,2));
+

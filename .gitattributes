@@ -1,0 +1,4 @@
+* text=auto eol=lf
+patches/** -text
+assets/** -text
+*.cmd text eol=crlf

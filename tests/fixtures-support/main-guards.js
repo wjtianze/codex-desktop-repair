@@ -1,0 +1,31 @@
+const __localRendererRecoveryHistory=new WeakMap();
+function __localClaimRendererRecovery(owner,id){
+ const now=Date.now();let windows=__localRendererRecoveryHistory.get(owner);
+ if(!windows){windows=new Map();__localRendererRecoveryHistory.set(owner,windows)}
+ const recent=(windows.get(id)??[]).filter(time=>now>=time&&now-time<60000);
+ if(recent.length>=2)return false;
+ recent.push(now);windows.set(id,recent);return true;
+}
+function __localForgetRendererRecovery(owner,id){
+ const windows=__localRendererRecoveryHistory.get(owner);
+ windows?.delete(id);if(windows?.size===0)__localRendererRecoveryHistory.delete(owner);
+}
+function __localClampPrimaryBounds(bounds,minimum,displays){
+ const areas=displays.map(display=>display.workArea).filter(area=>area&&[area.x,area.y,area.width,area.height].every(Number.isFinite)&&area.width>0&&area.height>0);
+ const width=Number.isFinite(bounds.width)?Math.max(bounds.width,minimum.width):minimum.width;
+ const height=Number.isFinite(bounds.height)?Math.max(bounds.height,minimum.height):minimum.height;
+ if(!areas.length)return{...bounds,x:Number.isFinite(bounds.x)?bounds.x:0,y:Number.isFinite(bounds.y)?bounds.y:0,width,height};
+ const left=Math.min(...areas.map(area=>area.x)),top=Math.min(...areas.map(area=>area.y));
+ const right=Math.max(...areas.map(area=>area.x+area.width)),bottom=Math.max(...areas.map(area=>area.y+area.height));
+ const cappedWidth=Math.min(width,Math.max(minimum.width,right-left)),cappedHeight=Math.min(height,Math.max(minimum.height,bottom-top));
+ let x=Number.isFinite(bounds.x)?bounds.x:left,y=Number.isFinite(bounds.y)?bounds.y:top;
+ if(cappedWidth!==width)x=Math.max(left,Math.min(x,right-cappedWidth));
+ if(cappedHeight!==height)y=Math.max(top,Math.min(y,bottom-cappedHeight));
+ return{...bounds,x,y,width:cappedWidth,height:cappedHeight};
+}
+function __localNormalizeRestoredWindow(manager,window){
+ if(manager.isAppQuitting||window.isDestroyed()||window.isMinimized()||window.isMaximized()||window.isFullScreen())return;
+ const current=window.getNormalBounds(),next=manager.clampPrimaryWindowBounds(current);
+ if(['x','y','width','height'].some(key=>current[key]!==next[key])){window.setBounds(next);manager.persistPrimaryWindowBounds(window)}
+}
+
