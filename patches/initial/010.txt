@@ -1,17 +1,1 @@
-appendBoundedEntries(type,entries){
- const records=type===`longtask`?this.longTaskEntries:this.longAnimationFrameEntries;
- const marker=type===`longtask`?`longTaskDroppedEnd`:`longAnimationFrameDroppedEnd`;
- let droppedEnd=this[marker];
- const excess=Math.max(0,records.length+entries.length-this.entryLimit);
- const oldDrop=Math.min(excess,records.length);
- const markDropped=entry=>{const end=entry.startTime+entry.duration;if(Number.isFinite(end))droppedEnd=Math.max(droppedEnd,end)};
- for(let index=0;index<oldDrop;index++)markDropped(records[index]);
- if(oldDrop)records.splice(0,oldDrop);
- const newDrop=excess-oldDrop;
- for(let index=0;index<newDrop;index++)markDropped(entries[index]);
- for(let index=newDrop;index<entries.length;index++){
-  const entry=entries[index];
-  records.push({startTime:entry.startTime,duration:entry.duration,...`blockingDuration` in entry?{blockingDuration:entry.blockingDuration}:{}});
- }
- this[marker]=droppedEnd;
-}
+e)||this.hasActiveConversationView(e)||this.hasOwnedStreamFollowers(e)||this.shouldKeepConversationLoaded(t)){t

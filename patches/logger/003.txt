@@ -1,0 +1,1 @@
+let __localNoticeBytes=Buffer.byteLength(e);w.push({text:e,bytes:__localNoticeBytes}),__localLogQueueState.bytes+=__localNoticeBytes,A=0},F=()=>{if(p){w=[],T=0,__localLogQueueState.bytes=0,A=0;retur

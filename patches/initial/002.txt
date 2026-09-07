@@ -1,1 +1,1 @@
-(t=t.filter(e=>e!==r),t.length?this.notificationCallbacks.set(e,t):this.notificationCallbacks.delete(e))}}}emitConve
+(n=n.filter(e=>e!==t),n.length?this.conversationCallbacks.set(e,n):this.conversationCallbacks.delete(e))}}addConvers

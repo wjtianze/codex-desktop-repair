@@ -1,1 +1,1 @@
-entryLimit=8192;longTaskDroppedEnd=-Infinity;longAnimationFrameDroppedEnd=-Infinity;
+__localSearchSignal?.throwIfAborted();

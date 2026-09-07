@@ -2,6 +2,8 @@
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
 const {ROOT,manifest,fileHash,build}=require('./patcher.cjs'),transaction=require('./transaction.cjs'),windows=require('./windows.cjs');
 function read(file){return JSON.parse(fs.readFileSync(file,'utf8').replace(/^\uFEFF/,''))}
+// This supported MSIX package explicitly disables file-system write virtualization.
+function resolveProfile(prior,appData=process.env.APPDATA){return typeof prior?.Profile==='string'&&path.isAbsolute(prior.Profile)?prior.Profile:path.join(appData,'Codex')}
 function clientClosed(source,base){const wanted=[path.join(source,'ChatGPT.exe'),path.join(base,manifest.appVersion,'runtime','ChatGPT.exe')].map(x=>x.toLowerCase());if(windows.runningClients().some(p=>wanted.includes(String(p.ExecutablePath).toLowerCase())))throw Error('请先保存未发送的内容并退出 ChatGPT，再运行安装程序。')}
 function locked(base,fn){fs.mkdirSync(base,{recursive:true});const directory=path.join(base,'install-running');try{fs.mkdirSync(directory)}catch{throw Error('已有安装程序运行，或上次安装被中断。请保留备份并检查 install-running 中的进程记录。')}fs.writeFileSync(path.join(directory,'owner.json'),JSON.stringify({pid:process.pid,time:new Date().toISOString()}));try{return fn()}finally{fs.unlinkSync(path.join(directory,'owner.json'));fs.rmdirSync(directory)}}
 function main(){
@@ -35,7 +37,8 @@ function main(){
   if(fs.existsSync(path.join(base,'backups','before-sidebar-filter-v1','installation.json'))){performanceOutput=path.join(staging,'performance-only');build(source,performanceOutput,{sidebar:false})}
   const shortcutSource=path.join(staging,'ChatGPT.lnk'),shortcut=path.join(process.env.APPDATA,'Microsoft','Windows','Start Menu','Programs','ChatGPT.lnk');
   windows.shortcut(shortcutSource,path.join(base,'Start-ChatGPT-Fixed.cmd'),path.join(base,manifest.appVersion,'runtime','ChatGPT.exe'));
-  const profile=path.join(process.env.LOCALAPPDATA,'Packages',info.PackageFamilyName,'LocalCache','Roaming','Codex');
+  const priorMeta=fs.existsSync(path.join(base,'installation.json'))?read(path.join(base,'installation.json')):null;
+  const profile=resolveProfile(priorMeta);
   clientClosed(source,base);assert.equal(windows.packageInfo().Version,manifest.packageVersion,'客户端在构建期间已更新，已停止安装。');
   const result=transaction.install({base,source,output,performanceOutput,profile,codexHome:process.env.CODEX_HOME||path.join(process.env.USERPROFILE,'.codex'),staging,repo:ROOT,shortcut,shortcutSource});
   console.log('安装完成，'+result.verifiedOperations+' 项文件校验通过。请从开始菜单的 ChatGPT 启动。');
@@ -43,6 +46,6 @@ function main(){
   if(!flags.has('--no-launch'))require('./launch.cjs').launch();
  });
 }
-module.exports={main,locked,clientClosed};
+module.exports={main,locked,clientClosed,resolveProfile};
 if(require.main===module){try{main()}catch(error){console.error(error.message);process.exitCode=1}}
 

@@ -1,0 +1,1 @@
+return e===`user_instructions`||e===`user_memory`||e===`general_memory`||e===`past_conversation`?e:n

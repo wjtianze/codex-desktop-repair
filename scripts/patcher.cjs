@@ -64,7 +64,7 @@ function build(source,output,{sidebar=true,fixtures=false}={}){
  fs.mkdirSync(output,{recursive:true});
  const replacements=new Map(),input=fs.openSync(archive,'r');
  try{const header=archiveHeader(input);
-  for(const spec of manifest.files){if(spec.id==='browser'||(!sidebar&&spec.id==='primary'))continue;const item=getEntry(header.tree,spec.entry),raw=readExact(input,item.size,header.offset+Number(item.offset)),patched=applyPatch(raw,spec);replacements.set(spec.entry,patched);
+  for(const candidate of manifest.files){if(candidate.id==='browser'||(!sidebar&&candidate.id==='primary'&&!candidate.withoutSidebar))continue;const spec=!sidebar&&candidate.withoutSidebar?candidate.withoutSidebar:candidate;const item=getEntry(header.tree,spec.entry),raw=readExact(input,item.size,header.offset+Number(item.offset)),patched=applyPatch(raw,spec);replacements.set(spec.entry,patched);
    if(fixtures){const folder=path.join(output,'fixtures');fs.mkdirSync(folder,{recursive:true});fs.writeFileSync(path.join(folder,spec.id+'.original.js'),raw);fs.writeFileSync(path.join(folder,spec.id+'.patched.js'),patched)}
   }
  }finally{fs.closeSync(input)}

@@ -1,1 +1,1 @@
-,this.longTaskDroppedEnd=-Infinity,this.longAnimationFrameDroppedEnd=-Infinity
+,signal:__localSearchSignal}){return this.threadStore.searchThreads({query:e,limit:t,signal:__localSearchSignal})}asyn

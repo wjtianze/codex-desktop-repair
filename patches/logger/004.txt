@@ -1,0 +1,1 @@
+p){__localLogQueueState.clear();return}if(S+=t.bytes,T+=1,__localLogQueueState.bytes-=t.bytes,T===w.length?(w=[],T=0,__localLogQueueState.bytes=0):T>=256&&T*2>=w.length&&(w=w.slice(T),T=0),!n){e=!0,C.once(`drain`,()=>{O=!1,F()});return}}w=[],T=0,__localLogQueueState.bytes=0}catch(e

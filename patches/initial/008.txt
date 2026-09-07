@@ -1,1 +1,1 @@
-appendBoundedEntries(`longtask`,this.longTaskObserver?.takeRecords()??[])}catch{n=!1}try{a&&this.appendBoundedEntries(`long-animation-frame`,this.longAnimationFrameObserver?.takeRecords()??[])}catch{a=!1}n=n&&e.startedAtPerformanceMs>=this.longTaskDroppedEnd;a=a&&e.startedAtPerformanceMs>=this.longAnimationFrameDroppedEnd;let o=
+__localSearchSignal?.throwIfAborted();

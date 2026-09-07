@@ -20,6 +20,15 @@ function prepare(source){
  write('core/patches/main-guards.js',guards);
  const menu=fs.readFileSync(path.join(__dirname,'fixtures-support','native-menu.js'),'utf8');
  assert.ok(read('primary.patched.js').includes(menu.trim()),'Native menu fixture must match the shipped menu');
+
+ const api=require('../scripts/patcher.cjs');
+ for(const kind of ['original','patched'])for(const id of ['initial','primary','conversation','viewer','logger','state-store'])write('render/'+(kind==='original'?'raw':'patches')+'/'+id+'.js',read(id+'.'+kind+'.js'));
+ const rawPrimary=fs.readFileSync(path.join(out,'fixtures','primary.original.js'));
+ const primarySpec=api.manifest.files.find(item=>item.id==='primary');
+ write('render/patches/primary-performance.js',api.applyPatch(rawPrimary,primarySpec.withoutSidebar));
+ const fixedPrimary=read('primary.patched.js'),needle='ci(a.library_file_id)!=null||__localIsCompactFileCitation(a)';
+ assert.equal(fixedPrimary.split(needle).length,2);
+ write('render/raw/citation-broken.js',fixedPrimary.replace(needle,needle.slice(0,-1)+',o)'));
  return out;
 }
 module.exports={prepare};
