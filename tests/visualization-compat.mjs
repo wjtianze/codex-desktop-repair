@@ -3,7 +3,7 @@ import {compatibilityCSS, utilityDeclaration, mathSegments, prepareVisualization
 let cases=0;const test=(name,fn)=>{fn();console.log('PASS '+name);cases++};
 test('Hidden toggles work even when absent from initial classes',()=>assert.ok(compatibilityCSS(['grid']).includes('.hidden{display:none}')));
 test('Native hidden attributes override display utilities',()=>assert.ok(compatibilityCSS(['grid']).includes('[hidden]:not([hidden="until-found"]){display:none!important}')));
-test('Responsive rules retain the web breakpoints',()=>assert.ok(compatibilityCSS(['md:grid-cols-2']).includes('@media(min-width:768px){.md\\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}')));
+test('Two-column medium layouts fit desktop conversation widths',()=>assert.ok(compatibilityCSS(['md:grid-cols-2']).includes('@media(min-width:560px){.md\\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}')));
 test('Digit-starting responsive classes are valid CSS selectors',()=>assert.ok(compatibilityCSS(['2xl:flex']).includes('.\\32 xl\\:flex')));
 test('Padding and gap use Tailwind spacing units',()=>{assert.equal(utilityDeclaration('px-3'),'padding-left:0.75rem;padding-right:0.75rem');assert.equal(utilityDeclaration('gap-2'),'gap:0.5rem')});
 test('Only visualization color variables are accepted',()=>{assert.equal(utilityDeclaration('bg-[var(--viz-panel)]'),'background-color:var(--viz-panel)');assert.equal(utilityDeclaration('bg-[url(https://example.org/x)]'),null);assert.equal(utilityDeclaration('bg-[var(--secret)]'),null)});
@@ -15,3 +15,7 @@ test('Mismatched, empty and unclosed delimiters remain literal',()=>{assert.deep
 test('Large math inputs are bounded',()=>{assert.deepEqual(mathSegments('x'.repeat(100001)),[]);assert.deepEqual(mathSegments('\\('+'x'.repeat(4097)+'\\)'),[])});
 test('Existing dollar notation is not accidentally rewritten',()=>assert.deepEqual(mathSegments('$10 and $$example$$'),[]));
 assert.equal(await prepareVisualization('<div>unchanged</div>',{document:null}),'<div>unchanged</div>');console.log('PASS Non-DOM callers preserve the original fragment');
+
+test('Unequal fractional columns are supported without accepting arbitrary CSS',()=>{assert.equal(utilityDeclaration('grid-cols-[1.1fr_.9fr]'),'grid-template-columns:1.1fr .9fr');assert.equal(utilityDeclaration('grid-cols-[url(https://example.org/x)]'),null);assert.equal(utilityDeclaration('grid-cols-[1fr;display:none]'),null)});
+test('Larger responsive layouts keep authored breakpoints',()=>{const css=compatibilityCSS(['lg:grid-cols-2','md:grid-cols-3']);assert.ok(css.includes('@media(min-width:1024px)'));assert.ok(css.includes('@media(min-width:768px)'))});
+test('Stack spacing applies between visible content and skips style nodes',()=>{const css=compatibilityCSS(['space-y-4']);assert.ok(css.includes('~:not(style):not(script):not([hidden]):not(.hidden){margin-top:1rem}'))});

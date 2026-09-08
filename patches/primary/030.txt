@@ -1,1 +1,1 @@
-ft=__localHistoryFilter.filterReferenceMap(ft,__historyMode);
+if(b)F=`all`;

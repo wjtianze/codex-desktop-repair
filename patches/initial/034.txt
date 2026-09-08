@@ -1,0 +1,1 @@
+let __history=r===`tpp`?null:__localHistoricalChoice(t(k4r,e),s);if(__history!=null&&(a.data==null||BL(a.data,__history)!=null))return {...__history,versionId:VL(a.data,__history.slug)};

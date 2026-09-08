@@ -1,1 +1,1 @@
-,__localSaveModelChoice(e,t,n,r)
+map(item=>({...item,searchResultSources:(EUr(),bUr(e.metadata))})).

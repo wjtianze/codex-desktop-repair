@@ -29,6 +29,8 @@ const FIXED = Object.freeze({
   'cursor-pointer': 'cursor:pointer', 'select-none': 'user-select:none',
   'whitespace-nowrap': 'white-space:nowrap', 'break-words': 'overflow-wrap:break-word',
   'tabular-nums': 'font-variant-numeric:tabular-nums',
+  'leading-relaxed':'line-height:1.625','list-disc':'list-style-type:disc',
+  'duration-200':'transition-duration:200ms','transition-[width]':'transition-property:width;transition-duration:150ms',
 });
 const BREAKPOINTS = Object.freeze({sm:640, md:768, lg:1024, xl:1280, '2xl':1536});
 const AXES = Object.freeze({x:['left','right'], y:['top','bottom'], t:['top'], r:['right'], b:['bottom'], l:['left']});
@@ -46,12 +48,16 @@ export function utilityDeclaration(token) {
     const property = {'gap-x':'column-gap','gap-y':'row-gap','min-h':'min-height','min-w':'min-width',w:'width',h:'height'}[match[1]] ?? match[1];
     return `${property}:${Number(match[2])/4}rem`;
   }
+  match = /^space-([xy])-(0|[1-9]\d?|0\.5|1\.5|2\.5|3\.5)$/.exec(token);
+  if(match)return `margin-${match[1]==='y'?'top':'left'}:${Number(match[2])/4}rem`;
+  match = /^grid-cols-\[([^\]]+)\]$/.exec(token);
+  if(match){const value=match[1].replaceAll('_',' ');if(/^(?:(?:\d+(?:\.\d+)?|\.\d+)(?:fr|px|rem|em|%)|auto|min-content|max-content)(?: +(?:(?:\d+(?:\.\d+)?|\.\d+)(?:fr|px|rem|em|%)|auto|min-content|max-content))*$/.test(value))return `grid-template-columns:${value}`;return null}
   match = /^grid-cols-([1-9]|1[0-2])$/.exec(token);
   if (match) return `grid-template-columns:repeat(${match[1]},minmax(0,1fr))`;
   match = /^col-span-([1-9]|1[0-2])$/.exec(token);
   if (match) return `grid-column:span ${match[1]}/span ${match[1]}`;
-  match = /^(text|bg|border|fill|stroke)-\[var\((--viz-[a-z0-9-]+)\)\]$/.exec(token);
-  if (match) return `${{text:'color',bg:'background-color',border:'border-color',fill:'fill',stroke:'stroke'}[match[1]]}:var(${match[2]})`;
+  match = /^(text|bg|border|fill|stroke|accent)-\[var\((--viz-[a-z0-9-]+)\)\]$/.exec(token);
+  if (match) return `${{text:'color',bg:'background-color',border:'border-color',fill:'fill',stroke:'stroke',accent:'accent-color'}[match[1]]}:var(${match[2]})`;
   return null;
 }
 
@@ -62,9 +68,11 @@ export function compatibilityCSS(tokens = []) {
     const match = /^(sm|md|lg|xl|2xl):(.+)$/.exec(token), name = match?.[2] ?? token;
     const declaration = name === 'hidden' ? 'display:none' : utilityDeclaration(name);
     if (declaration == null) continue;
-    const rule = `.${escapeClass(token)}{${declaration}}`;
+    const selector=/^space-[xy]-/.test(name)?`.${escapeClass(token)}>:not(style):not(script):not([hidden]):not(.hidden)~:not(style):not(script):not([hidden]):not(.hidden)`:`.${escapeClass(token)}`;
+    const rule = `${selector}{${declaration}}`;
     if (match) {
-      const width = BREAKPOINTS[match[1]];
+      const columns=name==='grid-cols-2'?2:/^grid-cols-\[/.test(name)?declaration.slice('grid-template-columns:'.length).trim().split(/ +/).length:null;
+      const width = match[1]==='md'&&columns===2?560:BREAKPOINTS[match[1]];
       if (!responsive.has(width)) responsive.set(width, []);
       responsive.get(width).push(rule);
     } else if (name !== 'hidden') base.push(rule);

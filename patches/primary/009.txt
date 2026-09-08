@@ -1,1 +1,1 @@
-f?(0,$Q.jsx)(`span`,{"aria-hidden":!0,className:`icon-sm inline-block animate-spin`,style:{border:`2px solid currentColor`,borderRightColor:`transparent`,borderRadius:`50%`}}):
+f?{id:`chatgpt.contentReferences.file.downloading.ariaLabel`,defaultMessage:`Downloading {fileName}`,description:`Accessible label for a file save in progress`}:

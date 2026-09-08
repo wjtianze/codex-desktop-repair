@@ -1,1 +1,1 @@
-200),c=i.trim(),
+e===`webview`&&t.startsWith(`visualization-`)&&(n.style.transform=`translateZ(0)`),

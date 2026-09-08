@@ -1,25 +1,22 @@
-﻿# Visualization compatibility
+# Visualization compatibility
 
-Release: 1.0.4. English edition: 1.0.4-en.1. Date: September 8, 2026.
+Current release: 1.0.5-en.1. Date: September 8, 2026.
 
-Some HTML visualizations generated for the web host use legacy utility classes absent from the desktop host. Hidden tabs consequently remain visible, while grid layout, spacing, and buttons lose their intended styling. This release prepares those fragments before passing them to the existing native sandbox.
+Some web-generated visualizations depend on styles missing from the desktop host. This caused hidden tabs to remain visible, columns to stack, and spacing or formulas to render incorrectly. Compatibility rules are applied before HTML reaches the existing native sandbox.
 
-- Adds common layout, spacing, typography, and visualization color utilities while preserving their responsive breakpoints.
-- Supports both the `.hidden` class and the HTML `hidden` attribute so tab scripts can hide inactive panels.
-- Uses the already bundled KaTeX module to convert static text formulas to MathML, including legacy double-escaped delimiters. Code, scripts, attributes, SVG text, and existing rendered math are excluded.
-- Preserves element identifiers and the original update logic so sliders and presets still update their values.
-- Keeps the visualization in the conversation's natural page flow without adding a nested scrolling container.
+- Support common layout, spacing, typography, and visualization color variables, including unequal fractional columns and sibling spacing.
+- Expand two-column `md` grids at 560 pixels of visualization width to fit desktop conversation panes. Other breakpoints retain their original values; narrower views remain single-column.
+- Request the native wide-layout route for multiple columns. Keep visualization webviews in a stable composited layer to address the reported transient white frames during wheel scrolling.
+- Supply `.hidden` and native `hidden` rules so tab changes reveal only the selected panel.
+- Render static text formulas as MathML using the bundled KaTeX library. Preserve code, scripts, attributes, SVG text, existing math, and node identities.
+- Keep natural conversation scrolling without a nested height-limited scrollbar.
 
-Math is rendered locally without downloading additional fonts or a math library. Compatibility styles remain inside the existing visualization sandbox. The patch does not expand network access, messaging permissions, or sandbox capabilities.
+No additional math library, sandbox capabilities, GPU-setting changes, or disabled hardware acceleration are required. See [progressive visualizations](PROGRESSIVE_VISUALIZATION.md) for previews during generation.
 
-## Verification
+## Validation and scope
 
-304 checks pass: 119 portable tests and 185 checks using official resources. New cases cover missing visibility rules, responsive layout, math delimiters, input bounds, the native HTML entry point, and actual Edge tab clicks, slider updates, script execution counts, and node identity at narrow and wide widths.
+326 checks passed. The compatibility module has 17 portable checks; native integration and real-browser checks exercise narrow and wide layouts, tabs, sliders, script counts, formulas, and node preservation. Additional checks cover native wide mode and the visualization-only compositing change.
 
-The corresponding local installation passed 28 transaction checks and preserved 37 existing model preferences. The user confirmed restored tabs and formula display. The extra scrolling container was removed following subsequent feedback. Desktop scrolling and flicker after removing that container still await user confirmation; offline layout tests do not prove that compositor flicker is fully resolved.
+After installation, the user confirmed that the interactive-visualization issues were resolved. This is acceptance on the current machine, not verification of every GPU or extended-use scenario.
 
-## Scope
-
-This is a compatibility layer for common legacy visualization utilities, not a complete Tailwind runtime. Specialized utilities and formulas generated after scripts execute may still need handling within the visualization. A layout using `md:grid-cols-2` remains single-column below its original breakpoint.
-
-Progressive generation previews are not implemented in this release. The existing client hides incomplete visualization markers and mounts the completed visualization after matching its content reference. Progressive previews require further changes to that receiving and rendering path.
+This is a focused compatibility layer, not a complete Tailwind runtime. Unusual utilities, dynamically created formulas, and visualization-specific design problems can still require source changes.
