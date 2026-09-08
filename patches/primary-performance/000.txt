@@ -1,3 +1,4 @@
+import {createProjectSourceTracker as __localCreateProjectSourceTracker} from "./local-project-settings-v1.js";
 import {searchMentionThreads as __localSearchMentionThreads} from "./local-mention-search-v1.js";
 import {effectiveThinkingEffort as __localEffectiveEffort} from "./local-conversation-model-preferences-v1.js";
 import {isCompactFileCitation as __localIsCompactFileCitation} from "./local-conversation-render-fixes-v1.js";

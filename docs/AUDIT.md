@@ -57,3 +57,25 @@ The GitHub API was used to recheck all nine reports below and their comments. Al
 Service capacity, networking, drivers, and unreproduced native issues may still affect behavior. This repository contains the repairs confirmed in this review.
 
 References: [official troubleshooting](https://learn.chatgpt.com/docs/reference/troubleshooting) and [Electron ASAR integrity](https://www.electronjs.org/docs/latest/tutorial/asar-integrity).
+
+## 1.0.2: project settings and Work activity
+
+Reviewed September 8, 2026, against the same official Store build.
+
+Source uploads and deletions already persist through separate APIs, but the project form only checks name, icon, theme, and instructions for changes. A successful file-only edit therefore leaves Save disabled. A per-dialog tracker now records successful changes and waits for all pending source operations. Failures retain the native error UI. The existing native settings writer already skips unchanged fields, so saving a file-only edit does not rename the project or overwrite its data. Concurrency, reentrant submission, invalid names, and permissions are covered.
+
+The Work viewer's Zm adapter converts every reasoning item into assistant-message/commentary and may concatenate it with prior progress text. It ignores the distinction between thought and preamble. Only explicit preambles now remain ordinary progress messages; thought summaries retain their reasoning type for the native disclosure component. Matching text in a CLI summary and its live status footer does not establish duplicate messages. This release does not alter CLI rendering or suppress its events.
+
+The same activity group previously rendered every todo-list snapshot, allowing Step 2/3 and Step 3/3 to appear together. The view now retains the last snapshot for that group while preserving other activity order, original data, and plans in different turns.
+
+Both rendering behaviors are present in the original official resources and are independent of the earlier history cache. Thirty new cases cover the tracker (6), the full project form with its native writer (12), and the Work adapter (12).
+
+### Live Chat summary disclosure
+
+Chat's Ym view mounts the native g_ disclosure before summary content exists. Its state initializer sees canExpand=false and starts collapsed; later content does not reset React state. The view now changes the active component key once when expandable content first arrives. Subsequent deltas retain the key and the user's manual collapse choice. Completed recaps, the Work route, and the server's hide_all instruction keep their native behavior. Eight tests execute the actual Ym and g_ lifecycle. The client cannot display a summary before the server supplies one.
+
+### Quick Chat message actions
+
+The compact transcript used by Quick Chat explicitly supplies an undefined onEditUserMessage and never forwards onRegenerateResponse. Quick Chat now opts into the existing native controls; other preview callers keep their current behavior. Editing lazily invokes the main Chat page's native Ms writer, and regeneration invokes the native response module with model, search, and feedback options intact. It introduces no alternate sending protocol or message store.
+
+Pending requests block duplicate calls, and changing conversations invalidates old callbacks. Streaming, missing server conversations, Work, read-only, archived, and feature-blocked states keep actions unavailable. The native editor still checks active branches, targeted replies, empty text, and attachments, preserving parent IDs, attachments, the model, and reasoning effort. Eight portable action tests and eight full-transcript/native-editor cases passed. No real account generation request was made for validation.

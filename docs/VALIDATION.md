@@ -1,6 +1,6 @@
 # Validation record
 
-Base repair: 1.0.1. English edition: 1.0.1-en.1. Date: September 7, 2026.
+Current repair: 1.0.2. English edition: 1.0.2-en.1. Date: September 8, 2026.
 
 ## Behavior coverage
 
@@ -18,10 +18,12 @@ Base repair: 1.0.1. English edition: 1.0.1-en.1. Date: September 7, 2026.
 | Additional portable helpers | 16 cases covering classification, preference isolation, cache invalidation, and search cancellation. |
 | Initial profile selection | 3 cases: nonvirtualized profile, preserving an existing absolute path, and rejecting invalid saved paths. |
 | Quick chat across modes | 6 cases exercising the native component, separate button action, keyboard presentation preferences, and unavailable-state protection. |
-| Total | 188 cases: 62 portable tests and 126 tests using fixtures generated from official resources. |
-| Packed resources | 8,799 entries in the complete edition; 8,798 without sidebar filtering. Every entry is verified. |
+| Project sources, project form, Work activity | 6, 12, and 12 additional cases. |
+| Live Chat summary and Quick Chat actions | 8 native disclosure lifecycle cases, 8 action-state cases, and 8 full transcript/native edit cases. |
+| Total | 242 cases: 76 portable tests and 166 tests using fixtures generated from official resources. |
+| Packed resources | 8,801 entries in the complete edition; 8,800 without sidebar filtering. Every entry is verified. |
 
-The English edition changes project-owned text and entry-command names and regenerates the relevant digests. It reruns the same 188 cases. Multilingual synthetic test data remains unchanged to preserve Unicode coverage.
+The English edition changes project-owned text and entry-command names and regenerates the relevant digests. It reruns the same 242 cases. Multilingual synthetic test data remains unchanged to preserve Unicode coverage.
 
 ## Base-version runtime evidence
 
@@ -54,3 +56,7 @@ Unresolved reports, including Windows desktop-wide stutter and file-editor math 
 ## English edition results
 
 All 188 tests passed for 1.0.1-en.1. A separate fresh-copy installation verified 17 transaction operations and successful rollback, including three native dependencies checked as regular files with matching hashes. The actual English environment-check entry point also passed. Both full and no-sidebar resource builds were rebuilt and pinned to their verified digests. The English release ZIP received a separate Defender custom scan with no new detection; protection remained enabled.
+
+## 1.0.2 runtime evidence
+
+The Chinese 1.0.2 build was installed with 28 verified operations and all 28 existing conversation model choices preserved. It uses normal launch with diagnostics disabled. An initial Windows executable-replacement failure restored the exact 1.0.1 EXE and ASAR before a successful retry. Both current language editions passed 242 cases, including their full official-source builds. New message actions were exercised with synthetic conversations and native functions, without a real generation request or quota use. The user confirmed the new Quick Chat edit/regenerate controls and successful saving of source-only project changes. This control-level acceptance is distinct from a real regeneration request or a live summary-streaming test.

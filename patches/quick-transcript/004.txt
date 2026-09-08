@@ -1,0 +1,3 @@
+
+async function __localQuickChatEdit(scope,args){const module=await import("./chatgpt-conversation-page-d431ebf7521c.js");return module.__localEditChatMessage(scope,args)}
+async function __localQuickChatRegenerate(scope,args){const module=await import("./response-d9fb0f46b851.js");module.r();return module.i(scope,args)}

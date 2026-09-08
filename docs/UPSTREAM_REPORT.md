@@ -17,9 +17,13 @@ The public openai/codex repository does not contain the packaged Electron interf
 | Model selection and slider state disagree or reset | assets/local-conversation-model-preferences-v1.mjs, tests/render-model-fixes.mjs |
 | Unchanged histories are converted repeatedly | assets/local-conversation-performance-v1.mjs, tests/render-performance-fixes.mjs |
 | Quick chat is gated on Codex sidebar mode | tests/quickchat-modes.cjs |
+| File-only project edits do not enable Save | assets/local-project-settings-v1.mjs, tests/project-sources.mjs, tests/project-settings.mjs |
+| Thought summaries become commentary and stale plan snapshots remain visible | tests/work-activity.mjs |
+| Chat summary remains collapsed after its first content arrives | tests/chat-live-thinking.mjs |
+| Quick Chat omits native edit and regenerate handlers | assets/local-quick-chat-actions-v1.mjs, tests/quick-actions.mjs, tests/quick-native.mjs |
 | Earlier title, listener, idle-cache, browser, and window issues | tests/core.cjs, tests/tracker.cjs, tests/cold.cjs, tests/title.cjs, tests/host-title.cjs |
 
-Run **node tests/run.cjs** for the 62 portable checks. With the exact official Windows app installed, run **node tests/run.cjs --installed** for all 188 cases. The fixture generator extracts the original functions locally, applies the checked patch manifest, and runs behavioral comparisons. It does not publish full client bundles or require credentials, prompts, or real conversation identifiers.
+Run **node tests/run.cjs** for the 76 portable checks. With the exact official Windows app installed, run **node tests/run.cjs --installed** for all 242 cases. The fixture generator extracts the original functions locally, applies the checked patch manifest, and runs behavioral comparisons. It does not publish full client bundles or require credentials, prompts, or real conversation identifiers.
 
 The manifest records the exact official input hashes and each replacement's input/output digests. Native function names refer only to this distributed build and are not proposed stable upstream API names.
 

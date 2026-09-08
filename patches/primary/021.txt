@@ -1,1 +1,1 @@
-__localEffectiveEffort(e,t,n,m),g
+if(b)W=`all`;

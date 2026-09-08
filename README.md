@@ -8,7 +8,7 @@ This is the English edition of [wjtianze/codex-desktop-repair](https://github.co
 
 ## Installation
 
-1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.0.1-en.1) and extract the ZIP.
+1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.0.2-en.1) and extract the ZIP.
 2. Save any unsent content and quit ChatGPT.
 3. Double-click **Install-Repair.cmd**. The installer checks the official signature, version, and file hashes, then builds the repair and keeps rollback backups.
 4. Use **ChatGPT** in the Start menu afterward. A visible verification window appears briefly before the app starts.
@@ -28,6 +28,10 @@ Run **Check-Environment.cmd** to check compatibility first. To install without s
 | Conversation rendering | Reuse unchanged history conversions and metadata parsing; avoid computing an unused Work summary in ordinary chats. |
 | Messages and images | Identify internal retrieval images correctly, retain streaming content, and preserve the natural aspect ratio of a single image. |
 | File citations | Use compact chips for uploaded PDF, Markdown, HTML, spreadsheet, and other references; retain full cards for generated downloads. |
+| Project settings | Successful reference-file-only changes enable Save; pending operations block saving and failed changes retain the native error path. |
+| Work activity | Keep thought summaries in native process disclosures and ordinary progress reports visible; show only the latest plan snapshot in each group. |
+| Live Chat summaries | Expand when the first summary arrives, preserve later manual collapse, and retain Thinking when the server has not supplied content. |
+| Quick Chat message actions | Native edit and regenerate controls preserve attachments, branches, and model options while respecting busy and read-only states. |
 | Models and reasoning effort | Remember choices per conversation across restarts; select the correct slider slot when the catalog has no explicit default. |
 | State and drafts | Coalesce queued writes and await asynchronous ordinary flushes. Text drafts wait 750 ms after editing; clearing remains immediate. |
 | Mention search | Wait for stable input, discard obsolete queued work, and serialize history searches for each host. |
@@ -48,7 +52,7 @@ The installation directory is **%LOCALAPPDATA%\ChatGPT-PerformanceFix**. Backups
 
 ## Validation and limits
 
-The base 1.0.1 repair passed 188 behavior tests and verification of all 8,799 packed resources. The English edition reruns the same tests and rebuilds hashes after translating its own interface and console messages. See [validation](docs/VALIDATION.md), [audit findings](docs/AUDIT.md), and the [upstream evidence guide](docs/UPSTREAM_REPORT.md).
+The 1.0.2 repair passed 242 behavior tests and verification of all 8,801 packed resources. The English edition reruns the same tests and rebuilds hashes after translating its own interface and console messages. See [validation](docs/VALIDATION.md), [audit findings](docs/AUDIT.md), and the [upstream evidence guide](docs/UPSTREAM_REPORT.md).
 
 Some occasional input delay remains unexplained. Drafts still use the native whole-state file and backup format; these changes reduce repeated work and save frequency, rather than eliminating whole-file writes.
 
@@ -61,3 +65,11 @@ Developers can run **node tests/run.cjs** with Node.js 24. On Windows with the s
 ## Original project
 
 These repairs were developed in [wjtianze/codex-desktop-repair](https://github.com/wjtianze/codex-desktop-repair). If this work helps you, please consider starring the original repository.
+
+## A maintainer's rant
+
+After spending this long repairing the app, I honestly wonder whether parts of it were vibe-coded and shipped before anyone tried the complete workflow. Memory that should be released hangs around. Reasoning summaries land in the normal conversation. Adding or removing reference files somehow does not count as changing a project. Images from project reference material can be confused with generated output. The composer can simply disappear. Reasoning labels and their sliders disagree, and one plan can produce multiple competing progress badges. The same history gets parsed again and again, the same state gets rewritten, and a logger keeps holding records after writing them. Opening a conversation, editing a project, viewing an image, waiting for a reply: how do such basic paths keep becoming traps?
+
+Put together, the experience feels like a giant pile of shit held together with spaghetti. Fix one hole and two more appear. Just when it becomes usable, another OpenAI release means checking the package again, chasing changed interfaces, rerunning regressions, and cleaning up behind it all over again. Users pay a subscription, then get handed testing, debugging, and maintenance work as an unpaid extra. This project should not need to exist.
+
+This is the maintainer's reaction to the actual experience. Specific defects, reproduction evidence, and unresolved issues are documented in the [audit](docs/AUDIT.md).
