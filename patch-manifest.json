@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "releaseVersion": "1.0.3-local.2",
+  "releaseVersion": "1.0.3",
   "performanceRevision": 7,
   "sidebarVersion": "1.1.0",
   "packageName": "OpenAI.Codex",
