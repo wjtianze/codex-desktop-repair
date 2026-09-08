@@ -8,7 +8,7 @@ This is the English edition of [wjtianze/codex-desktop-repair](https://github.co
 
 ## Installation
 
-1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.0.2-en.1) and extract the ZIP.
+1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.0.3-en.1) and extract the ZIP.
 2. Save any unsent content and quit ChatGPT.
 3. Double-click **Install-Repair.cmd**. The installer checks the official signature, version, and file hashes, then builds the repair and keeps rollback backups.
 4. Use **ChatGPT** in the Start menu afterward. A visible verification window appears briefly before the app starts.
@@ -32,6 +32,8 @@ Run **Check-Environment.cmd** to check compatibility first. To install without s
 | Work activity | Keep thought summaries in native process disclosures and ordinary progress reports visible; show only the latest plan snapshot in each group. |
 | Live Chat summaries | Expand when the first summary arrives, preserve later manual collapse, and retain Thinking when the server has not supplied content. |
 | Quick Chat message actions | Native edit and regenerate controls preserve attachments, branches, and model options while respecting busy and read-only states. |
+| Historical timers and current progress | Close historical activity, show the current turn independently, and recover its snapshot after prolonged inactivity. |
+| Save As downloads | Choose the destination before downloading, show a busy state, transfer bounded chunks, and commit only after completion. |
 | Models and reasoning effort | Remember choices per conversation across restarts; select the correct slider slot when the catalog has no explicit default. |
 | State and drafts | Coalesce queued writes and await asynchronous ordinary flushes. Text drafts wait 750 ms after editing; clearing remains immediate. |
 | Mention search | Wait for stable input, discard obsolete queued work, and serialize history searches for each host. |
@@ -52,7 +54,7 @@ The installation directory is **%LOCALAPPDATA%\ChatGPT-PerformanceFix**. Backups
 
 ## Validation and limits
 
-The 1.0.2 repair passed 242 behavior tests and verification of all 8,801 packed resources. The English edition reruns the same tests and rebuilds hashes after translating its own interface and console messages. See [validation](docs/VALIDATION.md), [audit findings](docs/AUDIT.md), and the [upstream evidence guide](docs/UPSTREAM_REPORT.md).
+The 1.0.3 repair passed 287 behavior tests and verification of all 8,804 packed resources. The English edition reruns the same tests and rebuilds hashes after translating its own interface and console messages. See [Work progress and Save As](docs/WORK_PROGRESS_FIX.md), [validation](docs/VALIDATION.md), [audit findings](docs/AUDIT.md), and the [upstream evidence guide](docs/UPSTREAM_REPORT.md).
 
 Some occasional input delay remains unexplained. Drafts still use the native whole-state file and backup format; these changes reduce repeated work and save frequency, rather than eliminating whole-file writes.
 

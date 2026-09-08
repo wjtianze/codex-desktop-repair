@@ -1,1 +1,1 @@
-c=__cached.conversation,l=__cached.turns,
+,isWorkConversation:__localIsWork=e?.conversation_origin===`tpp`}){let __cached=__localRenderCached(An,s==null?e??null:{current_node:o??null,mapping:s},{get

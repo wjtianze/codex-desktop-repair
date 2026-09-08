@@ -1,1 +1,1 @@
-__cached=__localRenderCached(An,s==null?e??null:{current_node:o??null,mapping:s},{getRenderT
+at(-1)?.turn.items.some(Ol)??!1}function Ol(e

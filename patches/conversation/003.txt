@@ -1,1 +1,1 @@
-(0,Q.useMemo)(()=>Be?
+__localWorkSync=__localUseWorkProgressSync(Q,{scope:u,conversationId:r,serverId:O,enabled:Be,busy:F,mapping:M,currentNode:te,refresh:__localReadWorkProgress}),

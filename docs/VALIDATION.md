@@ -1,6 +1,6 @@
 # Validation record
 
-Current repair: 1.0.2. English edition: 1.0.2-en.1. Date: September 8, 2026.
+Current repair: 1.0.3. English edition: 1.0.3-en.1. Date: September 8, 2026.
 
 ## Behavior coverage
 
@@ -20,10 +20,12 @@ Current repair: 1.0.2. English edition: 1.0.2-en.1. Date: September 8, 2026.
 | Quick chat across modes | 6 cases exercising the native component, separate button action, keyboard presentation preferences, and unavailable-state protection. |
 | Project sources, project form, Work activity | 6, 12, and 12 additional cases. |
 | Live Chat summary and Quick Chat actions | 8 native disclosure lifecycle cases, 8 action-state cases, and 8 full transcript/native edit cases. |
-| Total | 242 cases: 76 portable tests and 166 tests using fixtures generated from official resources. |
-| Packed resources | 8,801 entries in the complete edition; 8,800 without sidebar filtering. Every entry is verified. |
+| Historical timers and progress recovery | 13 helper cases and 8 native view/read-path cases. |
+| Early Save As and chunked writes | 16 save-transaction cases and 8 native handler/control cases. |
+| Total | 287 cases: 105 portable tests and 182 tests using fixtures generated from official resources. |
+| Packed resources | 8,804 entries in the complete edition; 8,803 without sidebar filtering. Every entry is verified. |
 
-The English edition changes project-owned text and entry-command names and regenerates the relevant digests. It reruns the same 242 cases. Multilingual synthetic test data remains unchanged to preserve Unicode coverage.
+The English edition changes project-owned text and entry-command names and regenerates the relevant digests. It reruns the same 287 cases. Multilingual synthetic test data remains unchanged to preserve Unicode coverage.
 
 ## Base-version runtime evidence
 
@@ -60,3 +62,7 @@ All 188 tests passed for 1.0.1-en.1. A separate fresh-copy installation verified
 ## 1.0.2 runtime evidence
 
 The Chinese 1.0.2 build was installed with 28 verified operations and all 28 existing conversation model choices preserved. It uses normal launch with diagnostics disabled. An initial Windows executable-replacement failure restored the exact 1.0.1 EXE and ASAR before a successful retry. Both current language editions passed 242 cases, including their full official-source builds. New message actions were exercised with synthetic conversations and native functions, without a real generation request or quota use. The user confirmed the new Quick Chat edit/regenerate controls and successful saving of source-only project changes. This control-level acceptance is distinct from a real regeneration request or a live summary-streaming test.
+
+## 1.0.3 acceptance
+
+The release contains the accepted 1.0.3-local.2 implementation. That local Chinese build passed 28 installation checks and preserved all 35 existing conversation-model choices. The user confirmed correct timing and successful saving. The Chinese release updates release metadata and documentation while retaining the accepted application resources. The English port preserves its own sidebar text and receives its own full build and 287-case suite. See [the focused repair record](WORK_PROGRESS_FIX.md) for recovery and download limits.

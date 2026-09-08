@@ -79,3 +79,7 @@ Chat's Ym view mounts the native g_ disclosure before summary content exists. It
 The compact transcript used by Quick Chat explicitly supplies an undefined onEditUserMessage and never forwards onRegenerateResponse. Quick Chat now opts into the existing native controls; other preview callers keep their current behavior. Editing lazily invokes the main Chat page's native Ms writer, and regeneration invokes the native response module with model, search, and feedback options intact. It introduces no alternate sending protocol or message store.
 
 Pending requests block duplicate calls, and changing conversations invalidates old callbacks. Streaming, missing server conversations, Work, read-only, archived, and feature-blocked states keep actions unavailable. The native editor still checks active branches, targeted replies, empty text, and attachments, preserving parent IDs, attachments, the model, and reasoning effort. Eight portable action tests and eight full-transcript/native-editor cases passed. No real account generation request was made for validation.
+
+## 1.0.3: historical activity, progress recovery, and Save As
+
+Unfinished historical records can keep old activity timers running and suppress the current turn's waiting indicator. Save As previously waited for the whole download before showing a destination dialog. Root causes, repair boundaries, tests, and actual acceptance are described in [the focused repair record](WORK_PROGRESS_FIX.md).

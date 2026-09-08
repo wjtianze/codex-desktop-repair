@@ -21,9 +21,11 @@ The public openai/codex repository does not contain the packaged Electron interf
 | Thought summaries become commentary and stale plan snapshots remain visible | tests/work-activity.mjs |
 | Chat summary remains collapsed after its first content arrives | tests/chat-live-thinking.mjs |
 | Quick Chat omits native edit and regenerate handlers | assets/local-quick-chat-actions-v1.mjs, tests/quick-actions.mjs, tests/quick-native.mjs |
+| Historical Work activity keeps timing and suppresses the next waiting indicator | assets/local-work-progress-v1.mjs, tests/work-progress.mjs, tests/work-progress-native.mjs |
+| Save As appears only after the entire file has downloaded | assets/local-save-download-v1.mjs, assets/local-deferred-save-copy.cjs, tests/deferred-save.mjs, tests/download-native.mjs |
 | Earlier title, listener, idle-cache, browser, and window issues | tests/core.cjs, tests/tracker.cjs, tests/cold.cjs, tests/title.cjs, tests/host-title.cjs |
 
-Run **node tests/run.cjs** for the 76 portable checks. With the exact official Windows app installed, run **node tests/run.cjs --installed** for all 242 cases. The fixture generator extracts the original functions locally, applies the checked patch manifest, and runs behavioral comparisons. It does not publish full client bundles or require credentials, prompts, or real conversation identifiers.
+Run **node tests/run.cjs** for the 105 portable checks. With the exact official Windows app installed, run **node tests/run.cjs --installed** for all 287 cases. The fixture generator extracts the original functions locally, applies the checked patch manifest, and runs behavioral comparisons. It does not publish full client bundles or require credentials, prompts, or real conversation identifiers.
 
 The manifest records the exact official input hashes and each replacement's input/output digests. Native function names refer only to this distributed build and are not proposed stable upstream API names.
 

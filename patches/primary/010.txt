@@ -1,1 +1,1 @@
-__localProjectSources.current??=__localCreateProjectSourceTracker(e=>{d()&&__localProjectSourceUpdate(e)});
+(l?.conversationOrigin===`tpp`||__localIsCompactFileCitation(a,o))&&o

@@ -1,2 +1,1 @@
-
-export async function __localEditChatMessage(scope,args){Fs();return Ms(scope,args)}
+:null,[Be,jt,Mt,Se,ve])
