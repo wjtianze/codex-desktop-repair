@@ -1,1 +1,1 @@
-(l?.conversationOrigin===`tpp`||__localIsCompactFileCitation(a,o))&&o
+"aria-busy":f||void 0,

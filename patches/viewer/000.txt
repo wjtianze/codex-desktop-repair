@@ -1,1 +1,1 @@
-import{reconcileHistoricalWorkTurns as __localReconcileWorkHistory}from"./local-work-progress-v1.js";import {renderConversationCached as __localRenderCached} from "./local-conversation-performance-v1.js";
+import{renderWebSearchProgress as __localWebSearchProgress}from"./local-web-search-progress-v1.js";import{reconcileHistoricalWorkTurns as __localReconcileWorkHistory}from"./local-work-progress-v1.js";import {renderConversationCached as __localRenderCached} from "./local-conversation-performance-v1.js";

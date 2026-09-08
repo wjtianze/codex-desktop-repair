@@ -1,1 +1,1 @@
-let __localLatestPlan=d.findLastIndex(e=>e.type===`todo-list`);for(let[e,t]of d.entries())if(!(t.type===`todo-list`&&e!==__localLatestPlan)&&!(
+e?`active-content`:

@@ -1,1 +1,1 @@
-return __localMemoObject(__local_uncached_bUr,e)}function __local_uncached_bUr(e){
+return e===`user_instructions`||e===`user_memory`||e===`general_memory`||e===`past_conversation`?e:n
