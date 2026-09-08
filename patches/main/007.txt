@@ -1,1 +1,1 @@
-||!__localClaimRendererRecovery(this,n.id)
+(this.trackPrimaryWindow(e),e.on(`restore`,()=>{setTimeout(()=>__localNormalizeRestoredWindow(this,e),0)})),e.on(

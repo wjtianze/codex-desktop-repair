@@ -1,1 +1,1 @@
-[__localProjectSourceState,__localProjectSourceUpdate]=(0,K0.useState)({changed:!1,pending:0}),__localProjectSources=(0,K0.useRef)(null),
+f?(0,$Q.jsx)(`span`,{"aria-hidden":!0,className:`icon-sm inline-block animate-spin`,style:{border:`2px solid currentColor`,borderRightColor:`transparent`,borderRadius:`50%`}}):

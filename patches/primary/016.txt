@@ -1,1 +1,1 @@
-&&!K,canDeleteFileSources:le&&!K,canEdit
+K&&!Pe.isPending,Be=ce&&!K&&!ae&&__localProjectSourceState.pending===0&&(de||fe||he||__localProjectSourceState.changed),Ve;t[4

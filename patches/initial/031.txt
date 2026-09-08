@@ -1,2 +1,16 @@
 
 export {n9t as __localRepairTitleFromPreview,dC as __localRepairParseTitle,__localRepairTitlePreview};
+
+export async function __localReadWorkProgress(scope,conversationId,signal){
+ if(signal?.aborted)return null;
+ const id=Mz(scope.get,conversationId),before=id==null?null:Nz(scope.get,id);
+ if(before?.conversationOrigin!==`tpp`||!jz(scope.get(cB,conversationId)))return null;
+ const snapshot=await scope.get(bR).get(conversationId,signal);
+ if(signal?.aborted)return null;
+ return{apply(){
+  const after=Nz(scope.get,id);
+  if(signal?.aborted||after?.conversationOrigin!==`tpp`||!jz(scope.get(cB,conversationId))||!__localCanApplyWorkSnapshot(before,after,snapshot))return null;
+  pqr(scope,snapshot,{mergeActiveBranch:!0});
+  return{mapping:scope.get(oB,conversationId)};
+ }};
+}

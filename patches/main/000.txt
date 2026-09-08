@@ -1,4 +1,5 @@
-__localRendererRecoveryHistory=new WeakMap();
+__localDeferredSaveCopy=require("./local-deferred-save-copy.cjs");
+const __localRendererRecoveryHistory=new WeakMap();
 function __localClaimRendererRecovery(owner,id){
  const now=Date.now();let windows=__localRendererRecoveryHistory.get(owner);
  if(!windows){windows=new Map();__localRendererRecoveryHistory.set(owner,windows)}

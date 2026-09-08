@@ -1,1 +1,1 @@
-dt=__localHistoryFilter.filterReferenceMap(dt,__historyMode);
+Yln();const __historySelection=__localHistoryFilter.useSelection($(),{sidebarMode:a,route:d,appMode:bS(Ag),workLocation:bS(qln)}),__historyMode=__historySelection.mode;
