@@ -1,0 +1,12 @@
+﻿<style>.fixture-card{border:1px solid var(--viz-border);padding:12px}.tall{height:1100px}</style>
+<div id="fixture" class="w-full text-base text-[var(--viz-text)]">
+  <div class="flex gap-2 mb-3" role="tablist"><button id="a" type="button" aria-selected="true">A \(x^2\)</button><button id="b" type="button" aria-selected="false">B</button></div>
+  <section id="pa" role="tabpanel"><div class="grid md:grid-cols-2 gap-3"><div class="fixture-card">Left</div><div class="fixture-card">Right</div></div><label>Value \\(\\alpha\\)<input id="value" type="range" min="0" max="9" value="1"></label><span id="counter">1</span><div class="tall"></div></section>
+  <section id="pb" role="tabpanel" class="hidden"><p>Second \[y_1+y_2\]</p><div id="attr" title="\(attribute\)">Attribute</div><pre id="code">\(literal\)</pre><svg><text id="svg-text">\(svg\)</text></svg></section>
+</div>
+<script>
+window.fixtureExecutions=(window.fixtureExecutions||0)+1;
+const scriptLiteral='\\(keep script content\\)';
+function select(active){document.getElementById('pa').classList.toggle('hidden',active!=='a');document.getElementById('pb').classList.toggle('hidden',active!=='b');for(const id of ['a','b'])document.getElementById(id).setAttribute('aria-selected',String(id===active))}
+document.getElementById('a').onclick=()=>select('a');document.getElementById('b').onclick=()=>select('b');document.getElementById('value').oninput=e=>document.getElementById('counter').textContent=e.target.value;
+</script>
