@@ -8,7 +8,7 @@ This is the English edition of [wjtianze/codex-desktop-repair](https://github.co
 
 ## Installation
 
-1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.0.3-en.1) and extract the ZIP.
+1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.0.4-en.1) and extract the ZIP.
 2. Save any unsent content and quit ChatGPT.
 3. Double-click **Install-Repair.cmd**. The installer checks the official signature, version, and file hashes, then builds the repair and keeps rollback backups.
 4. Use **ChatGPT** in the Start menu afterward. A visible verification window appears briefly before the app starts.
@@ -46,6 +46,8 @@ Run **Check-Environment.cmd** to check compatibility first. To install without s
 
 Composer recovery preserves the native submit, archive, sharing, and access checks. Idle cleanup protects active, viewed, observed, approval-blocked, and history-loading tasks.
 
+See [Visualization compatibility](docs/VISUALIZATION_FIX.md) for the tab, layout, and formula fixes in this release.
+
 ## Restore
 
 Quit the repaired app and run **Uninstall-Restore.cmd**, or **Uninstall-Fixed.cmd** in the installation directory. It unwinds this project's installation records and restores the previous files and entry point. Any earlier local repairs return to their pre-installation state.
@@ -54,7 +56,7 @@ The installation directory is **%LOCALAPPDATA%\ChatGPT-PerformanceFix**. Backups
 
 ## Validation and limits
 
-The 1.0.3 repair passed 287 behavior tests and verification of all 8,804 packed resources. The English edition reruns the same tests and rebuilds hashes after translating its own interface and console messages. See [Work progress and Save As](docs/WORK_PROGRESS_FIX.md), [validation](docs/VALIDATION.md), [audit findings](docs/AUDIT.md), and the [upstream evidence guide](docs/UPSTREAM_REPORT.md).
+The 1.0.4 repair passed 304 behavior tests and verification of all 8,805 packed resources. The English edition reruns the same tests and rebuilds hashes after translating its own interface and console messages. See [Work progress and Save As](docs/WORK_PROGRESS_FIX.md), [validation](docs/VALIDATION.md), [audit findings](docs/AUDIT.md), and the [upstream evidence guide](docs/UPSTREAM_REPORT.md).
 
 Some occasional input delay remains unexplained. Drafts still use the native whole-state file and backup format; these changes reduce repeated work and save frequency, rather than eliminating whole-file writes.
 

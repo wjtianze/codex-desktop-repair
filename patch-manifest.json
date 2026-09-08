@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
-  "releaseVersion": "1.0.3-en.1",
-  "performanceRevision": 7,
+  "releaseVersion": "1.0.4-en.1",
+  "performanceRevision": 8,
   "sidebarVersion": "1.1.0",
   "packageName": "OpenAI.Codex",
   "packageVersion": "26.901.6511.0",
@@ -94,7 +94,7 @@
       "id": "initial",
       "entry": "webview/assets/app-initial-f87238153a19.js",
       "originalSHA256": "44ceeb9cadac569f6217e288c0e09fceeca712d749862887ea36baf6019ea966",
-      "patchedSHA256": "7993325776e016f9b98a7c5fd3613b0698a3f95e05b00f05da6912908c6d81cd",
+      "patchedSHA256": "f0f845980c7a0693342edd0099f9e760b804f4e49c2e989d4f6b1732f072eb20",
       "preprocess": "lf-to-crlf",
       "operations": [
         {
@@ -102,7 +102,7 @@
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/000.txt",
-          "insertSHA256": "44da41dee080749f7be6ac7ddb271b6c69dbc869285a5f704948bf81ff8b8902"
+          "insertSHA256": "799c48b270df678df21d31fb3cbc159b371f4b642536cf12ee761da999fa7ab5"
         },
         {
           "offset": 2539054,
@@ -315,10 +315,17 @@
           "insertSHA256": "a7b4139ca9188e58a621e1988322b68a7b89a503a5ba88171821f2d32d87c8af"
         },
         {
+          "offset": 6830075,
+          "deleteBytes": 16,
+          "removedSHA256": "c237b17934b17368a169c40db524949c528f97c66f4ba27711ce75e8ab99e2de",
+          "insert": "patches/initial/031.txt",
+          "insertSHA256": "2b1192e298d3bd18f58d23c333139b54725222c7841401c6220235ec22e692aa"
+        },
+        {
           "offset": 10309216,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "insert": "patches/initial/031.txt",
+          "insert": "patches/initial/032.txt",
           "insertSHA256": "c725e7cb840d46706b25bb1032609aa2ac9a9f2b4ae44f49d09239ba94d7fdd1"
         }
       ]
@@ -1104,7 +1111,8 @@
     "assets/local-quick-chat-actions-v1.mjs": "5fd82397a9d87bf1f360b24dd6b001aa14b2f7ab6857ee4b636a154ce5829326",
     "assets/local-work-progress-v1.mjs": "12263ebd7c30f97adb7eee19fa717e03e1c66082f095044c91af04226d43dde8",
     "assets/local-deferred-save-copy.cjs": "4d13715dca68b37053ab58f273b2d0ad854ffb0a0d5c0c8d81e20c26c6f4e622",
-    "assets/local-save-download-v1.mjs": "fd1e0a930d72769aa939a69453f01fe2e26396fee38bb08fb42aaaba715db1f2"
+    "assets/local-save-download-v1.mjs": "fd1e0a930d72769aa939a69453f01fe2e26396fee38bb08fb42aaaba715db1f2",
+    "assets/local-visualization-compat-v1.mjs": "a0208a0671cdc03bbef6ab097e2f09aff5c4e26d13c0f912fbb6234cc5eb6f2d"
   },
   "addedArchiveEntries": {
     "webview/assets/local-composer-recovery-v1.js": "assets/local-composer-recovery-v1.mjs",
@@ -1118,21 +1126,22 @@
     "webview/assets/local-quick-chat-actions-v1.js": "assets/local-quick-chat-actions-v1.mjs",
     "webview/assets/local-work-progress-v1.js": "assets/local-work-progress-v1.mjs",
     ".vite/build/local-deferred-save-copy.cjs": "assets/local-deferred-save-copy.cjs",
-    "webview/assets/local-save-download-v1.js": "assets/local-save-download-v1.mjs"
+    "webview/assets/local-save-download-v1.js": "assets/local-save-download-v1.mjs",
+    "webview/assets/local-visualization-compat-v1.js": "assets/local-visualization-compat-v1.mjs"
   },
   "language": "en",
   "expectedBuilds": {
     "full": {
-      "archiveSHA256": "33e45238113e069f9b45a3273516bed03378ab9c77107646c2fca95fabcf60c4",
-      "executableSHA256": "be223b23bd8cdc7f0124a056bc0e50a2e74cff533090f95e948b85d67cf130ab",
-      "archiveHeaderSHA256": "79828642851b0c3c186b5ef64e5839b93387e0a2b5550bec19e8b4973a65f11d",
-      "verifiedPackedEntries": 8804
+      "archiveSHA256": "ce87f43e057ec8a2092d476b3fdc2d9b5f66f6d3525a3735d340523d41a9c516",
+      "executableSHA256": "582741cf6a614a6538b7a294f69c0e10e6bb01df76551cf56558ab91974dac41",
+      "archiveHeaderSHA256": "352418db0bf6e003e1f4994a44a81ee9f6a7a6930c646e9f8e7550321d09beb3",
+      "verifiedPackedEntries": 8805
     },
     "performanceOnly": {
-      "archiveSHA256": "a6e2cb4677f6681b336a05b15a0d18b5e28f6d076acd172f3d060af8a5b82099",
-      "executableSHA256": "bea1fe23581ed91fc4abd48c002c32b72e137f573b7fd5cce7699708ab77bf9b",
-      "archiveHeaderSHA256": "e2b33136143b32d238abfab8d829b7ffc6963d18839b7f64e1542d02b08d2eb5",
-      "verifiedPackedEntries": 8803
+      "archiveSHA256": "1e4970590dccc59f89dbe07b751c73a372eb7e481701b037ed557018953bdea9",
+      "executableSHA256": "6a09866a9c831ec6eb2a3f8aeef5222e84bf84e79bac0d9bce256a0edf3e83e7",
+      "archiveHeaderSHA256": "82bcbebe77f08c9761c45e67102c55b68a316aadb3c9ee9401f6f27b4e7a8739",
+      "verifiedPackedEntries": 8804
     }
   }
 }

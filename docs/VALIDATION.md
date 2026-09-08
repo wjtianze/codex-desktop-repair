@@ -1,6 +1,6 @@
 # Validation record
 
-Current repair: 1.0.3. English edition: 1.0.3-en.1. Date: September 8, 2026.
+Current repair: 1.0.4. English edition: 1.0.4-en.1. Date: September 8, 2026.
 
 ## Behavior coverage
 
@@ -22,10 +22,11 @@ Current repair: 1.0.3. English edition: 1.0.3-en.1. Date: September 8, 2026.
 | Live Chat summary and Quick Chat actions | 8 native disclosure lifecycle cases, 8 action-state cases, and 8 full transcript/native edit cases. |
 | Historical timers and progress recovery | 13 helper cases and 8 native view/read-path cases. |
 | Early Save As and chunked writes | 16 save-transaction cases and 8 native handler/control cases. |
-| Total | 287 cases: 105 portable tests and 182 tests using fixtures generated from official resources. |
-| Packed resources | 8,804 entries in the complete edition; 8,803 without sidebar filtering. Every entry is verified. |
+| Visualization compatibility | 14 portable cases, 1 native integration case, and 2 real-browser layout and interaction cases. |
+| Total | 304 cases: 119 portable tests and 185 tests using official resources. |
+| Packed resources | 8,805 entries in the complete edition; 8,804 without sidebar filtering. Every entry is verified. |
 
-The English edition changes project-owned text and entry-command names and regenerates the relevant digests. It reruns the same 287 cases. Multilingual synthetic test data remains unchanged to preserve Unicode coverage.
+The English edition changes project-owned text and entry-command names and regenerates the relevant digests. It reruns the same 304 cases. Multilingual synthetic test data remains unchanged to preserve Unicode coverage.
 
 ## Base-version runtime evidence
 
@@ -66,3 +67,5 @@ The Chinese 1.0.2 build was installed with 28 verified operations and all 28 exi
 ## 1.0.3 acceptance
 
 The release contains the accepted 1.0.3-local.2 implementation. That local Chinese build passed 28 installation checks and preserved all 35 existing conversation-model choices. The user confirmed correct timing and successful saving. The Chinese release updates release metadata and documentation while retaining the accepted application resources. The English port preserves its own sidebar text and receives its own full build and 287-case suite. See [the focused repair record](WORK_PROGRESS_FIX.md) for recovery and download limits.
+
+The corresponding Chinese 1.0.4-local.2 build passed 28 installation transaction checks and preserved 37 existing conversation model preferences. The user confirmed restored tabs and formula display; the extra nested scrolling container was then removed in response to feedback. See [Visualization compatibility](VISUALIZATION_FIX.md) for the remaining verification limits.

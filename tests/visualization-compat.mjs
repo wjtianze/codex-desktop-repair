@@ -1,0 +1,17 @@
+﻿import assert from 'node:assert/strict';
+import {compatibilityCSS, utilityDeclaration, mathSegments, prepareVisualization} from '../assets/local-visualization-compat-v1.mjs';
+let cases=0;const test=(name,fn)=>{fn();console.log('PASS '+name);cases++};
+test('Hidden toggles work even when absent from initial classes',()=>assert.ok(compatibilityCSS(['grid']).includes('.hidden{display:none}')));
+test('Native hidden attributes override display utilities',()=>assert.ok(compatibilityCSS(['grid']).includes('[hidden]:not([hidden="until-found"]){display:none!important}')));
+test('Responsive rules retain the web breakpoints',()=>assert.ok(compatibilityCSS(['md:grid-cols-2']).includes('@media(min-width:768px){.md\\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}')));
+test('Digit-starting responsive classes are valid CSS selectors',()=>assert.ok(compatibilityCSS(['2xl:flex']).includes('.\\32 xl\\:flex')));
+test('Padding and gap use Tailwind spacing units',()=>{assert.equal(utilityDeclaration('px-3'),'padding-left:0.75rem;padding-right:0.75rem');assert.equal(utilityDeclaration('gap-2'),'gap:0.5rem')});
+test('Only visualization color variables are accepted',()=>{assert.equal(utilityDeclaration('bg-[var(--viz-panel)]'),'background-color:var(--viz-panel)');assert.equal(utilityDeclaration('bg-[url(https://example.org/x)]'),null);assert.equal(utilityDeclaration('bg-[var(--secret)]'),null)});
+test('Unknown and oversized utility classes are ignored',()=>assert.equal(compatibilityCSS(['unknown','x'.repeat(200)]),compatibilityCSS([])));
+test('Standard inline and block math delimiters are recognized',()=>assert.deepEqual(mathSegments(String.raw`A \(x_1\) B \[y^2\]`).map(x=>[x.tex,x.displayMode]),[['x_1',false],['y^2',true]]));
+test('Double escaped legacy TeX is normalized once',()=>assert.equal(mathSegments(String.raw`\\(\\frac{a}{b}\\)`)[0].tex,String.raw`\frac{a}{b}`));
+test('Standard matrix row separators are preserved',()=>assert.equal(mathSegments(String.raw`\(\begin{matrix}a\\b\end{matrix}\)`)[0].tex,String.raw`\begin{matrix}a\\b\end{matrix}`));
+test('Mismatched, empty and unclosed delimiters remain literal',()=>{assert.deepEqual(mathSegments(String.raw`\(x\] \[\]`),[]);assert.deepEqual(mathSegments(String.raw`\(open`),[])});
+test('Large math inputs are bounded',()=>{assert.deepEqual(mathSegments('x'.repeat(100001)),[]);assert.deepEqual(mathSegments('\\('+'x'.repeat(4097)+'\\)'),[])});
+test('Existing dollar notation is not accidentally rewritten',()=>assert.deepEqual(mathSegments('$10 and $$example$$'),[]));
+assert.equal(await prepareVisualization('<div>unchanged</div>',{document:null}),'<div>unchanged</div>');console.log('PASS Non-DOM callers preserve the original fragment');
