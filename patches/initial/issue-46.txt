@@ -1,0 +1,1 @@
+import {createFrameResizeObserver as __localFrameResizeObserver} from "./local-frame-resize-v1.js";

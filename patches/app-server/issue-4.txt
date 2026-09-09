@@ -1,0 +1,1 @@
+__localPruneCursors(){const live=new Set([...this.queuedRequests,...this.inFlightRequests.values()].map(r=>r.conversationId));for(const cursor of this.requestDispatchCursors.values())for(const id of cursor.mcpAppIds.keys())if(!live.has(id))cursor.mcpAppIds.delete(id)}markSentToTransport(e){

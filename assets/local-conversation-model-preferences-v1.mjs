@@ -12,6 +12,10 @@ export function readConversationChoice(state, origin, serverId, clientId) {
 export function writeConversationChoice(state, origin, serverId, clientId, value) {
   const choice = normalizeModelChoice(value), key = choiceKey(origin, serverId ?? clientId);
   if (!choice || !key) return state;
+  const previous = state?.version === 1 ? state.choices?.[key] : null;
+  const existingDraftKey = choiceKey(origin, clientId);
+  if (previous && previous.slug === choice.slug && previous.thinkingEffort === choice.thinkingEffort && previous.versionId === choice.versionId &&
+      (!existingDraftKey || existingDraftKey === key || !Object.hasOwn(state.choices,existingDraftKey))) return state;
   const choices = state?.version === 1 && state.choices && typeof state.choices === 'object' && !Array.isArray(state.choices) ? {...state.choices} : {};
   const draftKey = choiceKey(origin, clientId);
   if (draftKey && draftKey !== key) delete choices[draftKey];
