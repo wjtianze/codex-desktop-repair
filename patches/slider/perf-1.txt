@@ -1,0 +1,1 @@
+function O(e,t){return __localSliderCanvas(e,t,xe,P)}

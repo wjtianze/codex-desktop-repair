@@ -1,0 +1,1 @@
+import{tGt as __localPanelRpc}from"./app-initial-f87238153a19.js";

@@ -1,0 +1,1 @@
+function rn(e){let t=(0,cn.c)(7),n;let block=e.turnContext.codeBlocks?.[String(e.codeBlockIndex)];if(block?.render_mode!==`app_block`&&Pt(e.language,block?.content??e.content)==null)return(0,$.jsx)(an,{...e});

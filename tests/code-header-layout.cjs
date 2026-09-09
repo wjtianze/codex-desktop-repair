@@ -1,0 +1,18 @@
+// Browser geometry check using the extracted native shell and stylesheet, synthetic code only.
+const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('assert/strict'),{spawnSync}=require('child_process');
+const {pathToFileURL}=require('url');
+const source=fs.readFileSync('build/fixtures/render/patches/initial.js','utf8');
+const jsx=(type,props)=>typeof type==='function'?type(props):({type,props});
+const ctx={oJ:{c:n=>Array(n).fill(Symbol.for('react.memo_cache_sentinel'))},tJ:()=>false,K:(...args)=>args.filter(Boolean).join(' '),cJ:{jsx,jsxs:jsx},cci:()=>jsx('span',{children:'</>'}),sia:{Surface:'_Surface_1f1nx_1',CodeContent:'_CodeContent_1f1nx_6',StickyActionBar:'_StickyActionBar_1f1nx_10'},yia:({children,className})=>jsx('div',{className:'text-size-chat overflow-auto p-2 '+className,children})};
+vm.createContext(ctx);vm.runInContext(source.slice(source.indexOf('function fia('),source.indexOf('var oJ,sJ'))+';this.shell=fia',ctx);
+const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
+function html(node){if(node==null||node===false)return '';if(Array.isArray(node))return node.map(html).join('');if(typeof node!=='object')return esc(node);const {children,...props}=node.props;const attrs=Object.entries(props).filter(([k,v])=>v!=null&&typeof v!=='function'&&k!=='ref').map(([k,v])=>' '+(k==='className'?'class':k)+'="'+esc(v)+'"').join('');return '<'+node.type+attrs+'>'+html(children)+'</'+node.type+'>'}
+const code='void f(int &x) {\n  x = 100;\n}\n';
+const shell=html(ctx.shell({title:'C++',variant:'default',children:code,stickyTitleRightContent:jsx('button',{children:'Copy'})}));
+const root=path.resolve('build/results/code-layout-'+Date.now());fs.mkdirSync(root,{recursive:true});
+const css=fs.readFileSync('build/fixtures/render/raw/code-style.css','utf8');
+const page='<!doctype html><meta charset="utf-8"><style>'+css+'</style><div id="before" style="height:1400px"></div><div id="sample">'+shell+'</div><p id="anchor">Following paragraph</p><script>const measure=()=>({height:sample.getBoundingClientRect().height,anchor:anchor.getBoundingClientRect().top+scrollY});const initial=measure();scrollTo(0,1200);const visible=measure();const codeNode=sample.querySelector("code");codeNode.replaceChildren(...codeNode.textContent.split("\\n").flatMap((line,i)=>{const span=document.createElement("span");span.style.color="rgb(90,60,170)";span.textContent=line;return i?[document.createTextNode("\\n"),span]:[span]}));const highlighted=measure();document.body.insertAdjacentHTML("beforeend",\'<pre id="layout-result">\'+JSON.stringify({initial,visible,highlighted})+"</pre>");</script>';
+const file=path.join(root,'fixture.html');fs.writeFileSync(file,page);
+const browser=path.join(process.env['ProgramFiles(x86)']||'C:/Program Files (x86)','Microsoft/Edge/Application/msedge.exe');
+const result=spawnSync(browser,['--headless','--disable-gpu','--no-first-run','--disable-background-networking','--user-data-dir='+path.join(root,'profile'),'--dump-dom',pathToFileURL(file).href],{encoding:'utf8',windowsHide:true,timeout:30000,maxBuffer:4*1024*1024});
+fs.writeFileSync(path.join(root,'rendered.html'),result.stdout||'');const match=result.stdout?.match(/<pre id="layout-result">(\{[^<]+)<\/pre>/);assert.ok(match,result.error?.message||result.stderr?.slice(-1000));const report=JSON.parse(match[1]);assert.ok(report.initial.height>48);assert.deepEqual(report.visible,report.initial);assert.deepEqual(report.highlighted,report.initial);fs.writeFileSync(path.join(root,'geometry.json'),JSON.stringify(report,null,2));console.log('PASS Native code shell keeps identical height and following paragraph position across scrolling and highlighting');console.log(JSON.stringify(report));

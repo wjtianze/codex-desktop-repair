@@ -8,7 +8,7 @@ This is the English edition of [wjtianze/codex-desktop-repair](https://github.co
 
 ## Installation
 
-1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.0.5-en.1) and extract the ZIP.
+1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.0.9-en.1) and extract the ZIP.
 2. Save any unsent content and quit ChatGPT.
 3. Double-click **Install-Repair.cmd**. The installer checks the official signature, version, and file hashes, then builds the repair and keeps rollback backups.
 4. Use **ChatGPT** in the Start menu afterward. A visible verification window appears briefly before the app starts.
@@ -34,8 +34,12 @@ Run **Check-Environment.cmd** to check compatibility first. To install without s
 | Quick Chat message actions | Native edit and regenerate controls preserve attachments, branches, and model options while respecting busy and read-only states. |
 | Historical timers and current progress | Close historical activity, show the current turn independently, and recover its snapshot after prolonged inactivity. |
 | Save As downloads | Choose the destination before downloading, show a busy state, transfer bounded chunks, and commit only after completion. |
-| Models and reasoning effort | Remember choices per conversation across restarts; select the correct slider slot when the catalog has no explicit default. |
-| State and drafts | Coalesce queued writes and await asynchronous ordinary flushes. Text drafts wait 750 ms after editing; clearing remains immediate. |
+| Models and reasoning effort | Preview the model and reasoning level while dragging; save on release and remember choices per conversation. |
+| Code block scrolling | Keep headers in place from the first render, including ChatGPT code blocks; load syntax highlighting as needed. |
+| Side panel | Open Browser, Files, and temporary Side chats from Chat, Work, new chats, and existing conversations. |
+| State and drafts | Save draft-only edits in a small separate file and backup; retain the native complete state format for other changes and explicit flushes. |
+| Stop and steering | Reserve request capacity for Stop and steering without replaying operations whose outcome is unknown. |
+| Layout and background work | Combine frequent layout notifications and pause hidden slider decorations. |
 | Mention search | Wait for stable input, discard obsolete queued work, and serialize history searches for each host. |
 | Quick chat | Create spare windows on demand. Both ChatGPT and Codex modes support Ctrl+Alt+N and the round button beside New chat. |
 | Browser and Chrome components | Read large records in bounded batches; coalesce file notifications and process notifications arriving during queue cleanup. |
@@ -47,7 +51,7 @@ Run **Check-Environment.cmd** to check compatibility first. To install without s
 
 Composer recovery preserves the native submit, archive, sharing, and access checks. Idle cleanup protects active, viewed, observed, approval-blocked, and history-loading tasks.
 
-See [Progressive visualizations](docs/PROGRESSIVE_VISUALIZATION.md), [visualization compatibility](docs/VISUALIZATION_FIX.md), and [search progress](docs/SEARCH_PROGRESS.md) for this release.
+See [what's new in 1.0.9](docs/UPDATES_1_0_9.md). Earlier progressive previews and search improvements are also included.
 
 ## Restore
 
@@ -55,11 +59,11 @@ Quit the repaired app and run **Uninstall-Restore.cmd**, or **Uninstall-Fixed.cm
 
 The installation directory is **%LOCALAPPDATA%\ChatGPT-PerformanceFix**. Backups remain in its **backups** directory. Chat and account data are not removed. Browser caches changed by another program after installation are preserved and reported.
 
-## Validation and limits
+## Compatibility and known issues
 
-The 1.0.5 repair passed 326 behavior tests and verification of all 8,807 packed resources. The English edition reruns the same tests and rebuilds hashes after translating its own interface and console messages. See [Work progress and Save As](docs/WORK_PROGRESS_FIX.md), [validation](docs/VALIDATION.md), [audit findings](docs/AUDIT.md), and the [upstream evidence guide](docs/UPSTREAM_REPORT.md).
+See [compatibility and testing](docs/VALIDATION.md) for supported versions and local checks, and [known issues](docs/AUDIT.md) for problems this repair does not fully resolve.
 
-Some occasional input delay remains unexplained. Drafts still use the native whole-state file and backup format; these changes reduce repeated work and save frequency, rather than eliminating whole-file writes.
+Some long-session delays and system-wide freezes remain unresolved. If the backend is unresponsive, Stop may still wait for a response. After an unexpected exit, keep the separate draft file and its backup; save unsent text before returning to an older version.
 
 Only patch fragments, helper code, tests, and documentation are distributed. Updating the copied executable's resource-header digest invalidates its official digital signature; the original Store installation remains intact. An official update requires a newly validated adaptation.
 

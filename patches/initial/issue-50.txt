@@ -1,0 +1,1 @@
+n??=requestAnimationFrame(()=>{n=null;let r=e.offsetHeight.toFixed(1)+`px`;t.style.getPropertyValue(`--cmdk-list-height`)!==r&&t.style.setProperty(`--cmdk-list-height`,r)})

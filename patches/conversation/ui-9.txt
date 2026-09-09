@@ -1,0 +1,1 @@
+var __localUniversalPanel;function qc(){__localUniversalPanel??=Q.lazy(()=>import("./thread-app-shell-chrome-824a4d0e1154.js").then(m=>({default:m.UniversalPanelControls})));return(0,$.jsx)(Q.Suspense,{fallback:null,children:(0,$.jsx)(__localUniversalPanel,{})})}

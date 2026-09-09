@@ -22,8 +22,9 @@ function prepare(source){
  assert.ok(read('primary.patched.js').includes(menu.trim()),'Native menu fixture must match the shipped menu');
 
  const api=require('../scripts/patcher.cjs');
- for(const kind of ['original','patched'])for(const id of ['main','initial','primary','conversation','viewer','logger','state-store','quick-chat','quick-transcript'])write('render/'+(kind==='original'?'raw':'patches')+'/'+id+'.js',read(id+'.'+kind+'.js'));
+ for(const kind of ['original','patched'])for(const id of ['main','initial','primary','conversation','viewer','logger','state-store','quick-chat','quick-transcript','slider','app-server','chat-code','panel-shell','panel-entry','side-chat'])write('render/'+(kind==='original'?'raw':'patches')+'/'+id+'.js',read(id+'.'+kind+'.js'));
  const activityFd=fs.openSync(path.join(source,'resources','app.asar'),'r');try{const header=api.archiveHeader(activityFd),entry=api.getEntry(header.tree,'webview/assets/subagent-activity-chip-group-7235ecadfc3f.js');write('render/raw/activity.js',api.readExact(activityFd,entry.size,header.offset+Number(entry.offset)))}finally{fs.closeSync(activityFd)}
+ const cssFd=fs.openSync(path.join(source,'resources','app.asar'),'r');try{const header=api.archiveHeader(cssFd),entry=api.getEntry(header.tree,'webview/assets/app-initial-5b0a474bff5e.css');write('render/raw/code-style.css',api.readExact(cssFd,entry.size,header.offset+Number(entry.offset)))}finally{fs.closeSync(cssFd)}
  const rawPrimary=fs.readFileSync(path.join(out,'fixtures','primary.original.js'));
  const primarySpec=api.manifest.files.find(item=>item.id==='primary');
  write('render/patches/primary-performance.js',api.applyPatch(rawPrimary,primarySpec.withoutSidebar));
@@ -33,4 +34,3 @@ function prepare(source){
  return out;
 }
 module.exports={prepare};
-

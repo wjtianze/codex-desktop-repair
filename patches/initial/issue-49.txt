@@ -1,0 +1,1 @@
+n(previous=>previous?.width===i&&previous?.height===a?previous:{width:i,height:a})
