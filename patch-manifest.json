@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
-  "releaseVersion": "1.0.9",
-  "performanceRevision": 13,
+  "releaseVersion": "1.0.10",
+  "performanceRevision": 14,
   "sidebarVersion": "1.1.0",
   "packageName": "OpenAI.Codex",
   "packageVersion": "26.901.6511.0",
@@ -1010,7 +1010,7 @@
       "id": "conversation",
       "entry": "webview/assets/chatgpt-conversation-page-d431ebf7521c.js",
       "originalSHA256": "f46124cb21c72ce52c7d48de093fd334b5fbaa0cc02c4217d587ace38148fd79",
-      "patchedSHA256": "63f2f3c940d2416009a2b1b5dcd36e1956eb53526fc396d8d885c742a9660293",
+      "patchedSHA256": "9b2c79f1ddf535c6b1686834feba4da3edeee6d2fc2de0e1fa9c051617b739ce",
       "preprocess": null,
       "operations": [
         {
@@ -1019,6 +1019,13 @@
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/conversation/000.txt",
           "insertSHA256": "e30da1fd245166a54c7552c2cddfb880440ba2e12c9e683e8bb81ae1f402fbec"
+        },
+        {
+          "offset": 0,
+          "deleteBytes": 0,
+          "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "insert": "patches/conversation/scroll-10.txt",
+          "insertSHA256": "39f4f288ba77a809d9dc50b4b7789c3716c0c3e89ea45822bf825701fba1da42"
         },
         {
           "offset": 35225,
@@ -1068,6 +1075,55 @@
           "removedSHA256": "ddf16547b04f3b1a73da4eb5ad7c5643fcbbb2ebd3acde2e36abcb3b9b2c2aaa",
           "insert": "patches/conversation/007.txt",
           "insertSHA256": "547daa8b09860856767f42661f231a7f6079a0a46534c997e4ff761f62a90d3c"
+        },
+        {
+          "offset": 54996,
+          "deleteBytes": 32,
+          "removedSHA256": "b99ea9684f673cca29c6f1be0bacecbd96fa9171bfc91966f73959c23976ee29",
+          "insert": "patches/conversation/scroll-11.txt",
+          "insertSHA256": "8c78fa5a4e9a29c9738af729f99f1515243eb034fd583130c9aa42579a06f6ea"
+        },
+        {
+          "offset": 55811,
+          "deleteBytes": 18,
+          "removedSHA256": "22d2e43a7ca45213831dd646bf232d8b78724b4b277f9edf0f4043019a05cdcb",
+          "insert": "patches/conversation/scroll-12.txt",
+          "insertSHA256": "39e9ad8472bb5f795a02968c16ae8fe2ca86b3eb9340641001cf7a1196fdc41b"
+        },
+        {
+          "offset": 55930,
+          "deleteBytes": 47,
+          "removedSHA256": "8de36ddf7c8ddb3796e93fafc52d196110ec8e74721edc0e62d4baade2ce9b5e",
+          "insert": "patches/conversation/scroll-13.txt",
+          "insertSHA256": "748c7f9567f3c723d64129079647d7118159cfec43cc229933e87a675ca3867d"
+        },
+        {
+          "offset": 58395,
+          "deleteBytes": 14,
+          "removedSHA256": "495bd5c39ccd1387dac9dafce42264f38bbe219a943a0113aa32753b92bd3600",
+          "insert": "patches/conversation/scroll-14.txt",
+          "insertSHA256": "f729ef2d67575e07e7bf7bfbac43616f0e5dd19a6c637cc72a5b852940416560"
+        },
+        {
+          "offset": 58899,
+          "deleteBytes": 53,
+          "removedSHA256": "b8b90dc66cda8a8cc8ddb39700e5b58868a00ad9e2944af57b72afa6a2c1aebf",
+          "insert": "patches/conversation/scroll-15.txt",
+          "insertSHA256": "4c2caed0ddefcf1353756d8e3c23d7512c2e0dabbf5c6883a03283c58b0ac782"
+        },
+        {
+          "offset": 59366,
+          "deleteBytes": 16,
+          "removedSHA256": "b8ea333af1249d47348a6eae8cc544c15b5677f2fc8fdce6c4eb297406d99cdc",
+          "insert": "patches/conversation/scroll-16.txt",
+          "insertSHA256": "d64df2e9a2ec809a97c91aeff03641c6952fac5d4c96c3c612f4b6d24de02996"
+        },
+        {
+          "offset": 62058,
+          "deleteBytes": 345,
+          "removedSHA256": "67cc5898a30f523a76790d73ed9d4be05bcd3b205dcd39d5500eada0861516f6",
+          "insert": "patches/conversation/scroll-17.txt",
+          "insertSHA256": "3ca2a41740725b6bdcb8c1fe74759ba73b1446b015fe180897fcb24a51740ac9"
         },
         {
           "offset": 66128,
@@ -1689,7 +1745,8 @@
     "assets/local-web-search-progress-v1.mjs": "50407ba7de8777f6bb9d6d00168b71b3c4461807f12f591e430ae2065d994759",
     "assets/local-slider-canvas-v1.mjs": "dee86a99c6b67820406614e1865a1ecc9c20f60a48eded3f5fd83091d08c4347",
     "assets/local-draft-persistence-v1.cjs": "651b823a743c918227b2c6c22481ca317d159cdfc2bbdce42b48431e3216f2bb",
-    "assets/local-frame-resize-v1.mjs": "279bac0283ff54ae29f331fad596d7be16dcc92e93a2dd97297d4ad3f460cb86"
+    "assets/local-frame-resize-v1.mjs": "279bac0283ff54ae29f331fad596d7be16dcc92e93a2dd97297d4ad3f460cb86",
+    "assets/local-chat-scroll-memory-v1.mjs": "e730b987ddb52aa2be671a444e387de8491a59ceb3b8181670e45635ce924cc9"
   },
   "addedArchiveEntries": {
     "webview/assets/local-composer-recovery-v1.js": "assets/local-composer-recovery-v1.mjs",
@@ -1709,20 +1766,21 @@
     "webview/assets/local-web-search-progress-v1.js": "assets/local-web-search-progress-v1.mjs",
     "webview/assets/local-slider-canvas-v1.js": "assets/local-slider-canvas-v1.mjs",
     ".vite/build/local-draft-persistence-v1.cjs": "assets/local-draft-persistence-v1.cjs",
-    "webview/assets/local-frame-resize-v1.js": "assets/local-frame-resize-v1.mjs"
+    "webview/assets/local-frame-resize-v1.js": "assets/local-frame-resize-v1.mjs",
+    "webview/assets/local-chat-scroll-memory-v1.js": "assets/local-chat-scroll-memory-v1.mjs"
   },
   "expectedBuilds": {
     "full": {
-      "archiveSHA256": "fabb09c0230161ca4fb47339ae04cebf3923a9858e192b5ffb069a01065e6976",
-      "executableSHA256": "5ceafe239e4146aaa99b4d5e186ebcad425c440205a7ac65e6c850c7b300f7f7",
-      "archiveHeaderSHA256": "47241728c779815c54280141ae14c80e43e580ddd65892a2783430ce1d88c510",
-      "verifiedPackedEntries": 8810
+      "archiveSHA256": "fcee09e1569490162f15e81aed6fbed995d6b3c011774a3934d039ea901f400d",
+      "executableSHA256": "da9582da95550ed11b548717b1ec67ada60fd469a564f2cfe3e788df12ea615b",
+      "archiveHeaderSHA256": "ff27f7de3ee9236f5cf0e30093f2fa5047d342c36a7605039701db47ea03cfcc",
+      "verifiedPackedEntries": 8811
     },
     "performanceOnly": {
-      "archiveSHA256": "fdbd748614308d32005d47b67c4023612621be9dadbd50daffb7499ce8437bba",
-      "executableSHA256": "d5fe5dad7815fc78f22fbae3a82f24a71ac6fb477c9502646c8e7ef7d604dfa1",
-      "archiveHeaderSHA256": "ea64dc41c4fcaa2cd35b7282fd9d1ddd55ec34cbd29b1e59cb82347e82f22a56",
-      "verifiedPackedEntries": 8809
+      "archiveSHA256": "04441e3a34a546974f0f3932d9678eb3942f79af2dcd993e1fd8c6103cb864d0",
+      "executableSHA256": "17ee8c76ba9cd6192e9cd7de1a09c02b2847955c5a7b73532ea02930d5a70db7",
+      "archiveHeaderSHA256": "327b6805acb7e0e525bcf14dd6dbefab8db865bb652babba5f756696624f4358",
+      "verifiedPackedEntries": 8810
     }
   }
 }
