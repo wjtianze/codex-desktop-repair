@@ -2,10 +2,11 @@
 
 Updated September 9, 2026.
 
-## Addressed in 1.0.9
+## Addressed in 1.0.10
 
 | Problem | Improvement |
 | --- | --- |
+| Returning to a chat loses the reading position, or a long reply loading resets the view | Restore positions and measured heights together; measure the latest reply earlier and cancel automatic restoration when the user scrolls. |
 | Model slider feels sluggish in long conversations | Preview while dragging and save on release; labels update immediately. |
 | Code block headers appear late and shift the page | Ordinary code blocks keep their header from the first render, including the dedicated ChatGPT code view. |
 | Side panel tools disappear when switching modes | Browser, Files, and temporary Side chat are available across Chat, Work, new chats, and existing conversations. |

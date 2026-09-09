@@ -8,7 +8,7 @@ This is the English edition of [wjtianze/codex-desktop-repair](https://github.co
 
 ## Installation
 
-1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.0.9-en.1) and extract the ZIP.
+1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.0.10-en.1) and extract the ZIP.
 2. Save any unsent content and quit ChatGPT.
 3. Double-click **Install-Repair.cmd**. The installer checks the official signature, version, and file hashes, then builds the repair and keeps rollback backups.
 4. Use **ChatGPT** in the Start menu afterward. A visible verification window appears briefly before the app starts.
@@ -26,6 +26,7 @@ Run **Check-Environment.cmd** to check compatibility first. To install without s
 | Startup and history lists | Prefer existing titles; bound and cache long-preview parsing in the main and renderer processes. |
 | Long sessions | Bound performance records, release empty listener collections and consumed log records, and enforce the existing idle-history capacity target. |
 | Conversation rendering | Reuse unchanged history conversions and metadata parsing; avoid computing an unused Work summary in ordinary chats. |
+| Reading position | Restore where you left off together with measured message heights; measure the latest long reply earlier and let user scrolling take priority. |
 | Messages and images | Identify internal retrieval images correctly, retain streaming content, and preserve the natural aspect ratio of a single image. |
 | File citations | Use compact chips for uploaded PDF, Markdown, HTML, spreadsheet, and other references; retain full cards for generated downloads. |
 | Project settings | Successful reference-file-only changes enable Save; pending operations block saving and failed changes retain the native error path. |
@@ -51,7 +52,7 @@ Run **Check-Environment.cmd** to check compatibility first. To install without s
 
 Composer recovery preserves the native submit, archive, sharing, and access checks. Idle cleanup protects active, viewed, observed, approval-blocked, and history-loading tasks.
 
-See [what's new in 1.0.9](docs/UPDATES_1_0_9.md). Earlier progressive previews and search improvements are also included.
+See [what's new in 1.0.10](docs/UPDATES_1_0_10.md). Earlier side-panel, preview, and search improvements are also included.
 
 ## Restore
 

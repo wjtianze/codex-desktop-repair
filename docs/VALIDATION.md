@@ -10,7 +10,7 @@ Other versions and architectures are rejected before installation. The installer
 
 ## Test coverage
 
-The English 1.0.9 edition passes 385 automated checks covering patch application, installation and restore, draft persistence, request scheduling, rendering, model previews, and side-panel actions. Code block checks cover both generic and dedicated ChatGPT components. A separate browser layout check verifies stable geometry.
+The English 1.0.10 edition passes 397 automated checks covering patch application, installation and restore, draft persistence, request scheduling, reading-position restoration, rendering, model previews, and side-panel actions. Code block checks cover both generic and dedicated ChatGPT components. A separate browser layout check verifies stable geometry.
 
 Automated tests use synthetic data and cannot cover every conversation, device, or long-running session. See [known issues](AUDIT.md) for remaining limits.
 
