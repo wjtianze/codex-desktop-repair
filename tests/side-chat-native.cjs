@@ -1,0 +1,10 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');
+const s=fs.readFileSync('build/fixtures/render/patches/side-chat.js','utf8'),start=s.indexOf('async function Qe('),end=s.indexOf('function $e(',start),calls=[];
+const scope={get:()=>false};
+const ctx={H:'native-side-chat-instructions',T:'instructions',x:async()=>['C:/parent'],Me:async()=>({instructions:'parent-instructions'}),Fe:async(...args)=>{calls.push(['fork',args]);return{conversationId:'forked',synchronization:{status:'ready'}}},__localStartSideConversation:async(...args)=>{calls.push(['start',args]);return{status:'created',conversationId:'fresh',firstTurn:{status:'not-requested'}}},ne:()=>Error('creation-outcome-unknown')};
+const create=vm.runInNewContext(s.slice(start,end)+';Qe',ctx);
+(async()=>{
+const result=await create({scope,sourceConversationId:null,cwd:null,hostId:'local',parentNavigationPath:'/'});assert.equal(result.conversationId,'fresh');const params=calls[0][1][2];assert.deepEqual(Array.from(params.input),[]);assert.deepEqual(Array.from(params.workspaceRoots),[]);assert.equal(params.sideConversation.parentNavigationPath,'/');assert.equal(params.useAppServerPermissionDefault,true);assert.equal(params.additionalDeveloperInstructions,'native-side-chat-instructions');console.log('PASS Parentless side chat creates an empty ephemeral native thread with original permissions');
+calls.length=0;assert.equal((await create({scope,sourceConversationId:'parent',cwd:'C:/parent',hostId:'local'})).conversationId,'forked');assert.equal(calls[0][0],'fork');assert.equal(calls[0][1][2].sourceConversationId,'parent');assert.equal(calls[0][1][2].ephemeral,true);console.log('PASS Existing local conversation retains native fork and side-conversation instructions');
+ctx.__localStartSideConversation=async()=>({status:'outcome-unknown'});await assert.rejects(create({scope,sourceConversationId:null,hostId:'local'}),/outcome-unknown/);console.log('PASS Unconfirmed thread creation is surfaced instead of retried');
+})().catch(e=>{console.error(e);process.exitCode=1});
