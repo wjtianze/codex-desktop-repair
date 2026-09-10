@@ -8,7 +8,7 @@ This is the English edition of [wjtianze/codex-desktop-repair](https://github.co
 
 ## Installation
 
-1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.0.10-en.1) and extract the ZIP.
+1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.0.11-en.1) and extract the ZIP.
 2. Save any unsent content and quit ChatGPT.
 3. Double-click **Install-Repair.cmd**. The installer checks the official signature, version, and file hashes, then builds the repair and keeps rollback backups.
 4. Use **ChatGPT** in the Start menu afterward. A visible verification window appears briefly before the app starts.
@@ -32,6 +32,8 @@ Run **Check-Environment.cmd** to check compatibility first. To install without s
 | Project settings | Successful reference-file-only changes enable Save; pending operations block saving and failed changes retain the native error path. |
 | Work activity | Keep thought summaries in native process disclosures and ordinary progress reports visible; show only the latest plan snapshot in each group. |
 | Live Chat summaries | Expand when the first summary arrives, preserve later manual collapse, and retain Thinking when the server has not supplied content. |
+| Message navigation | Preview and jump between user messages in Chat, floating Quick Chat, and Side chat; appears after four prompts and reserves space in narrow windows. |
+| Side chat message actions | Edit completed prompts or regenerate answers in a new branch, keeping the original conversation and attachments. |
 | Quick Chat message actions | Native edit and regenerate controls preserve attachments, branches, and model options while respecting busy and read-only states. |
 | Historical timers and current progress | Close historical activity, show the current turn independently, and recover its snapshot after prolonged inactivity. |
 | Save As downloads | Choose the destination before downloading, show a busy state, transfer bounded chunks, and commit only after completion. |
@@ -52,7 +54,7 @@ Run **Check-Environment.cmd** to check compatibility first. To install without s
 
 Composer recovery preserves the native submit, archive, sharing, and access checks. Idle cleanup protects active, viewed, observed, approval-blocked, and history-loading tasks.
 
-See [what's new in 1.0.10](docs/UPDATES_1_0_10.md). Earlier side-panel, preview, and search improvements are also included.
+See [what's new in 1.0.11](docs/UPDATES_1_0_11.md). Earlier side-panel, preview, and search improvements are also included.
 
 ## Restore
 
