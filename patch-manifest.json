@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
-  "releaseVersion": "1.0.11-en.1",
-  "performanceRevision": 15,
+  "releaseVersion": "1.0.14-en.1",
+  "performanceRevision": 18,
   "sidebarVersion": "1.1.0",
   "packageName": "OpenAI.Codex",
   "packageVersion": "26.901.6511.0",
@@ -1905,6 +1905,22 @@
         }
       ],
       "patchedSHA256": "0a932ef92f7e94be49467aa23f31fbb372753697daa971cee917b283e4ae8a93"
+    },
+    {
+      "id": "prompt-rail",
+      "entry": "webview/assets/thread-user-message-navigation-rail-app-3b2a67daad6b.js",
+      "originalSHA256": "fbc95847a70449d144e25b4797c809cc0b95469fd61f453f4915a8e2bdeeb980",
+      "preprocess": null,
+      "operations": [
+        {
+          "offset": 2659,
+          "deleteBytes": 5,
+          "removedSHA256": "a21db08350ee4a5ccc8a7d299513c7aba8e3ea8f25c02fd611b7f19da12d115f",
+          "insert": "patches/prompt-rail/compact-threshold.txt",
+          "insertSHA256": "87c42ae34f8648c75726a56ff96b7f8c3931d7bb7609b1bac8d1478e74fd94eb"
+        }
+      ],
+      "patchedSHA256": "b12de197cf7ad928cd1c5f0f084496a31e8ede23b5a31a0e5bc6c408fa041819"
     }
   ],
   "assets": {
@@ -1929,7 +1945,7 @@
     "assets/local-frame-resize-v1.mjs": "279bac0283ff54ae29f331fad596d7be16dcc92e93a2dd97297d4ad3f460cb86",
     "assets/local-chat-scroll-memory-v1.mjs": "e730b987ddb52aa2be671a444e387de8491a59ceb3b8181670e45635ce924cc9",
     "assets/local-side-chat-actions-v1.mjs": "581c7691c4075ffcd508d48411c1fa69c953f8215e3ccfd9630a6dd0fa7a7858",
-    "assets/local-chat-prompt-rail-v1.mjs": "c1bd85062e4d3b350f84a5f3c2a3d68ef3c9fa65729513580738acffd513ecf1"
+    "assets/local-chat-prompt-rail-v1.mjs": "6f662bfafb23e6baef957bf6950892ee955610bbfc52fcb6209f87dc01c02d31"
   },
   "addedArchiveEntries": {
     "webview/assets/local-composer-recovery-v1.js": "assets/local-composer-recovery-v1.mjs",
@@ -1957,15 +1973,15 @@
   "language": "en",
   "expectedBuilds": {
     "full": {
-      "archiveSHA256": "d01f9bb7645f5cd557786272a12819bd8063f24f4cad58a885bc60640dcd7f18",
-      "executableSHA256": "ffba032656fe4295ba97e80b6ee1cca587e5f18ef271412c999b75c8ed4cc3b9",
-      "archiveHeaderSHA256": "721289729840d5b4187d1778b51d8e36e3f45fc6a049582893f1ffa5f2ccd586",
+      "archiveSHA256": "63222aa3baed12fc657bf9c6d3d49588624c702d041c95f85a8b4ec37ef09f42",
+      "executableSHA256": "a3500157113ddd37983effe8c1eeed2b6c89eb88ced6b9406bb688b0c19e77e5",
+      "archiveHeaderSHA256": "5f867b4388adce75773a9a94fddc5c5733c1080dc1daf99eb60ad13aa5f76ff6",
       "verifiedPackedEntries": 8813
     },
     "performanceOnly": {
-      "archiveSHA256": "d518f7cbd0e2941ab6599c63371528d3f227fe56829b629ecaafdf038911ae9d",
-      "executableSHA256": "720e1501f01ab111244db83f749709c99e9e41ed15c18d3bad88d445a4882911",
-      "archiveHeaderSHA256": "543fbf35dbf30559111cebfc3723ad9682b70964fb7abd260402d69e66db540e",
+      "archiveSHA256": "04bb87da076134a1f5a01e3572eddbb0f95b40afef297baa485de94e6d762daa",
+      "executableSHA256": "06c5a4618e2bbb8a3594b4151097ff2ed00cfb7f2649b5857b649c7edd53de8e",
+      "archiveHeaderSHA256": "d8c594e4b05b79a2c4278fa7de2fa62c9c86b6439ac0a1d86d7fc24ca1095a02",
       "verifiedPackedEntries": 8812
     }
   }

@@ -1,0 +1,1 @@
+>=(e.hasAttribute(`data-local-compact-prompt-rail`)?Math.max(0,31.5-(parseFloat(getComputedStyle(t).paddingLeft)||0)):48)}
