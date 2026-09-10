@@ -1,0 +1,1 @@
+sourceConversationId:t,...__localForkTurn==null?{}:{lastTurnId:__localForkTurn},threadSource:n,cwd:r,workspaceRoots:c

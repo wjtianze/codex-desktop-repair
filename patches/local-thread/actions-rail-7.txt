@@ -1,0 +1,1 @@
+(T.kind===`local`&&T.placement===`side`?__localSidePromptRail:DD,{containerRef:qe,conversationId:e,enabled:H||Te,getItems:xt
