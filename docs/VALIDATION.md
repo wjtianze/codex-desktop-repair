@@ -10,7 +10,7 @@ Other versions and architectures are rejected before installation. The installer
 
 ## Test coverage
 
-The English 1.0.14 edition passes 417 automated checks covering patch application, installation and restore, draft persistence, request scheduling, reading-position restoration, rendering, model previews, and side-panel actions. Code block checks cover both generic and dedicated ChatGPT components. Browser checks also cover narrow and wide layouts, native marker expansion, the visible gap beside the text, scaled windows, independent scrolling, and cleanup. Side-chat checks cover branch ownership, history projection, input preservation, and duplicate submission protection.
+The English 1.0.15 edition passes 421 automated checks covering patch application, installation and restore, draft persistence, request scheduling, reading-position restoration, rendering, model previews, and side-panel actions. Code block checks cover both generic and dedicated ChatGPT components. Browser checks also cover narrow and wide layouts, native marker expansion, the visible gap beside the text, scaled windows, independent scrolling, and cleanup. Side-chat checks cover branch ownership, history projection, input preservation, and duplicate submission protection.
 
 Automated tests use synthetic data and cannot cover every conversation, device, or long-running session. See [known issues](AUDIT.md) for remaining limits.
 
@@ -32,3 +32,5 @@ node tests/code-header-layout.cjs
 ```
 
 Generated native resources and results stay in the local `build/` directory and are not included in release downloads.
+
+The fresh temporary Side chat path was also exercised against the installed App Server with synthetic questions: both editing and regeneration returned the expected context-dependent answer while preserving the original test conversation. This does not replace every UI or long-session acceptance check.

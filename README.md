@@ -8,7 +8,7 @@ This is the English edition of [wjtianze/codex-desktop-repair](https://github.co
 
 ## Installation
 
-1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.0.14-en.1) and extract the ZIP.
+1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.0.15-en.1) and extract the ZIP.
 2. Save any unsent content and quit ChatGPT.
 3. Double-click **Install-Repair.cmd**. The installer checks the official signature, version, and file hashes, then builds the repair and keeps rollback backups.
 4. Use **ChatGPT** in the Start menu afterward. A visible verification window appears briefly before the app starts.
@@ -64,7 +64,7 @@ The installation directory is **%LOCALAPPDATA%\ChatGPT-PerformanceFix**. Backups
 
 ## Compatibility and known issues
 
-See the [1.0.14 release notes](docs/UPDATES_1_0_14.md), [compatibility and testing](docs/VALIDATION.md) for supported versions and local checks, and [known issues](docs/AUDIT.md) for problems this repair does not fully resolve.
+See the [1.0.15 release notes](docs/UPDATES_1_0_15.md), [compatibility and testing](docs/VALIDATION.md) for supported versions and local checks, and [known issues](docs/AUDIT.md) for problems this repair does not fully resolve.
 
 Some long-session delays and system-wide freezes remain unresolved. If the backend is unresponsive, Stop may still wait for a response. After an unexpected exit, keep the separate draft file and its backup; save unsent text before returning to an older version.
 
