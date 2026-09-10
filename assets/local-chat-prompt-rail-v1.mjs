@@ -59,8 +59,9 @@ export function createChatPromptRail({React,jsx,Native}) {
         const textLeft=(content.getBoundingClientRect().left-hostBounds.left)/(hostScale||1)+padding;
         host.style.setProperty('--local-prompt-rail-left',`${Math.max(-8,textLeft-40-host.clientLeft)}px`);
       };
-      measure();const observer=new ResizeObserver(measure);observer.observe(scroll);
-      return()=>{observer.disconnect();style.remove();if(oldRailLeft)host.style.setProperty('--local-prompt-rail-left',oldRailLeft);else host.style.removeProperty('--local-prompt-rail-left');if(compactAttribute===null)scroll.removeAttribute('data-local-compact-prompt-rail');else scroll.setAttribute('data-local-compact-prompt-rail',compactAttribute);if(hostAttribute===null)host.removeAttribute('data-local-compact-prompt-rail-host');else host.setAttribute('data-local-compact-prompt-rail-host',hostAttribute);if(applied){content.style.marginLeft=oldMargin;content.style.width=oldWidth}if(attribute===null)content.removeAttribute('data-thread-user-message-navigation-content');else content.setAttribute('data-thread-user-message-navigation-content',attribute)};
+      measure();let frame=null;
+      const observer=new ResizeObserver(()=>{frame??=requestAnimationFrame(()=>{frame=null;measure()})});observer.observe(scroll);
+      return()=>{observer.disconnect();if(frame!==null)cancelAnimationFrame(frame);style.remove();if(oldRailLeft)host.style.setProperty('--local-prompt-rail-left',oldRailLeft);else host.style.removeProperty('--local-prompt-rail-left');if(compactAttribute===null)scroll.removeAttribute('data-local-compact-prompt-rail');else scroll.setAttribute('data-local-compact-prompt-rail',compactAttribute);if(hostAttribute===null)host.removeAttribute('data-local-compact-prompt-rail-host');else host.setAttribute('data-local-compact-prompt-rail-host',hostAttribute);if(applied){content.style.marginLeft=oldMargin;content.style.width=oldWidth}if(attribute===null)content.removeAttribute('data-thread-user-message-navigation-content');else content.setAttribute('data-thread-user-message-navigation-content',attribute)};
     },[containerRef,items.length>=4]);
     const reveal=React.useCallback(async item=>{
       const root=containerRef?.current??marker.current?.parentElement;

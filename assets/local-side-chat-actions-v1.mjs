@@ -30,20 +30,49 @@ export function useSideChatMessageActions(React, options) {
   return {onEdit:options.isSide&&options.enabled&&!pending?edit:undefined};
 }
 
-export async function branchSideChatTurn({sourceId,turn,message,openBranch,getManager,isBranchOpen,seedBranch,edit}) {
+export async function sideChatReplayItems(turns,readImage) {
+  const items=[];
+  for(const turn of turns) {
+    if(turn.status==='inProgress'||turn.itemsPagination?.hasLoadedOldest===false)throw Error('The earlier side-chat history is not ready.');
+    const content=[];
+    for(const input of turn.params?.input??[]) {
+      if(input.type==='text')content.push({type:'input_text',text:input.text});
+      else if(input.type==='image')content.push({type:'input_image',image_url:input.url});
+      else if(input.type==='localImage')content.push({type:'input_image',image_url:await readImage(input.path)});
+      else if(input.type==='skill'||input.type==='mention')content.push({type:'input_text',text:`[${input.type}: ${input.name??''}](${input.path})`});
+      else throw Error('This side-chat input cannot be copied: '+input.type);
+    }
+    if(content.length)items.push({type:'message',role:'user',content});
+    for(const item of turn.items??[])if(item.type==='agentMessage'&&typeof item.text==='string'&&item.text)items.push({type:'message',role:'assistant',content:[{type:'output_text',text:item.text}]});
+  }
+  return items;
+}
+
+export async function branchSideChatTurn({sourceId,turn,sourceTurns=[turn],message,openBranch,getManager,isBranchOpen,seedBranch,edit}) {
   if(!turn?.turnId||turn.status==='inProgress')throw Error('A completed turn is required.');
-  const snapshot=structuredClone(turn);
+  const selected=sourceTurns.findIndex(item=>item.turnId===turn.turnId);
+  if(selected<0)throw Error('The selected side-chat turn is unavailable.');
+  const snapshot=structuredClone(turn),prefix=structuredClone(sourceTurns.slice(0,selected));
+  const sourceManager=getManager();
+  const items=await sideChatReplayItems(prefix,async path=>{
+    const {dataBase64}=await sourceManager.sendRequest('fs/readFile',{path});
+    const ext=path.split('.').pop().toLowerCase(),mime=({png:'image/png',jpg:'image/jpeg',jpeg:'image/jpeg',webp:'image/webp',gif:'image/gif'})[ext];
+    if(!mime||typeof dataBase64!=='string')throw Error('The earlier image could not be copied.');
+    return `data:${mime};base64,${dataBase64}`;
+  });
   const child=await openBranch(turn.turnId,async id=>{
     if(!id||id===sourceId)throw Error('The side-chat branch must be a new conversation.');
     const manager=getManager();
-    if(manager.getConversation(id)?.historyMode!=='paginated'||manager.getStreamRole(id)?.role!=='owner')throw Error('The new side chat is not ready.');
-    // The fork includes this exact completed turn. Seed its existing native
-    // projection so editLastUserTurn can retain its inputs and attachments.
-    seedBranch(manager,id,snapshot);
+    const state=manager.getConversation(id);
+    if(!state?.ephemeral||!state.sideConversation||manager.getStreamRole(id)?.role!=='owner')throw Error('The new side chat is not ready.');
+    // Ephemeral threads have no rollout to fork or revert. Copy earlier visible
+    // exchanges into a fresh temporary thread, excluding the selected answer.
+    if(items.length)await manager.sendRequest('thread/inject_items',{threadId:id,items});
+    seedBranch(manager,id,snapshot,prefix);
   });
   if(!child||child===sourceId||!isBranchOpen(child))throw Error('The new side chat was closed.');
   const manager=getManager();
-  if(manager.getStreamRole(child)?.role!=='owner'||manager.getConversation(child)?.historyMode!=='paginated')throw Error('The new side chat is unavailable.');
+  if(manager.getStreamRole(child)?.role!=='owner'||!manager.getConversation(child)?.ephemeral)throw Error('The new side chat is unavailable.');
   await edit(child,turn.turnId,message);
   return child;
 }

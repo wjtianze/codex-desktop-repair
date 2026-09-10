@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
-  "releaseVersion": "1.0.14",
-  "performanceRevision": 18,
+  "releaseVersion": "1.0.15",
+  "performanceRevision": 19,
   "sidebarVersion": "1.1.0",
   "packageName": "OpenAI.Codex",
   "packageVersion": "26.901.6511.0",
@@ -94,7 +94,7 @@
       "id": "initial",
       "entry": "webview/assets/app-initial-f87238153a19.js",
       "originalSHA256": "44ceeb9cadac569f6217e288c0e09fceeca712d749862887ea36baf6019ea966",
-      "patchedSHA256": "05365224e9b0b56b5125edc6443668f92e9fefb30357624f2aece5ee6a8cc1fd",
+      "patchedSHA256": "a30a4e2d2ea4fa9d1b82abbc087e3cbbbd4475fed6b823118b0906d0b5f0152b",
       "preprocess": "lf-to-crlf",
       "operations": [
         {
@@ -207,7 +207,7 @@
           "deleteBytes": 19,
           "removedSHA256": "838861c4383e491bfadc440c4716f920288e9ecfcb569b915912e5d33f508191",
           "insert": "patches/initial/side-action-seed.txt",
-          "insertSHA256": "96521c676b963771d088f8ff2f3556812515d003d27418174599b0f9efa1b4e1"
+          "insertSHA256": "6dce9985a390938743c9a76aa3e965fae7a33d749d489881f8943d9018d2e18b"
         },
         {
           "offset": 2897053,
@@ -215,6 +215,20 @@
           "removedSHA256": "8548ba454ba637b1ac4693b6687e10eb6dbf8da82c4b10e59105dc636f0fc7fc",
           "insert": "patches/initial/actions-rail-51.txt",
           "insertSHA256": "af11e5862cd1b97aad0db7fda5fb28339a3e282c07426148682acaeb25064fe5"
+        },
+        {
+          "offset": 2897268,
+          "deleteBytes": 41,
+          "removedSHA256": "57ae65cfd75d391dea363d0029b5ea62a285b9e99123cbf94c2b8451d34892ec",
+          "insert": "patches/initial/side-fresh-guard.txt",
+          "insertSHA256": "c63ec84c5c6cc82e7fe45517287e65b54964883162b4dadf73ff45c2c3e107f1"
+        },
+        {
+          "offset": 2897748,
+          "deleteBytes": 48,
+          "removedSHA256": "9e466d66a3bb2b7902b8f7d7ca7ca8571e08c5a56f7d34bea7440624cd85a1b8",
+          "insert": "patches/initial/side-fresh-submit.txt",
+          "insertSHA256": "da3fd29c45177a7079fa3dbc6c60affead26ab7655e2f447020a4a2777b86d67"
         },
         {
           "offset": 3042399,
@@ -1827,7 +1841,7 @@
           "deleteBytes": 71,
           "removedSHA256": "1ba1cf77da53fa2c8501bc4cd4d49b5ab2256738bd2abd0b09eee9e395eff4ac",
           "insert": "patches/local-thread/actions-rail-1.txt",
-          "insertSHA256": "7c62d6929671f1e8706e89bff5aed209bef90cec87a1c5d09a8d14dea84c64e1"
+          "insertSHA256": "c449fff937bbe685c6c102be5f5c5fcf4859f60ed1ccae5d2d3000173db5b38a"
         },
         {
           "offset": 331050,
@@ -1851,7 +1865,7 @@
           "insertSHA256": "7a5477369c2ad9869b99d105ab7bdf15314d6973540fa1e3ec6c4a514973eb88"
         }
       ],
-      "patchedSHA256": "c0cf51313448f580d30eb120ac67470a158003ed538f2a00c4fb6f9113ec30e3"
+      "patchedSHA256": "95d86a6e6f993b5ae56334a302d2fc0a962857053a2a30a66d96f5aa615a53a4"
     },
     {
       "id": "local-turn",
@@ -1944,8 +1958,8 @@
     "assets/local-draft-persistence-v1.cjs": "651b823a743c918227b2c6c22481ca317d159cdfc2bbdce42b48431e3216f2bb",
     "assets/local-frame-resize-v1.mjs": "279bac0283ff54ae29f331fad596d7be16dcc92e93a2dd97297d4ad3f460cb86",
     "assets/local-chat-scroll-memory-v1.mjs": "e730b987ddb52aa2be671a444e387de8491a59ceb3b8181670e45635ce924cc9",
-    "assets/local-side-chat-actions-v1.mjs": "b314aff6d211a9edb27858e6c2b86a0f4f9f39f3988db725bb679ec17ff2644f",
-    "assets/local-chat-prompt-rail-v1.mjs": "6f662bfafb23e6baef957bf6950892ee955610bbfc52fcb6209f87dc01c02d31"
+    "assets/local-side-chat-actions-v1.mjs": "ff5eec4c64b9ad6124942c9e093a5a1e9b5e6cbfb94e5c0f484351675b67f733",
+    "assets/local-chat-prompt-rail-v1.mjs": "bb8b9482cd12ec768eee285b815588ffa4e4a8dd559b82e540a79a7cac1a1dee"
   },
   "addedArchiveEntries": {
     "webview/assets/local-composer-recovery-v1.js": "assets/local-composer-recovery-v1.mjs",
@@ -1972,15 +1986,15 @@
   },
   "expectedBuilds": {
     "full": {
-      "archiveSHA256": "82d5773ebb34ee0240338e4ad89ad41eacc9ee2ba7badae485260e0c923fd7f2",
-      "executableSHA256": "cc72b16c35c1997daf7ecfe6b140e08b4fc00e26550e9d12f8f8a91e0b656986",
-      "archiveHeaderSHA256": "211e5f7df037af2377d204ba224ec6b09558cecec33213ad8977a2fee631e0b4",
+      "archiveSHA256": "54cd0d69925b473c7e8af2664a06e06091803ece8d3b9c775679ac86cc01e7d6",
+      "executableSHA256": "5504e1ed772cd7b7ccffcacb99d00898af345bbcf36164106539d9b7d33f26ac",
+      "archiveHeaderSHA256": "3c802f61bea3894b179f02425afaf0f3ce6e17cb94839f4fb546611184051a50",
       "verifiedPackedEntries": 8813
     },
     "performanceOnly": {
-      "archiveSHA256": "74d18f83f3f2749defb7632777045499c5a041999bb8ddb264b0ee9680a09392",
-      "executableSHA256": "da7c50b846e1e2e4cd9bd8bda0bfc07a10380ba6f182c592fcfa72d051dcbd5d",
-      "archiveHeaderSHA256": "51d533f3536c632969baab1cc20842f00f5cc89c1748655287d0ea5c7348bae1",
+      "archiveSHA256": "d534f1958fe8fb75c3da53399a189218e470b7d972f34a2a364a1d8d3ff0b53a",
+      "executableSHA256": "114f38b458cf3a881e2e2cbd9d7f6910178ca5e28f76dc70e4f8541b083db510",
+      "archiveHeaderSHA256": "01bb998759708fb2bd9705c328e09ef864905d0364809fa95b4dd50a5674a077",
       "verifiedPackedEntries": 8812
     }
   }
