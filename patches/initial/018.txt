@@ -1,1 +1,1 @@
-preview=__localPartialVisualization(e,!1);if(preview)return preview;let t=fR(e);return t==null?(e.startsWith(`${_R}visualize${Qjr}`)||e.startsWith(`${_R}genui${Qjr}`))?{typ
+preview=__localPartialVisualization(e,!1);if(preview)return preview;let t=MR(e);return t==null?(e.startsWith(`${_R}visualize${Qjr}`)||e.startsWith(`${_R}genui${Qjr}`))?{type

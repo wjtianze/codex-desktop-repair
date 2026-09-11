@@ -1,1 +1,1 @@
-d||n.__localSideReplay===!0&&__localIsFreshSideAction(c,o.turnId)||ccn(c.historyMode,`Editing messages`);
+d||n.__localSideReplay===!0&&__localIsFreshSideAction(c,o.turnId)||eln(c.historyMode,`Editing messages`);

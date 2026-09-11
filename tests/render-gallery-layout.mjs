@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';
-const root=new URL('../build/fixtures/render/',import.meta.url),cases=[];function factory(file){const s=fs.readFileSync(new URL(file,root),'utf8'),a=s.indexOf('function OWn('),b=s.indexOf('var kWn',a);assert.ok(a>=0&&b>a);return vm.runInNewContext(s.slice(a,b)+';OWn')}
+const root=new URL('../build/fixtures/render/',import.meta.url),cases=[];function factory(file){const s=fs.readFileSync(new URL(file,root),'utf8'),a=s.indexOf('function yYn('),b=s.indexOf('var bYn',a);assert.ok(a>=0&&b>a);return vm.runInNewContext(s.slice(a,b)+';yYn')}
 const before=factory('raw/primary.js'),after=factory('patches/primary.js'),plain=factory('patches/primary-performance.js');const normalize=x=>JSON.parse(JSON.stringify(x));function test(name,fn){fn();cases.push(name);console.log('PASS '+name)}
 const ratio=1055/1491,input={containerWidthPx:400,imageAspectRatios:[ratio]};
 test('The exact poster no longer enters square crop because of floating-point roundoff',()=>{assert.equal(before(input).aspectRatio,'square');const r=after(input);assert.equal(r.aspectRatio,'natural');assert.ok(Math.abs(r.heightPx*ratio-400)<1e-8);assert.ok(r.heightPx>400)});

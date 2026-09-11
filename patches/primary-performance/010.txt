@@ -1,1 +1,1 @@
-"aria-busy":f||void 0,
+"aria-label":f?c.formatMessage({id:`chatgpt.contentReferences.file.downloading.ariaLabel`,defaultMessage:`Downloading {fileName}`,description:`Accessible label for a file save in progress`},{fileName:m}):D,"aria-busy":f||void 0,color:o===`artifact-row`

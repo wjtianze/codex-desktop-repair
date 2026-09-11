@@ -1,1 +1,1 @@
-e)||this.hasActiveConversationView(e)||this.hasOwnedStreamFollowers(e)||this.shouldKeepConversationLoaded(t)){t
+e)||this.hasActiveConversationView(e)||this.hasOwnedStreamFollowers(e)||this.shouldKeepConversationLoaded(t)){this

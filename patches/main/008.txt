@@ -1,1 +1,1 @@
-return __localClampPrimaryBounds(e,this.getPrimaryMinimumSize(),l.screen.getAllDisplays())}flushPendingM
+return __localClampPrimaryBounds(e,this.getPrimaryMinimumSize(),l.screen.getAllDisplays())}flushPendingMessages

@@ -1,1 +1,1 @@
-!0,sidebarMode:a}),titleActionsOnHover:!1,child
+!0,sidebarMode:a}),titleActionsOnHover:!1,children

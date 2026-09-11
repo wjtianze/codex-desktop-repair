@@ -1,1 +1,1 @@
-__localWorkSync=__localUseWorkProgressSync(Q,{scope:u,conversationId:r,serverId:O,enabled:Be,busy:F,mapping:M,currentNode:te,refresh:__localReadWorkProgress}),
+let at=$a(it),__localWorkSync=__localUseWorkProgressSync(Q,{scope:u,conversationId:r,serverId:j,enabled:tt,busy:L,mapping:se,currentNode:re,refresh:__localReadWorkProgress}),H=

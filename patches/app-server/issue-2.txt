@@ -1,1 +1,1 @@
-getNextRequestIndex(){if(this.inFlightRequests.size>=SK)return-1;let control=this.queuedRequests.findIndex(r=>r.method===`turn/interrupt`||r.method===`turn/steer`);if(control!==-1)return control;if(this.inFlightRequests.size>=SK-2)return-1;
+getNextRequestIndex(){if(this.inFlightRequests.size>=mK)return-1;let control=this.queuedRequests.findIndex(r=>r.method===`turn/interrupt`||r.method===`turn/steer`);if(control!==-1)return control;if(this.inFlightRequests.size>=mK-2)return-1;

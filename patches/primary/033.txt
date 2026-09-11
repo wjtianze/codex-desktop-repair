@@ -1,1 +1,1 @@
-__localHistoryFilter.filterItems(tt,__historyMode),{chatOrder:G,chatSortMode:k,customSectionItemKeys:re,includeChatGptProjects:b,
+xFe(__localHistoryFilter.filterItems(Qe,__historyMode),{chatOrder:U,chatSortMode:O,customSectionItemKeys:te,includeChatGptProjects:b,

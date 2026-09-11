@@ -1,21 +1,21 @@
 {
   "formatVersion": 1,
-  "releaseVersion": "1.0.15-en.1",
-  "performanceRevision": 19,
+  "releaseVersion": "1.1.0-en.1",
+  "performanceRevision": 20,
   "sidebarVersion": "1.1.0",
   "packageName": "OpenAI.Codex",
-  "packageVersion": "26.901.6511.0",
-  "appVersion": "26.901.51231",
+  "packageVersion": "26.903.9818.0",
+  "appVersion": "26.903.71938",
   "architecture": "x64",
-  "originalArchiveSHA256": "e75bae2b8a02f174c7ceeed6d631aaff355e44f8af5c798fa3628089f11d659e",
-  "originalExecutableSHA256": "814e9fbd141cfa2aaefa33220bc3a7170824e18089946bf1947617597353851d",
-  "bundledNodeSHA256": "11f2669f72571b718251c9a634d6cf623c788eb2ac27ee010711789c1890659a",
+  "originalArchiveSHA256": "5d9b0399491060b2756fca70c2e5cca746fa8eb38372b7ad8f236dc69bda0bc6",
+  "originalExecutableSHA256": "49e7e8f5db0a4c8a12a666b70dac40e0e88a1873d02e8aafb82c3e8cabeca49c",
+  "bundledNodeSHA256": "aa55bdbc4df9f0880beff1d468d4e182156b4134f2322e1b57889d7d17a287cd",
   "files": [
     {
       "id": "main",
-      "entry": ".vite/build/main-DpnWwRdP.js",
-      "originalSHA256": "2863c5b445ee465a1943e9ef431c824d1b0dd78fa72d11790bb53f5ee8bc67bb",
-      "patchedSHA256": "adcd250da3a11633cd33dae4cc6bdd887cc779d437f9f036b7f07115673cef5e",
+      "entry": ".vite/build/main-CMBCj4XL.js",
+      "originalSHA256": "471f06dfcda15de10196f701504244c6f412d7ed401c155efc56a427a89a3195",
+      "patchedSHA256": "0b0882ee9af3e12b2919051fe5fb3526be7ba24f156fabd38fbf0a986041d6b1",
       "preprocess": null,
       "operations": [
         {
@@ -26,63 +26,63 @@
           "insertSHA256": "3b5eeff1700778f7e3bc7b9fdf671cb9844dd01eba24288fef6e4ac78458f0f2"
         },
         {
-          "offset": 722455,
-          "deleteBytes": 290,
-          "removedSHA256": "de739a311e9183f57362bc3eb3910acdb53bc1c95f932a0f380cb6ad640652e2",
+          "offset": 720564,
+          "deleteBytes": 293,
+          "removedSHA256": "3a22db59dab14c7a8c05fa2983204c78924fdb9857095a5b1cc43080d27374e2",
           "insert": "patches/main/001.txt",
-          "insertSHA256": "ff7a54334e3204b29ed8807aca727c96251162d78ac17cc4806a85167f496c80"
+          "insertSHA256": "daf50084ce98c1c977df32ba6b144efa7f16a2d218f3c56e20affb8273cd3a2f"
         },
         {
-          "offset": 1006180,
+          "offset": 1006623,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/main/002.txt",
           "insertSHA256": "fa65b1f6bdda4ae783f080c312b0ceb7b60edade6b9325ecffcbe08f606677e2"
         },
         {
-          "offset": 1965247,
+          "offset": 1976707,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/main/003.txt",
           "insertSHA256": "8416c6f90224fcd124ac9402865577b59b7672052383bbf2c7f4626ac9e9e3d1"
         },
         {
-          "offset": 1969179,
+          "offset": 1980639,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/main/004.txt",
-          "insertSHA256": "5427cfc73209fcd7ffdcb50610a3719fe3480ed8b622c2547a5f2b930a4cef26"
+          "insertSHA256": "625620fdd7b598c24306b6fe5ffdc4dd818fbebcfe5bb93c3831415bc89bcb47"
         },
         {
-          "offset": 2763354,
-          "deleteBytes": 128,
-          "removedSHA256": "031fd52ebdcc427342a89e290e0ccb1f3392c7e05921f6ffaf8668cb51d38b7c",
+          "offset": 2786839,
+          "deleteBytes": 130,
+          "removedSHA256": "35833557fcfe3257dddd09a7865b2476579bd77540655a6665a5cdb7c59a338b",
           "insert": "patches/main/005.txt",
-          "insertSHA256": "4f6ba9e4b73b4e66ec8ec08173f1da2fda1982b8471d18b77adaf0ebf1d2b5aa"
+          "insertSHA256": "88591eba2fb586bc2372de6ba6a05f6d2e0761f4cf9d6c9dc6d47246479cf370"
         },
         {
-          "offset": 2988420,
+          "offset": 3011905,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/main/006.txt",
           "insertSHA256": "4ed0de370cde394d3e1f8fb6a251939feb546f825f691f701672cf5d7adc7fb6"
         },
         {
-          "offset": 3004666,
+          "offset": 3028175,
           "deleteBytes": 32,
           "removedSHA256": "ba0efaef523f8fecc7a48038e52cf2464d80cad7ff00fb25212f992f39ff7ffb",
           "insert": "patches/main/007.txt",
           "insertSHA256": "36e9bc752277f80f5b1be556ae296954d65aecfb90bd47505e72dd8e62029347"
         },
         {
-          "offset": 3007097,
-          "deleteBytes": 128,
-          "removedSHA256": "365fcbd0d911a9c77a9e8f5248b8813334e8db50c592c887b419df6c51e25326",
+          "offset": 3030606,
+          "deleteBytes": 135,
+          "removedSHA256": "bfe7913688276825175e7ec719898f0412644f5cad5ecb797dbb47e5a7e8c9ea",
           "insert": "patches/main/008.txt",
-          "insertSHA256": "2a08d2a6597bdc12effba9036fe7740c68ebc056f62ba99cc996ce82af2876e5"
+          "insertSHA256": "2e95b1e4e54ca7c8e1457d40674d3550b85795f1450cbf22fb22c61b049cc212"
         },
         {
-          "offset": 3011402,
+          "offset": 3034911,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/main/009.txt",
@@ -92,17 +92,17 @@
     },
     {
       "id": "initial",
-      "entry": "webview/assets/app-initial-f87238153a19.js",
-      "originalSHA256": "44ceeb9cadac569f6217e288c0e09fceeca712d749862887ea36baf6019ea966",
-      "patchedSHA256": "a30a4e2d2ea4fa9d1b82abbc087e3cbbbd4475fed6b823118b0906d0b5f0152b",
-      "preprocess": "lf-to-crlf",
+      "entry": "webview/assets/app-initial-f094ef01c64d.js",
+      "originalSHA256": "364622097d1440b55bcd85b1068245a773f5821f4fd6c1e2de73e5789487c75a",
+      "patchedSHA256": "dfe49fa5b6c17976af07e6d86d19de2041834e1fc73b44b2f00e8707683ce7d2",
+      "preprocess": null,
       "operations": [
         {
           "offset": 0,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/000.txt",
-          "insertSHA256": "5136f3e11ac25ec60c659002ba248d79f513292481e803bd058f738afb30e949"
+          "insertSHA256": "4dec767759558c852c60dea8eedf23d66f9f66f878e643e6c8c24f97d6a62200"
         },
         {
           "offset": 0,
@@ -112,383 +112,383 @@
           "insertSHA256": "7f5ef4684938601b16c5cd92fa87b732d01eeee40556782054633fe43a605fd6"
         },
         {
-          "offset": 635089,
+          "offset": 635926,
           "deleteBytes": 21,
           "removedSHA256": "b0666a9770dea5655dc0a4c89b3587d403f7d49033f513ada77893d7fed1a3de",
           "insert": "patches/initial/issue-49.txt",
           "insertSHA256": "3f61cceea58bc583fa01786d158b3900277485ae6b31bfc0ed9a1e15cbd9ccc4"
         },
         {
-          "offset": 1478690,
+          "offset": 1478789,
           "deleteBytes": 37,
           "removedSHA256": "eec70285193db322bde6bad7f196b0f4ec07f0df1310c9117698db5fbd02a2c2",
           "insert": "patches/initial/issue-47.txt",
           "insertSHA256": "0341d9aca1c43794005f8f3cfe8090871dd19f632f4f188a67cca5e24631c96d"
         },
         {
-          "offset": 1514290,
+          "offset": 1514389,
           "deleteBytes": 46,
           "removedSHA256": "8ab5fc800da76264d8667b89139dad5faadf961f39b1dd5b6df10fe4f3b7ce90",
           "insert": "patches/initial/issue-48.txt",
           "insertSHA256": "cee6deab03abb305972bbea15841ccf731b5fe56e0f1cd5ee35bfeced1e549e7"
         },
         {
-          "offset": 2539054,
+          "offset": 2550739,
           "deleteBytes": 48,
           "removedSHA256": "b9f05fbb693f5c5f20d5aaffad139bc14a33517a6e0369ef482e78930254e80c",
           "insert": "patches/initial/001.txt",
           "insertSHA256": "23c042f34af694dfe35ae19bcaed9aacfc67203e70f558ce5f33cb4969e2532a"
         },
         {
-          "offset": 2541709,
-          "deleteBytes": 64,
-          "removedSHA256": "7930d5ea7d17af83fd27326bd345d4fa7a76f07d80cd39ac3ae41e59c88db26d",
+          "offset": 2553394,
+          "deleteBytes": 84,
+          "removedSHA256": "565d1347f5bb0435b6199266fa2779d14794b3a67b54e7c252c42c503f8452c3",
           "insert": "patches/initial/002.txt",
-          "insertSHA256": "860d1600d36bb002cb8d713887bde1a8cc647b3664e95d14ae14a4509d48e878"
+          "insertSHA256": "827165f0ae75b1b591c3d46125ee83d75cdf097930e3c3679602f89b9fdc9ba9"
         },
         {
-          "offset": 2542865,
-          "deleteBytes": 64,
-          "removedSHA256": "31e243e753a4928f7ffdab72313ddd1c64b21e078e67a7ea63dbf67c0ce64ba6",
+          "offset": 2554550,
+          "deleteBytes": 71,
+          "removedSHA256": "ead210a4fc96b69aa59711b7978ed8294f66c20602a68707d6b7b4551a9484b1",
           "insert": "patches/initial/003.txt",
-          "insertSHA256": "7f62aa337925e8f61dc75c8a00f3c3019c3d3a5319a194cfbb3991161adc89b9"
+          "insertSHA256": "70c977362c0fb8b3281044ad693201b17e7280d5e9221a3d0f4b131acd20dcfb"
         },
         {
-          "offset": 2667525,
-          "deleteBytes": 1,
-          "removedSHA256": "1b16b1df538ba12dc3f97edbb85caa7050d46c148134290feba80f8236c83db9",
+          "offset": 2682483,
+          "deleteBytes": 3,
+          "removedSHA256": "37e508288011c897910aa97324316afad9919f07609a29065cada488ef2339e4",
           "insert": "patches/initial/004.txt",
-          "insertSHA256": "863cb08bd92f838a9cdc188901b21dfc8f1772acc79576863b8d368b59e06fd7"
+          "insertSHA256": "df11ef542c6ab7e94c051814434ad62ea19618520c84d556d593e70f0091fcd3"
         },
         {
-          "offset": 2667677,
+          "offset": 2682635,
           "deleteBytes": 33,
-          "removedSHA256": "f002d976874f750d50b2eccb67d996415c623f71bbe5ab2d139c1dce351bc15e",
+          "removedSHA256": "c36772a4570a768050ebf1559834efd8157c87f8b676f202c9a8dd1b0aaf7d1a",
           "insert": "patches/initial/005.txt",
-          "insertSHA256": "29da1f5835f5fff87b56a24c3fdaa84d54649b915e8b94ab3de4c2af3d720363"
+          "insertSHA256": "62d647ece68e850b3a0fdfd3279bddc8f82921112381a18d00763e51638795ac"
         },
         {
-          "offset": 2698824,
+          "offset": 2714192,
           "deleteBytes": 16,
           "removedSHA256": "89c901d80b166e961617b0294bf20972eb65f738f3788aafdc2b80cfe914f172",
           "insert": "patches/initial/006.txt",
           "insertSHA256": "1079213ddc781f0b62b2cd2d74c764e530763967087f6571e86ce6a8fc06a2e7"
         },
         {
-          "offset": 2698911,
+          "offset": 2714279,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/007.txt",
           "insertSHA256": "994e801b61318265447b30837ebdb2c399781674dedc79fe4fada990fbb462b6"
         },
         {
-          "offset": 2699140,
+          "offset": 2714508,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/008.txt",
           "insertSHA256": "994e801b61318265447b30837ebdb2c399781674dedc79fe4fada990fbb462b6"
         },
         {
-          "offset": 2768728,
-          "deleteBytes": 160,
-          "removedSHA256": "fd8ae7b48703f945f126e1c688031b44ad784ddc14e106e7236a1f662c54298d",
+          "offset": 2783297,
+          "deleteBytes": 163,
+          "removedSHA256": "c2fed2b501a857ab8dbbdc3e7aa729f1e87663536992a08c0d71cd08f6269058",
           "insert": "patches/initial/009.txt",
-          "insertSHA256": "e9571ec2f055e4a38ddefa23540da854dac99279727535dd4049c3e546b1ff4e"
+          "insertSHA256": "b418c7c8f5df44098e5f8260cf14df04bb4272e8f776871de4397805cc2cca5f"
         },
         {
-          "offset": 2768957,
-          "deleteBytes": 1872,
-          "removedSHA256": "2d5a9fe5b7cd1cf450f3ef011d6ed527352cc9198bd0d5f834d8c5f40ca61a1d",
+          "offset": 2783529,
+          "deleteBytes": 1875,
+          "removedSHA256": "4722bf2e846422359e8317faa1239b3f87b99daaa136425a264f6d56e5403fe4",
           "insert": "patches/initial/010.txt",
-          "insertSHA256": "7b2dc265fb1d6b0c411864ce2a55fcd8c154c2c8ec121447ca9a7392362e6f82"
+          "insertSHA256": "29a6099d832389e195b2850245e115d1b8bf3c734fd404f966fc6add4b9f3718"
         },
         {
-          "offset": 2896267,
+          "offset": 2910993,
           "deleteBytes": 19,
-          "removedSHA256": "838861c4383e491bfadc440c4716f920288e9ecfcb569b915912e5d33f508191",
+          "removedSHA256": "1ba21edcbd67d380c3f1f3a805567532a503e7aa5be59879d1e88ce591b7f590",
           "insert": "patches/initial/side-action-seed.txt",
-          "insertSHA256": "6dce9985a390938743c9a76aa3e965fae7a33d749d489881f8943d9018d2e18b"
+          "insertSHA256": "b369df7ae37b7aedee50a93ce7288a2139d87d3314231f230e95ecae44c2b08e"
         },
         {
-          "offset": 2897053,
+          "offset": 2911779,
           "deleteBytes": 42,
           "removedSHA256": "8548ba454ba637b1ac4693b6687e10eb6dbf8da82c4b10e59105dc636f0fc7fc",
           "insert": "patches/initial/actions-rail-51.txt",
           "insertSHA256": "af11e5862cd1b97aad0db7fda5fb28339a3e282c07426148682acaeb25064fe5"
         },
         {
-          "offset": 2897268,
+          "offset": 2911994,
           "deleteBytes": 41,
-          "removedSHA256": "57ae65cfd75d391dea363d0029b5ea62a285b9e99123cbf94c2b8451d34892ec",
+          "removedSHA256": "4db007ecaf75409dde39a0ca4f4123b9f499970711cb6cec707b801b00f1bd4d",
           "insert": "patches/initial/side-fresh-guard.txt",
-          "insertSHA256": "c63ec84c5c6cc82e7fe45517287e65b54964883162b4dadf73ff45c2c3e107f1"
+          "insertSHA256": "bd174fe87948e4198d3cf568ba4edc609bdd064ee1954a446cacf628f2cc32d5"
         },
         {
-          "offset": 2897748,
+          "offset": 2912474,
           "deleteBytes": 48,
           "removedSHA256": "9e466d66a3bb2b7902b8f7d7ca7ca8571e08c5a56f7d34bea7440624cd85a1b8",
           "insert": "patches/initial/side-fresh-submit.txt",
           "insertSHA256": "da3fd29c45177a7079fa3dbc6c60affead26ab7655e2f447020a4a2777b86d67"
         },
         {
-          "offset": 3042399,
-          "deleteBytes": 64,
-          "removedSHA256": "cb2220c98b98579060102b797afb213d9907c4794e3d87a9d1aa5728432ce446",
+          "offset": 3060153,
+          "deleteBytes": 65,
+          "removedSHA256": "615eee2dd90673b8d503f35ba05a2caeba6bae6885ea316d8cd4d35f06e3da43",
           "insert": "patches/initial/011.txt",
-          "insertSHA256": "73fd90a7a0db90dd3d56202da06ae0b700861f4df50323aef810fff1e9e9fb08"
+          "insertSHA256": "953d54bd1590e8bc4e5976fa56f519e5f409e74b903c1c5b48bb77994185559b"
         },
         {
-          "offset": 3399820,
+          "offset": 3419198,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/012.txt",
           "insertSHA256": "3e74f3b878444148ef3c7b8b7f08bda7335ab72298f5887a328275960195a21d"
         },
         {
-          "offset": 3400940,
+          "offset": 3420318,
           "deleteBytes": 192,
           "removedSHA256": "a9b4ecdfe7406d9040dc23509689f0fb73524719b52a5d7ec6c5ec6a0359dfe7",
           "insert": "patches/initial/013.txt",
           "insertSHA256": "4c442afb34f44a07fc92d21140bd2bd3ed85ec8c8a88e20a315ff99adfd41664"
         },
         {
-          "offset": 3402274,
+          "offset": 3421652,
           "deleteBytes": 112,
           "removedSHA256": "a3402c8c4b37e67963ac930a3b8136b8fc42e0c40a44b495aae5ed84badbb633",
           "insert": "patches/initial/014.txt",
           "insertSHA256": "d827dc62d7d1167136dc8866858f5b12fc45ef27d5748c7b1ec1035e745d3bd9"
         },
         {
-          "offset": 3402517,
+          "offset": 3421895,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/015.txt",
           "insertSHA256": "fc3269b041119f01bd54443b648896efad81902661092249a97b1ec63f973044"
         },
         {
-          "offset": 3402821,
+          "offset": 3422199,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/016.txt",
           "insertSHA256": "23db109a6b7930670533ffab4798fcf4edcb40065e0f4226e0e9dc5cbd7cfe09"
         },
         {
-          "offset": 4409890,
+          "offset": 4457498,
           "deleteBytes": 1,
           "removedSHA256": "e3b98a4da31a127d4bde6e43033f66ba274cab0eb7eb1c70ec41402bf6273dd8",
           "insert": "patches/initial/017.txt",
           "insertSHA256": "0a5011cf5ed9818f7fd7b5f0d4acdfb790e878571fdfc9cf590acfee000df63a"
         },
         {
-          "offset": 4410005,
-          "deleteBytes": 64,
-          "removedSHA256": "68661d95fc88e18d63020835c5b3287133b905d107762edd489040f2ab199921",
+          "offset": 4457613,
+          "deleteBytes": 65,
+          "removedSHA256": "19f976b72f8d0a93b5e3d943041bb208389e3bf76b549605cbce0dfd82fb20cb",
           "insert": "patches/initial/018.txt",
-          "insertSHA256": "b5151c0958d38748d2412b1de7db3aaaaaebd3123f9dd4a438cbfd2e9e08fc09"
+          "insertSHA256": "071d2dacf971b641f748dbc920eff9a0b902df1ed7d31319a97a7d0e94697a8a"
         },
         {
-          "offset": 4410811,
+          "offset": 4458418,
           "deleteBytes": 1,
           "removedSHA256": "e3b98a4da31a127d4bde6e43033f66ba274cab0eb7eb1c70ec41402bf6273dd8",
           "insert": "patches/initial/019.txt",
           "insertSHA256": "3a16c67d6bea5d51bb9fa7087a3b295b40290e7c8e293b67e5a96550fbed5e8c"
         },
         {
-          "offset": 4419409,
-          "deleteBytes": 48,
-          "removedSHA256": "f4525475259674a3955270bbcf7848d95de3d1d83c10221d3c45ca3b9c561e92",
+          "offset": 4467075,
+          "deleteBytes": 51,
+          "removedSHA256": "d6ba7da6ed7ceac9289a098307c637ff525ed615df769c59bc2b4ce86028833a",
           "insert": "patches/initial/020.txt",
-          "insertSHA256": "1a0f0661a5eb6dc9650c64bca50df4a1f45e39afeb0732116952a669a45a2116"
+          "insertSHA256": "28030eb1294bee7c6b0e8ff10cf21d3e43116b13978c9c7c48a3fa4201a1e052"
         },
         {
-          "offset": 4582886,
+          "offset": 4634187,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/021.txt",
           "insertSHA256": "eb9d73866fa17bfc1d7331e33e95985e2690631438ebcd5a1c8f1c184f9429be"
         },
         {
-          "offset": 4593677,
+          "offset": 4645027,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/022.txt",
           "insertSHA256": "7d8fbd21b325262c974f48030f69dbcd49bdd206cf2591a42f029314ca439761"
         },
         {
-          "offset": 4595781,
+          "offset": 4647130,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/023.txt",
           "insertSHA256": "522ac244e40eedbaea33c2cf50cd4681b1388c023a96fe3ca55d5160662fa09f"
         },
         {
-          "offset": 4597095,
+          "offset": 4648444,
           "deleteBytes": 32,
-          "removedSHA256": "73ec9d3c1f62bd95bed814cf7405faa40ca8893847240edd899b9576222f71a0",
+          "removedSHA256": "dc428ede13f414752bbd620a903b3838b461842357f0692caa575527a4c6a538",
           "insert": "patches/initial/024.txt",
-          "insertSHA256": "4c6295b6602c1d15f945e3627df39420a3efbc88b6fee221941afc5e96c017ff"
+          "insertSHA256": "c499c199fd1179544896294cdde0fff68bc3ea8d39c05ccb07b4ba4ce11b487d"
         },
         {
-          "offset": 4608372,
+          "offset": 4659780,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/025.txt",
-          "insertSHA256": "0be5947163d248eab4f8426180d5ae8947c3bbb53c794f7f5f8bd9800552c066"
+          "insertSHA256": "01e530ffa3521bdbf0e0d2ec66415f34902bc3d4a06959c9ce445e502b98bd2f"
         },
         {
-          "offset": 4608588,
+          "offset": 4659996,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/026.txt",
-          "insertSHA256": "07bf3a29d17c05862929d215302ec05d31f4ecc89de374191235b85398748bec"
+          "insertSHA256": "7f83616e0d6c3ae6fead91bd5600a111996a9fb6e09b65e5b8df2de2617cb380"
         },
         {
-          "offset": 4653766,
+          "offset": 4708257,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/027.txt",
           "insertSHA256": "783e821e1c3ae02673650281ae6b5a44bdfc9dc913e50216fde772c6cafe128c"
         },
         {
-          "offset": 4671389,
+          "offset": 4725965,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/028.txt",
           "insertSHA256": "efcf5d23d7520eabda750b9fce861ecab31f52b0d496f1188e3ee07f62108de5"
         },
         {
-          "offset": 4828164,
+          "offset": 5334328,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/029.txt",
           "insertSHA256": "56c96e1c943e2578ef59fe6757aa52425d27257b15a710f40588bfeb91df947e"
         },
         {
-          "offset": 5389070,
+          "offset": 5494863,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/030.txt",
           "insertSHA256": "bad855fe50f61db28467baeab82e5dfd36018f6539a00d011da6831018589ba7"
         },
         {
-          "offset": 5393879,
+          "offset": 5499809,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/031.txt",
           "insertSHA256": "d81e0f991cb4a23a66856da98b3d300bdc550d6b45d2d4b0517df30565825aca"
         },
         {
-          "offset": 5394537,
+          "offset": 5500477,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/032.txt",
-          "insertSHA256": "24d0c0b1475aca85df03e8d0fda5c537f3efb152004079efaee1eed2596784cf"
+          "insertSHA256": "57199f595b3e85cd3ef797ee4016f91b33ac8995d0719e21bbe4366b94015f58"
         },
         {
-          "offset": 5394744,
+          "offset": 5500684,
           "deleteBytes": 1,
           "removedSHA256": "65c74c15a686187bb6bbf9958f494fc6b80068034a659a9ad44991b08c58f2d2",
           "insert": "patches/initial/033.txt",
-          "insertSHA256": "56006d1761b2b4f1e6a617b1f7660dc7ec41f918ca059dd9ecb8e4e66d0450dd"
+          "insertSHA256": "bc486ff9c0fac53f6dd1fdf0f6bf9f2304827bbe402c20acfdc7ecf570a2e892"
         },
         {
-          "offset": 5395001,
+          "offset": 5500941,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/034.txt",
-          "insertSHA256": "a7b4139ca9188e58a621e1988322b68a7b89a503a5ba88171821f2d32d87c8af"
+          "insertSHA256": "459e9bf349298bb362dbd0b17614d56b233db556e9eec0d17fbe9dfae5af4406"
         },
         {
-          "offset": 6608946,
+          "offset": 6757151,
           "deleteBytes": 35,
-          "removedSHA256": "68cc4203115c4ee38b08ef34cb4478c32dc5e2da3ca8d041128c156d17262085",
+          "removedSHA256": "875990477bcea7d107a75e61452cf04211596dd85b489394d948bfec78b7c6bf",
           "insert": "patches/initial/perf-41.txt",
-          "insertSHA256": "0771109f2ed8c1848157140beaa29dcbfc3b847d07951e9f813faf1f0e8afef5"
+          "insertSHA256": "c793d993a17b7d68a8c8a7ecf473fb93e62b7d732e3ba3616a29740245c6cade"
         },
         {
-          "offset": 6610649,
+          "offset": 6758854,
           "deleteBytes": 20,
-          "removedSHA256": "afa21b7dd1d91562c37902c75b983ccb314ce55cd9c9db0aae9f0280cab9dba5",
+          "removedSHA256": "36071275b42aa6173d5ecfb6518bf419676a0bf38eacfddc9a53f2ed33b28165",
           "insert": "patches/initial/perf-42.txt",
-          "insertSHA256": "dd8f453e3adfb75c5dac60543b660fdc27220b80140c99025e3afe1d72445f25"
+          "insertSHA256": "d846b9fe8cf587691d14d1d18fedd312011a2f29fef6e83d1223662dad0e5bd4"
         },
         {
-          "offset": 6610780,
+          "offset": 6758985,
           "deleteBytes": 26,
-          "removedSHA256": "4f3086693d36029c3b80ef71fd97f04622bf681cc1790c68828b515804536f23",
+          "removedSHA256": "db06c0fb4ce54926aeb1fc0dcf6efe60f328496291fd8cff5e6722640bae2bb7",
           "insert": "patches/initial/perf-43.txt",
-          "insertSHA256": "d223ddf7e82661b694d8a6f59abe1cadeb0afb1e7e2e9bbc8a01c4ffbd89014b"
+          "insertSHA256": "ebff892bc618e1d9bb88d31253caa9e4372f2cc32c8b282280cb248bb84a8546"
         },
         {
-          "offset": 6610912,
+          "offset": 6759117,
           "deleteBytes": 50,
           "removedSHA256": "863f67a83328d619f391b82363f87cea24fbdf105ae80a97157bf14e6d24d681",
           "insert": "patches/initial/perf-44.txt",
           "insertSHA256": "153025efe7873ab03e9aa06406b2b0c38efb1aaf1a34ad32f96fc7f9b7411cf6"
         },
         {
-          "offset": 6611021,
+          "offset": 6759226,
           "deleteBytes": 15,
           "removedSHA256": "902703d1df195f869cb10f06000ce1519f1a6eb7e5cbd95553f151db5e202da2",
           "insert": "patches/initial/perf-45.txt",
           "insertSHA256": "05a12df2c24d149a299dbc017a0af0fdd2cd5d8ff0e5e9e8dc29fb1b0fb1afba"
         },
         {
-          "offset": 6701797,
+          "offset": 6850206,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/035.txt",
           "insertSHA256": "e3be2947089cae687619dfe4a214cfd0c4d0bc1224cfcfbdbf9c6e9131dd1061"
         },
         {
-          "offset": 6820552,
-          "deleteBytes": 0,
-          "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "insert": "patches/initial/036.txt",
-          "insertSHA256": "142df309097d19f456807112d0ebd20726daed84dda0ac7d795bbabeb51c7acd"
-        },
-        {
-          "offset": 6829946,
-          "deleteBytes": 48,
-          "removedSHA256": "afb0fd70f41a941bf9446ba7429268421989871390b37d189d41eea83a2473b3",
-          "insert": "patches/initial/037.txt",
-          "insertSHA256": "7494df9cb31f431fcea96ca91cc2dfc9e37bf3279c8b4342d82ae4366ef7bb3c"
-        },
-        {
-          "offset": 6830075,
-          "deleteBytes": 16,
-          "removedSHA256": "c237b17934b17368a169c40db524949c528f97c66f4ba27711ce75e8ab99e2de",
-          "insert": "patches/initial/038.txt",
-          "insertSHA256": "9507e020d14317c5517718c2816feee08f71d0f8af56b3e187bff503f3ba0021"
-        },
-        {
-          "offset": 6830621,
+          "offset": 6965803,
           "deleteBytes": 32,
-          "removedSHA256": "2fbd12dcc714fdb7f8187372631862757ac838a77116d8e1a88f34c97ca92fb9",
-          "insert": "patches/initial/039.txt",
-          "insertSHA256": "0fb68c39699a983708a6d69541b11f0a62ecf521c0296d9f03a50425c43c579c"
+          "removedSHA256": "3a0093feffb6db36c04be441c42028dfb716ba78e998e2eca2a7d82fbc2e5829",
+          "insert": "patches/initial/036.txt",
+          "insertSHA256": "0652029af770e6dd903729deab6251a651a848526a88b4b47558993465319950"
         },
         {
-          "offset": 8440249,
+          "offset": 6974988,
+          "deleteBytes": 55,
+          "removedSHA256": "cd90f93ced39f681ff0741b836f35b85e039acc8429f22136ded975545785ec1",
+          "insert": "patches/initial/037.txt",
+          "insertSHA256": "c2cdd6f96a11a99a319bb4d7fe2edf75ec62581ee5012d45c17519e88d1dd722"
+        },
+        {
+          "offset": 6975117,
+          "deleteBytes": 19,
+          "removedSHA256": "51aa4f11bca8a6821969d47d4a56b4eed9569660b38b634331c021b422710c6b",
+          "insert": "patches/initial/038.txt",
+          "insertSHA256": "a1b67457e0b486b2c49fa79aa9a3f14372f1933dc750eda850088d57e467d5ff"
+        },
+        {
+          "offset": 6975663,
+          "deleteBytes": 36,
+          "removedSHA256": "53f9a7ebabb10d8b8142c63fa4f04ce11ba5d666601174640fcd95ff4ad6e1aa",
+          "insert": "patches/initial/039.txt",
+          "insertSHA256": "265cc5ae8805ac22cfa842a4fd3365326a0d3c2d9ee0c9011b28009025ae2de5"
+        },
+        {
+          "offset": 8605274,
           "deleteBytes": 111,
           "removedSHA256": "4c3ec0da1d840cc7c3a004b1ab7f4027bb5e3f439e60165142c800041eafe21f",
           "insert": "patches/initial/issue-50.txt",
           "insertSHA256": "43b5be36cb98400e40c8cb2a2152e515aee5379425f063b7e690fa875669c974"
         },
         {
-          "offset": 10309216,
+          "offset": 10488982,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/040.txt",
-          "insertSHA256": "c725e7cb840d46706b25bb1032609aa2ac9a9f2b4ae44f49d09239ba94d7fdd1"
+          "insertSHA256": "4ee0dd277931a2011894fc3a363a70b1de6242e66addf59627724c35a86ccf17"
         }
       ]
     },
     {
       "id": "primary",
-      "entry": "webview/assets/app-primary-428a0a65766f.js",
-      "originalSHA256": "b901ac16b6d81e888e1a5a44f4c6d97ef00c1814212ac6a3ecd4e069e76d9acd",
-      "patchedSHA256": "f66d5aa181bf4473f565137b004635a35d77df02909325ed1664d9ad5137b701",
+      "entry": "webview/assets/app-primary-4c40d73a1074.js",
+      "originalSHA256": "5d74fae9c8de625668fce42ed66eb57539114243be93afaa288a8758551206bb",
+      "patchedSHA256": "917b2c3125d7f5bd96fd132458452b9089933915ce86d922d6c83377d5e7888e",
       "preprocess": null,
       "operations": [
         {
@@ -496,315 +496,307 @@
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/primary/000.txt",
-          "insertSHA256": "c95c1cb22c3bdc1f795f17475731ff43ac562096c8473c1c960eb9c895352f83"
+          "insertSHA256": "c0c9e1ffd15897caf29f4addde388768289cfa3f991ff07048128a04702c2d94"
         },
         {
-          "offset": 1734400,
+          "offset": 1739039,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/primary/001.txt",
           "insertSHA256": "2cf5a5d923a61fd4f6415a96b946d3d0be7929b6e055664306e55dcf0b380942"
         },
         {
-          "offset": 1759207,
+          "offset": 1763971,
           "deleteBytes": 16,
-          "removedSHA256": "bd7736f6ab14383ec12973854883b7d83dca57857a643a56c9d50a2151a74e0c",
+          "removedSHA256": "670650b1c8be65aa667a6c554e1097097f2ea52fe7203d1044750c98f434d408",
           "insert": "patches/primary/002.txt",
-          "insertSHA256": "616d4bdc54810120965c7487db6c01490d5b7eabfe7666271f32b89309cc4493"
+          "insertSHA256": "0cb04cc980f3321bc375f20c637ad87414ae51320abb0385520c98fe2d24e935"
         },
         {
-          "offset": 2014781,
+          "offset": 2021338,
           "deleteBytes": 16,
           "removedSHA256": "8f2413047eb8eba34a16b2c47ca592c87deedb69aadd25a76f7504338462f5f5",
           "insert": "patches/primary/003.txt",
           "insertSHA256": "3c3f258e82f3b4a566e829725bbb60c6743df90019e27800c5c3bdd88043db5b"
         },
         {
-          "offset": 2015056,
+          "offset": 2021610,
           "deleteBytes": 112,
-          "removedSHA256": "c2f8226b3ebdf74807c0a2a1d1eef1f19789be5bc65847f64e6e2523c9e10fad",
+          "removedSHA256": "b56017b145576c63988e2f589ff9b488282980c1cfc5bd21f182c85e5d9c83d4",
           "insert": "patches/primary/004.txt",
-          "insertSHA256": "1439ff13079f16f0e9f2311bd7a299f78d44941c8661a841434ad8d72cad0f41"
+          "insertSHA256": "1d96c656c6288d0daa2cf80e5d992cbe3edf395462cc65893d933addcd15097e"
         },
         {
-          "offset": 2015235,
-          "deleteBytes": 16,
-          "removedSHA256": "058ca61a213894e4609b4bae6c9a5a8e4ee96e44d85b884809621569c99e0a2c",
+          "offset": 2021789,
+          "deleteBytes": 26,
+          "removedSHA256": "baff9b2b103d5ecf4afa03f4442204809b82ccdb7351d891c88d4b8cc9d51b80",
           "insert": "patches/primary/005.txt",
-          "insertSHA256": "c9a4768af8dccd502fac258674340cf43788a76472beab3b2a8df1a1bb77dea2"
+          "insertSHA256": "a4ac862c61c50e455c96a49d8aba395dae22a9032a5b5fe02d7ccfc9a71b1552"
         },
         {
-          "offset": 3091733,
+          "offset": 3114777,
           "deleteBytes": 48,
-          "removedSHA256": "f0155c959a61f67eb8786024bb0bae7ed86096dbe8450513989cfb8ed3fc4a8c",
+          "removedSHA256": "e12d420cd780f0bd8bad48ca8df3535a181224122d1634e295a1a7151292d31e",
           "insert": "patches/primary/006.txt",
           "insertSHA256": "5232dd84dbbe6dde501f7f5b61b1fb34a18490b5177c46be534270a8c3adebd1"
         },
         {
-          "offset": 3378557,
+          "offset": 3401939,
           "deleteBytes": 16,
-          "removedSHA256": "cfe66eef88cd48f1d609cbfc119d109b8f2410151dc4cae99befc7f0ce74c08f",
+          "removedSHA256": "f0077a934945983fc2c87483634460732f7ededfa3d307c1dbd02d03c082837e",
           "insert": "patches/primary/007.txt",
-          "insertSHA256": "d29c94fdaa3343b8888155501da6172ce247c8f57851354dfe7f9c1c7263a98c"
+          "insertSHA256": "95ebc406eba1afd89f1e55c8236b9c6439717695ff98dde20ea5c31c7b8f30ab"
         },
         {
-          "offset": 3378654,
+          "offset": 3402036,
           "deleteBytes": 112,
-          "removedSHA256": "e6a35c60e57bccca7d025203f1ce39e646cbb4b84c97be23b6c3ce4e42807100",
+          "removedSHA256": "dda438ca78a3b2fd4e22f4f35b4b2283a096b07a364a865e39c07cabf44ac311",
           "insert": "patches/primary/008.txt",
           "insertSHA256": "6496e2e340771e963d50e31e1c0e2ad041eaaad8f066ee6433167e6164b6f58f"
         },
         {
-          "offset": 3395821,
-          "deleteBytes": 0,
-          "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "insert": "patches/primary/009.txt",
-          "insertSHA256": "387ebb5948d356b8a6a7091ee10204c14440330ece2bb052f8c324b3171039cf"
-        },
-        {
-          "offset": 3396184,
-          "deleteBytes": 0,
-          "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "offset": 3419983,
+          "deleteBytes": 39,
+          "removedSHA256": "e23e8c3b45649820ef5068cbb0372dab2239795175a8e31990cc90db60284550",
           "insert": "patches/primary/010.txt",
-          "insertSHA256": "e779344126f899d70f8af1eb1bf0daf0e2293fd6db67769643034603bd979df9"
+          "insertSHA256": "f0374fca0d382a1240b2e2ba800c45d29cd10128e5f96a0a5d4bed2cdb21a82a"
         },
         {
-          "offset": 3396289,
+          "offset": 3420214,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/primary/011.txt",
-          "insertSHA256": "39d4926d798582edce7c83d3664f3f161458a672e41e0fd556fb3c59bae031aa"
+          "insertSHA256": "f39c4de7d0b1148ccbfeec4ee9d78d5bc579cab9a37b8bdd9519bd90235ea3dc"
         },
         {
-          "offset": 3398316,
+          "offset": 3422272,
           "deleteBytes": 32,
           "removedSHA256": "32d489e79fdf44770186dd158f8c10d3a86f30c2e5a1ef184f44c06f6defa2d1",
           "insert": "patches/primary/012.txt",
           "insertSHA256": "c5ae87235047ccf6abe05b583a87b31a1e8f648edd044768d388cd6d6f9394ec"
         },
         {
-          "offset": 3398444,
+          "offset": 3422399,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/primary/013.txt",
           "insertSHA256": "639e369efcb5094f906cef4cb74a71c5b2892b8e145326567efd7e819eb18648"
         },
         {
-          "offset": 3688451,
-          "deleteBytes": 16,
-          "removedSHA256": "6e6d44f38e41c0363f6f2cb745de3f85e3b986d232b6bef5817a4e327537b7b6",
+          "offset": 3750775,
+          "deleteBytes": 20,
+          "removedSHA256": "82374f7b13f539e37c2eddd0f6e6c4a580502b87a3e73397acf8ad5ed30158f6",
           "insert": "patches/primary/014.txt",
-          "insertSHA256": "49653c69b7f33e98ce986cbf833a7a59aed0985725e5115204359c0a941bbb37"
+          "insertSHA256": "3c11d25e7577ea440a9536c44391bf74994d59ce1f44bbcf2be1cff8e5c62373"
         },
         {
-          "offset": 3725692,
-          "deleteBytes": 16,
-          "removedSHA256": "bc85694e3e218b2cbc10866ce32dbc77e285c7c0e32a486c57842db1d91ad612",
+          "offset": 3788098,
+          "deleteBytes": 21,
+          "removedSHA256": "0cb3667eba3b49ff9b6cec2e9c894ff35222702ad1c447394ecf9962e41b56b8",
           "insert": "patches/primary/015.txt",
-          "insertSHA256": "141dc1d8a462ff86dd27cb023bff6a78473bde2554032473f5b2e38d2e0a78ee"
+          "insertSHA256": "790599373be5596c45d84138f2ebb04fed1cf2cf936ccba7603219e7f50d7815"
         },
         {
-          "offset": 3802263,
+          "offset": 5781838,
           "deleteBytes": 32,
           "removedSHA256": "438bf9e356aa8e0750ce1f8ffa656a733c714901ae7dff925f5dd645b2877d7f",
           "insert": "patches/primary/016.txt",
           "insertSHA256": "0ab7d1da219b84ecd8ea71d23170dfc823d64e8a3f953f7a000ad29894ee4fd5"
         },
         {
-          "offset": 5586237,
+          "offset": 5823147,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/primary/017.txt",
-          "insertSHA256": "85a3b78cfe9ab2a66d7a3f017d0ffa8696bc7ba1e9ce8d37c863c265f2c34b92"
+          "insertSHA256": "10931f1d2cbd7c1c1ab1456c17b95591cfc49fd172b2c3fbd9dee21ad00bdd81"
         },
         {
-          "offset": 5586331,
-          "deleteBytes": 0,
-          "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "offset": 5823183,
+          "deleteBytes": 58,
+          "removedSHA256": "a81c0c1fca53cfc8ffcab5a0d608551a15686d11540442efbc92a546c550d60f",
           "insert": "patches/primary/018.txt",
-          "insertSHA256": "3d043fccd3f0d6b6ff3abd91c9fde2bc1b89e46baacd97db073d64fcbc75e720"
+          "insertSHA256": "c150369494d8842d9c4187d181864551540ae986a16c6b3f57abd506883a26ca"
         },
         {
-          "offset": 5687957,
+          "offset": 5925040,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/primary/019.txt",
-          "insertSHA256": "c4caae2c7c89185496ef1c9175da786daddc9800f05c1d903e527c3b77b762e5"
+          "insertSHA256": "8647f4442a18fe86ad81d3bbf09c4d6aa70436a1a298779431f2204221d1f940"
         },
         {
-          "offset": 5688919,
+          "offset": 5926003,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/primary/020.txt",
           "insertSHA256": "2bdcdf9318e799af462fab75ca548fc56ad387dcf152e7d199d86cf72ecc6638"
         },
         {
-          "offset": 5690486,
-          "deleteBytes": 48,
-          "removedSHA256": "6ae43f3e1adb90430bd7120e4a7ca4fe7a66cd0ce505e19435f0dac0e6192f3a",
+          "offset": 5927568,
+          "deleteBytes": 49,
+          "removedSHA256": "b284059c168b15bd1a6e7736e9b3f996a6617e8fa98d46a271809e8120b3e8a2",
           "insert": "patches/primary/021.txt",
-          "insertSHA256": "e678686554361d09581a40ed59da71877173d98c8d54cb99a62b82ba6be60896"
+          "insertSHA256": "f227251f9f18de053fd604d2f8f6411fd15452710a87fb5d200f4543b506710c"
         },
         {
-          "offset": 5690806,
+          "offset": 5927887,
           "deleteBytes": 16,
           "removedSHA256": "3d12064d0b74f80d062e895e5c3e2ce6d18c1a56851cd8794646e64dc12f9577",
           "insert": "patches/primary/022.txt",
           "insertSHA256": "815d3b0b14f176a6739fe4ad7d760be7a175b77932dcd7fe2c2414cad3081339"
         },
         {
-          "offset": 5691429,
+          "offset": 5928510,
           "deleteBytes": 16,
           "removedSHA256": "718976aec8dbc57cb4eca97c8823245439640fb69620f3bab3b1040eb0508f28",
           "insert": "patches/primary/023.txt",
           "insertSHA256": "edaedf98d115da4132f8e72b3954b6769eb4b3d0242ab907c5f998943f842ac2"
         },
         {
-          "offset": 5692753,
+          "offset": 5929834,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/primary/024.txt",
           "insertSHA256": "011328e0d7061bc4c40ad53366eb57aa5f34e6e8508aee9614e9a6721a073f5a"
         },
         {
-          "offset": 5692893,
+          "offset": 5929974,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/primary/025.txt",
           "insertSHA256": "e5b71d1614ddae7cb92986a9344e2f3dda1cc4f576826463abbd2955bfe5a9c0"
         },
         {
-          "offset": 5694319,
-          "deleteBytes": 32,
-          "removedSHA256": "5a7deff7340def6ece620daf976f8829f410a4674426cc678ac3f90f90c602ac",
+          "offset": 5931401,
+          "deleteBytes": 39,
+          "removedSHA256": "56c3670303b3cf17f0627cb3903013424283832296bc6e330f703f32a0d89365",
           "insert": "patches/primary/026.txt",
-          "insertSHA256": "e177e4e8fbf62526e2b244309e856e0fa7f62e4f7e5a60851751f5cf5bb0c43e"
+          "insertSHA256": "62153c57c1150c2667160c239d83213d095b4c301bdc14ab7f4d3e5049da9ef0"
         },
         {
-          "offset": 5733902,
+          "offset": 5979177,
           "deleteBytes": 16,
           "removedSHA256": "64ddaae1d37fbddc1e98515d2ec8f118f456bd26d3e9bbddc3eaab1233cc84cf",
           "insert": "patches/primary/027.txt",
           "insertSHA256": "65c74c15a686187bb6bbf9958f494fc6b80068034a659a9ad44991b08c58f2d2"
         },
         {
-          "offset": 5734536,
-          "deleteBytes": 1120,
-          "removedSHA256": "45e2d230cdb5d0ee207cd52b64520a0b771c08776bf1cef6930483dd9eb37aa0",
+          "offset": 5979811,
+          "deleteBytes": 1122,
+          "removedSHA256": "cdafaf6fb4b512cb76db0d4750f2ee114ddd6f10728b7df5acfe5ef140205a80",
           "insert": "patches/primary/028.txt",
-          "insertSHA256": "c63855a16f82a14016e7fe1376401e411b1194191e238587dc53916ae8115f7b"
+          "insertSHA256": "e1865c3ffa08dd3a403293809b613aaf10fe3cbfccafff89ec861112153bcaa4"
         },
         {
-          "offset": 6269567,
+          "offset": 6515383,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/primary/029.txt",
-          "insertSHA256": "ace0d37f13e74654e7896472556207bff0999d67d358852ab4c050a8e627a45c"
+          "insertSHA256": "8701558aec8afc4329c498f326ba746c6c3c413c45dcd3a8e5a0f8ff6607d051"
         },
         {
-          "offset": 6270054,
+          "offset": 6515823,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/primary/030.txt",
-          "insertSHA256": "c0f1f4cf4a55a180ca32aa9fe5bee59acea100bc2d40113a66c0f1ae9ea10a8f"
+          "insertSHA256": "a998901f709c52e49a883b3548b9646ac53a9a5e47ae534bb80f6a5bb3ab2b43"
         },
         {
-          "offset": 6270371,
+          "offset": 6516141,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/primary/031.txt",
-          "insertSHA256": "a9f3c9b586ae23f25a038717a220eb1c778f48cc6cacc4b4afa60f0abbf52471"
+          "insertSHA256": "a3cf3df3f2fbf558bff8a1c16d374be638915c46b804f90c28361e9b8bb9e44a"
         },
         {
-          "offset": 6271715,
+          "offset": 6517481,
           "deleteBytes": 16,
-          "removedSHA256": "6d9ec38a38e0859eb659eb08270759363a4408887f3ba39982cbc1b3da22d360",
+          "removedSHA256": "c67b30a4b1bc690246e95cae942f7297d8e86cb8ce444623e9799b8ec789c381",
           "insert": "patches/primary/032.txt",
           "insertSHA256": "3e23e8160039594a33894f6564e1b1348bbd7a0088d42c4acb73eeaed59c009d"
         },
         {
-          "offset": 6274457,
-          "deleteBytes": 96,
-          "removedSHA256": "ff2747adf7688c7046c1ae58c122497db0576afefaa4f39da0b651dfd6d8574d",
+          "offset": 6520260,
+          "deleteBytes": 100,
+          "removedSHA256": "f6f64b7ee4f774d407005eee3b1b978037290f5d67f27a1deefa79696371a0b6",
           "insert": "patches/primary/033.txt",
-          "insertSHA256": "180144cb22d6a864e52e37c6788b3c133d4499472ca4d61d4e204e971441223e"
+          "insertSHA256": "1df3506a0a70c046136cacea3e8f9fd2ded34bc57f6a02de95f0175131d27872"
         },
         {
-          "offset": 6275413,
+          "offset": 6521233,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/primary/034.txt",
-          "insertSHA256": "3c31285a9d453eb9a1fbe83b02d0cf788e80640bdb090036f36b2424c69342be"
+          "insertSHA256": "d281457aceb37ba93fcdba7610d9d63b37fec5067a8ad07525beb3a67657051b"
         },
         {
-          "offset": 6275558,
+          "offset": 6521378,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/primary/035.txt",
-          "insertSHA256": "df9406ef217e87c532da03ba0b1fb6b305fc3a502ea38651d74dc673a4b5ca11"
+          "insertSHA256": "7bd2ccaafa9c3cd310e074042843cdd7250c53b460b8ede90e375abe10205a99"
         },
         {
-          "offset": 6281944,
-          "deleteBytes": 64,
-          "removedSHA256": "1ea421a2281350eca0803a726c87103d83080163eb750b2fcec6fdcad8194b4b",
+          "offset": 6527828,
+          "deleteBytes": 67,
+          "removedSHA256": "6dcb367ae0e0052fe731e4f7f92cb8b39617daa513d5f8992a7f24365dd4da3c",
           "insert": "patches/primary/036.txt",
-          "insertSHA256": "28effab5c3bac8ce43612651b48b2365160edad045aa8cf45078f4eb75d648cd"
+          "insertSHA256": "dfd31b1779e76119b6e032799f2ab3ca7becafc12542fc7a792ea4938b4ffda8"
         },
         {
-          "offset": 6288143,
+          "offset": 6533930,
           "deleteBytes": 16,
-          "removedSHA256": "62c3c625b7bd59c68a10f509ebaf0b53ea131398d694d2b2d138dae79be83c7c",
+          "removedSHA256": "8984620152359cec0ccabb403b24218cc815e21a7332e215ce49ab8f389510e6",
           "insert": "patches/primary/037.txt",
-          "insertSHA256": "c102ac15d53db9663c9511b623d0a0415c0f8d3152cbb62f763d3240d75b09f2"
+          "insertSHA256": "b15419419886c4f7e031afd5dbfee9f965ed3cc992fec1c3950a09bb0eddccb3"
         },
         {
-          "offset": 6289952,
+          "offset": 6535773,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/primary/038.txt",
-          "insertSHA256": "1a10b7a476579b1c604186882f7f6052ccc8443528a588dd7202bb8ded864853"
+          "insertSHA256": "a73e206845d60bc1e70bbd922db85555c7ea347bbdee7ed88d66585368cddd54"
         },
         {
-          "offset": 6750959,
+          "offset": 6985803,
           "deleteBytes": 29,
-          "removedSHA256": "49e9ca3aabb593cbd8944f1926e1a008fae573f64cd6f88bee2b4e0be73f7388",
+          "removedSHA256": "1b7259b8e35270cc09c40e105a9f2ae0363375d14d52808668dea9c48e13ea8f",
           "insert": "patches/primary/model-preview-0.txt",
           "insertSHA256": "d662e83da0ba61f7a5ebba7b4dd6368c8954595484406b7ac199198f18aa2d38"
         },
         {
-          "offset": 6766296,
+          "offset": 7001132,
           "deleteBytes": 18,
           "removedSHA256": "728c6f9d45641b22a11bf1700b2a529aad1d0a8676d72119dce91916daf801d7",
           "insert": "patches/primary/model-preview-1.txt",
           "insertSHA256": "0a00f6063cb3b1fac259f448e8f460042d6df7561a2badde9bf0f9c2bc642ad9"
         },
         {
-          "offset": 6797378,
+          "offset": 7032213,
           "deleteBytes": 80,
           "removedSHA256": "041c0facc19ed172a54c937d6575d84cd1941185eafb20b0dc04cf5a906ed509",
           "insert": "patches/primary/039.txt",
           "insertSHA256": "db8967fca03006f8ad834c0275488f5e27bc6e1196870b4e88354192f83ff61a"
         },
         {
-          "offset": 6798206,
-          "deleteBytes": 64,
-          "removedSHA256": "3139eeece40452bdd99c58cb30916723eee42f69ffa422791d4add14f8a45684",
+          "offset": 7033042,
+          "deleteBytes": 65,
+          "removedSHA256": "1e66865951eff5c4b76d19066322f271d39589ada9d878757f6997c20afc3ea4",
           "insert": "patches/primary/040.txt",
-          "insertSHA256": "7eca92b15d3d2f73cd9dda4ecffa65046577824e725845d110359814ae6cc93a"
+          "insertSHA256": "6b9e705d4582b43561180e64d45183e77deaa5c274c00a3d963188a848861824"
         },
         {
-          "offset": 7950451,
+          "offset": 8187975,
           "deleteBytes": 13,
-          "removedSHA256": "09ba14e2364fd9c0acb7993c90f1d879bfb6f62575c118b6b53412ff50eb6706",
+          "removedSHA256": "f1d11c0494ae7a3d8464cd7aff89839114a62607178839053772d7c479dc29e1",
           "insert": "patches/primary/ui-43.txt",
-          "insertSHA256": "24db2c3e95f2b0242220208b00c58e4855801ea2780e96a88e9665814c2a7fcd"
+          "insertSHA256": "39553b53c0206d3d3c62f9005e451ec45ded362c1af34535de4495be64fdb108"
         }
       ],
       "withoutSidebar": {
-        "id": "primary-performance",
-        "entry": "webview/assets/app-primary-428a0a65766f.js",
-        "originalSHA256": "b901ac16b6d81e888e1a5a44f4c6d97ef00c1814212ac6a3ecd4e069e76d9acd",
-        "patchedSHA256": "34246af506975bea6bed9a84e62aa43d9bf5185dc88c5f210a3c9084829a9c52",
+        "id": "primary",
+        "entry": "webview/assets/app-primary-4c40d73a1074.js",
+        "originalSHA256": "5d74fae9c8de625668fce42ed66eb57539114243be93afaa288a8758551206bb",
         "preprocess": null,
         "operations": [
           {
@@ -815,230 +807,224 @@
             "insertSHA256": "55b9effb8f812e798874f5f19a850bc36cabdc00eded9702b4c9e461eb698d99"
           },
           {
-            "offset": 1734400,
+            "offset": 1739039,
             "deleteBytes": 0,
             "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
             "insert": "patches/primary-performance/001.txt",
             "insertSHA256": "2cf5a5d923a61fd4f6415a96b946d3d0be7929b6e055664306e55dcf0b380942"
           },
           {
-            "offset": 1759207,
+            "offset": 1763971,
             "deleteBytes": 16,
-            "removedSHA256": "bd7736f6ab14383ec12973854883b7d83dca57857a643a56c9d50a2151a74e0c",
+            "removedSHA256": "670650b1c8be65aa667a6c554e1097097f2ea52fe7203d1044750c98f434d408",
             "insert": "patches/primary-performance/002.txt",
-            "insertSHA256": "616d4bdc54810120965c7487db6c01490d5b7eabfe7666271f32b89309cc4493"
+            "insertSHA256": "0cb04cc980f3321bc375f20c637ad87414ae51320abb0385520c98fe2d24e935"
           },
           {
-            "offset": 2014781,
+            "offset": 2021338,
             "deleteBytes": 16,
             "removedSHA256": "8f2413047eb8eba34a16b2c47ca592c87deedb69aadd25a76f7504338462f5f5",
             "insert": "patches/primary-performance/003.txt",
             "insertSHA256": "3c3f258e82f3b4a566e829725bbb60c6743df90019e27800c5c3bdd88043db5b"
           },
           {
-            "offset": 2015056,
+            "offset": 2021610,
             "deleteBytes": 112,
-            "removedSHA256": "c2f8226b3ebdf74807c0a2a1d1eef1f19789be5bc65847f64e6e2523c9e10fad",
+            "removedSHA256": "b56017b145576c63988e2f589ff9b488282980c1cfc5bd21f182c85e5d9c83d4",
             "insert": "patches/primary-performance/004.txt",
-            "insertSHA256": "1439ff13079f16f0e9f2311bd7a299f78d44941c8661a841434ad8d72cad0f41"
+            "insertSHA256": "1d96c656c6288d0daa2cf80e5d992cbe3edf395462cc65893d933addcd15097e"
           },
           {
-            "offset": 2015235,
-            "deleteBytes": 16,
-            "removedSHA256": "058ca61a213894e4609b4bae6c9a5a8e4ee96e44d85b884809621569c99e0a2c",
+            "offset": 2021789,
+            "deleteBytes": 26,
+            "removedSHA256": "baff9b2b103d5ecf4afa03f4442204809b82ccdb7351d891c88d4b8cc9d51b80",
             "insert": "patches/primary-performance/005.txt",
-            "insertSHA256": "c9a4768af8dccd502fac258674340cf43788a76472beab3b2a8df1a1bb77dea2"
+            "insertSHA256": "a4ac862c61c50e455c96a49d8aba395dae22a9032a5b5fe02d7ccfc9a71b1552"
           },
           {
-            "offset": 3091733,
+            "offset": 3114777,
             "deleteBytes": 48,
-            "removedSHA256": "f0155c959a61f67eb8786024bb0bae7ed86096dbe8450513989cfb8ed3fc4a8c",
+            "removedSHA256": "e12d420cd780f0bd8bad48ca8df3535a181224122d1634e295a1a7151292d31e",
             "insert": "patches/primary-performance/006.txt",
             "insertSHA256": "5232dd84dbbe6dde501f7f5b61b1fb34a18490b5177c46be534270a8c3adebd1"
           },
           {
-            "offset": 3378557,
+            "offset": 3401939,
             "deleteBytes": 16,
-            "removedSHA256": "cfe66eef88cd48f1d609cbfc119d109b8f2410151dc4cae99befc7f0ce74c08f",
+            "removedSHA256": "f0077a934945983fc2c87483634460732f7ededfa3d307c1dbd02d03c082837e",
             "insert": "patches/primary-performance/007.txt",
-            "insertSHA256": "d29c94fdaa3343b8888155501da6172ce247c8f57851354dfe7f9c1c7263a98c"
+            "insertSHA256": "95ebc406eba1afd89f1e55c8236b9c6439717695ff98dde20ea5c31c7b8f30ab"
           },
           {
-            "offset": 3378654,
+            "offset": 3402036,
             "deleteBytes": 112,
-            "removedSHA256": "e6a35c60e57bccca7d025203f1ce39e646cbb4b84c97be23b6c3ce4e42807100",
+            "removedSHA256": "dda438ca78a3b2fd4e22f4f35b4b2283a096b07a364a865e39c07cabf44ac311",
             "insert": "patches/primary-performance/008.txt",
             "insertSHA256": "6496e2e340771e963d50e31e1c0e2ad041eaaad8f066ee6433167e6164b6f58f"
           },
           {
-            "offset": 3395821,
-            "deleteBytes": 0,
-            "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-            "insert": "patches/primary-performance/009.txt",
-            "insertSHA256": "387ebb5948d356b8a6a7091ee10204c14440330ece2bb052f8c324b3171039cf"
-          },
-          {
-            "offset": 3396184,
-            "deleteBytes": 0,
-            "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "offset": 3419983,
+            "deleteBytes": 39,
+            "removedSHA256": "e23e8c3b45649820ef5068cbb0372dab2239795175a8e31990cc90db60284550",
             "insert": "patches/primary-performance/010.txt",
-            "insertSHA256": "e779344126f899d70f8af1eb1bf0daf0e2293fd6db67769643034603bd979df9"
+            "insertSHA256": "f0374fca0d382a1240b2e2ba800c45d29cd10128e5f96a0a5d4bed2cdb21a82a"
           },
           {
-            "offset": 3396289,
+            "offset": 3420214,
             "deleteBytes": 0,
             "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
             "insert": "patches/primary-performance/011.txt",
-            "insertSHA256": "39d4926d798582edce7c83d3664f3f161458a672e41e0fd556fb3c59bae031aa"
+            "insertSHA256": "f39c4de7d0b1148ccbfeec4ee9d78d5bc579cab9a37b8bdd9519bd90235ea3dc"
           },
           {
-            "offset": 3398316,
+            "offset": 3422272,
             "deleteBytes": 32,
             "removedSHA256": "32d489e79fdf44770186dd158f8c10d3a86f30c2e5a1ef184f44c06f6defa2d1",
             "insert": "patches/primary-performance/012.txt",
             "insertSHA256": "c5ae87235047ccf6abe05b583a87b31a1e8f648edd044768d388cd6d6f9394ec"
           },
           {
-            "offset": 3398444,
+            "offset": 3422399,
             "deleteBytes": 0,
             "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
             "insert": "patches/primary-performance/013.txt",
             "insertSHA256": "639e369efcb5094f906cef4cb74a71c5b2892b8e145326567efd7e819eb18648"
           },
           {
-            "offset": 3688451,
-            "deleteBytes": 16,
-            "removedSHA256": "6e6d44f38e41c0363f6f2cb745de3f85e3b986d232b6bef5817a4e327537b7b6",
+            "offset": 3750775,
+            "deleteBytes": 20,
+            "removedSHA256": "82374f7b13f539e37c2eddd0f6e6c4a580502b87a3e73397acf8ad5ed30158f6",
             "insert": "patches/primary-performance/014.txt",
-            "insertSHA256": "49653c69b7f33e98ce986cbf833a7a59aed0985725e5115204359c0a941bbb37"
+            "insertSHA256": "3c11d25e7577ea440a9536c44391bf74994d59ce1f44bbcf2be1cff8e5c62373"
           },
           {
-            "offset": 3725692,
-            "deleteBytes": 16,
-            "removedSHA256": "bc85694e3e218b2cbc10866ce32dbc77e285c7c0e32a486c57842db1d91ad612",
+            "offset": 3788098,
+            "deleteBytes": 21,
+            "removedSHA256": "0cb3667eba3b49ff9b6cec2e9c894ff35222702ad1c447394ecf9962e41b56b8",
             "insert": "patches/primary-performance/015.txt",
-            "insertSHA256": "141dc1d8a462ff86dd27cb023bff6a78473bde2554032473f5b2e38d2e0a78ee"
+            "insertSHA256": "790599373be5596c45d84138f2ebb04fed1cf2cf936ccba7603219e7f50d7815"
           },
           {
-            "offset": 3802263,
+            "offset": 5781838,
             "deleteBytes": 32,
             "removedSHA256": "438bf9e356aa8e0750ce1f8ffa656a733c714901ae7dff925f5dd645b2877d7f",
             "insert": "patches/primary-performance/016.txt",
             "insertSHA256": "0ab7d1da219b84ecd8ea71d23170dfc823d64e8a3f953f7a000ad29894ee4fd5"
           },
           {
-            "offset": 5586237,
+            "offset": 5823147,
             "deleteBytes": 0,
             "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
             "insert": "patches/primary-performance/017.txt",
-            "insertSHA256": "85a3b78cfe9ab2a66d7a3f017d0ffa8696bc7ba1e9ce8d37c863c265f2c34b92"
+            "insertSHA256": "8b581e6c8b3027305ba5ae1c0aad53b7b7156a361a75e09c93846c6e37f354ad"
           },
           {
-            "offset": 5586331,
-            "deleteBytes": 0,
-            "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "offset": 5823183,
+            "deleteBytes": 58,
+            "removedSHA256": "a81c0c1fca53cfc8ffcab5a0d608551a15686d11540442efbc92a546c550d60f",
             "insert": "patches/primary-performance/018.txt",
-            "insertSHA256": "3d043fccd3f0d6b6ff3abd91c9fde2bc1b89e46baacd97db073d64fcbc75e720"
+            "insertSHA256": "c150369494d8842d9c4187d181864551540ae986a16c6b3f57abd506883a26ca"
           },
           {
-            "offset": 5687957,
+            "offset": 5925040,
             "deleteBytes": 0,
             "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
             "insert": "patches/primary-performance/019.txt",
-            "insertSHA256": "c4caae2c7c89185496ef1c9175da786daddc9800f05c1d903e527c3b77b762e5"
+            "insertSHA256": "8647f4442a18fe86ad81d3bbf09c4d6aa70436a1a298779431f2204221d1f940"
           },
           {
-            "offset": 5688919,
+            "offset": 5926003,
             "deleteBytes": 0,
             "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
             "insert": "patches/primary-performance/020.txt",
             "insertSHA256": "2bdcdf9318e799af462fab75ca548fc56ad387dcf152e7d199d86cf72ecc6638"
           },
           {
-            "offset": 5690486,
-            "deleteBytes": 48,
-            "removedSHA256": "6ae43f3e1adb90430bd7120e4a7ca4fe7a66cd0ce505e19435f0dac0e6192f3a",
+            "offset": 5927568,
+            "deleteBytes": 49,
+            "removedSHA256": "b284059c168b15bd1a6e7736e9b3f996a6617e8fa98d46a271809e8120b3e8a2",
             "insert": "patches/primary-performance/021.txt",
-            "insertSHA256": "e678686554361d09581a40ed59da71877173d98c8d54cb99a62b82ba6be60896"
+            "insertSHA256": "f227251f9f18de053fd604d2f8f6411fd15452710a87fb5d200f4543b506710c"
           },
           {
-            "offset": 5690806,
+            "offset": 5927887,
             "deleteBytes": 16,
             "removedSHA256": "3d12064d0b74f80d062e895e5c3e2ce6d18c1a56851cd8794646e64dc12f9577",
             "insert": "patches/primary-performance/022.txt",
             "insertSHA256": "815d3b0b14f176a6739fe4ad7d760be7a175b77932dcd7fe2c2414cad3081339"
           },
           {
-            "offset": 5691429,
+            "offset": 5928510,
             "deleteBytes": 16,
             "removedSHA256": "718976aec8dbc57cb4eca97c8823245439640fb69620f3bab3b1040eb0508f28",
             "insert": "patches/primary-performance/023.txt",
             "insertSHA256": "edaedf98d115da4132f8e72b3954b6769eb4b3d0242ab907c5f998943f842ac2"
           },
           {
-            "offset": 5692753,
+            "offset": 5929834,
             "deleteBytes": 0,
             "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
             "insert": "patches/primary-performance/024.txt",
             "insertSHA256": "011328e0d7061bc4c40ad53366eb57aa5f34e6e8508aee9614e9a6721a073f5a"
           },
           {
-            "offset": 5692893,
+            "offset": 5929974,
             "deleteBytes": 0,
             "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
             "insert": "patches/primary-performance/025.txt",
             "insertSHA256": "e5b71d1614ddae7cb92986a9344e2f3dda1cc4f576826463abbd2955bfe5a9c0"
           },
           {
-            "offset": 5694319,
-            "deleteBytes": 32,
-            "removedSHA256": "5a7deff7340def6ece620daf976f8829f410a4674426cc678ac3f90f90c602ac",
+            "offset": 5931401,
+            "deleteBytes": 39,
+            "removedSHA256": "56c3670303b3cf17f0627cb3903013424283832296bc6e330f703f32a0d89365",
             "insert": "patches/primary-performance/026.txt",
-            "insertSHA256": "e177e4e8fbf62526e2b244309e856e0fa7f62e4f7e5a60851751f5cf5bb0c43e"
+            "insertSHA256": "62153c57c1150c2667160c239d83213d095b4c301bdc14ab7f4d3e5049da9ef0"
           },
           {
-            "offset": 6750959,
+            "offset": 6985803,
             "deleteBytes": 29,
-            "removedSHA256": "49e9ca3aabb593cbd8944f1926e1a008fae573f64cd6f88bee2b4e0be73f7388",
+            "removedSHA256": "1b7259b8e35270cc09c40e105a9f2ae0363375d14d52808668dea9c48e13ea8f",
             "insert": "patches/primary/model-preview-0.txt",
             "insertSHA256": "d662e83da0ba61f7a5ebba7b4dd6368c8954595484406b7ac199198f18aa2d38"
           },
           {
-            "offset": 6766296,
+            "offset": 7001132,
             "deleteBytes": 18,
             "removedSHA256": "728c6f9d45641b22a11bf1700b2a529aad1d0a8676d72119dce91916daf801d7",
             "insert": "patches/primary/model-preview-1.txt",
             "insertSHA256": "0a00f6063cb3b1fac259f448e8f460042d6df7561a2badde9bf0f9c2bc642ad9"
           },
           {
-            "offset": 6797378,
+            "offset": 7032213,
             "deleteBytes": 80,
             "removedSHA256": "041c0facc19ed172a54c937d6575d84cd1941185eafb20b0dc04cf5a906ed509",
             "insert": "patches/primary-performance/027.txt",
             "insertSHA256": "db8967fca03006f8ad834c0275488f5e27bc6e1196870b4e88354192f83ff61a"
           },
           {
-            "offset": 6798206,
-            "deleteBytes": 64,
-            "removedSHA256": "3139eeece40452bdd99c58cb30916723eee42f69ffa422791d4add14f8a45684",
+            "offset": 7033042,
+            "deleteBytes": 65,
+            "removedSHA256": "1e66865951eff5c4b76d19066322f271d39589ada9d878757f6997c20afc3ea4",
             "insert": "patches/primary-performance/028.txt",
-            "insertSHA256": "7eca92b15d3d2f73cd9dda4ecffa65046577824e725845d110359814ae6cc93a"
+            "insertSHA256": "6b9e705d4582b43561180e64d45183e77deaa5c274c00a3d963188a848861824"
           },
           {
-            "offset": 7950451,
+            "offset": 8187975,
             "deleteBytes": 13,
-            "removedSHA256": "09ba14e2364fd9c0acb7993c90f1d879bfb6f62575c118b6b53412ff50eb6706",
+            "removedSHA256": "f1d11c0494ae7a3d8464cd7aff89839114a62607178839053772d7c479dc29e1",
             "insert": "patches/primary/ui-43.txt",
-            "insertSHA256": "24db2c3e95f2b0242220208b00c58e4855801ea2780e96a88e9665814c2a7fcd"
+            "insertSHA256": "39553b53c0206d3d3c62f9005e451ec45ded362c1af34535de4495be64fdb108"
           }
-        ]
+        ],
+        "patchedSHA256": "a231180507bfcab3d0114fef821f3db325d181ab81f3c3fd804c0984acf172c3"
       }
     },
     {
       "id": "conversation",
-      "entry": "webview/assets/chatgpt-conversation-page-d431ebf7521c.js",
-      "originalSHA256": "f46124cb21c72ce52c7d48de093fd334b5fbaa0cc02c4217d587ace38148fd79",
-      "patchedSHA256": "cda834f66c630df5d2b8a7e524abba111ce1f48cbaaa514b6d17201105f98cd0",
+      "entry": "webview/assets/chatgpt-conversation-page-733818e9db52.js",
+      "originalSHA256": "aebed8ec3072cfb54701cba96f16cad1f9f2dfda7063146364c527aa94c232dc",
+      "patchedSHA256": "7576261f050025d1b8c07b8771a5ee090d059ea33cd9504f57ae7f8feb503e2a",
       "preprocess": null,
       "operations": [
         {
@@ -1046,178 +1032,149 @@
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/conversation/000.txt",
-          "insertSHA256": "e30da1fd245166a54c7552c2cddfb880440ba2e12c9e683e8bb81ae1f402fbec"
+          "insertSHA256": "e9b50a33da5e718ad0c7da10fa7a92df0b47ee760f7b3c42c5e33db8b38359ab"
         },
         {
           "offset": 0,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/conversation/scroll-10.txt",
-          "insertSHA256": "39f4f288ba77a809d9dc50b4b7789c3716c0c3e89ea45822bf825701fba1da42"
+          "insertSHA256": "9bde28e6be47258a7dfefad3d565bf6f8cc0c807335dfc96fae9f62c4b180fbf"
         },
         {
           "offset": 0,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/conversation/actions-rail-18.txt",
-          "insertSHA256": "5a453933e30411967af5deb22f8a721f5a76052cfeea24d9aa2cbc1c385f5730"
+          "insertSHA256": "3af43746543851b0115381a2419d32a03574fb27f576132c475e26a45f987c2f"
         },
         {
-          "offset": 35225,
+          "offset": 35275,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/conversation/001.txt",
           "insertSHA256": "869e3e82653b42a31829024378ca9bab9fcf2541a9592decf8c4f498a8a48572"
         },
         {
-          "offset": 41915,
-          "deleteBytes": 0,
-          "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "offset": 42146,
+          "deleteBytes": 34,
+          "removedSHA256": "ee1faf2c1ad102de5ef0c0657a41e093367c9df3147be447bd1a693caa53f7a3",
           "insert": "patches/conversation/002.txt",
-          "insertSHA256": "119300d3eaa1bcce7c3a2c700da25400fe66a94c4e4673478d95ded455f9683e"
+          "insertSHA256": "bbe8e468c445d78050ca24bc3d45fb33ef348a3ba13a705e8bbde0dfaacffad4"
         },
         {
-          "offset": 42384,
-          "deleteBytes": 0,
-          "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "offset": 42652,
+          "deleteBytes": 16,
+          "removedSHA256": "f5f7ef0c0047003a476c097f7b8e0137d2e0e222e5c57737390d5bd63b3b0822",
           "insert": "patches/conversation/003.txt",
-          "insertSHA256": "2d4ea00af7caef1d3849d6e1c87bb442284d2709235e60d071dea88d5f3d4c8b"
+          "insertSHA256": "13467d88e8773f2131ff5191c195b48c4569f4b529484db4f594fd32d0d26d80"
         },
         {
-          "offset": 44282,
+          "offset": 44558,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/conversation/004.txt",
-          "insertSHA256": "f125fff2c53adc417c242f645ac177100d87c96acf7f6913044cefde7288874d"
+          "insertSHA256": "d620bdb6b2c946f6aefbf44df4f37c46c9629384e6ff835f1ecd89e5eaf9127d"
         },
         {
-          "offset": 44522,
+          "offset": 44797,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/conversation/005.txt",
-          "insertSHA256": "f3ed693dfc06d693373ba17a4d7fc584dc2761ef3054990f852cbe9129305e3c"
+          "insertSHA256": "ceaeca7882f857b09e094725a0f7f101036976675c41ace86d8a6296ef952b4a"
         },
         {
-          "offset": 44592,
+          "offset": 44865,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/conversation/006.txt",
-          "insertSHA256": "4b640e21e2f6b7019a93fc45a1f2f150bf938cf9562ec93c972c687e01b076d1"
+          "insertSHA256": "ed600ed5e1280eedf3b8c266723092dca52e5d4f7abfddd7b5f3c34184e8a15f"
         },
         {
-          "offset": 53995,
-          "deleteBytes": 16,
-          "removedSHA256": "ddf16547b04f3b1a73da4eb5ad7c5643fcbbb2ebd3acde2e36abcb3b9b2c2aaa",
+          "offset": 54279,
+          "deleteBytes": 22,
+          "removedSHA256": "0eccf1c44e7f50db0a661629f935aa254a7c3ccdd56f0596beb8546ea589f264",
           "insert": "patches/conversation/007.txt",
-          "insertSHA256": "547daa8b09860856767f42661f231a7f6079a0a46534c997e4ff761f62a90d3c"
+          "insertSHA256": "05bc158367eb1cb8d0b3aa28720bf3d8ef7fab89dc8758fe90ffc89779c0637a"
         },
         {
-          "offset": 54996,
+          "offset": 55288,
           "deleteBytes": 32,
-          "removedSHA256": "b99ea9684f673cca29c6f1be0bacecbd96fa9171bfc91966f73959c23976ee29",
+          "removedSHA256": "e7edafe63962ef622c3105a6f61fd7ab35f46c3aaf601c6beba30145e4a71b02",
           "insert": "patches/conversation/scroll-11.txt",
-          "insertSHA256": "8c78fa5a4e9a29c9738af729f99f1515243eb034fd583130c9aa42579a06f6ea"
+          "insertSHA256": "4c2841567b3cdc704a5ca5489d669afde75bcd3cb3df5b2a4be1a8ba52a47f65"
         },
         {
-          "offset": 55811,
+          "offset": 56112,
           "deleteBytes": 18,
-          "removedSHA256": "22d2e43a7ca45213831dd646bf232d8b78724b4b277f9edf0f4043019a05cdcb",
+          "removedSHA256": "7443c122d77999f5554001cb890b3ce338b4bd3b99e4c68a8032460c1908d90c",
           "insert": "patches/conversation/scroll-12.txt",
-          "insertSHA256": "39e9ad8472bb5f795a02968c16ae8fe2ca86b3eb9340641001cf7a1196fdc41b"
+          "insertSHA256": "16683e0d8a9aa50bb55687923ac7e5c9afac3ef37fa577d3abd516732e77da5a"
         },
         {
-          "offset": 55930,
+          "offset": 56231,
           "deleteBytes": 47,
-          "removedSHA256": "8de36ddf7c8ddb3796e93fafc52d196110ec8e74721edc0e62d4baade2ce9b5e",
+          "removedSHA256": "b5ef5ff35999fe60c43e33d868ea8233e7c4d2d9c2e227e79f9697cdb5ded655",
           "insert": "patches/conversation/scroll-13.txt",
-          "insertSHA256": "748c7f9567f3c723d64129079647d7118159cfec43cc229933e87a675ca3867d"
+          "insertSHA256": "8de2a157056639ab434bc171213446e457e0f072c6925f4ddb36c259110362a9"
         },
         {
-          "offset": 58395,
+          "offset": 58694,
           "deleteBytes": 14,
-          "removedSHA256": "495bd5c39ccd1387dac9dafce42264f38bbe219a943a0113aa32753b92bd3600",
+          "removedSHA256": "afcf594b040e1f44d7d4de1dcd613911cac2290ad4b6fcba9b97fa5e1a7e0fb9",
           "insert": "patches/conversation/scroll-14.txt",
-          "insertSHA256": "f729ef2d67575e07e7bf7bfbac43616f0e5dd19a6c637cc72a5b852940416560"
+          "insertSHA256": "dd93584f2b382ba4a78257e82b80bbaa0c141af34804fbf041fb76fd3166f354"
         },
         {
-          "offset": 58899,
+          "offset": 59198,
           "deleteBytes": 53,
-          "removedSHA256": "b8b90dc66cda8a8cc8ddb39700e5b58868a00ad9e2944af57b72afa6a2c1aebf",
+          "removedSHA256": "71154eebcaa0085b02c46126c601e601d405cf5b543f979aed1d0f9556bb48aa",
           "insert": "patches/conversation/scroll-15.txt",
-          "insertSHA256": "4c2caed0ddefcf1353756d8e3c23d7512c2e0dabbf5c6883a03283c58b0ac782"
+          "insertSHA256": "4705b7cb1ff6418863da342a05eacd82867da89462224a708d10968e367c323e"
         },
         {
-          "offset": 59366,
+          "offset": 59665,
           "deleteBytes": 16,
-          "removedSHA256": "b8ea333af1249d47348a6eae8cc544c15b5677f2fc8fdce6c4eb297406d99cdc",
+          "removedSHA256": "a29c8fea638825c3daf4193ceddc011d6d85a94afff608b80f587f2c1d4ca1e0",
           "insert": "patches/conversation/scroll-16.txt",
-          "insertSHA256": "d64df2e9a2ec809a97c91aeff03641c6952fac5d4c96c3c612f4b6d24de02996"
+          "insertSHA256": "63677a96acd7dd4ff244ae661648964942ced74a750e7ce0b717854956b35377"
         },
         {
-          "offset": 62058,
-          "deleteBytes": 345,
-          "removedSHA256": "67cc5898a30f523a76790d73ed9d4be05bcd3b205dcd39d5500eada0861516f6",
+          "offset": 62357,
+          "deleteBytes": 618,
+          "removedSHA256": "7fa9c17a001756e92eda565fecee7d5f419bc93082b68ef0c4e149fee224f89b",
           "insert": "patches/conversation/scroll-17.txt",
-          "insertSHA256": "a51cf0946e2c3cef16125fc05a18b88db21fad4d9eccb0f977d304fbd2f1240c"
+          "insertSHA256": "14e4c8b0f67bcd43f375e46aa5d45c0e9c42cbc1d414b78fa7948356a4208a1f"
         },
         {
-          "offset": 66128,
-          "deleteBytes": 1112,
-          "removedSHA256": "7160bfd9f34eeaaa5f36e8bb7864c0005205fbe20497d72c58a92a9a93390c31",
+          "offset": 66700,
+          "deleteBytes": 1208,
+          "removedSHA256": "dd9c14f2cc099811943e1426c20436aa55000bb896809741314e72f748c1e65b",
           "insert": "patches/conversation/ui-9.txt",
-          "insertSHA256": "eee417d200ecd988b33a89cbc0c31f6b581be6293bb43ec6c419cfc76364718d"
+          "insertSHA256": "082282886f6af4ea8e488109ccb175a68cf48856ca562e50209d4913731ad8c1"
         },
         {
-          "offset": 76211,
+          "offset": 77233,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/conversation/008.txt",
-          "insertSHA256": "e95ddd3343ca511e8320c958a7126830cc0d12db30a4162660f06876cb15a44c"
+          "insertSHA256": "e25dda66eadc4a8997fad0b25d92c0ea83edb24840cc30a748e0ed8c5c5707bc"
         }
       ]
     },
     {
       "id": "browser",
       "entry": "resources/plugins/openai-bundled/plugins/browser/scripts/browser-service.mjs",
-      "originalSHA256": "0b9e236e91121b06f27fcc0881a6527b83d2e89393814b0b86749f071852e322",
-      "patchedSHA256": "49ed6cb25894763bed12b4158cba62fa4fef8105112e5036a6034445662294dd",
+      "originalSHA256": "4a4bea84bcbaa820a7f67cd8d3ce7aa01d5dfd1207367d9d43125ab2c5e1e381",
+      "patchedSHA256": "4a4bea84bcbaa820a7f67cd8d3ce7aa01d5dfd1207367d9d43125ab2c5e1e381",
       "preprocess": null,
-      "operations": [
-        {
-          "offset": 0,
-          "deleteBytes": 0,
-          "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "insert": "patches/browser/000.txt",
-          "insertSHA256": "eb6c699132dd6741e5f4ff5e1fae64d4fc658967d4e7316918a605e982399dac"
-        },
-        {
-          "offset": 1173060,
-          "deleteBytes": 96,
-          "removedSHA256": "6b53e7923cbfff497db75f37df1364daa79e9cd54d64d9232b810c459b7df17a",
-          "insert": "patches/browser/001.txt",
-          "insertSHA256": "3c197d3fa922d6c014d3463f8b1440b24cf185fa0875e4617433b131fc689c6d"
-        },
-        {
-          "offset": 1173714,
-          "deleteBytes": 48,
-          "removedSHA256": "be8843a83fd46da97445daf0fbf12960a4bbf48b251f95b513c2196ff4bde9cb",
-          "insert": "patches/browser/002.txt",
-          "insertSHA256": "7a2e72df258dd0be581be81ea504b27314b2b40291d74f4b0ec8f22ad9009866"
-        },
-        {
-          "offset": 1174951,
-          "deleteBytes": 640,
-          "removedSHA256": "e544da6d9e9f01b0dbc6d4acea888f66e523fb266c4410ec57f63882924e43a8",
-          "insert": "patches/browser/003.txt",
-          "insertSHA256": "57540636ff97f3e67b70278ce84586f422d6f8aa3ff3422ac11b1faad0b364dc"
-        }
-      ]
+      "operations": []
     },
     {
       "id": "viewer",
-      "entry": "webview/assets/viewer-f56e4b32bca6.js",
-      "originalSHA256": "5a6a1662ffe2117b86e3c5018b41559144e718d56bcca996b093d667ae5656e7",
-      "patchedSHA256": "4fb3545b25ee97e9584010a3be80b20e9d48dfb87dae1fba9aa1a3165db7389f",
+      "entry": "webview/assets/viewer-96aa1026c85b.js",
+      "originalSHA256": "53f0dc8b13e762164fe70c3215d72c3f3d9c4e3e8130865354b8a5a47a955d3e",
+      "patchedSHA256": "4424847de13ab8ef432a310a7f1f59b0d90377f15205880af742291e8eec0e03",
       "preprocess": null,
       "operations": [
         {
@@ -1228,49 +1185,49 @@
           "insertSHA256": "93bd446bb1f8fd927f7774c2925ca426721c192bcf2839b153518ae9c604f93c"
         },
         {
-          "offset": 7328,
+          "offset": 7758,
           "deleteBytes": 48,
-          "removedSHA256": "3d56fb487bf6ca074023aef758fd5c633e00e6c47c80be0a12bafcb672ae1e99",
+          "removedSHA256": "067c374f4e30152a082c7402c333144f9e8341a336d9729d4625dfccd8f93e2f",
           "insert": "patches/viewer/001.txt",
-          "insertSHA256": "42b808c431a32c6485ceb496528bf40d3c18977aa37b104cab500340c59e0e07"
+          "insertSHA256": "aed071e54f13d55dfef1a34a3489ffb9857f8888c57d3af315d5432be0d7d843"
         },
         {
-          "offset": 7785,
-          "deleteBytes": 80,
-          "removedSHA256": "5117c031493e64fad7477339469b151d7f40a63c14fcb3909f51b4a4329499aa",
+          "offset": 8255,
+          "deleteBytes": 95,
+          "removedSHA256": "3a77d01d9d92626428e0061b4d2f13d3aef1305e0f8c69484f316ad5a27eb9cc",
           "insert": "patches/viewer/002.txt",
-          "insertSHA256": "f2fa5ed72d803799c08708a59a0ad43468417954514d23de046fec6a1190c189"
+          "insertSHA256": "de4f3d36dbca795ca8f385159737eccc1ffd33ff90c93ce1fe239dae692b1876"
         },
         {
-          "offset": 7963,
+          "offset": 8433,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/viewer/003.txt",
           "insertSHA256": "4d8bd40d84b276ae11d885f3612ec0870e6bd323d0f04d4091c60b2d388e785d"
         },
         {
-          "offset": 149669,
-          "deleteBytes": 16,
-          "removedSHA256": "7b0c9378beb37dbf4ccbe3d86c86da22cdd13d731c2f117d25ee33394356f54c",
+          "offset": 162615,
+          "deleteBytes": 25,
+          "removedSHA256": "1dee4310128dd87ee82ed428fce17309d54344a564399419b6255056a0d9a83c",
           "insert": "patches/viewer/004.txt",
-          "insertSHA256": "8bbd7f8f2982e905c7680e8b2bbb113ff7d5375fd7ba8e501684683db924e153"
+          "insertSHA256": "6aa8527779a09d805e073855ef11403c7996d671c50e9f21e1078440269aa4bf"
         },
         {
-          "offset": 151728,
+          "offset": 164748,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/viewer/005.txt",
           "insertSHA256": "c4704d0a028d78673caaae6e4e1b3540c8840cb43fdba4e5624464184f6da85f"
         },
         {
-          "offset": 153073,
+          "offset": 166093,
           "deleteBytes": 32,
           "removedSHA256": "20a81ac7d3a594e2ce6ee5254259d382b354a4c081c1e8e8e802de3521a5392f",
           "insert": "patches/viewer/006.txt",
           "insertSHA256": "a00f55094caf7ad1aaaf6e3fd6ae4e062457890677573c124551fc281332e8bc"
         },
         {
-          "offset": 153391,
+          "offset": 166411,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/viewer/007.txt",
@@ -1280,9 +1237,9 @@
     },
     {
       "id": "logger",
-      "entry": ".vite/build/file-based-logger-DhdrY1cq.js",
-      "originalSHA256": "08bf9b3fa5c2284b013d54cc4d80a5dc54642f6f2772a9f6984b231e24549747",
-      "patchedSHA256": "92c9cc452ba5f19fe41cae816739b25b1612848074a662114322ba2d4f40a3cb",
+      "entry": ".vite/build/file-based-logger-BEXzjhGa.js",
+      "originalSHA256": "21254d978d39b2b0b925da593ec0937097b264f1bcb318ff1ca23698ab2ef4ca",
+      "patchedSHA256": "65ef28d0d7352f4724938c4be9942e7dd9722bb7da545a8cf9ca1720dcb08bcf",
       "preprocess": null,
       "operations": [
         {
@@ -1293,35 +1250,35 @@
           "insertSHA256": "8f6eb7c57648e4f5f9ab9b9fa3da8ce0ad57a65e5982fa161a1e7983ecec5d46"
         },
         {
-          "offset": 5240,
+          "offset": 5236,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/logger/001.txt",
           "insertSHA256": "6a2977f55df848aba6b3bf2dd84da5437f063ee3408b981cbd796f165b6c7f1b"
         },
         {
-          "offset": 5873,
+          "offset": 5869,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/logger/002.txt",
           "insertSHA256": "e24fb87b4b0a14702fb411fedbdaab12374c0b216166f7cd311102975434b669"
         },
         {
-          "offset": 6350,
-          "deleteBytes": 80,
-          "removedSHA256": "9c3c5044dec6aba267f97a06512ce78974a34ade93fb9dee3a576ebf745c3f29",
+          "offset": 6346,
+          "deleteBytes": 81,
+          "removedSHA256": "308bc388d5b5c2db9e117d69186f70e0e1e356a8218afe32f63b2e05e8c086f3",
           "insert": "patches/logger/003.txt",
-          "insertSHA256": "9aa0fba668293eba42d2013c04cb89e84b39c4524f5464baba02091c16e980d2"
+          "insertSHA256": "9fd5157b44c7a57e82245ff1c5b2c80108d07267f3f8dc5550ac7f263671a477"
         },
         {
-          "offset": 6556,
+          "offset": 6552,
           "deleteBytes": 80,
           "removedSHA256": "6c3931d98e7c6b3681afedeff7b2739a3538a00cdd6ae189f529fa5c2cf790d0",
           "insert": "patches/logger/004.txt",
           "insertSHA256": "2e305e9a3f03ed9c123ed692a434ca35658e70bdc7eee80cc86ebf9ee87d6e2b"
         },
         {
-          "offset": 6844,
+          "offset": 6840,
           "deleteBytes": 176,
           "removedSHA256": "43bfcf35d51d6aeb6d3918701a15ed3c9d2e0d17929c8c297985653e24efcf8a",
           "insert": "patches/logger/005.txt",
@@ -1331,9 +1288,9 @@
     },
     {
       "id": "state-store",
-      "entry": ".vite/build/window-all-closed-KNH8jchn.js",
-      "originalSHA256": "9c3acdcb6246700839c2a48ad1e1d648f633259854b7a3ca243b5840d371b0da",
-      "patchedSHA256": "19fbd7cd7a4c6d39f8db59c47cf0c8b304d4b6c9d477be3bbf8cd0b827d507d8",
+      "entry": ".vite/build/window-all-closed-DnjtB60s.js",
+      "originalSHA256": "383c35909fa74b41e7f6d5890025fd26262814775fe5c58dd7dfed0cadd1b056",
+      "patchedSHA256": "36e23368ff639b9c2a7d45a5a059e1117a064e099c7b395f3971661588aeeace",
       "preprocess": null,
       "operations": [
         {
@@ -1344,72 +1301,72 @@
           "insertSHA256": "a71da2e882ee9381f08073681b5f41bd8457f0ed4745b9ee57f6bd33f6854c87"
         },
         {
-          "offset": 532174,
+          "offset": 527501,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/state-store/000.txt",
           "insertSHA256": "dd6057a490611abdb82da78d65ed638066870c3ba3829fb99fc941d3d91d7707"
         },
         {
-          "offset": 532824,
+          "offset": 528151,
           "deleteBytes": 16,
-          "removedSHA256": "d3fb2e8b392d9502dd4c20a57388b4af89e83e59effbd1d48eebddf780848762",
+          "removedSHA256": "2cc4b63917df1cf7b9c5008a0f729178ad9f86cb1ae4f9057072a7537052edb7",
           "insert": "patches/state-store/001.txt",
-          "insertSHA256": "c92aca29c5b311bb64375ee28f95d294dfa4755a06d53c682f69a56776c8e388"
+          "insertSHA256": "4fe4c60056b032851990f1a923cf7b8f2424451201a595535d0814b574b5e1df"
         },
         {
-          "offset": 533063,
-          "deleteBytes": 32,
-          "removedSHA256": "2f6d905fc1fc28f7f91abf91fb247bac44d0a536619d43d2c82058519be79c06",
+          "offset": 528390,
+          "deleteBytes": 35,
+          "removedSHA256": "a52e0290d7c53ce2bf321024e232a9910540e76ce35ac7dc2518da607813f8f4",
           "insert": "patches/state-store/002.txt",
-          "insertSHA256": "f047a3a0a293d4fe242abe96d329051179b5b08a1f83f59d72852ab043ca2e9d"
+          "insertSHA256": "f9d3db10fcbd4251567099f3bc5c4cb648921806bfcd19d6fdaab0ba44fa486c"
         },
         {
-          "offset": 533611,
+          "offset": 528938,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/state-store/003.txt",
           "insertSHA256": "eeb50965841076d4b80f85593b1c4f43678352a8acfcb163a29eece73daddabe"
         },
         {
-          "offset": 533676,
+          "offset": 529003,
           "deleteBytes": 32,
-          "removedSHA256": "2c2256bef4f9cfbc7a6a38fcaa93b258783e8be838016fedf15dae5030882225",
+          "removedSHA256": "34e70c31dd90f82f003601474cbfede7bd1400b0a41ff03293e3472b692912a6",
           "insert": "patches/state-store/004.txt",
-          "insertSHA256": "76948528ad632abba00a0a2bff2ced3623e9bb88b8ef278764106904ea663557"
+          "insertSHA256": "ba7eb3ce6bec1d0405416a74c63ee6b9c5a4c224471251aa8df09b5789dbe1d0"
         },
         {
-          "offset": 533768,
+          "offset": 529095,
           "deleteBytes": 205,
-          "removedSHA256": "6ad0402fe31a3826a0f212942394a248404b25667e733724b6276c9f56cefdfe",
+          "removedSHA256": "acf4d14b665d77ecb2eec31ca46a443f2aa1a10d4d129b9541587e2c147e4ccf",
           "insert": "patches/state-store/issue-6.txt",
-          "insertSHA256": "59527ef8db8674c08ec68025912c9cee3f89d02b26f88417cff8ab2b95516b5b"
+          "insertSHA256": "fffe77029617e2ef79050ff5be7f2bd1f7670ed8e425857059701cb64e922cf2"
         },
         {
-          "offset": 534676,
+          "offset": 530003,
           "deleteBytes": 54,
-          "removedSHA256": "b824583495ae8dac1ab0812f166de00ef271a1e4f38ff21cea1000cc098f4070",
+          "removedSHA256": "334d5dc21aaf328fe34ddd159a2e43ab11003fe26c4361b8c14aa52ad5b4360e",
           "insert": "patches/state-store/issue-7.txt",
-          "insertSHA256": "8c653d320ea83b141a5488022eec373b27134fd0cbfdf44d98dfc96347a0ff1c"
+          "insertSHA256": "451173d89514222606710d77b47ecfd7a0292c255e4fddb022c989edb077c49b"
         },
         {
-          "offset": 534730,
+          "offset": 530057,
           "deleteBytes": 163,
-          "removedSHA256": "27309abd3125e858c0991bcbfd531b68a361a84dc79babeef1d8c051c3ffa6fe",
+          "removedSHA256": "2e1b5c6043e27643fe40c74201bfa247d57908343198fdfb3121271c962c15d3",
           "insert": "patches/state-store/issue-8.txt",
-          "insertSHA256": "520e81e67c119a0f381799c0f5f01cb73ee75e9139e9580fa676884a9144dffc"
+          "insertSHA256": "41c091221e0fd9b875d90abae2f0f53a26d348152aef1ed67922bc2b01708bf8"
         }
       ]
     },
     {
       "id": "quick-chat",
-      "entry": "webview/assets/quick-chat-window-3e3ea483945e.js",
-      "originalSHA256": "ed51df291045d663b073868b1d0c3245d62d2dc1815e2d5d55af82f31224fa09",
-      "patchedSHA256": "f367757a49c08b31ab06ec58c118cf0dbd99ca4ff6d5f8db793e02f13587ea45",
+      "entry": "webview/assets/quick-chat-window-e34d91db747a.js",
+      "originalSHA256": "b06c76172ecc92b4f6c92a743d41ba715fe131953e0a130f9294a87b677a84c8",
+      "patchedSHA256": "d45853b7da0cdbff38419135d0730e5cd1719fb9c649ff8eef1de0cc2c5390cf",
       "preprocess": null,
       "operations": [
         {
-          "offset": 46861,
+          "offset": 46853,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/quick-chat/000.txt",
@@ -1419,9 +1376,9 @@
     },
     {
       "id": "quick-transcript",
-      "entry": "webview/assets/optimistic-metadata-214a6246a350.js",
-      "originalSHA256": "b7fe948bc4810cdf86448ead4c149d1d8547280572434c33a3571072d1ccb181",
-      "patchedSHA256": "d392c0b5103843707ebac9f920436376dba9774d6af047f4bfb71f50734faafe",
+      "entry": "webview/assets/optimistic-metadata-a01dfc49514b.js",
+      "originalSHA256": "70b310e26e5c1ca647c2f3c52cbd4a970a387bd78b20f0bed7dc8193759f9d3c",
+      "patchedSHA256": "806b4336f452ea6a21c1b2706c7f51691aefdc529a4991b95fa94167c7225b05",
       "preprocess": null,
       "operations": [
         {
@@ -1429,64 +1386,64 @@
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/quick-transcript/actions-rail-6.txt",
-          "insertSHA256": "5a453933e30411967af5deb22f8a721f5a76052cfeea24d9aa2cbc1c385f5730"
+          "insertSHA256": "3af43746543851b0115381a2419d32a03574fb27f576132c475e26a45f987c2f"
         },
         {
           "offset": 7,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/quick-transcript/000.txt",
-          "insertSHA256": "7ba4abf7ce7ff555a546e28193b06ce71dff29538785ce212083c44206dbaece"
+          "insertSHA256": "14e08e51becb411dea445a49bdd5bcabe375298a956003e1ce70d7cc6e577617"
         },
         {
-          "offset": 1496,
+          "offset": 1536,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/quick-transcript/001.txt",
-          "insertSHA256": "ce8c71f6ed7047bfd332c18d4955cd570168b58089b5e2c3630d0505ea4d249c"
+          "insertSHA256": "93a633083c93668fd30d0edfa43f132f3a85763a46e17d04c131db6588511cc3"
         },
         {
-          "offset": 1752,
+          "offset": 1792,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/quick-transcript/002.txt",
-          "insertSHA256": "10a10df51dd4530c2366ed1f0121c9153dbc3715b4ff34612e99b4a44dc2f59e"
+          "insertSHA256": "21786f867a1e0cca52723e468fb3d9823fb04a4a084284cae50cce8d7ff37e8d"
         },
         {
-          "offset": 1864,
-          "deleteBytes": 16,
-          "removedSHA256": "9a73015db7cf2deb1cb3527ccaa2eef7288d93c5b6123f54cd19d3f594f8d598",
+          "offset": 1904,
+          "deleteBytes": 18,
+          "removedSHA256": "1ebd0813d974f6805c309793603d6a7ff3789ee532f94fa4cbb646bd242aa263",
           "insert": "patches/quick-transcript/003.txt",
-          "insertSHA256": "cf76c437ad2965c5837f12d86f9e942d9af5e0efa14f3211a1625091ed7c3597"
+          "insertSHA256": "cca2f2b53dad4e27382df83c16b2b7de1354e988edd51c9770a0e934f4abf781"
         },
         {
-          "offset": 4082,
+          "offset": 4119,
           "deleteBytes": 20,
           "removedSHA256": "8fb4451d02b8f66471328568cf57bacb5b419d8e169b1600ac5d03c198cfed1a",
           "insert": "patches/quick-transcript/actions-rail-7.txt",
-          "insertSHA256": "0c6a13ade848e264c8581cc20850e457a264010fa435a2bf483b71d1eefe3a12"
+          "insertSHA256": "956252d537d2b0ef58468b66287c69e9a1982d346e2fcfbe270aa2448ce826b6"
         },
         {
-          "offset": 4684,
-          "deleteBytes": 0,
-          "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "offset": 4718,
+          "deleteBytes": 6,
+          "removedSHA256": "fb36ac4e948108e6677c0944a97bc2818589e54509425792e609dab78f227c36",
           "insert": "patches/quick-transcript/004.txt",
-          "insertSHA256": "14c616f0224939b0c865fda5e4d8d8fba732bfbef314be5dd7aa458583205602"
+          "insertSHA256": "2570a7480936e11c64530f402892f5cc59eda7b6da3309b602c9e7eef8f0417c"
         },
         {
-          "offset": 6029,
+          "offset": 6201,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/quick-transcript/005.txt",
-          "insertSHA256": "9d97268f6da4bf801ac0a15c1ab44712513c3b8ac8155ce7c9a5f87cbdcfe316"
+          "insertSHA256": "a83a740f574006a40e5d5112867b90636a38b3418a1eea3e6fa6235e79b21f7a"
         }
       ]
     },
     {
       "id": "slider",
-      "entry": "webview/assets/impl-a4d6fddec422.js",
-      "originalSHA256": "c43a10083583f012b1c53defb7a31b333dbd9dbbfd8ac2d8f541518f955e50a1",
-      "patchedSHA256": "230d3f3b0b58c0c889157237e7ad99b045c07624f148e5e7dd72716ea3b964f5",
+      "entry": "webview/assets/impl-f67689908fd1.js",
+      "originalSHA256": "afe0e4ef1a68286e3cc74f02d6cfa00f72f60d3cc32a4662258552615ba86f3e",
+      "patchedSHA256": "e59d4a67d392ad9bdf778aa48a8390054b185a3b0776d3b4f990e2dc29b43d87",
       "preprocess": null,
       "operations": [
         {
@@ -1548,9 +1505,9 @@
         {
           "offset": 15238,
           "deleteBytes": 30,
-          "removedSHA256": "071f0cab112be10abd23d799393e93226789fd2509024269a8d5a0eccae450d7",
+          "removedSHA256": "ed346b795805d5bd4d87702e413f81db629a6cab094c97864c378de56bb8c455",
           "insert": "patches/slider/perf-6.txt",
-          "insertSHA256": "ed238556779f9252cbbdb236d61feaa8bff934cdfe0936ba140c22aff3ea07c6"
+          "insertSHA256": "da714eb27d7221c411ad1ac9b5bcb97313ee0c47df1cfa02094d2123d8956c64"
         },
         {
           "offset": 15318,
@@ -1569,9 +1526,9 @@
         {
           "offset": 17663,
           "deleteBytes": 39,
-          "removedSHA256": "8a56c30fca94042e5b91e31ae95093d2e8f0b29afd33837f3f3fa4ae9290159b",
+          "removedSHA256": "e890ea639acb0ea6d8f2f5a6df699da3cbd1d11114a9107bd35b673feb2fb1ad",
           "insert": "patches/slider/perf-9.txt",
-          "insertSHA256": "a24264bfdd279e970163a52f794eff5bfa19256a81ce6a8fb7557db826f9b6ef"
+          "insertSHA256": "0e800e7dbda8f654f56a3a527bbbb9e3c8753d7b07278b11860c74592f45d88a"
         },
         {
           "offset": 17739,
@@ -1591,153 +1548,153 @@
     },
     {
       "id": "app-server",
-      "entry": ".vite/build/src-VqXTPopo.js",
-      "originalSHA256": "8d056524ea3f5714e5e0a254afd88f018d58465bc6ea026adee3c80ff7799e29",
+      "entry": ".vite/build/src-B6LqG3ek.js",
+      "originalSHA256": "9a1d9737c526cbba0e18e5ffc3b9371ef055318e7eabb7584b082fbcdb24472e",
       "preprocess": null,
       "operations": [
         {
-          "offset": 979807,
+          "offset": 982418,
           "deleteBytes": 69,
-          "removedSHA256": "de20df745c788404c3a4fd5e978f0a803103b32642e9418c8f5235b01e150b12",
+          "removedSHA256": "62ba024edf0b94e51be406a02d3fd6036caa39773315c4a83acafcde942f7c0f",
           "insert": "patches/app-server/issue-0.txt",
-          "insertSHA256": "be4c4441c40cd4bb9b4fe29494ecb4b1ecbe0c174ca45496ebf1e5870776bca0"
+          "insertSHA256": "40d77e66a390ac73e1e6962c1a127b5a69b5e0c0607ea10ec8555dd9b8abfef2"
         },
         {
-          "offset": 980138,
+          "offset": 982749,
           "deleteBytes": 39,
           "removedSHA256": "89c143545e73b84292b7e1a35a6bdb62495251222cc0868b170dc78e7b18a6d9",
           "insert": "patches/app-server/issue-1.txt",
           "insertSHA256": "c66b28787a00dc666e80b32ad1853e5ea25c207aeb69ab68e4cda3eaf9a1624f"
         },
         {
-          "offset": 980693,
+          "offset": 983304,
           "deleteBytes": 66,
           "removedSHA256": "e4fccbdb9793ff532a696df33922f63190960d3843688efce4c3864526598ddb",
           "insert": "patches/app-server/issue-3.txt",
           "insertSHA256": "75099adab129ecb74edf2a8c0bf610260e109f81362d20c10d17ea2c6b6d3835"
         },
         {
-          "offset": 980760,
+          "offset": 983371,
           "deleteBytes": 23,
           "removedSHA256": "5e0092208830855bf7fd2647989e04a312d388cc034435841078045e1ef82523",
           "insert": "patches/app-server/issue-4.txt",
           "insertSHA256": "2cc15b5213a4ac8ec104dceb94b3fe34b1c434d486da3a1a867302d7e08d547d"
         },
         {
-          "offset": 983362,
+          "offset": 985973,
           "deleteBytes": 65,
-          "removedSHA256": "3fcb3a5322ccc6cd3c92b45bb8c4ae4442d029df6e158ebdf6ae9c061086a3db",
+          "removedSHA256": "26350c8afc1dbe97b945d9c60304aeab32a05486709c55a1ad7e411ed9835ffc",
           "insert": "patches/app-server/issue-2.txt",
-          "insertSHA256": "dc97a04fcbe7e2a8891442cf5ac501687b93b46f4288f2991d0620fd8b418ee4"
+          "insertSHA256": "c2e0c2c1d54a14b45fe13c2c3abf7439cba4fafeac4bcf34338f9ed74bcef526"
         }
       ],
-      "patchedSHA256": "59596244525af2111a7252b45547581398f36750c97a95e9307cd6c37cdb1b4b"
+      "patchedSHA256": "b7eafb2e1d5e640572d9a1f41919bcc7e85c58235db6076dc33a4163ae1a60df"
     },
     {
       "id": "chat-code",
-      "entry": "webview/assets/chatgpt-code-block-7e6be1d52811.js",
+      "entry": "webview/assets/chatgpt-code-block-a3d300f795d8.js",
       "preprocess": null,
-      "originalSHA256": "6684848639291296f5a26e088456ef70f5e52e9892eeb9979d222cb92c9853dd",
+      "originalSHA256": "779ecec63151ce737aa676f65f8ce1af4fcc3c802a0253053587290379fa2a81",
       "operations": [
         {
-          "offset": 24711,
+          "offset": 24712,
           "deleteBytes": 35,
           "removedSHA256": "8679b9bf79a1dada335ab0e053a7731dedad2336cea528cdd6c3b8358b7b2ee5",
           "insert": "patches/chat-code/ui-0.txt",
           "insertSHA256": "4fe3db2fba8fe5be921018a3e1e0fc81688d6ed28ee9a83e90452c07c6ca313a"
         },
         {
-          "offset": 38898,
-          "deleteBytes": 41,
-          "removedSHA256": "290ffff5125211eb462e3c38362870847bbfff2a29100893913effdd0dd9b7f8",
+          "offset": 38905,
+          "deleteBytes": 42,
+          "removedSHA256": "4a466a9dba40dd46ed6f9209a27a0c8a9ddd69a5afc77d12b597dd11b19e3ee5",
           "insert": "patches/chat-code/ui-1.txt",
-          "insertSHA256": "72b147c47a65a7e3bceb34d2fb8b01fbb4fcdb688b930b370696bbaf62b7d8c4"
+          "insertSHA256": "1089f5972f1ed7e26231de5b2dd8f8078c7f393fce889825c4fccaf6d1b03e75"
         }
       ],
-      "patchedSHA256": "e7f564ba2aea7c95ace268f8018ded59b8e1f0550a75b3a63e00c08413520c78"
+      "patchedSHA256": "2c1346f6228598d6af4d2e1d5621972fb79a01ce9110ced24951ecfaeaf2ca46"
     },
     {
       "id": "panel-shell",
-      "entry": "webview/assets/thread-app-shell-chrome-1fde9accf634.js",
+      "entry": "webview/assets/thread-app-shell-chrome-a031dfbe4962.js",
       "preprocess": null,
-      "originalSHA256": "c16e4aa40a3c8735d2cbafb42f4a98ce8ca0103905d830b237861458ec239d6f",
+      "originalSHA256": "99d355e3eb4f0c44aaf658af90b902a79d82510a87097fb66a4fa7de55076966",
       "operations": [
         {
           "offset": 0,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/panel-shell/ui-0.txt",
-          "insertSHA256": "a8439163391802986e1933cb7ec0bbb9e201716dacb5f8b589c8c01cc76a896c"
+          "insertSHA256": "7aca929a4e552d308e990c9563b03cac83148c59cde8b33e8ca15cf42b58e70e"
         },
         {
-          "offset": 5867,
-          "deleteBytes": 64,
-          "removedSHA256": "38ff840fb468a86960e7674e739cc1b99e6751f94154c419179a7f0dc4654ea7",
+          "offset": 10626,
+          "deleteBytes": 66,
+          "removedSHA256": "ed83a4265b7262291e21315138710bad271e0ce0f96aad2f04ed8dec49c492c9",
           "insert": "patches/panel-shell/ui-1.txt",
-          "insertSHA256": "aea70ea0adf71a8dbf7f572c8dd9ba1ff170638d4feb2c10470af55a4c10ec79"
+          "insertSHA256": "63bc05e9aee606aac2dc0d6e85a21c8628ac864eb3f5e687e1276d67b4e8e70c"
         },
         {
-          "offset": 6363,
-          "deleteBytes": 68,
-          "removedSHA256": "7c7a07faca9b8b6c8477a65e46c8436241be78b38e81931d1b9e9dc7b577355c",
+          "offset": 11124,
+          "deleteBytes": 67,
+          "removedSHA256": "e311f0a4e9ca577c5826b36d3f0f40548a905f7ad533c477fdf3f4732d6e99d7",
           "insert": "patches/panel-shell/ui-2.txt",
-          "insertSHA256": "9f042a2518185357ba8b5f071a794b88d9c61921e4f67617cebbcdae48fff4bd"
+          "insertSHA256": "7486549a9f906f98a46e001b6712e5fb7097453ac70f37c012d8e5360fa35a0f"
         },
         {
-          "offset": 7043,
-          "deleteBytes": 89,
-          "removedSHA256": "96490220eff87abe22ef4895cadea0626677fdce918bd4c62bd7bb1fefc5971b",
+          "offset": 11805,
+          "deleteBytes": 93,
+          "removedSHA256": "c1e8ccad4b6f5a4abbd155d5d63ca39ed454df6969032642be9deaad4bf6bbbf",
           "insert": "patches/panel-shell/ui-3.txt",
-          "insertSHA256": "5b2d99539b8ba0dcf4f90464654d6b3e75cc2b2074fc26b6f86a0bdf38b5ea12"
+          "insertSHA256": "1e03b3b861cde3826718bcb03f29f8da24193d384c2416092e85b509055d8b5b"
         },
         {
-          "offset": 77523,
-          "deleteBytes": 32,
-          "removedSHA256": "31b9edbcf2f38917d13c50a504055805a0493e0e86ca96aa709297745980cd24",
+          "offset": 82508,
+          "deleteBytes": 97,
+          "removedSHA256": "b4d075b4e095e969b1aa62cc415bdd6bb1ea379b3cd7785404c2d65f4d6148d6",
           "insert": "patches/panel-shell/ui-4.txt",
-          "insertSHA256": "a165ce8fd76c44443f84b4bb305b890510e99ed55dacdc4e4c33bfb1dc6c6c94"
+          "insertSHA256": "1aefa48c373642ec0ff39d65f88ad92ca92c4d695850b445662fe608d5768672"
         }
       ],
-      "patchedSHA256": "0801dd23638545a1a8a8568041b139125560b8297d800641da2fa63fd42b6605"
+      "patchedSHA256": "ebbf7e13a84045639f3d0eaf999d597f25c726a31d0338596b7add5e078991db"
     },
     {
       "id": "panel-entry",
-      "entry": "webview/assets/thread-app-shell-chrome-824a4d0e1154.js",
+      "entry": "webview/assets/thread-app-shell-chrome-86fff7ba1590.js",
       "preprocess": null,
-      "originalSHA256": "889f1e1b29a159f68dd26604c1b2e2281670bdc5248aded084c9344a598485cc",
+      "originalSHA256": "1c20c535ef6d41f6e64921623c3f98f7c13b6d96c20f6e8cf51fe336ca1ee38c",
       "operations": [
         {
           "offset": 0,
           "deleteBytes": 102,
-          "removedSHA256": "889f1e1b29a159f68dd26604c1b2e2281670bdc5248aded084c9344a598485cc",
+          "removedSHA256": "1c20c535ef6d41f6e64921623c3f98f7c13b6d96c20f6e8cf51fe336ca1ee38c",
           "insert": "patches/panel-entry/ui-0.txt",
-          "insertSHA256": "a73481fa5f46b36b15793c7e92b750cf04dfccc672e4dad061e0343904834647"
+          "insertSHA256": "cf34273a86dc488f1552daaadfa498caaa7f276a3dcfeac91c505cfb2f386d0d"
         }
       ],
-      "patchedSHA256": "a73481fa5f46b36b15793c7e92b750cf04dfccc672e4dad061e0343904834647"
+      "patchedSHA256": "cf34273a86dc488f1552daaadfa498caaa7f276a3dcfeac91c505cfb2f386d0d"
     },
     {
       "id": "side-chat",
-      "entry": "webview/assets/thread-pin-shortcut-bridge-f85d28ddca38.js",
+      "entry": "webview/assets/thread-pin-shortcut-bridge-692ac0843530.js",
       "preprocess": null,
-      "originalSHA256": "5c90e73b4d3d3d8b078f183ea7440958c742e5000fee82f5a8afd833782e5f89",
+      "originalSHA256": "d5540c49a4b2aecfd0c7be1f6888b2d84de21d572cea0418187b52ced561b0a7",
       "operations": [
         {
           "offset": 0,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/side-chat/ui-0.txt",
-          "insertSHA256": "64f90b5c6c69996bf436bf356e17fd9cf9f801e55f32d4fc1c866df5cae9a6d7"
+          "insertSHA256": "a23804e5746d1000718aeeb97322de462da160e8eed4b94c322e7ececa27ca3a"
         },
         {
-          "offset": 1379,
+          "offset": 1380,
           "deleteBytes": 65,
           "removedSHA256": "92819945514b26b8f64c5e3e3f22588eeb61069aabe642b1e945ad04a42396d6",
           "insert": "patches/side-chat/ui-1.txt",
           "insertSHA256": "956fae9f5fbb814b21d6e223a55734771915187acddde0bca5c816c7d47edd9b"
         },
         {
-          "offset": 1562,
+          "offset": 1563,
           "deleteBytes": 56,
           "removedSHA256": "b97a0caca6d68e54c506799cbb66c64af83ba756efd690cbeeb784aaf02eebda",
           "insert": "patches/side-chat/ui-2.txt",
@@ -1748,57 +1705,57 @@
           "deleteBytes": 48,
           "removedSHA256": "812afb956be9f554289c23320edd7e724096883317b6326457a4833516905604",
           "insert": "patches/side-chat/ui-3.txt",
-          "insertSHA256": "a5ef11ddcf406883f336787bce46a1be4171af4fffeaadec1e1c4ab42ddf714f"
+          "insertSHA256": "e2ceb3f4bd607f71482211b9e76482fdd28bc53c471de0e01f96a5b9d7359cf8"
         },
         {
-          "offset": 2706,
+          "offset": 2707,
           "deleteBytes": 60,
           "removedSHA256": "0662f87bdc9cb4573cb5e304f97fe935b9cf81cb0583bfa08befd80852556c95",
           "insert": "patches/side-chat/actions-rail-7.txt",
           "insertSHA256": "84aa94dc5b9350c54508138b94c5cd1bf4e230ccbcf8a65c5bbd788c5fc27df2"
         },
         {
-          "offset": 10839,
+          "offset": 10844,
           "deleteBytes": 36,
-          "removedSHA256": "2ec2fe5430510e47af697ddb368d83b0feb05c059bf555454719a733e16e0008",
+          "removedSHA256": "ef27ae8478c2109ac14745426a2d9d62c31556a2c10ab9abb0db427a7562a583",
           "insert": "patches/side-chat/actions-rail-8.txt",
-          "insertSHA256": "56a1d3fc6d8c23e45b7597e21be92bf9524ba83e631172be826977236f1a8c26"
+          "insertSHA256": "0d3593e65639f2cffbc2ffef9c69d024d4726fce084b34c02f934e38397101a0"
         },
         {
-          "offset": 10876,
-          "deleteBytes": 32,
-          "removedSHA256": "a1d1b11d74aab6a0f6070a823dc89933dbd37181e07afc797506161cb55ca324",
+          "offset": 10881,
+          "deleteBytes": 33,
+          "removedSHA256": "18be9b88ba87f9ebb8fdd05fd81086ea70ebb2bc56cc91d907d59f5097194cb6",
           "insert": "patches/side-chat/ui-4.txt",
-          "insertSHA256": "75e96937ed41f3439417a08ae29948a47eb4c59deefef2a96cca817c1bf58552"
+          "insertSHA256": "5b0067512e5e3d29d59ae2b0ae3818d8ec7ee858926e54e3461db051ba47f2cb"
         },
         {
-          "offset": 11715,
+          "offset": 11720,
           "deleteBytes": 49,
-          "removedSHA256": "9ec95e3ce0d65ae050b1886378f30695d3983bd268855ce67a47f732c776f427",
+          "removedSHA256": "9ed6c4b238743621a5cc42c7c4ada77dbb16fa3b3af164eb775c19f930fbe47e",
           "insert": "patches/side-chat/actions-rail-9.txt",
-          "insertSHA256": "52d3c783fdc7c42604a2f2502588aea3520ff631c82d1c8f3b1fa66d48887b83"
+          "insertSHA256": "da7726fbcb3b76606e0acb6b18883ff050f44c44cf9fe22218d65b55ef636091"
         },
         {
-          "offset": 12305,
-          "deleteBytes": 25,
-          "removedSHA256": "3d2479a47f3a0a944f5864c9676ecf961fefb2eb34e56a7de0171ad2253dadb8",
+          "offset": 12310,
+          "deleteBytes": 24,
+          "removedSHA256": "2daf2acc45b29b2bced44468cf7428da307502e6b13a94cf6ae925ae94a28546",
           "insert": "patches/side-chat/ui-5.txt",
-          "insertSHA256": "24741570729468f700420b899990ab7acb54ed63f19ec6c6fd21c5714cef58c9"
+          "insertSHA256": "ae74dfd14f330386a73b86b8a38df062c2dfb3b6fa97824ab7c9e1274cb81ad3"
         },
         {
-          "offset": 12653,
+          "offset": 12657,
           "deleteBytes": 35,
-          "removedSHA256": "139f09cf362e59e342eb4d0b7ed5fcb322ebb7c23245683ad1201f5062241f47",
+          "removedSHA256": "2955ea0574680acd99c6ca32737d340ebd29f93425d99022a8d12cfe243e0bbe",
           "insert": "patches/side-chat/ui-6.txt",
-          "insertSHA256": "d4e69d63634503aa90fe9bfb53cf4a7055704459340b11f7ebed2891830b39b4"
+          "insertSHA256": "70fb86b9653498d97fbda1cd9644cc9a1358fe11c287f0b4de419b9738eb8b47"
         }
       ],
-      "patchedSHA256": "9f2ebb05e49cb0f2b0512d274fbb8d7330ccf175930730a4ad2e2d8a78d53f4f"
+      "patchedSHA256": "a019528b200d0994aee9fca87b16f21e2e67e0146320f517aae3aa0a70c47992"
     },
     {
       "id": "local-thread",
-      "entry": "webview/assets/local-conversation-thread-df04e2edbb6d.js",
-      "originalSHA256": "decba48d7a869510b9610359fb8fe2968971d3a69aa1615ba2d672690a2e52db",
+      "entry": "webview/assets/local-conversation-thread-a2bcd054c9d2.js",
+      "originalSHA256": "c2c4e8cfbcb76799ee2d17ac1e6f6346d6c0d499a131a098ac0cffeb47bd2514",
       "preprocess": null,
       "operations": [
         {
@@ -1806,142 +1763,142 @@
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/local-thread/actions-rail-0.txt",
-          "insertSHA256": "dff563159ba04fe33a9ad564bd050a2cc97d1241ec4b203a7f7f179d99b57272"
+          "insertSHA256": "ed32fa3cd3ec8480c245d84b0853cc9871768c175d8665608397c71ac0a75d69"
         },
         {
-          "offset": 246755,
+          "offset": 259898,
           "deleteBytes": 33,
-          "removedSHA256": "d37bc8f269863085d5e8218bfdeb099c2e9fdf669ac29c4cccc77c6ad1da933e",
+          "removedSHA256": "102ba70939fb5bc58c7616cba7e5cb6b2f630060a25077122f22da34f6a9a8a3",
           "insert": "patches/local-thread/actions-rail-3.txt",
-          "insertSHA256": "680fd7a5626fbf041cd7911bfdda85d7c75762c9e8279cfaab45f1ad5a3297c6"
+          "insertSHA256": "e9676206e415c87ec69d05a3ba663c93df1d12ba6bb29cb05f4d8c4493c56bdc"
         },
         {
-          "offset": 251341,
+          "offset": 264486,
           "deleteBytes": 15,
           "removedSHA256": "608dbcfe0944335e4490238009ed5dcc1436d9d88833bcca3cc1528893915931",
           "insert": "patches/local-thread/actions-rail-4.txt",
           "insertSHA256": "dc4106c4b88372db6971eb2b0d6c957e015a657be4c5511935d05b1b1c6a8b15"
         },
         {
-          "offset": 251390,
-          "deleteBytes": 22,
-          "removedSHA256": "9bec88736d27b24e45ec06b7de2f104d2ccea7fd79a23a5d19fee39689764ae4",
+          "offset": 264535,
+          "deleteBytes": 21,
+          "removedSHA256": "3c77fff54f8d8d310b459de7064cbb569ce910ebcbfe406d5a475dadac597241",
           "insert": "patches/local-thread/actions-rail-5.txt",
-          "insertSHA256": "ee944fba58bf156ce75f87458f1c2002932099cea294c7b4654073b11d984fb4"
+          "insertSHA256": "823b5ad91f7c18138ce5e9225f4d8ad8c1648b20c8f33db5a2944a42613e07db"
         },
         {
-          "offset": 251451,
+          "offset": 264594,
           "deleteBytes": 17,
           "removedSHA256": "eebafe0988e5781b3aa15a0ce225ef78c87ba4bc1697591f2642c0275ce69898",
           "insert": "patches/local-thread/actions-rail-6.txt",
           "insertSHA256": "e946d47e1e940d9a3b1c027530e917246339a8a652fe7228183576f423708409"
         },
         {
-          "offset": 330521,
+          "offset": 343919,
           "deleteBytes": 71,
-          "removedSHA256": "1ba1cf77da53fa2c8501bc4cd4d49b5ab2256738bd2abd0b09eee9e395eff4ac",
+          "removedSHA256": "54c9d66c5a796d3efce9f04fca04e8462c5f7baf5c8c1bc716c50b2eb9eceb45",
           "insert": "patches/local-thread/actions-rail-1.txt",
-          "insertSHA256": "c449fff937bbe685c6c102be5f5c5fcf4859f60ed1ccae5d2d3000173db5b38a"
+          "insertSHA256": "ae1774f3b85f30c54d1617f1fc88c26a58ca8e75c89f0de3274d406b572f2b06"
         },
         {
-          "offset": 331050,
+          "offset": 344447,
           "deleteBytes": 38,
-          "removedSHA256": "ec561407725de9cd572086fc6397384b21753bd6a31e095160b3f8964d03f7c7",
+          "removedSHA256": "e66245ce5362434be06f6fed0986c319ceb2fe7e1e12d31f9dc5e10ffea08713",
           "insert": "patches/local-thread/actions-rail-2.txt",
-          "insertSHA256": "da7b377e2008c81eadfb4904eba0605e7fe992b70ceb12474ab357602dfaea83"
+          "insertSHA256": "3d3020321bdbe36746a65e4bf240d546569945f89c112da8a1b92cc68db3c6e8"
         },
         {
-          "offset": 337528,
+          "offset": 350939,
           "deleteBytes": 47,
-          "removedSHA256": "f7e0716602c81daf889a89e067dc3b10f0e6603011d06a79bc4d65cb753962ed",
+          "removedSHA256": "a8b461096c3a23421b7c5a6b431de3db2c885837d1e16da2aef870c921c1a4bb",
           "insert": "patches/local-thread/actions-rail-7.txt",
-          "insertSHA256": "fddd5cc4091e58b72d053f2bf8cf51f848f8b000ad730600d77692eacc95ae17"
+          "insertSHA256": "5a4c3977392ab9a5165a9427e39204993d238763171c0ed24c78ffe3486afcda"
         },
         {
-          "offset": 338483,
+          "offset": 351894,
           "deleteBytes": 14,
-          "removedSHA256": "4ca73cd2cbd795d3a5f22ee81845ad12e46cfbae5f6d126609e38f3d02d99985",
+          "removedSHA256": "b4f3753fb15038e106b5d96ab4be52fafeeb1e912ed236976ab69ef95cddd315",
           "insert": "patches/local-thread/actions-rail-8.txt",
-          "insertSHA256": "7a5477369c2ad9869b99d105ab7bdf15314d6973540fa1e3ec6c4a514973eb88"
+          "insertSHA256": "2a2edaff721b866c5b5622ea04609225faa4ad5964a8a21e6722891482c006b7"
         }
       ],
-      "patchedSHA256": "95d86a6e6f993b5ae56334a302d2fc0a962857053a2a30a66d96f5aa615a53a4"
+      "patchedSHA256": "f29ba1bd4072aa95df79bb61c2ddad58e8035739c830ef4b2b09ec28d6000500"
     },
     {
       "id": "local-turn",
-      "entry": "webview/assets/local-conversation-turn-cad50250a35c.js",
-      "originalSHA256": "533d7035ed2b19db400aad0bbcb8eb70b0d0bb52bbde2c684df3e16be3d1352e",
+      "entry": "webview/assets/local-conversation-turn-8acd99401e74.js",
+      "originalSHA256": "d01cc2cdf8ab368d3771cef3cdad14d553a33c4e82b37e6e471dcacd7f86e366",
       "preprocess": null,
       "operations": [
         {
-          "offset": 44867,
+          "offset": 45225,
           "deleteBytes": 88,
-          "removedSHA256": "67ae9c34239dc1ca52591fd71c5e7919c6ccda3d48e78123c59bc6d4f86f66a4",
+          "removedSHA256": "13d182fff45a088ccd8c040b7a7865cabcd1e0899f721dbd7fd6e00e42dd068e",
           "insert": "patches/local-turn/actions-rail-0.txt",
-          "insertSHA256": "9c013565378e216af8b728010ace1621501cff50533a892c79f434588e3ed89f"
+          "insertSHA256": "171fa45394cea05838abeba63c31a46dc8648e4c4fea8218795130127faac192"
         }
       ],
-      "patchedSHA256": "e18d8992d7aeb6bd894d32efb2d332177c244d9b93fb3e3e94fa78f960bbb88e"
+      "patchedSHA256": "d4a659502bda0c01fd4eb3a366d6d9e1e16b3f364d65667f455651efd31fb57f"
     },
     {
       "id": "activity",
-      "entry": "webview/assets/subagent-activity-chip-group-7235ecadfc3f.js",
-      "originalSHA256": "fa75fc65c3549276cbd890c698ea22f629e918a74d10935d2afbca5f16f334fb",
+      "entry": "webview/assets/subagent-activity-chip-group-e05e8cab2038.js",
+      "originalSHA256": "8289df6d53a760b0a1aa189f58eb67fd2bd1650a7fcaa675c04853458448cd67",
       "preprocess": null,
       "operations": [
         {
-          "offset": 302059,
+          "offset": 304637,
           "deleteBytes": 34,
-          "removedSHA256": "a48abc12fc9c66b9e8129f14160721eb4fad12579dd1c72ea01cd9475d02076c",
+          "removedSHA256": "f71c5df2cc198657d4ff05a96ddfbc0f46771109687ff7be360747f5c5acaf0b",
           "insert": "patches/activity/actions-rail-0.txt",
-          "insertSHA256": "4527c23afbf8d1df56fbb607fbb5595815fed7da3f21175c52a46759060f4c23"
+          "insertSHA256": "227310f161f10c763e48b6a2dd2d44a92fb17f89ad44aa48bafda4dd1ef277fc"
         },
         {
-          "offset": 306212,
+          "offset": 308843,
           "deleteBytes": 29,
-          "removedSHA256": "03b7bf2e5916501230f0eecdf0c22b03b1fc3093b39f81aa5c9167b5e22dd820",
+          "removedSHA256": "2e5e658f926f36dab5fab468426b907573524657c66915175b7733843195cc71",
           "insert": "patches/activity/actions-rail-1.txt",
-          "insertSHA256": "01367b875e49961e6870dc8b912c5348193402d799f73a59949a1807c91d5520"
+          "insertSHA256": "005d84ad79ff764171d965d462c0e3125911e7c94db7cd926a1978fef89df052"
         },
         {
-          "offset": 306243,
+          "offset": 308874,
           "deleteBytes": 54,
-          "removedSHA256": "23bfa06e952a8d00188278e00cdecf457ad8d480597b930419a2f3bfbba831fd",
+          "removedSHA256": "1c4088ad849d07d5f70c10de068be090864a623f7603d15d0624e66fe1e9e85e",
           "insert": "patches/activity/actions-rail-2.txt",
-          "insertSHA256": "a0f19f3b181990ce8193b3665e2872eb312d7d2807dbaa37c4a0c4ade0d6a26a"
+          "insertSHA256": "85b2ee4e5fe32df6d0f4e492babe0ca36b226039031daca2130f252022eb2480"
         },
         {
-          "offset": 306381,
+          "offset": 309012,
           "deleteBytes": 16,
-          "removedSHA256": "ca8a5419df8f165f2c1e23b8c050f9727a170af46821876bb6b0b75e4267aa0c",
+          "removedSHA256": "ffdbfe4432d7d4f5754314b34b2d9a0e0aca1dd344a2db7508ec81e98de882f6",
           "insert": "patches/activity/actions-rail-3.txt",
-          "insertSHA256": "4182aa2ca1913899fc6b8fde0fb7787d891d75542f00b386938bfaf2e15b404f"
+          "insertSHA256": "a9d95bd008d814393aa5c6815e9e66319347cbce207ca8ad9dd03abe0e1fd01e"
         }
       ],
-      "patchedSHA256": "0a932ef92f7e94be49467aa23f31fbb372753697daa971cee917b283e4ae8a93"
+      "patchedSHA256": "f574aeecb19f920f7b294d8cd7fd1e12e8ecae2fdf41b27eb33b23c7958b23e1"
     },
     {
       "id": "prompt-rail",
-      "entry": "webview/assets/thread-user-message-navigation-rail-app-3b2a67daad6b.js",
-      "originalSHA256": "fbc95847a70449d144e25b4797c809cc0b95469fd61f453f4915a8e2bdeeb980",
+      "entry": "webview/assets/thread-user-message-navigation-rail-app-4703491a5992.js",
+      "originalSHA256": "e80995fb00f6ce8485dba89156cf5d3737c6e00d7e1fb5f160af4befc42e7ee2",
       "preprocess": null,
       "operations": [
         {
-          "offset": 2659,
+          "offset": 2664,
           "deleteBytes": 5,
           "removedSHA256": "a21db08350ee4a5ccc8a7d299513c7aba8e3ea8f25c02fd611b7f19da12d115f",
           "insert": "patches/prompt-rail/compact-threshold.txt",
           "insertSHA256": "87c42ae34f8648c75726a56ff96b7f8c3931d7bb7609b1bac8d1478e74fd94eb"
         }
       ],
-      "patchedSHA256": "b12de197cf7ad928cd1c5f0f084496a31e8ede23b5a31a0e5bc6c408fa041819"
+      "patchedSHA256": "a8b2c6199e4b10547e1bd33d12d668c11f7b55bea6f339e438f6549d823d9513"
     }
   ],
   "assets": {
     "assets/bounded-rollout-reader.mjs": "ff522dd98b367f5c80e35992ed943f2571bd33f62c308ebbe9c1b1db26990a1e",
     "assets/local-composer-recovery-v1.mjs": "f52f7a81f26f34f1af7d9f19a6ee8db9c5e13b8b65d53e21e85611bda4a78b78",
     "assets/chat-history-filter-1.1.0.mjs": "b9f6664c190b5760b86732b4ec40a0dedee80155e433f3f40faa6e82420189d9",
-    "assets/local-conversation-render-fixes-v1.mjs": "c85721968c3d3d4a9b4f3f17444727e7f3a16c1cc76198ace05642d1f7e455df",
+    "assets/local-conversation-render-fixes-v1.mjs": "28f34c89ab11ebd42c775ebcdc7b8d771ce112fc31353ac7258e55931a199a73",
     "assets/local-conversation-model-preferences-v1.mjs": "fe505f78a305da817917c76e7b2de560ceebda0f964f94be8a1f49ee1f77b1b1",
     "assets/local-conversation-performance-v1.mjs": "bf9340a7db9f05ddfc3239d9f89993326180ad49ecb638d94b0f9c46a2bb6a47",
     "assets/local-mention-search-v1.mjs": "eae22b4e4765feaa59a8ae0ddb885c7d2ffc79e8fdba3206f0a6d7db95c52789",
@@ -1984,19 +1941,23 @@
     "webview/assets/local-side-chat-actions-v1.js": "assets/local-side-chat-actions-v1.mjs",
     "webview/assets/local-chat-prompt-rail-v1.js": "assets/local-chat-prompt-rail-v1.mjs"
   },
-  "language": "en",
+  "testedCodexCliVersion": "0.154.0",
+  "bundledCodexCliVersion": "0.153.4",
+  "runtimeKind": "owl",
+  "owlRuntimeDescriptorSHA256": "19ecc36c928abe789c1dec4c788c719eb583017e1cc7e2a293b280e0b32fedb5",
+  "owlAppConfigSHA256": "73c1a54e736a38607264c6a85227d2d87c60b0f893ad31e7f0113f12ed2dbe06",
   "expectedBuilds": {
     "full": {
-      "archiveSHA256": "19423d52d3c371ce33dcc7d540d8198729c4163ffb060bb35b9aa8624a517add",
-      "executableSHA256": "f47c27ae2e6fa55551e2ba3b82568957fac796ab104ae6c8af96ff9060624dda",
-      "archiveHeaderSHA256": "6148989dc15bca12fd96a786cbcee33d96917febdc011b9b086ba56328e76262",
-      "verifiedPackedEntries": 8813
+      "archiveSHA256": "04204ee7d6ab7d3f240a9b2790929e45bb8db201a7a2e01020c08ce7b81e41b1",
+      "executableSHA256": "49e7e8f5db0a4c8a12a666b70dac40e0e88a1873d02e8aafb82c3e8cabeca49c",
+      "archiveHeaderSHA256": "07b269b01067841e121d5c490adb2c54e01b13115ff76d0e257fccd38a66977e",
+      "verifiedPackedEntries": 8851
     },
     "performanceOnly": {
-      "archiveSHA256": "a2ef1e5836e1517c3e7fac75f52b1443ddfb0a90029a153f21d83a7278db8817",
-      "executableSHA256": "ffa0e689806b317130db7627c633c8c2335b67b9c0c480909e81d0bb2d2fab30",
-      "archiveHeaderSHA256": "8af71fcff94563d9679bd5de63764a5d11c549838849f0b0574b02ea4be05613",
-      "verifiedPackedEntries": 8812
+      "archiveSHA256": "de4252800910343a7709d4eca92fa0855022841667365e4c3ca08457a425042c",
+      "executableSHA256": "49e7e8f5db0a4c8a12a666b70dac40e0e88a1873d02e8aafb82c3e8cabeca49c",
+      "archiveHeaderSHA256": "fee717f1f0f5249f852add43f7aa84bb162497b94c1aa70b83ce37581aeefcec",
+      "verifiedPackedEntries": 8850
     }
   }
 }

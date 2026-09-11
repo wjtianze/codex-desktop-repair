@@ -1,2 +1,2 @@
 import{readChatScrollOffset as __localReadChatScrollOffset,rememberChatScrollOffset as __localRememberChatScrollOffset,createRestoringChatTurnList as __localCreateChatTurns}from"./local-chat-scroll-memory-v1.js";
-import{r as __localUseChatScrollController}from"./thread-scroll-controller-context-value-280e8a5b16ef.js";
+import{r as __localUseChatScrollController}from"./thread-scroll-controller-context-value-6a9e93eb1505.js";

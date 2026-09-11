@@ -4,7 +4,7 @@ An unofficial local repair package for the Windows desktop app. It addresses ver
 
 This is the English edition of [wjtianze/codex-desktop-repair](https://github.com/wjtianze/codex-desktop-repair). The original main branch remains in Chinese.
 
-**Supported target only: Windows x64, Microsoft Store package OpenAI.Codex 26.901.6511.0, application version 26.901.51231. Other versions are rejected before patching.**
+**Supported target only: Windows x64, Microsoft Store package OpenAI.Codex 26.903.9818.0, application version 26.903.71938. Other versions are rejected before patching.**
 
 ## Installation
 
@@ -45,7 +45,7 @@ Run **Check-Environment.cmd** to check compatibility first. To install without s
 | Layout and background work | Combine frequent layout notifications and pause hidden slider decorations. |
 | Mention search | Wait for stable input, discard obsolete queued work, and serialize history searches for each host. |
 | Quick chat | Create spare windows on demand. Both ChatGPT and Codex modes support Ctrl+Alt+N and the round button beside New chat. |
-| Browser and Chrome components | Read large records in bounded batches; coalesce file notifications and process notifications arriving during queue cleanup. |
+| Browser and Chrome components | Keep the new official browser implementation; retire the old rollout-watcher patches. |
 | Stability | Bound repeated renderer-crash recovery and handle cleanup after optional-device initialization failures. |
 | Window restoration | Cap invalid dimensions and move capped oversized windows into the desktop work area. |
 | Composer recovery | Keep the composer during a transient cached 404 for a locally known private conversation, with bounded retry. |
@@ -64,11 +64,11 @@ The installation directory is **%LOCALAPPDATA%\ChatGPT-PerformanceFix**. Backups
 
 ## Compatibility and known issues
 
-See the [1.0.15 release notes](docs/UPDATES_1_0_15.md), [compatibility and testing](docs/VALIDATION.md) for supported versions and local checks, and [known issues](docs/AUDIT.md) for problems this repair does not fully resolve.
+See the [1.1.0 release notes](docs/UPDATES_1_1_0.md), [compatibility and testing](docs/VALIDATION.md) for supported versions and local checks, and [known issues](docs/AUDIT.md) for problems this repair does not fully resolve.
 
 Some long-session delays and system-wide freezes remain unresolved. If the backend is unresponsive, Stop may still wait for a response. After an unexpected exit, keep the separate draft file and its backup; save unsent text before returning to an older version.
 
-Only patch fragments, helper code, tests, and documentation are distributed. Updating the copied executable's resource-header digest invalidates its official digital signature; the original Store installation remains intact. An official update requires a newly validated adaptation.
+Only patch fragments, helper code, tests, and documentation are distributed. Version 1.1.0 preserves the official executable and its digital signature; repairs are applied to resources in a separate runtime copy, and the Store installation remains intact. An official update requires a newly validated adaptation.
 
 If security software reports a detection, stop installation and keep the details. Do not disable protection or add an exclusion. The development-time command-line detection and response are documented in [security notes](docs/SECURITY.md).
 

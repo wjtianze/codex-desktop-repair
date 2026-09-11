@@ -1,36 +1,38 @@
-# Compatibility and testing
+# Compatibility and validation
 
-## Supported version
+## Verified version combination
 
-- Windows x64.
-- Microsoft Store package **OpenAI.Codex 26.901.6511.0**.
-- App version **26.901.51231**.
+| Component | Version |
+| --- | --- |
+| Platform | Windows x64 |
+| Microsoft Store package | OpenAI.Codex 26.903.9818.0 |
+| ChatGPT App | 26.903.71938, Owl runtime |
+| App-bundled Codex backend | 0.153.4 |
+| Standalone Codex CLI | 0.154.0 |
 
-Other versions and architectures are rejected before installation. The installer checks the official signature, source hashes, and generated resources. The original Store installation remains intact; the repair uses a separate runtime copy.
+The App and standalone CLI use separate executables. Installing this repair does not replace the standalone CLI or downgrade the App's bundled backend. The installer verifies the official signature, exact version and file hashes. Other App versions are rejected.
 
-## Test coverage
+## Validation scope
 
-The English 1.0.15 edition passes 421 automated checks covering patch application, installation and restore, draft persistence, request scheduling, reading-position restoration, rendering, model previews, and side-panel actions. Code block checks cover both generic and dedicated ChatGPT components. Browser checks also cover narrow and wide layouts, native marker expansion, the visible gap beside the text, scaled windows, independent scrolling, and cleanup. Side-chat checks cover branch ownership, history projection, input preservation, and duplicate submission protection.
+Automated checks cover patch boundaries, full and sidebar-free builds, complete native-module syntax, drafts, request scheduling, chat reading position, model selection, messages, images, file citations, search progress, Side chat editing and navigation layout.
 
-Automated tests use synthetic data and cannot cover every conversation, device, or long-running session. See [known issues](AUDIT.md) for remaining limits.
+Installation and recovery checks also cover cross-version runtimes, the pinned taskbar shortcut, the existing profile path, backup integrity and resuming an interrupted rollback. The new official browser no longer contains the legacy rollout watcher, so those patches are retired; unchanged official browser files are still hash-verified.
 
-## Run a local check
+Protocol schemas are generated separately from both actual executables. Live compatibility checks cover initialization, account reading, model listing and policy requirements. Semantics follow the [OpenAI App Server documentation](https://learn.chatgpt.com/docs/app-server); version-specific interfaces are checked against the generated schemas. These compatibility checks did not start real model turns.
 
-Double-click **Check-Environment.cmd** to check whether the installed official app is supported.
+Isolated module/page loading and installation acceptance using the existing profile are recorded separately. Automated checks cannot replace every real conversation, device or long-running session. See [known issues](AUDIT.md) for remaining limitations.
 
-Contributors can run the portable checks with Node.js 24:
+## Local checks
 
-```powershell
+Run **Check-Environment.cmd** for a compatibility check. Maintainers use Node.js 24:
+
+~~~powershell
 node tests/run.cjs
-```
-
-With the supported official Windows app installed, also run:
-
-```powershell
 node tests/run.cjs --installed
-node tests/code-header-layout.cjs
-```
+~~~
 
-Generated native resources and results stay in the local `build/` directory and are not included in release downloads.
+The second command requires the supported Windows App, regenerates native fixtures and runs the modified native functions and browser-layout tests. Results and generated resources stay under ignored build/ directories. Account files, conversations and complete official resources are not published.
 
-The fresh temporary Side chat path was also exercised against the installed App Server with synthetic questions: both editing and regeneration returned the expected context-dependent answer while preserving the original test conversation. This does not replace every UI or long-session acceptance check.
+## Release verification
+
+Both editions passed 422 checks against the installed official source. Full and sidebar-free builds each verified 8,851 packed resources. The Chinese 1.1.0 build was installed using the existing profile and passed a real page/module-loading check without a login gate or error boundary. The English edition was independently built and tested; it was not installed over the user's Chinese edition.

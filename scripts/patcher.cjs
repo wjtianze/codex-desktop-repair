@@ -71,7 +71,13 @@ function build(source,output,{sidebar=true,fixtures=false}={}){
  for(const [entry,file]of Object.entries(manifest.addedArchiveEntries))if(sidebar||!entry.includes('chat-history-filter'))replacements.set(entry,asset(file));
  const built=writeArchive(archive,path.join(output,'app.asar'),replacements);
  const binary=fs.readFileSync(exe),needle=Buffer.from(built.oldHeader),offset=binary.indexOf(needle);
- assert.ok(offset>=0&&binary.indexOf(needle,offset+1)<0,'Unexpected executable integrity record');Buffer.from(built.header).copy(binary,offset);
+ if(manifest.runtimeKind==='owl'){
+  assert.equal(fileHash(path.join(source,'owl-shell-runtime.json')),manifest.owlRuntimeDescriptorSHA256,'Unsupported Owl runtime descriptor');
+  assert.equal(fileHash(path.join(source,'resources','owl-app.ini')),manifest.owlAppConfigSHA256,'Unsupported Owl app configuration');
+  assert.equal(offset,-1,'Unexpected legacy executable integrity record in Owl runtime');
+ }else{
+  assert.ok(offset>=0&&binary.indexOf(needle,offset+1)<0,'Unexpected executable integrity record');Buffer.from(built.header).copy(binary,offset);
+ }
  fs.writeFileSync(path.join(output,'ChatGPT.exe'),binary,{flag:'wx'});
  const browser=applyPatch(fs.readFileSync(inside(source,externalSpec.entry)),externalSpec);
  fs.mkdirSync(path.join(output,'external'));
@@ -85,4 +91,3 @@ function build(source,output,{sidebar=true,fixtures=false}={}){
 }
 module.exports={ROOT,manifest,sha,fileHash,inside,asset,archiveHeader,entries,getEntry,readExact,applyPatch,writeArchive,build};
 if(require.main===module){try{const args=process.argv.slice(2);assert.equal(args.shift(),'build');const source=args.shift(),output=args.shift();assert.ok(source&&output);console.log(JSON.stringify(build(source,output,{sidebar:!args.includes('--without-sidebar'),fixtures:args.includes('--fixtures')}),null,2))}catch(error){console.error(error.message);process.exitCode=1}}
-

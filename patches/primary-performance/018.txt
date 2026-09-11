@@ -1,1 +1,1 @@
-__localIsProgressiveVisualization(n,i?.contentReferences,reference=>HYn.safeParse(reference).success))return(0,k$n.jsx)(__localProgressiveVisualization(),{attributes:n,contentReferences:i?.contentReferences});if(
+{attributes:n,isTerminalInline:r}=e,i=RD(),a,o,s,c,l,u;if(__localIsProgressiveVisualization(n,i?.contentReferences,reference=>V8n.safeParse(reference).success))return(0,D9n.jsx)(__localProgressiveVisualization(),{attributes:n,contentReferences:i?.contentReferences});if(

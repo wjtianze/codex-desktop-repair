@@ -1,1 +1,1 @@
-let offset=Math.max(0,e-(M?.getHeightPx()??0));w.set(ur,g,offset);__localRememberChatScrollOffset(g,offset)
+let offset=Math.max(0,e-(N?.getHeightPx()??0));D.set(Gt,v,offset);__localRememberChatScrollOffset(v,offset)

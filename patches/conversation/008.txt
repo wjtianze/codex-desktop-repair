@@ -1,2 +1,2 @@
 
-export async function __localEditChatMessage(scope,args){Fs();return Ms(scope,args)}
+export async function __localEditChatMessage(scope,args){Is();return Ns(scope,args)}
