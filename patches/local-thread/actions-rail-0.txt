@@ -1,3 +1,4 @@
-import{__localSeedSideActionTurn}from"./app-initial-f094ef01c64d.js";
-import{useSideChatMessageActions as __localUseSideActions,branchSideChatTurn as __localBranchSideTurn,createRegenerateControl as __localCreateRegenerate,sideChatActionLabels as __localSideLabels}from"./local-side-chat-actions-v1.js";
+import{createSideChatTabUpdate as __localCreateSideTabUpdate}from"./local-side-chat-tab-update-v1.js";
+import{Mwt as __localSideManagerAtom,__localSeedSideActionTurn}from"./app-initial-f094ef01c64d.js";
+import{getOwnedSideChatManager as __localGetOwnedSideManager,useSideChatMessageActions as __localUseSideActions,branchSideChatTurn as __localBranchSideTurn,createRegenerateControl as __localCreateRegenerate,sideChatActionLabels as __localSideLabels}from"./local-side-chat-actions-v1.js";
 import{createChatPromptRail as __localCreatePromptRail}from"./local-chat-prompt-rail-v1.js";
