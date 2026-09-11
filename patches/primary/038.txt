@@ -1,4 +1,4 @@
 
-const __historyMode=__localHistoryFilter.useActiveMode($());
-const __historyKeys=$().useMemo(()=>__localHistoryFilter.filterKeys(e.keys,__historyMode,e.conversationByKey,e.projectByKey),[e.keys,e.conversationByKey,e.projectByKey,__historyMode]);
+const __historyMode=__localHistoryFilter.useActiveMode(__localReactRuntime());
+const __historyKeys=__localReactRuntime().useMemo(()=>__localHistoryFilter.filterKeys(e.keys,__historyMode,e.conversationByKey,e.projectByKey),[e.keys,e.conversationByKey,e.projectByKey,__historyMode]);
 if(__historyKeys!==e.keys)e={...e,keys:__historyKeys,forcedVisibleItemKey:__historyKeys.includes(e.forcedVisibleItemKey)?e.forcedVisibleItemKey:void 0};

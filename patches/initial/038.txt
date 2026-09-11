@@ -1,1 +1,1 @@
-await __localPrepareVisualization(fragment),{allowAnnotati
+await __localPrepareVisualization(fragment),{allowAnnotations

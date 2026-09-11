@@ -1,1 +1,1 @@
-(T.kind===`local`&&T.placement===`side`?__localSidePromptRail:DD,{containerRef:qe,conversationId:e,enabled:H||Te,getItems:xt
+(E.kind===`local`&&E.placement===`side`?__localSidePromptRail:xO,{containerRef:Ye,conversationId:e,enabled:G||we,getItems:wt

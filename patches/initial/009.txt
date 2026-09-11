@@ -1,10 +1,10 @@
-LocalIdleBudgetCandidates(now){
+getLocalIdleBudgetCandidates(now){
  const candidates=[];
  for(const [id,since] of this.inactiveOwnerConversationSinceById){
   const thread=this.params.threadStore.getConversation(id);
-  if(!thread||thread.resumeState!=="resumed"||!this.params.streamState.ownsConversationHistoryStream(id)||this.hasActiveConversationView(id)||this.hasOwnedStreamFollowers(id)||this.unsubscribingConversationIds.has(id)||this.shouldKeepConversationLoaded(thread)||ytn(thread))continue;
+  if(!thread||thread.resumeState!=="resumed"||!this.params.streamState.ownsConversationHistoryStream(id)||this.hasActiveConversationView(id)||this.hasOwnedStreamFollowers(id)||this.unsubscribingConversationIds.has(id)||this.shouldKeepConversationLoaded(thread)||dnn(thread))continue;
   if((this.inactiveOwnerConversationRetryAtById.get(id)??0)>now)continue;
-  if(thread.threadRuntimeStatus?.type!=="idle"||thread.requests.length>0||thread.turnsPagination?.isLoadingOlder===true||ES(thread)?.status==="inProgress")continue;
+  if(thread.threadRuntimeStatus?.type!=="idle"||thread.requests.length>0||thread.turnsPagination?.isLoadingOlder===true||VS(thread)?.status==="inProgress")continue;
   candidates.push({conversationId:id,inactiveSinceMs:since});
  }
  return candidates.sort((a,b)=>a.inactiveSinceMs-b.inactiveSinceMs);
@@ -15,10 +15,10 @@ getNextCheckAtMs(now){
   const thread=this.params.threadStore.getConversation(id);
   if(thread?.resumeState!=="resumed"||!this.params.streamState.ownsConversationHistoryStream(id)||this.hasActiveConversationView(id)||this.hasOwnedStreamFollowers(id)||this.unsubscribingConversationIds.has(id)||this.shouldKeepConversationLoaded(thread))continue;
   const retry=this.inactiveOwnerConversationRetryAtById.get(id)??null;
-  const at=retry!==null&&retry>now?retry:since+btn;
+  const at=retry!==null&&retry>now?retry:since+fnn;
   if(next===null||at<next)next=at;
  }
- const idle=this.getLocalIdleBudgetCandidates(now),extra=Math.max(0,idle.length-Stn);
+ const idle=this.getLocalIdleBudgetCandidates(now),extra=Math.max(0,idle.length-mnn);
  for(const item of idle.slice(0,extra)){const at=item.inactiveSinceMs+30000;if(next===null||at<next)next=at}
  return next;
 }
@@ -30,13 +30,13 @@ getInactiveOwnerConversationIdsToUnsubscribe(now){
   if(thread?.resumeState!=="resumed"||!this.params.streamState.ownsConversationHistoryStream(id)||this.hasActiveConversationView(id)||this.hasOwnedStreamFollowers(id)||this.shouldKeepConversationLoaded(thread))continue;
   const retry=this.inactiveOwnerConversationRetryAtById.get(id)??null;
   if(retry!==null&&retry>now)continue;
-  candidates.push({conversationId:id,inactiveSinceMs:since,expired:now-since>=btn});
+  candidates.push({conversationId:id,inactiveSinceMs:since,expired:now-since>=fnn});
  }
  candidates.sort((a,b)=>a.inactiveSinceMs-b.inactiveSinceMs);
  const selected=new Set(candidates.filter(item=>item.expired).map(item=>item.conversationId));
- const idle=this.getLocalIdleBudgetCandidates(now),extra=Math.max(0,idle.length-Stn);
+ const idle=this.getLocalIdleBudgetCandidates(now),extra=Math.max(0,idle.length-mnn);
  for(const item of idle.slice(0,extra))if(now-item.inactiveSinceMs>=30000)selected.add(item.conversationId);
  return candidates.filter(item=>selected.has(item.conversationId)).map(item=>item.conversationId);
 }
 
-shouldKeepConversationLoaded(e){if(e.requests?.length>0)return!0;return this.params.streamState.getStreamRole(e.id)?.role===`follower`?!1:e.rolloutPath.length===0&&n4t(e)?.length===0||e.threadRuntimeStatus?.type===`active`||ES(e)?.status===`inProgress`&&(htn(e,this.params.parseUrl)==null||ytn(e))}async unsubscribeInactiveConversation(e){if(this.disposed||this.unsubscribingConversationIds.has(e))return;let t=this.params.threadStore.getConversation(e),n=this.params.streamState.getStreamRole(e)?.role??null;if(t?.resumeState
+shouldKeepConversationLoaded(e){if(e.requests?.length>0)return!0;return this.params.streamState.getStreamRole(e.id)?.role===`follower`?!1:e.rolloutPath.length===0&&K4t(e)?.length===0||e.threadRuntimeStatus?.type===`active`||VS(e)?.status===`inProgress`&&(snn(e,this.params.parseUrl)==null||dnn(e))}async unsubscribeInactiveConversation(e){if(this.disposed||this.unsubscribingConversationIds.has(e))return;let t=this.params.threadStore.getConversation(e),n=this.params.streamState.getStreamRole(e)?.role??null;if(t?.resumeState

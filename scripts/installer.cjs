@@ -4,7 +4,7 @@ const {ROOT,manifest,fileHash,build}=require('./patcher.cjs'),transaction=requir
 function read(file){return JSON.parse(fs.readFileSync(file,'utf8').replace(/^\uFEFF/,''))}
 // This supported MSIX package explicitly disables file-system write virtualization.
 function resolveProfile(prior,appData=process.env.APPDATA){return typeof prior?.Profile==='string'&&path.isAbsolute(prior.Profile)?prior.Profile:path.join(appData,'Codex')}
-function clientClosed(source,base){const wanted=[path.join(source,'ChatGPT.exe'),path.join(base,manifest.appVersion,'runtime','ChatGPT.exe')].map(x=>x.toLowerCase());if(windows.runningClients().some(p=>wanted.includes(String(p.ExecutablePath).toLowerCase())))throw Error('请先保存未发送的内容并退出 ChatGPT，再运行安装程序。')}
+function clientClosed(source,base){const wanted=[path.join(source,'ChatGPT.exe'),path.join(base,manifest.appVersion,'runtime','ChatGPT.exe')].map(x=>x.toLowerCase()),prefix=(path.resolve(base)+path.sep).toLowerCase();if(windows.runningClients().some(p=>{const exe=String(p.ExecutablePath).toLowerCase();return wanted.includes(exe)||exe.startsWith(prefix)}))throw Error('请先保存未发送的内容并退出 ChatGPT，再运行安装程序。')}
 function locked(base,fn){fs.mkdirSync(base,{recursive:true});const directory=path.join(base,'install-running');try{fs.mkdirSync(directory)}catch{throw Error('已有安装程序运行，或上次安装被中断。请保留备份并检查 install-running 中的进程记录。')}fs.writeFileSync(path.join(directory,'owner.json'),JSON.stringify({pid:process.pid,time:new Date().toISOString()}));try{return fn()}finally{fs.unlinkSync(path.join(directory,'owner.json'));fs.rmdirSync(directory)}}
 function main(){
  const args=process.argv.length>2?process.argv.slice(2):(process.env.DESKTOP_REPAIR_ARGS||'install').trim().split(/\s+/);
@@ -15,7 +15,7 @@ function main(){
  if(action==='uninstall'){
   if(!fs.existsSync(stateFile)){console.log('没有本仓库生成的安装记录，无需恢复。');return}
   const meta=read(path.join(base,'installation.json'));clientClosed(windows.packageInfo()?.InstallLocation?path.join(windows.packageInfo().InstallLocation,'app'):meta.Runtime,base);
-  locked(base,()=>{let count=0;const seen=new Set();while(fs.existsSync(stateFile)){const state=read(stateFile);assert.ok(count<20&&!seen.has(state.transaction),'恢复记录存在循环');seen.add(state.transaction);const result=transaction.rollback(state.transaction,{allowExternalChanges:true});count++;console.log('已恢复一份安装记录；保留备份：'+result.backupDirectory);if(result.skippedExternal)console.log('部分浏览器组件在安装后已变更，已保留当前文件。')}console.log('恢复完成。聊天和账号数据未清除，备份仍保留在本地。')});return;
+  locked(base,()=>{let count=0;const seen=new Set();while(fs.existsSync(stateFile)){const state=read(stateFile);assert.ok(count<128&&!seen.has(state.transaction),'恢复记录存在循环或超过单次恢复上限');seen.add(state.transaction);const result=transaction.rollback(state.transaction,{allowExternalChanges:true});count++;console.log('已恢复一份安装记录；保留备份：'+result.backupDirectory);if(result.skippedExternal)console.log('部分浏览器组件在安装后已变更，已保留当前文件。')}console.log('恢复完成。聊天和账号数据未清除，备份仍保留在本地。')});return;
  }
  const info=windows.packageInfo();assert.ok(info,'请先安装微软商店中的官方 OpenAI.Codex 客户端。');
  assert.ok(info.Version===manifest.packageVersion&&info.Architecture.toLowerCase()==='x64','版本不匹配。本补丁仅适配 Windows x64 商店包 '+manifest.packageVersion+'，未修改客户端。');
@@ -37,10 +37,12 @@ function main(){
   if(fs.existsSync(path.join(base,'backups','before-sidebar-filter-v1','installation.json'))){performanceOutput=path.join(staging,'performance-only');build(source,performanceOutput,{sidebar:false})}
   const shortcutSource=path.join(staging,'ChatGPT.lnk'),shortcut=path.join(process.env.APPDATA,'Microsoft','Windows','Start Menu','Programs','ChatGPT.lnk');
   windows.shortcut(shortcutSource,path.join(base,'Start-ChatGPT-Fixed.cmd'),path.join(base,manifest.appVersion,'runtime','ChatGPT.exe'));
+  const shortcutPeers=[],pinned=path.join(process.env.APPDATA,'Microsoft','Internet Explorer','Quick Launch','User Pinned','TaskBar','Codex.lnk');
+  if(fs.existsSync(pinned))shortcutPeers.push({source:shortcutSource,target:pinned});
   const priorMeta=fs.existsSync(path.join(base,'installation.json'))?read(path.join(base,'installation.json')):null;
   const profile=resolveProfile(priorMeta);
   clientClosed(source,base);assert.equal(windows.packageInfo().Version,manifest.packageVersion,'客户端在构建期间已更新，已停止安装。');
-  const result=transaction.install({base,source,output,performanceOutput,profile,codexHome:process.env.CODEX_HOME||path.join(process.env.USERPROFILE,'.codex'),staging,repo:ROOT,shortcut,shortcutSource});
+  const result=transaction.install({base,source,output,performanceOutput,profile,codexHome:process.env.CODEX_HOME||path.join(process.env.USERPROFILE,'.codex'),staging,repo:ROOT,shortcut,shortcutSource,shortcutPeers});
   console.log('安装完成，'+result.verifiedOperations+' 项文件校验通过。请从开始菜单的 ChatGPT 启动。');
   if(result.skippedExternal)console.log('部分浏览器缓存版本不同，已保留原文件；本地运行副本的组件已修复。');
   if(!flags.has('--no-launch'))require('./launch.cjs').launch();
@@ -48,4 +50,3 @@ function main(){
 }
 module.exports={main,locked,clientClosed,resolveProfile};
 if(require.main===module){try{main()}catch(error){console.error(error.message);process.exitCode=1}}
-

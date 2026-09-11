@@ -1,1 +1,1 @@
-(n=n.filter(e=>e!==t),n.length?this.conversationCallbacks.set(e,n):this.conversationCallbacks.delete(e))}}addConvers
+(n=n.filter(e=>e!==t),n.length?this.conversationCallbacks.set(e,n):this.conversationCallbacks.delete(e))}}addConversationRemovedListener

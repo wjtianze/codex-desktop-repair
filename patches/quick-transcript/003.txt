@@ -1,1 +1,1 @@
-__localActions.onEditUserMessage,onRegenerateResponse:__localActions.onRegenerateResponse,onFork:vo
+__localActions.onEditUserMessage,onRegenerateResponse:__localActions.onRegenerateResponse,onFork:void

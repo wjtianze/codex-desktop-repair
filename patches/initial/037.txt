@@ -1,1 +1,1 @@
-const createRequest=async fragment=>({csp:Ipa,disp
+const createRequest=async fragment=>({csp:Bya,displayMode
