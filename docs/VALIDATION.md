@@ -35,4 +35,6 @@ The second command requires the supported Windows App, regenerates native fixtur
 
 ## Release verification
 
-Both editions passed 422 checks against the installed official source. Full and sidebar-free builds each verified 8,851 packed resources. The Chinese 1.1.0 build was installed using the existing profile and passed a real page/module-loading check without a login gate or error boundary. The English edition was independently built and tested; it was not installed over the user's Chinese edition.
+Both editions passed 432 checks against the installed official source. Full and sidebar-free builds each verified 8,853 packed resources. The Chinese 1.1.2 build was installed using the existing profile and passed a real page/module-loading check without a login gate or error boundary. The English edition was independently built and tested; it was not installed over the user's Chinese edition.
+
+Real-client integration checks also exercised editing and regeneration consecutively in the same tab, preserving its identifier and title. Project selection applied the maintenance working directory without changing the main route. Only new temporary test threads were used; the final native model dispatch was intercepted.

@@ -1,0 +1,1 @@
+E=__localTabUpdate??(C==null?y.openPendingTab(e,ht,{...T,props:{debugName:`LocalConversationSideChatLoadingTab.pending`,fillParent:!0},target:y.panelId}):y.openPendingTab(e,Q,{...T,props:{SideChatTab:t,clientThreadId:C,conversationId:null,lockedCollaborationMode:c,target:y.panelId},target:y.panelId}))

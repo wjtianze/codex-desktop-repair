@@ -1,0 +1,1 @@
+if(v.value.kind===`local`&&v.value.placement===`side`)ke=(0,o9.jsx)(__localSideProjectCommand,{conversationId:A,hostId:I,cwd:m});

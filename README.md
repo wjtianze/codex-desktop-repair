@@ -33,13 +33,13 @@ Run **Check-Environment.cmd** to check compatibility first. To install without s
 | Work activity | Keep thought summaries in native process disclosures and ordinary progress reports visible; show only the latest plan snapshot in each group. |
 | Live Chat summaries | Expand when the first summary arrives, preserve later manual collapse, and retain Thinking when the server has not supplied content. |
 | Message navigation | Preview and jump between user messages in Chat, floating Quick Chat, and Side chat; appears after four prompts, preserves marker lengths, and keeps a small gap beside the text. |
-| Side chat message actions | Edit completed prompts or regenerate answers in a new branch, keeping the original conversation and attachments. |
+| Side chat message actions | Edit completed prompts or regenerate answers in the current Side chat tab; preparation failures keep the original conversation. |
 | Quick Chat message actions | Native edit and regenerate controls preserve attachments, branches, and model options while respecting busy and read-only states. |
 | Historical timers and current progress | Close historical activity, show the current turn independently, and recover its snapshot after prolonged inactivity. |
 | Save As downloads | Choose the destination before downloading, show a busy state, transfer bounded chunks, and commit only after completion. |
 | Models and reasoning effort | Preview the model and reasoning level while dragging; save on release and remember choices per conversation. |
 | Code block scrolling | Keep headers in place from the first render, including ChatGPT code blocks; load syntax highlighting as needed. |
-| Side panel | Open Browser, Files, and temporary Side chats from Chat, Work, new chats, and existing conversations. |
+| Side panel | Open Browser, Files, and temporary Side chats; start a Side chat in a project working directory. |
 | State and drafts | Save draft-only edits in a small separate file and backup; retain the native complete state format for other changes and explicit flushes. |
 | Stop and steering | Reserve request capacity for Stop and steering without replaying operations whose outcome is unknown. |
 | Layout and background work | Combine frequent layout notifications and pause hidden slider decorations. |
@@ -64,11 +64,11 @@ The installation directory is **%LOCALAPPDATA%\ChatGPT-PerformanceFix**. Backups
 
 ## Compatibility and known issues
 
-See the [1.1.0 release notes](docs/UPDATES_1_1_0.md), [compatibility and testing](docs/VALIDATION.md) for supported versions and local checks, and [known issues](docs/AUDIT.md) for problems this repair does not fully resolve.
+See the [1.1.2 release notes](docs/UPDATES_1_1_2.md), [compatibility and testing](docs/VALIDATION.md) for supported versions and local checks, and [known issues](docs/AUDIT.md) for problems this repair does not fully resolve.
 
 Some long-session delays and system-wide freezes remain unresolved. If the backend is unresponsive, Stop may still wait for a response. After an unexpected exit, keep the separate draft file and its backup; save unsent text before returning to an older version.
 
-Only patch fragments, helper code, tests, and documentation are distributed. Version 1.1.0 preserves the official executable and its digital signature; repairs are applied to resources in a separate runtime copy, and the Store installation remains intact. An official update requires a newly validated adaptation.
+Only patch fragments, helper code, tests, and documentation are distributed. Version 1.1.2 preserves the official executable and its digital signature; repairs are applied to resources in a separate runtime copy, and the Store installation remains intact. An official update requires a newly validated adaptation.
 
 If security software reports a detection, stop installation and keep the details. Do not disable protection or add an exclusion. The development-time command-line detection and response are documented in [security notes](docs/SECURITY.md).
 

@@ -1,8 +1,14 @@
+export function getOwnedSideChatManager(scope,hostId,managerAtom) {
+  const manager=scope.get(managerAtom,hostId);
+  if(!manager||typeof manager.then==='function'||typeof manager.getConversation!=='function'||typeof manager.getStreamRole!=='function')throw Error('The local side-chat owner is not available.');
+  return manager;
+}
+
 export function sideChatActionLabels(locale='en') {
   return {
-    regenerate:'Regenerate', pending:'Creating branch…',
-    title:'Regenerate in a new side-chat branch and keep this conversation',
-    failed:'The side-chat action could not finish. Check the new branch or try again later.'
+    regenerate:'Regenerate', pending:'Updating…',
+    title:'Update this reply in the current side-chat tab',
+    failed:'The side-chat update could not finish. Check the current conversation state.'
   };
 }
 
@@ -56,7 +62,7 @@ export async function branchSideChatTurn({sourceId,turn,sourceTurns=[turn],messa
     if(!mime||typeof dataBase64!=='string')throw Error('The earlier image could not be copied.');
     return `data:${mime};base64,${dataBase64}`;
   });
-  const child=await openBranch(turn.turnId,async id=>{
+  const opened=await openBranch(turn.turnId,async id=>{
     if(!id||id===sourceId)throw Error('The side-chat branch must be a new conversation.');
     const manager=getManager();
     const state=manager.getConversation(id);
@@ -64,12 +70,18 @@ export async function branchSideChatTurn({sourceId,turn,sourceTurns=[turn],messa
     // Ephemeral threads have no rollout to fork or revert. Copy earlier visible
     // exchanges into a fresh temporary thread, excluding the selected answer.
     if(items.length)await manager.sendRequest('thread/inject_items',{threadId:id,items});
-    seedBranch(manager,id,snapshot,prefix);
+    await seedBranch(manager,id,snapshot,prefix);
   });
-  if(!child||child===sourceId||!isBranchOpen(child))throw Error('The new side chat was closed.');
+  const update=opened?.inPlace===true?opened:null,child=update?update.conversationId:opened;
+  if(!child||child===sourceId||!update&&!isBranchOpen(child)){update?.rollback();throw Error('The new side chat was closed.');}
   const manager=getManager();
-  if(manager.getStreamRole(child)?.role!=='owner'||!manager.getConversation(child)?.ephemeral)throw Error('The new side chat is unavailable.');
-  await edit(child,turn.turnId,message);
+  if(manager.getStreamRole(child)?.role!=='owner'||!manager.getConversation(child)?.ephemeral){update?.rollback();throw Error('The new side chat is unavailable.');}
+  try{await edit(child,turn.turnId,message)}catch(error){
+    // Once sending was invoked, show the actual replacement state rather than
+    // hiding a possibly accepted request or retrying it automatically.
+    update?.commit();throw error;
+  }
+  update?.commit();
   return child;
 }
 
