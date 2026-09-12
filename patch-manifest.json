@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
-  "releaseVersion": "1.1.2",
-  "performanceRevision": 22,
+  "releaseVersion": "1.1.3",
+  "performanceRevision": 23,
   "sidebarVersion": "1.1.0",
   "packageName": "OpenAI.Codex",
   "packageVersion": "26.903.9818.0",
@@ -1052,7 +1052,7 @@
       "id": "conversation",
       "entry": "webview/assets/chatgpt-conversation-page-733818e9db52.js",
       "originalSHA256": "aebed8ec3072cfb54701cba96f16cad1f9f2dfda7063146364c527aa94c232dc",
-      "patchedSHA256": "7576261f050025d1b8c07b8771a5ee090d059ea33cd9504f57ae7f8feb503e2a",
+      "patchedSHA256": "e3577f5faba78bf8b6e582b54bf963dcfa0f95ba4c4535bee746b8c32f0dd05b",
       "preprocess": null,
       "operations": [
         {
@@ -1151,21 +1151,21 @@
           "deleteBytes": 14,
           "removedSHA256": "afcf594b040e1f44d7d4de1dcd613911cac2290ad4b6fcba9b97fa5e1a7e0fb9",
           "insert": "patches/conversation/scroll-14.txt",
-          "insertSHA256": "dd93584f2b382ba4a78257e82b80bbaa0c141af34804fbf041fb76fd3166f354"
+          "insertSHA256": "6fc03264e24fd5530360b53291bb37755a7bb6dd2c145bed8c525c4ddb863d63"
         },
         {
           "offset": 59198,
           "deleteBytes": 53,
           "removedSHA256": "71154eebcaa0085b02c46126c601e601d405cf5b543f979aed1d0f9556bb48aa",
           "insert": "patches/conversation/scroll-15.txt",
-          "insertSHA256": "4705b7cb1ff6418863da342a05eacd82867da89462224a708d10968e367c323e"
+          "insertSHA256": "a9aaabf703a0f2d24060031f3a8ead3b75bd7164efe3a681458b20fcc4de737e"
         },
         {
           "offset": 59665,
           "deleteBytes": 16,
           "removedSHA256": "a29c8fea638825c3daf4193ceddc011d6d85a94afff608b80f587f2c1d4ca1e0",
           "insert": "patches/conversation/scroll-16.txt",
-          "insertSHA256": "63677a96acd7dd4ff244ae661648964942ced74a750e7ce0b717854956b35377"
+          "insertSHA256": "3155129aec9d0cee5f9d5aa9cc42493a4dc01b87dff8f92ccf153ed90395a3ed"
         },
         {
           "offset": 62357,
@@ -1953,7 +1953,7 @@
     "assets/local-visualization-compat-v1.mjs": "7f5885b0a796df58221015478cdde2fdef60cd90fc06fb727d542f7a6e463e71",
     "assets/local-visualization-progressive-v1.mjs": "f808d9d4e5b93ac8e5e69c6a0e4bd2edfcb2842243e3f7652645bfc46ea83293",
     "assets/local-web-search-progress-v1.mjs": "50407ba7de8777f6bb9d6d00168b71b3c4461807f12f591e430ae2065d994759",
-    "assets/local-slider-canvas-v1.mjs": "dee86a99c6b67820406614e1865a1ecc9c20f60a48eded3f5fd83091d08c4347",
+    "assets/local-slider-canvas-v1.mjs": "2529f2e19c476d1f000f55b0f738c0f991221fc643dd98843cb7b7973d21fb88",
     "assets/local-draft-persistence-v1.cjs": "651b823a743c918227b2c6c22481ca317d159cdfc2bbdce42b48431e3216f2bb",
     "assets/local-frame-resize-v1.mjs": "279bac0283ff54ae29f331fad596d7be16dcc92e93a2dd97297d4ad3f460cb86",
     "assets/local-chat-scroll-memory-v1.mjs": "e730b987ddb52aa2be671a444e387de8491a59ceb3b8181670e45635ce924cc9",
@@ -1994,15 +1994,15 @@
   "owlAppConfigSHA256": "73c1a54e736a38607264c6a85227d2d87c60b0f893ad31e7f0113f12ed2dbe06",
   "expectedBuilds": {
     "full": {
-      "archiveSHA256": "e9f34fb7105ec0ec2b3e09063dd4995ac740b6286a19b6273a59af009d8e8700",
+      "archiveSHA256": "0d4747b79da3eb186f6df0410281c22a597de2f34fbfb1f34463b9b34a03fe2c",
       "executableSHA256": "49e7e8f5db0a4c8a12a666b70dac40e0e88a1873d02e8aafb82c3e8cabeca49c",
-      "archiveHeaderSHA256": "be6b178159811a7bdfe4968cd9dce4f8f08ee91df7afe1bb47b2f2ca7a8ba087",
+      "archiveHeaderSHA256": "651ae5db5a5076d38bb66d8b98ca3f49405ccef4bf94d17ca44a414405b19f53",
       "verifiedPackedEntries": 8853
     },
     "performanceOnly": {
-      "archiveSHA256": "4dcbe7234f46a77f3f721667ec9e6e7d5a8129f1a7f3b1136d26e4b8bccc5bba",
+      "archiveSHA256": "c6890a540eb513c260135e613a08faf832cab536344e1bacf784572e9ced97ad",
       "executableSHA256": "49e7e8f5db0a4c8a12a666b70dac40e0e88a1873d02e8aafb82c3e8cabeca49c",
-      "archiveHeaderSHA256": "a3256e33de430e25b27862fd4068a4154962b6d979c206e03f22d1bb471ebb99",
+      "archiveHeaderSHA256": "d63e598931483b08b2893c6fa9881ab3e4c48ba9fbd176713c63942d860f70e2",
       "verifiedPackedEntries": 8852
     }
   }

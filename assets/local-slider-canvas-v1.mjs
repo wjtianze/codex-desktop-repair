@@ -11,7 +11,7 @@ export function startSliderCanvas(canvas, reduceMotion, createProgram, vertices)
   const position = gl.getAttribLocation(program,'aPosition');
   const resolution = gl.getUniformLocation(program,'uResolution'), time = gl.getUniformLocation(program,'uTime');
   const started = win.performance.now();
-  let frame = 0, disposed = false, lastDraw = -Infinity, resizePending = true;
+  let frame = 0, disposed = false, resizePending = true;
   gl.useProgram(program); gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
   gl.bufferData(gl.ARRAY_BUFFER,vertices,gl.STATIC_DRAW);
   gl.enableVertexAttribArray(position); gl.vertexAttribPointer(position,2,gl.FLOAT,false,0,0);
@@ -26,12 +26,11 @@ export function startSliderCanvas(canvas, reduceMotion, createProgram, vertices)
       if (canvas.width !== pixelsX) canvas.width = pixelsX;
       if (canvas.height !== pixelsY) canvas.height = pixelsY;
       gl.viewport(0,0,pixelsX,pixelsY); gl.uniform2f(resolution,width,height);
-      lastDraw = -Infinity;
     }
-    if (now-lastDraw >= 1000/30) {
-      gl.uniform1f(time,reduceMotion ? 0 : (now-started)/1000);
-      gl.drawArrays(gl.TRIANGLES,0,6); lastDraw = now;
-    }
+    // Match the display's animation cadence. A fixed 33.3 ms threshold drops
+    // uneven numbers of refreshes on 60/120 Hz screens and visibly stutters.
+    gl.uniform1f(time,reduceMotion ? 0 : (now-started)/1000);
+    gl.drawArrays(gl.TRIANGLES,0,6);
     if (!reduceMotion) schedule();
   }
   function schedule() { if (!disposed && !doc.hidden && !frame) frame = win.requestAnimationFrame(draw); }
