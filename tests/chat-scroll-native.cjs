@@ -9,3 +9,9 @@ let reported;const entries=[{turnKey:'first',turn:{items:[]}},{turnKey:'last',tu
 const tree=render({conversationKey:'chat-a',entries,onApiChange,responseSpacerState:{getHeightPx}}),[rail,view]=tree.props.children;
 assert.equal(view.type,Wrapped);assert.equal(view.key,'chat-a');assert.equal(view.props.conversationKey,'chat-a');assert.equal(view.props.entries,entries);const api={scrollToKey(){}};view.props.onApiChange(api);assert.equal(reported,api);assert.equal(rail.props.apiRef.current,api);assert.equal(view.props.getBottomScrollPaddingPx,getHeightPx);assert.equal(calls[0].Native,Native);assert.equal(calls[0].useScrollController,controller);
 render({conversationKey:'chat-b',entries});assert.equal(calls.length,1);console.log('PASS Native Chat turn list uses keyed restoration while retaining search and response-spacer integration');
+const page=source.slice(source.indexOf('function Wc('),source.indexOf('function Gc('));
+const key=page.match(/scrollStateConversationId:(\w+)/)?.[1];assert.ok(key);
+assert.ok(page.includes('conversationKey:'+key+'}'),'Restoration must receive the scroll conversation ID rather than a work-mode boolean');
+assert.ok(page.includes('t[98]!=='+key+'?'),'Memoized content must invalidate when the scroll conversation ID changes');
+assert.ok(page.includes('t[98]='+key+','),'Memoized content must retain the same conversation ID');
+console.log('PASS Native parent passes the actual per-conversation scroll identity through its memo cache');
