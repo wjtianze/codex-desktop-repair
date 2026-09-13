@@ -1,1 +1,1 @@
-__localModelChoices=bA(`local-conversation-model-choices-v1`,{version:1,choices:{}}),
+__localModelChoices=fw(`local-conversation-model-choices-v1`,{version:1,choices:{}}),

@@ -4,4 +4,4 @@ import {effectiveThinkingEffort as __localEffectiveEffort} from "./local-convers
 import {isCompactFileCitation as __localIsCompactFileCitation} from "./local-conversation-render-fixes-v1.js";
 import * as __localHistoryFilter from "./chat-history-filter-1.1.0.js";
 
-function __localReactRuntime(){return Y()}
+function __localReactRuntime(){return i()}

@@ -7,12 +7,13 @@ const isObject = value => value !== null && typeof value === 'object';
 const normalizeRecord = value => value == null || (isObject(value) && Object.keys(value).length === 0) ? emptyRecord : value;
 // The native query store replaces mappings and metadata when messages change.
 // Weak keys let discarded history and its derived data be collected together.
-export function memoizeObjectResult(compute, input) {
-  if (!isObject(input)) return compute(input);
+export function memoizeObjectResult(compute, input, ...dependencies) {
+  if (!isObject(input)) return compute(input,...dependencies);
   let cache = objectCaches.get(compute);
   if (!cache) objectCaches.set(compute, cache = new WeakMap());
-  if (cache.has(input)) return cache.get(input);
-  const result = compute(input); cache.set(input,result); return result;
+  const previous=cache.get(input);
+  if (previous&&previous.dependencies.length===dependencies.length&&dependencies.every((value,index)=>Object.is(value,previous.dependencies[index]))) return previous.result;
+  const result = compute(input,...dependencies); cache.set(input,{dependencies,result}); return result;
 }
 export function renderConversationCached(compute, conversation, options = {}) {
   if (!conversation) return {conversation:null,turns:emptyTurns};
@@ -20,7 +21,7 @@ export function renderConversationCached(compute, conversation, options = {}) {
   if (!isObject(mapping)) return {conversation,turns:compute(conversation,options)};
   let cache = renderCaches.get(compute);
   if (!cache) renderCaches.set(compute, cache = new WeakMap());
-  const dependencies = [conversation.current_node ?? null, options.isStreaming ?? false, options.mode ?? 'conversation', normalizeRecord(options.moderationDisclaimersByMessageId), options.getRenderTelemetry];
+  const dependencies = [conversation.current_node ?? null, options.isStreaming ?? false, options.mode ?? 'conversation', normalizeRecord(options.moderationDisclaimersByMessageId), options.getRenderTelemetry,options.enableImageGenerationLoadingState??false];
   const prior = cache.get(mapping);
   if (prior && dependencies.every((value,index)=>Object.is(value,prior.dependencies[index]))) {
     const viewOnly = value => Object.keys(value).every(key=>key === "mapping" || key === "current_node");

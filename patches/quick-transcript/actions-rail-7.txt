@@ -1,1 +1,1 @@
-children:[(0,R.jsx)(__localChatPromptRail,{entries:Me}),Me.map(e=>
+children:[(0,N.jsx)(__localChatPromptRail,{entries:Me}),Me.map(e=>

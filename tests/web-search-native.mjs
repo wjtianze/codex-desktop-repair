@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import vm from 'node:vm';
+import assert from 'node:assert/strict';
+const source=fs.readFileSync('build/fixtures/render/patches/viewer.js','utf8');
+const native=source.match(/if\(p\.type===`web-search`\)[\s\S]*?jsx\)\((\w+),\{item:p\}/)?.[1];
+const patched=source.match(/__localWebSearchProgress\(\{jsx:Q\.jsx,NativeSearch:(\w+),item:a/ )?.[1];
+assert.ok(native);assert.equal(patched,native,'Search records must use the original search component, not the memory-update component');
+const start=source.indexOf('children:__localWebSearchProgress('),end=source.indexOf('},`web-search-',start);
+const expression=source.slice(start+'children:'.length,end);
+let selected;const Search=()=>{},item={type:'web-search',query:'fixture',completed:true};
+vm.runInNewContext(expression,{Q:{jsx(){}},[native]:Search,Wp(){throw Error('Memory component must not render search data')},a:item,h:false,qe(){},__localOpenSearchLink(){},__localWebSearchProgress:options=>{selected=options.NativeSearch;assert.equal(options.item,item)}});
+assert.equal(selected,Search);
+console.log('PASS Native search progress routes search records to the canonical search component without memory writes');

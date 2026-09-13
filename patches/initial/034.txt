@@ -1,1 +1,1 @@
-let __history=r===`tpp`?null:__localHistoricalChoice(t(Zci,e),s);if(__history!=null&&(a.data==null||oR(a.data,__history)!=null))return {...__history,versionId:sR(a.data,__history.slug)};
+let __history=r===`tpp`?null:__localHistoricalChoice(t(YNr,e),s);if(__history!=null&&(a.data==null||$M(a.data,__history)!=null))return {...__history,versionId:eN(a.data,__history.slug)};

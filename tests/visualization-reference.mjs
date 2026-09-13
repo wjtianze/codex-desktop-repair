@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {partialVisualizationDirective,findPartialVisualizationStart,readVisualizationMarker} from '../assets/local-visualization-progressive-v1.mjs';
+const start='\uE200visualize\uE202',end='\uE201';
+const raw=start+JSON.stringify({path:'C:\\Users\\fixture\\demo.html'});
+const recovered=partialVisualizationDirective(raw);
+assert.equal(recovered.raw,raw);assert.equal(recovered.attributes.marker_text,raw+end);
+assert.equal(readVisualizationMarker(recovered.attributes.marker_text),null,'File references must remain on the native file-loading path');
+assert.equal(findPartialVisualizationStart('Before\n'+raw),7);
+assert.equal(partialVisualizationDirective(raw,false).block,false);
+console.log('PASS A complete file reference missing only its terminator reaches the native path without changing consumed text');
+for(const invalid of [raw.slice(0,-1),raw+'\nMore prose',start+'{"path":null}',start+'{"path":""}',start+'{"path":"demo.html","unknown":true}'])assert.equal(partialVisualizationDirective(invalid),null);
+const inline=start+'{"path":"demo.html","html":"<div>preview</div>"}';
+assert.equal(partialVisualizationDirective(inline).attributes.marker_text,inline,'Inline HTML keeps its existing progressive preview behavior');
+assert.equal(partialVisualizationDirective(raw+end),null);
+console.log('PASS Truncated JSON, following prose and ambiguous payloads are not repaired; valid markers retain native parsing');
