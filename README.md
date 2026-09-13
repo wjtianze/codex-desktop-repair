@@ -64,7 +64,7 @@ The installation directory is **%LOCALAPPDATA%\ChatGPT-PerformanceFix**. Backups
 
 ## Compatibility and known issues
 
-See the [1.1.3 release notes](docs/UPDATES_1_1_3.md), [compatibility and testing](docs/VALIDATION.md) for supported versions and local checks, and [known issues](docs/AUDIT.md) for problems this repair does not fully resolve.
+See the [1.1.6 release notes](docs/UPDATES_1_1_6.md), [compatibility and testing](docs/VALIDATION.md) for supported versions and local checks, and [known issues](docs/AUDIT.md) for problems this repair does not fully resolve.
 
 Some long-session delays and system-wide freezes remain unresolved. If the backend is unresponsive, Stop may still wait for a response. After an unexpected exit, keep the separate draft file and its backup; save unsent text before returning to an older version.
 
@@ -81,6 +81,12 @@ These repairs were developed in [wjtianze/codex-desktop-repair](https://github.c
 ## A maintainer's rant
 
 After spending this long repairing the app, I honestly wonder whether parts of it were vibe-coded and shipped before anyone tried the complete workflow. Memory that should be released hangs around. Reasoning summaries land in the normal conversation. Adding or removing reference files somehow does not count as changing a project. Images from project reference material can be confused with generated output. The composer can simply disappear. Reasoning labels and their sliders disagree, and one plan can produce multiple competing progress badges. The same history gets parsed again and again, the same state gets rewritten, and a logger keeps holding records after writing them. Opening a conversation, editing a project, viewing an image, waiting for a reply: how do such basic paths keep becoming traps?
+
+The story did not stop at 1.0.2. Returning to a chat could lose the reading position; a late code-block header could shift the text. Dragging a reasoning slider repeatedly updated the conversation, and fixing that required restoring live label previews separately. Ordinary backend requests could fill the queue while Stop waited behind them. Typing a small draft could rewrite the entire state file. Users came here to chat, not to stress-test their disks and UI threads.
+
+Temporary side chats needed a different edit and regenerate path because they have no persisted history to fork. Multi-turn history needed the correct structure, and the original tab needed to survive. A visualization file could exist while an incomplete reference left nothing on screen. Quick Chat wasted its already narrow space by stacking navigation clearance on top of content padding. Choose 5.5, drag the effort slider, and the model name could disappear from the heading.
+
+The repair package owns its mistakes too: an incorrect scroll variable, the search-component mapping that crashed conversations, duplicated gutter space, and the cleared model preview label were regressions or omissions in this project. Passing a few simulated checks does not make a real window correct. Each official update means checking new module boundaries, interfaces, and hashes again. Long-running latency and system freezes still cannot all be declared solved.
 
 Put together, the experience feels like a giant pile of shit held together with spaghetti. Fix one hole and two more appear. Just when it becomes usable, another OpenAI release means checking the package again, chasing changed interfaces, rerunning regressions, and cleaning up behind it all over again. Users pay a subscription, then get handed testing, debugging, and maintenance work as an unpaid extra. This project should not need to exist.
 

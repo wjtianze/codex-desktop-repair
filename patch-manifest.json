@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
-  "releaseVersion": "1.1.3-en.1",
-  "performanceRevision": 24,
+  "releaseVersion": "1.1.6-en.1",
+  "performanceRevision": 28,
   "sidebarVersion": "1.1.0",
   "packageName": "OpenAI.Codex",
   "packageVersion": "26.908.4834.0",
@@ -94,7 +94,7 @@
       "id": "initial",
       "entry": "webview/assets/app-initial-d9bed9d614d8.js",
       "originalSHA256": "7c3a89e7e224f76031b45a88f72af8cd60f0c3d47aac9ca34b2c70e11dfe9867",
-      "patchedSHA256": "a28c443547daf53fe10a728a36c88fe2a241b58dfde3d507510070ff194dd790",
+      "patchedSHA256": "0944405f2712a68a48d583425eb1631991eb57ef9014494ef9777f9b17ac7eac",
       "preprocess": null,
       "operations": [
         {
@@ -340,7 +340,7 @@
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/026.txt",
-          "insertSHA256": "5d71856d01bfd070ad0b86da66a755576726d64015dbd5aa0a18be13ac76b98b"
+          "insertSHA256": "3f600fea27648d552f41d4ffa3813fb31e41b709c00fc2229572e689708b605d"
         },
         {
           "offset": 3917383,
@@ -467,7 +467,7 @@
       "id": "primary",
       "entry": "webview/assets/app-primary-17b54400f32a.js",
       "originalSHA256": "8b57b72037a6478e5e2959b8e124469433f3bc19249c14f9a4dfb1f56ef8d7e7",
-      "patchedSHA256": "0035d28dfa85d37512f72a6a8fd9457950c3d79cb76b257f1724c33367a833df",
+      "patchedSHA256": "38c0cf97be170151d14d03e2f2c77b293a7350f3a6e35a1e8eb00906b66ece0e",
       "preprocess": null,
       "operations": [
         {
@@ -678,7 +678,7 @@
           "deleteBytes": 18,
           "removedSHA256": "728c6f9d45641b22a11bf1700b2a529aad1d0a8676d72119dce91916daf801d7",
           "insert": "patches/primary/model-preview-1.txt",
-          "insertSHA256": "0a00f6063cb3b1fac259f448e8f460042d6df7561a2badde9bf0f9c2bc642ad9"
+          "insertSHA256": "36fb99ec0a821ed3fe4c875f662d88cc97db61c7c0780a41f4b0c0b905355094"
         },
         {
           "offset": 4028231,
@@ -713,7 +713,7 @@
         "id": "primary",
         "entry": "webview/assets/app-primary-17b54400f32a.js",
         "originalSHA256": "8b57b72037a6478e5e2959b8e124469433f3bc19249c14f9a4dfb1f56ef8d7e7",
-        "patchedSHA256": "54e56a46e2f5a13d4cccbe7044965a21ab5760a11a533387e66c6bc9b708a50c",
+        "patchedSHA256": "9664d64e3f716aeed49003ad3005d70aa9970502eda421a44301cad174dc43c3",
         "preprocess": null,
         "operations": [
           {
@@ -840,7 +840,7 @@
             "deleteBytes": 18,
             "removedSHA256": "728c6f9d45641b22a11bf1700b2a529aad1d0a8676d72119dce91916daf801d7",
             "insert": "patches/primary/model-preview-1.txt",
-            "insertSHA256": "0a00f6063cb3b1fac259f448e8f460042d6df7561a2badde9bf0f9c2bc642ad9"
+            "insertSHA256": "36fb99ec0a821ed3fe4c875f662d88cc97db61c7c0780a41f4b0c0b905355094"
           },
           {
             "offset": 4028231,
@@ -1573,7 +1573,7 @@
       "id": "prompt-rail",
       "entry": "webview/assets/thread-user-message-navigation-rail-app-2f4806629af6.js",
       "originalSHA256": "a338d30209ebd575cecef2549c9760ac3cca64e80521c58c78f012f133d3d4b4",
-      "patchedSHA256": "fa518f2837190b5399b152f138e93581ebd1ae42c82e3f1de599ff5bd3153ab4",
+      "patchedSHA256": "807b7e13bd5a67507e9a2a9321486877ad3ee48746934011328cdccd3809e20d",
       "preprocess": null,
       "operations": [
         {
@@ -1581,7 +1581,7 @@
           "deleteBytes": 5,
           "removedSHA256": "a21db08350ee4a5ccc8a7d299513c7aba8e3ea8f25c02fd611b7f19da12d115f",
           "insert": "patches/prompt-rail/compact-threshold.txt",
-          "insertSHA256": "87c42ae34f8648c75726a56ff96b7f8c3931d7bb7609b1bac8d1478e74fd94eb"
+          "insertSHA256": "1fea2a6328ed184ba84f010c8fed4807fa41049be26f62bad9f254b6cd9bf3a5"
         }
       ]
     },
@@ -1645,7 +1645,7 @@
     "assets/local-frame-resize-v1.mjs": "279bac0283ff54ae29f331fad596d7be16dcc92e93a2dd97297d4ad3f460cb86",
     "assets/local-chat-scroll-memory-v1.mjs": "e730b987ddb52aa2be671a444e387de8491a59ceb3b8181670e45635ce924cc9",
     "assets/local-side-chat-actions-v1.mjs": "514adc52c3f5b909e5a8324846bc35a00b03e7a76dff9ada052b739f01541abe",
-    "assets/local-chat-prompt-rail-v1.mjs": "bb8b9482cd12ec768eee285b815588ffa4e4a8dd559b82e540a79a7cac1a1dee",
+    "assets/local-chat-prompt-rail-v1.mjs": "c9bdb16b8e46b2509ae6154651e040ecb4abf4e8173c6f3dafe1709061bc6d7e",
     "assets/local-side-chat-projects-v1.mjs": "a6149b913e08e9f17758c89ebac53c1c15fe842ea687a3a8194001e556f31b40",
     "assets/local-side-chat-tab-update-v1.mjs": "2e4922bfb87c4ec9c8ea998f2bb2954350f34f66f35fd8a0dab170f858bd2869"
   },
@@ -1681,15 +1681,15 @@
   "owlAppConfigSHA256": "c2c26df89f551a8f37922583230c587f1079504d588252e3bbc2b020dda11ae7",
   "expectedBuilds": {
     "full": {
-      "archiveSHA256": "ebab3a92d79d82bf3c1f665f6e7e522be9973ed30541e3188956ebe8d57bd1ca",
+      "archiveSHA256": "dd50e526489fbc8d549d070317d25baaeb11fc370c903322875bbd9b278c1827",
       "executableSHA256": "ca98461fd573f8b9912f48080b0f40f3b44788d1074493f4285e68169503fc23",
-      "archiveHeaderSHA256": "d5846fb2ed9da9fa6120956ffa588c3cad15820075df63046317222030929ff5",
+      "archiveHeaderSHA256": "012619d1b1e9c23f68991b245ba29ab1070fc7fa9c04591c5130ae47a82e5bb1",
       "verifiedPackedEntries": 9030
     },
     "performanceOnly": {
-      "archiveSHA256": "537353eb770da1ebc084b8c034b02761136d33a1efc5292f4be91ccc5cee8ed3",
+      "archiveSHA256": "9b860a795a16ecab0c02b8b7b0658958c207bb5d532dd05683087ca8acb34729",
       "executableSHA256": "ca98461fd573f8b9912f48080b0f40f3b44788d1074493f4285e68169503fc23",
-      "archiveHeaderSHA256": "c5715499f2fe5b23ce22a2d393f281410e5c45ea0e3562c426879449e9df5dc4",
+      "archiveHeaderSHA256": "3533f4d128f199b166e316b201dee9babfe5a0fd5ca2edbee77b6683fc64d57a",
       "verifiedPackedEntries": 9029
     }
   }

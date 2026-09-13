@@ -35,6 +35,10 @@ The second command requires the supported Windows App, regenerates native fixtur
 
 ## Release verification
 
-Both editions passed 439 checks against the installed official source. Full and sidebar-free builds verified 9,030 and 9,029 packed resources respectively. The Chinese 1.1.3 build was installed using the existing profile and passed a real page/module-loading check without a login gate or error boundary. The English edition was independently built and tested; it was not installed over the user's Chinese edition.
+Both editions passed 447 checks against the installed official source. Full and sidebar-free builds verified 9,030 and 9,029 packed resources respectively. The Chinese 1.1.6 build was installed using the existing profile and passed a real page/module-loading check without a login gate or error boundary. The English edition was independently built and tested; it was not installed over the user's Chinese edition.
 
 Real-client integration checks also exercised editing and regeneration consecutively in the same tab, preserving its identifier and title. Project selection applied the maintenance working directory without changing the main route. Only new temporary test threads were used; the final native model dispatch was intercepted.
+
+The 1.1.6 regressions cover nested Quick Chat padding and all 25 Latest start/preview combinations, explicit model labels, and cancellation. The installed Quick Chat window measured a 32 CSS-pixel text inset and a 4-pixel marker gap without horizontal overflow.
+
+The Quick Chat search failure was reproduced from a captured renderer snapshot. That same snapshot passes the installed 1.1.6 conversion with streaming enabled and disabled, in both conversation and sidebar modes. The regression also verifies that the old search-metadata function binding throws and the corrected native parser preserves available sources. These checks do not start a paid model turn.
