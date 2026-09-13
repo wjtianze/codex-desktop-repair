@@ -1,6 +1,8 @@
 import fs from 'node:fs';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
+import {nativeFunction} from './fixtures-support/native-source.cjs';
+import {memoizeObjectResult} from '../assets/local-conversation-performance-v1.mjs';
 const source=fs.readFileSync('build/fixtures/render/patches/viewer.js','utf8');
 const native=source.match(/if\(p\.type===`web-search`\)[\s\S]*?jsx\)\((\w+),\{item:p\}/)?.[1];
 const patched=source.match(/__localWebSearchProgress\(\{jsx:Q\.jsx,NativeSearch:(\w+),item:a/ )?.[1];
@@ -11,3 +13,22 @@ let selected;const Search=()=>{},item={type:'web-search',query:'fixture',complet
 vm.runInNewContext(expression,{Q:{jsx(){}},[native]:Search,Wp(){throw Error('Memory component must not render search data')},a:item,h:false,qe(){},__localOpenSearchLink(){},__localWebSearchProgress:options=>{selected=options.NativeSearch;assert.equal(options.item,item)}});
 assert.equal(selected,Search);
 console.log('PASS Native search progress routes search records to the canonical search component without memory writes');
+
+const initial=fs.readFileSync('build/fixtures/render/patches/initial.js','utf8');
+const nativeSources=nativeFunction(initial,'R_r').match(/(\w+)\(c\.metadata,IN\(c\)\)/)?.[1];
+assert.equal(nativeSources,'D_r');
+const collector=nativeFunction(initial,'__local_uncached_RKr');
+assert.ok(collector.includes(nativeSources+'(e.metadata,IN(e))'),'Search metadata must use the canonical source parser');
+const object=x=>x&&typeof x==='object'&&!Array.isArray(x)?x:null;
+const context={URL,__localMemoObject:memoizeObjectResult,L_r(){},IN:e=>e.id,RN:object,zN:x=>typeof x==='string'&&x.trim()?x:null,LN:x=>Array.isArray(x)?x:[],Rvr:()=>[],Fcr:e=>e.output??[],P_r:{safeParse:x=>({success:!!object(x),data:x})},F_r:{safeParse:x=>({success:Array.isArray(x?.entries),data:x})},Hgr:()=>null,Qgr:()=>false,Zgr:()=>false,$gr:()=>false,e_r:()=>false,tP:e=>e.title,Mhr:e=>{try{return /^https?:$/.test(new URL(e.url).protocol)?e:null}catch{return null}},I_r:{safeParse:x=>({success:Number.isFinite(x),data:new Date(x*1000)})}};
+const helperNames=['Hvr','Uvr','D_r','__local_uncached_searchGroups','Ugr','SP','N_r','ozn'];
+const definitions=helperNames.map(n=>nativeFunction(initial,n)).join('\n');
+const collect=vm.runInNewContext(definitions+collector+nativeFunction(initial,'kvr')+';kvr',context);
+const message={id:'search-message',metadata:{search_result_groups:[{entries:[{url:'https://example.org/reference',title:'Reference',pub_date:1789257600},{url:'https://example.org/deleted',deleted:true},{url:'javascript:bad()'}]}]},output:[{type:'web_search_call',status:'in_progress',action:{type:'search',query:'fixture'}}]};
+const old=vm.runInNewContext(definitions+collector.replace('D_r(e.metadata,IN(e))??[]','ozn(e.metadata)')+';__local_uncached_RKr',{...context});
+assert.throws(()=>old(message),/items is not iterable/);
+const live=collect(message);assert.equal(live.length,1);assert.equal(live[0].completed,false);assert.equal(live[0].searchResultSources.length,1);assert.equal(live[0].searchResultSources[0].title,'Reference');assert.equal(live[0].searchResultSources[0].url,'https://example.org/reference');assert.equal(collect(message),live);
+const done=collect({...message,output:[{...message.output[0],status:'completed'}]});assert.equal(done[0].completed,true);
+console.log('PASS Native streaming search metadata reproduces the old crash and preserves sources after repair');
+for(const metadata of [undefined,null,{}, {search_result_groups:[{}, {entries:[]}]}]){const result=collect({...message,metadata});assert.equal(result[0].searchResultSources.length,0);assert.equal(result[0].completed,false)}
+console.log('PASS Search records arriving before source metadata remain renderable without invented sources');

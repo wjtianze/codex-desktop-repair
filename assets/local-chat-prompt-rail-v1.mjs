@@ -34,6 +34,7 @@ export function createChatPromptRail({React,jsx,Native}) {
       const compactAttribute=scroll.getAttribute('data-local-compact-prompt-rail');
       const hostAttribute=host.getAttribute('data-local-compact-prompt-rail-host');
       const oldRailLeft=host.style.getPropertyValue('--local-prompt-rail-left');
+      const oldInset=content.style.getPropertyValue('--local-prompt-content-inset');
       scroll.setAttribute('data-local-compact-prompt-rail','');
       host.setAttribute('data-local-compact-prompt-rail-host','');
       const style=document.createElement('style');
@@ -51,7 +52,10 @@ export function createChatPromptRail({React,jsx,Native}) {
         const gap=(content.getBoundingClientRect().left-bounds.left)/(scale||1);
         // Keep the native 30px markers and 36px hit targets. Count existing
         // transcript padding toward clearance instead of reserving it twice.
-        const padding=parseFloat(getComputedStyle(content).paddingLeft)||0;
+        const padding=root!==content&&content.contains(root)
+          ?(root.getBoundingClientRect().left-content.getBoundingClientRect().left)/(scale||1)+(parseFloat(getComputedStyle(root).paddingLeft)||0)
+          :parseFloat(getComputedStyle(content).paddingLeft)||0;
+        content.style.setProperty('--local-prompt-content-inset',`${padding}px`);
         const gutter=Math.max(0,32-padding);
         if(gap<gutter){content.style.marginLeft=`${gutter-gap}px`;content.style.width=`calc(100% - ${gutter-gap}px)`;applied=true}
         const hostBounds=host.getBoundingClientRect();
@@ -61,7 +65,7 @@ export function createChatPromptRail({React,jsx,Native}) {
       };
       measure();let frame=null;
       const observer=new ResizeObserver(()=>{frame??=requestAnimationFrame(()=>{frame=null;measure()})});observer.observe(scroll);
-      return()=>{observer.disconnect();if(frame!==null)cancelAnimationFrame(frame);style.remove();if(oldRailLeft)host.style.setProperty('--local-prompt-rail-left',oldRailLeft);else host.style.removeProperty('--local-prompt-rail-left');if(compactAttribute===null)scroll.removeAttribute('data-local-compact-prompt-rail');else scroll.setAttribute('data-local-compact-prompt-rail',compactAttribute);if(hostAttribute===null)host.removeAttribute('data-local-compact-prompt-rail-host');else host.setAttribute('data-local-compact-prompt-rail-host',hostAttribute);if(applied){content.style.marginLeft=oldMargin;content.style.width=oldWidth}if(attribute===null)content.removeAttribute('data-thread-user-message-navigation-content');else content.setAttribute('data-thread-user-message-navigation-content',attribute)};
+      return()=>{observer.disconnect();if(frame!==null)cancelAnimationFrame(frame);style.remove();if(oldInset)content.style.setProperty('--local-prompt-content-inset',oldInset);else content.style.removeProperty('--local-prompt-content-inset');if(oldRailLeft)host.style.setProperty('--local-prompt-rail-left',oldRailLeft);else host.style.removeProperty('--local-prompt-rail-left');if(compactAttribute===null)scroll.removeAttribute('data-local-compact-prompt-rail');else scroll.setAttribute('data-local-compact-prompt-rail',compactAttribute);if(hostAttribute===null)host.removeAttribute('data-local-compact-prompt-rail-host');else host.setAttribute('data-local-compact-prompt-rail-host',hostAttribute);if(applied){content.style.marginLeft=oldMargin;content.style.width=oldWidth}if(attribute===null)content.removeAttribute('data-thread-user-message-navigation-content');else content.setAttribute('data-thread-user-message-navigation-content',attribute)};
     },[containerRef,items.length>=4]);
     const reveal=React.useCallback(async item=>{
       const root=containerRef?.current??marker.current?.parentElement;

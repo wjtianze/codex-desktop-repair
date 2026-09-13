@@ -27,7 +27,7 @@ function main(){
  if(action==='check'){console.log('环境检查通过：Windows x64，客户端 '+manifest.appVersion+'，官方签名和文件校验通过。');return}
  if(action==='install')clientClosed(source,base);
  locked(base,()=>{
-  if(action==='install'&&fs.existsSync(stateFile)){const previous=read(path.join(base,'installation.json')),state=read(stateFile);if(previous.RepairRelease===manifest.releaseVersion&&Boolean(previous.SidebarPlugin)===sidebar){const check=transaction.verify(state.transaction,{allowExternalChanges:true});if(check.failures.length)throw Error('现有修复文件发生变化，请先运行卸载恢复并检查提示。');if(!check.changedExternal.length){console.log('相同版本已安装并通过校验。');if(!flags.has('--no-launch'))require('./launch.cjs').launch();return}}}
+  if(action==='install'&&fs.existsSync(stateFile)){const previous=read(path.join(base,'installation.json')),state=read(stateFile);if(previous.RepairRelease===manifest.releaseVersion&&Boolean(previous.SidebarPlugin)===sidebar){const check=transaction.verify(state.transaction,{allowExternalChanges:true});if(check.failures.length)throw Error('现有修复文件发生变化，请先运行卸载恢复并检查提示。');if(!check.changedExternal.length&&previous.ArchiveSHA256===manifest.expectedBuilds?.[sidebar?'full':'performanceOnly']?.archiveSHA256){console.log('相同版本已安装并通过校验。');if(!flags.has('--no-launch'))require('./launch.cjs').launch();return}}}
   if(fs.statfsSync(base).bavail*fs.statfsSync(base).bsize<3*1024**3)throw Error('可用磁盘空间不足 3 GB。');
   const staging=path.join(base,'staging',crypto.randomUUID());fs.mkdirSync(staging,{recursive:true});
   const output=path.join(staging,'full');console.log('正在生成补丁并逐项校验资源……');
