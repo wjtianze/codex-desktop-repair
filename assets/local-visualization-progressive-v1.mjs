@@ -62,6 +62,18 @@ export function readVisualizationMarker(raw){
 }
 
 export function partialVisualizationDirective(raw,block=true){
+  // Some completed replies omit only the reference terminator. Accept a whole
+  // JSON path payload, retaining the original consumed length and native path
+  // validation. Never repair truncated JSON or consume following prose.
+  const prefix='\uE200visualize\uE202';
+  if(typeof raw==='string'&&raw.startsWith(prefix)&&!raw.includes(END)&&raw.length<=65536){
+    try{
+      const value=JSON.parse(raw.slice(prefix.length));
+      if(value&&typeof value.path==='string'&&value.path.trim()&&Object.keys(value).every(key=>['path','title','mode'].includes(key))){
+        return{type:'codexDirective',raw,name:'chatgpt-content-reference',attributes:{marker_text:raw.trimEnd()+END,marker_type:'visualize'},block};
+      }
+    }catch{}
+  }
   const marker=readVisualizationMarker(raw);
   if(!marker||marker.complete)return null;
   return{type:'codexDirective',raw:marker.raw,name:'chatgpt-content-reference',attributes:{marker_text:marker.raw,marker_type:marker.kind},block};
@@ -204,13 +216,13 @@ export function createProgressiveVisualizationComponent({React,jsx,Native,useLoc
     if(!marker||!allowed)return null;
     if(!active)return reference?jsx(Native,{reference}):null;
     const session=sessionRef.current;
-    if(!session)return jsx('div',{'aria-busy':true,children:zh?'Generating visualization…':'Generating visualization…'});
+    if(!session)return jsx('div',{'aria-busy':true,children:zh?'正在生成演示…':'Generating visualization…'});
     const finished=state.phase==='complete',title=reference?.data?.title??reference?.data?.display_name??marker.title;
-    const previewReference={type:'client_defined_widget',category:'app_block',data:{content:session.shell,__localWideLayout:true,path:reference?.data?.path??reference?.data?.entrypoint??marker.path??'index.html',title,type:'inline'}};
+    const previewReference={type:'client_defined_widget',category:'app_block',data:{content:session.shell,__localWideLayout:true,render_immediately_during_streaming:true,path:reference?.data?.path??reference?.data?.entrypoint??marker.path??'index.html',title,type:'inline'}};
     return jsx('div',{'data-local-progressive-visualization':true,'aria-busy':!finished,children:[
-      !finished?jsx('div',{role:'status',style:{fontSize:'12px',opacity:.65,marginBottom:'8px'},children:state.phase==='error'?(zh?'Visualization failed to load':'Visualization failed to load'):state.phase==='finishing'?(zh?'Finishing visualization…':'Finishing visualization…'):(zh?'Generating visualization…':'Generating visualization…')},'status'):null,
+      !finished?jsx('div',{role:'status',style:{fontSize:'12px',opacity:.65,marginBottom:'8px'},children:state.phase==='error'?(zh?'演示加载失败':'Visualization failed to load'):state.phase==='finishing'?(zh?'正在完成演示…':'Finishing visualization…'):(zh?'正在生成演示…':'Generating visualization…')},'status'):null,
       jsx('div',{inert:!finished,children:jsx(Native,{reference:previewReference})},'canvas'),
-      state.phase==='error'?jsx('button',{type:'button',onClick:()=>session.retry(),children:zh?'Reload':'Reload'},'retry'):null
+      state.phase==='error'?jsx('button',{type:'button',onClick:()=>session.retry(),children:zh?'重新加载':'Reload'},'retry'):null
     ]});
   };
 }

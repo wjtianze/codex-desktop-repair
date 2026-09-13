@@ -52,6 +52,8 @@ export async function sideChatReplayItems(turns,readImage) {
 
 export async function branchSideChatTurn({sourceId,turn,sourceTurns=[turn],message,openBranch,getManager,isBranchOpen,seedBranch,edit}) {
   if(!turn?.turnId||turn.status==='inProgress')throw Error('A completed turn is required.');
+  // Native render entries wrap canonical turns; only the turn has items/params.
+  sourceTurns=sourceTurns.map(entry=>entry?.turn??entry);
   const selected=sourceTurns.findIndex(item=>item.turnId===turn.turnId);
   if(selected<0)throw Error('The selected side-chat turn is unavailable.');
   const snapshot=structuredClone(turn),prefix=structuredClone(sourceTurns.slice(0,selected));

@@ -1,1 +1,1 @@
-map(item=>({...item,searchResultSources:(iKr(),QGr(e.metadata))})).
+map(item=>({...item,searchResultSources:(L_r(),ozn(e.metadata))})).

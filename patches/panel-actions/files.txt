@@ -1,0 +1,1 @@
+Ce=async e=>{try{if(T!=null){Se(c,null,{hostId:c.get($t),target:o,replaceTabId:e,workspaceRoot:T})}else{let picked=await __localPanelRpc(`pick-file`,{params:{pickerTitle:d.formatMessage({id:`thread.sidePanel.openFile`,defaultMessage:`Files`})}});if(picked.file==null)return;Se(c,picked.file.path,{hostId:`local`,target:o,replaceTabId:e})}r?.()}catch(error){console.error(error)}}

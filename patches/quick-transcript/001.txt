@@ -1,1 +1,1 @@
-isWorkConversation:P,
+isWorkConversation:L,

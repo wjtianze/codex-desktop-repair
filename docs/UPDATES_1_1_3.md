@@ -1,8 +1,16 @@
-# 1.1.3: reading-position restoration and slider animation cadence
+# 1.1.3: updated App support, search conversations and Side chat fixes
 
-- Reopening a chat restores its reading position using the actual conversation ID instead of a work-mode boolean.
-- Slider particles follow the display refresh cadence instead of an uneven roughly 30 FPS cap. Hidden-window suspension and reduced-motion behavior remain supported.
+Supports Microsoft Store package **26.908.4834.0**, App **26.908.40834**, standalone Codex CLI **0.154.0** and bundled backend **0.154.0-alpha.6.2**.
 
-Supported official client versions are unchanged. Both language variants passed 433 installed-source checks. Applying the update requires closing and reopening the client; allow active background tasks to finish first.
+- Fixes crashes when opening conversations containing web-search activity, including while a reply is streaming.
+- Fixes editing and regenerating later turns in a Side chat. Earlier exchanges are retained and the existing tab is updated in place.
+- Restores per-conversation reading positions instead of always reopening at the bottom.
+- Recovers a complete visualization file-reference JSON payload when only its closing marker is missing. Truncated payloads and following prose are not consumed; native file-access checks remain in effect.
+- Slider particles follow the display refresh cadence while retaining hidden-window suspension and reduced-motion behavior.
+- Updates Quick Chat, project settings, downloads and panel controls while preserving native permissions and active-voice protection.
 
-A separate source of stuttering was traced to a local arena page rebuilding unchanged terrain canvases in the embedded browser. Its map cache was repaired separately. This general desktop patch contains no arena-specific code and does not throttle computations in other pages.
+Save drafts, exit the client and run **Install-Repair.cmd**. Existing login and conversation data are reused; the standalone CLI is not replaced. Use **Uninstall-Restore.cmd** to restore.
+
+Both editions passed **439 checks**. Full and sidebar-free builds verified **9,030 / 9,029** packed resources. The Chinese edition was installed and passed actual page/module loading. Multi-turn Side chat was checked against the real client, with final model dispatch intercepted. See [compatibility and validation](VALIDATION.md).
+
+Heavy background workloads may still affect responsiveness. This release does not claim to eliminate every intermittent stall on every device.

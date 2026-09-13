@@ -1,1 +1,1 @@
-return __localSaveDownloadedFile(r,()=>Sbe(
+async function b5t(e,t){let n=jf?.workspaceFiles,{conversationId:r,fileName:i,gizmoId:a,sharedConversationId:o,target:s}=t;if(!jG()||n?.saveCopy==null){await gw(t);return}return __localSaveDownloadedFile(n,()=>uxe({conversationId:r,downloadIntent:!0,gizmoId:a,sharedConversationId:o,target:s}),i)}

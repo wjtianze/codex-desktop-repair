@@ -4,7 +4,7 @@ An unofficial local repair package for the Windows desktop app. It addresses ver
 
 This is the English edition of [wjtianze/codex-desktop-repair](https://github.com/wjtianze/codex-desktop-repair). The original main branch remains in Chinese.
 
-**Supported target only: Windows x64, Microsoft Store package OpenAI.Codex 26.903.9818.0, application version 26.903.71938. Other versions are rejected before patching.**
+**Supported target only: Windows x64, Microsoft Store package OpenAI.Codex 26.908.4834.0, application version 26.908.40834. Other versions are rejected before patching.**
 
 ## Installation
 
@@ -64,11 +64,11 @@ The installation directory is **%LOCALAPPDATA%\ChatGPT-PerformanceFix**. Backups
 
 ## Compatibility and known issues
 
-See the [1.1.2 release notes](docs/UPDATES_1_1_2.md), [compatibility and testing](docs/VALIDATION.md) for supported versions and local checks, and [known issues](docs/AUDIT.md) for problems this repair does not fully resolve.
+See the [1.1.3 release notes](docs/UPDATES_1_1_3.md), [compatibility and testing](docs/VALIDATION.md) for supported versions and local checks, and [known issues](docs/AUDIT.md) for problems this repair does not fully resolve.
 
 Some long-session delays and system-wide freezes remain unresolved. If the backend is unresponsive, Stop may still wait for a response. After an unexpected exit, keep the separate draft file and its backup; save unsent text before returning to an older version.
 
-Only patch fragments, helper code, tests, and documentation are distributed. Version 1.1.2 preserves the official executable and its digital signature; repairs are applied to resources in a separate runtime copy, and the Store installation remains intact. An official update requires a newly validated adaptation.
+Only patch fragments, helper code, tests, and documentation are distributed. Version 1.1.3 preserves the official executable and its digital signature; repairs are applied to resources in a separate runtime copy, and the Store installation remains intact. An official update requires a newly validated adaptation.
 
 If security software reports a detection, stop installation and keep the details. Do not disable protection or add an exclusion. The development-time command-line detection and response are documented in [security notes](docs/SECURITY.md).
 

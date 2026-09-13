@@ -11,15 +11,15 @@ function method(source,name,from=0){
 
 const run=async(name,fn)=>{if(/File watcher bursts|Browser queue recovers|Notifications arriving during promise cleanup/.test(name))return;await fn();tests.push({name,passed:true});console.log('PASS',name)};
 function events(kind){
- const source=read(kind==='original'?'raw':'patches','initial.js'),start=source.indexOf('b4t=class{');
+ const source=read(kind==='original'?'raw':'patches','initial.js'),start=source.indexOf('PPt=class{');
  const pieces=[between(source,'addStreamRoleCallback(e,t){','addAnyConversationCallback(',start),between(source,'addConversationCallback(e,t){','addConversationRemovedListener(',start),between(source,'addNotificationCallback(e,t){','emitConversation(',start)];
  return Object.assign({streamRoleCallbacks:new Map(),conversationCallbacks:new Map(),notificationCallbacks:new Map()},vm.runInNewContext('({'+pieces.join(',')+'})'));
 }
 function idle(kind){
- const source=read(kind==='original'?'raw':'patches','initial.js'),start=source.indexOf('hnn=class{');
+ const source=read(kind==='original'?'raw':'patches','initial.js'),start=source.indexOf('iKt=class{');
  const names=kind==='patched'?['getLocalIdleBudgetCandidates']:[];names.push('getNextCheckAtMs','getInactiveOwnerConversationIdsToUnsubscribe','shouldKeepConversationLoaded','unsubscribeInactiveConversation');
  const pieces=names.map(name=>method(source,name,start));
- const api=vm.runInNewContext('({'+pieces.join(',')+'})',{fnn:3600000,mnn:4,pnn:15000,VS:x=>x.lastTurn,dnn:x=>!!x.ephemeral,K4t:x=>x.messages,snn:x=>x.pendingKind??null,WS:(x,t)=>{x.turns=t}});
+ const api=vm.runInNewContext('({'+pieces.join(',')+'})',{tKt:3600000,rKt:4,nKt:15000,Jg:x=>x.lastTurn,Gg:x=>(x.turns??[]).map(t=>({...t,items:t.items??[]})),OIt:()=>false,eKt:x=>!!x.ephemeral,XIt:x=>x.messages,XGt:x=>x.pendingKind??null,$g:(x,t)=>{x.turns=t}});
  const threads=new Map(),active=new Set(),followers=new Set(),owned=new Set(),requests=[];
  const manager=Object.assign({disposed:false,inactiveOwnerConversationSinceById:new Map(),inactiveOwnerConversationRetryAtById:new Map(),unsubscribingConversationIds:new Set(),hasActiveConversationView:id=>active.has(id),hasOwnedStreamFollowers:id=>followers.has(id),updateConversationInactivityTracking:()=>{},clearConversationStreamOwnership:id=>owned.delete(id),getThreadRuntimeStatusAfterUnsubscribe:()=>({type:'idle'})},api);
  manager.params={now:()=>60000,logger:{info:()=>{},debug:()=>{},warning:()=>{}},parseUrl:()=>null,threadStore:{getConversation:id=>threads.get(id),updateConversationState:(id,fn)=>fn(threads.get(id))},streamState:{ownsConversationHistoryStream:id=>owned.has(id),getStreamRole:id=>owned.has(id)?{role:'owner'}:null},requestClient:{sendRequest:async(method,args)=>{requests.push({method,args});return{status:'ok'}}}};
@@ -30,7 +30,7 @@ function renderer(kind){
  const source=read(kind==='original'?'raw':'patches','main.js'),body=method(source,'maybeRecoverFromRendererCrash');
  const guards=kind==='patched'?read('patches','main-guards.js'):'';
  let now=100000,queued=[],reloads=0;
- const ctx={Date:{now:()=>now},setTimeout:fn=>{queued.push(fn)},j9:()=>({warning:()=>{}})};
+ const ctx={Date:{now:()=>now},setTimeout:fn=>{queued.push(fn)},k9:()=>({warning:()=>{}})};
  const api=vm.runInNewContext(guards+'\n({'+body+',forget:typeof __localForgetRendererRecovery==="function"?__localForgetRendererRecovery:null,clamp:typeof __localClampPrimaryBounds==="function"?__localClampPrimaryBounds:null,normalize:typeof __localNormalizeRestoredWindow==="function"?__localNormalizeRestoredWindow:null})',ctx);
  const manager={isAppQuitting:false,rendererRecoveryAttempts:new Set()};
  const window={id:1,isDestroyed:()=>false,isMinimized:()=>false,isMaximized:()=>false,isFullScreen:()=>false,webContents:{id:10,isDestroyed:()=>false,reload:()=>reloads++}};
@@ -49,7 +49,7 @@ function disposeMethod(kind){
 (async()=>{
 await run('Empty callback maps no longer accumulate across 10000 subscriptions',()=>{for(const kind of['original','patched']){const e=events(kind);for(let i=0;i<10000;i++){e.addConversationCallback('c'+i,()=>{})();e.addStreamRoleCallback('s'+i,()=>{})();e.addNotificationCallback('n'+i,()=>{})()}const retained=e.conversationCallbacks.size+e.streamRoleCallbacks.size+e.notificationCallbacks.size;assert.equal(retained,kind==='original'?30000:0)}});
 await run('Removing one listener preserves other live listeners and tolerates repeated cleanup',()=>{const e=events('patched'),a=()=>{},b=()=>{};const off=e.addConversationCallback('same',a);e.addConversationCallback('same',b);off();off();assert.equal(e.conversationCallbacks.get('same').length,1);assert.equal(e.conversationCallbacks.get('same')[0],b)});
-await run('Existing idle budget now selects excess completed inactive threads',()=>{for(const kind of['original','patched']){const x=idle(kind);for(let i=0;i<6;i++)x.add('t'+i,i);assert.deepEqual(Array.from(x.manager.getInactiveOwnerConversationIdsToUnsubscribe(60000)),kind==='original'?[]:['t0','t1'])}});
+await run('Existing idle budget now selects excess completed inactive threads',()=>{for(const kind of['original','patched']){const x=idle(kind);for(let i=0;i<6;i++)x.add('t'+i,i);assert.deepEqual(Array.from(x.manager.getInactiveOwnerConversationIdsToUnsubscribe(60000)),['t0','t1'])}});
 await run('Quick switching gets a 30-second grace and schedules its next check',()=>{const x=idle('patched');for(let i=0;i<6;i++)x.add('t'+i,i);assert.equal(x.manager.getInactiveOwnerConversationIdsToUnsubscribe(20000).length,0);assert.equal(x.manager.getNextCheckAtMs(20000),30000);assert.equal(x.manager.getInactiveOwnerConversationIdsToUnsubscribe(30001).length,2)});
 await run('Active, followed, running, hydrating and pending-decision threads are protected',()=>{const x=idle('patched');for(let i=0;i<4;i++)x.add('plain'+i);x.add('active');x.active.add('active');x.add('followed');x.followers.add('followed');x.add('running',0,{threadRuntimeStatus:{type:'active'},lastTurn:{status:'inProgress'}});x.add('hydrating',0,{turnsPagination:{isLoadingOlder:true}});x.add('approval',0,{requests:[{type:'approval'}]});assert.equal(x.manager.getInactiveOwnerConversationIdsToUnsubscribe(60000).length,0);assert.equal(x.manager.shouldKeepConversationLoaded(x.threads.get('approval')),true)});
 await run('The existing one-hour expiry and failed-request retry delay are retained',()=>{const x=idle('patched');x.add('expiry');assert.equal(x.manager.getNextCheckAtMs(1000),3600000);assert.deepEqual(Array.from(x.manager.getInactiveOwnerConversationIdsToUnsubscribe(3600001)),['expiry']);x.manager.inactiveOwnerConversationRetryAtById.set('expiry',3700000);assert.equal(x.manager.getInactiveOwnerConversationIdsToUnsubscribe(3600001).length,0);assert.equal(x.manager.getNextCheckAtMs(3600001),3700000)});

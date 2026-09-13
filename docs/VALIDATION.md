@@ -5,9 +5,9 @@
 | Component | Version |
 | --- | --- |
 | Platform | Windows x64 |
-| Microsoft Store package | OpenAI.Codex 26.903.9818.0 |
-| ChatGPT App | 26.903.71938, Owl runtime |
-| App-bundled Codex backend | 0.153.4 |
+| Microsoft Store package | OpenAI.Codex 26.908.4834.0 |
+| ChatGPT App | 26.908.40834, Owl runtime |
+| App-bundled Codex backend | 0.154.0-alpha.6.2 |
 | Standalone Codex CLI | 0.154.0 |
 
 The App and standalone CLI use separate executables. Installing this repair does not replace the standalone CLI or downgrade the App's bundled backend. The installer verifies the official signature, exact version and file hashes. Other App versions are rejected.
@@ -35,6 +35,6 @@ The second command requires the supported Windows App, regenerates native fixtur
 
 ## Release verification
 
-Both editions passed 432 checks against the installed official source. Full and sidebar-free builds each verified 8,853 packed resources. The Chinese 1.1.2 build was installed using the existing profile and passed a real page/module-loading check without a login gate or error boundary. The English edition was independently built and tested; it was not installed over the user's Chinese edition.
+Both editions passed 439 checks against the installed official source. Full and sidebar-free builds verified 9,030 and 9,029 packed resources respectively. The Chinese 1.1.3 build was installed using the existing profile and passed a real page/module-loading check without a login gate or error boundary. The English edition was independently built and tested; it was not installed over the user's Chinese edition.
 
 Real-client integration checks also exercised editing and regeneration consecutively in the same tab, preserving its identifier and title. Project selection applied the maintenance working directory without changing the main route. Only new temporary test threads were used; the final native model dispatch was intercepted.

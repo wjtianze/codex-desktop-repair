@@ -1,1 +1,1 @@
-onEditLastTurnMessage:E.kind===`local`&&E.placement===`side`?__localSideActions.onEdit:!r&&et?ct:void 0
+onEditLastTurnMessage:O.kind==='local'&&O.placement==='side'?__localSideActions.onEdit:!r&&$e?ot:void 0

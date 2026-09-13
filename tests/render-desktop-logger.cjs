@@ -1,4 +1,3 @@
-// Non-English strings below are intentional synthetic Unicode test data.
 'use strict';
 const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path'),assert=require('node:assert/strict'),{EventEmitter}=require('node:events');
 const limits=require('../assets/bounded-desktop-log.cjs'),cases=[];
