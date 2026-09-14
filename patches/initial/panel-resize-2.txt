@@ -1,0 +1,1 @@
+()=>{__cancelResize();window.removeEventListener(`pointermove`,t),window.removeEventListener(`pointerup`,n),window.removeEventListener(`pointercancel`,n)}

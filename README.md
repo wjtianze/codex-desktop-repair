@@ -6,9 +6,11 @@ This is the English edition of [wjtianze/codex-desktop-repair](https://github.co
 
 **Supported target only: Windows x64, Microsoft Store package OpenAI.Codex 26.908.4834.0, application version 26.908.40834. Other versions are rejected before patching.**
 
+Panel resizing updates live while dragging. The left navigation, right panel and Codex bottom panel now open and close directly at their final size, avoiding repeated transcript layout during size animations.
+
 ## Installation
 
-1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.0.15-en.1) and extract the ZIP.
+1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.1.7-en.1) and extract the ZIP.
 2. Save any unsent content and quit ChatGPT.
 3. Double-click **Install-Repair.cmd**. The installer checks the official signature, version, and file hashes, then builds the repair and keeps rollback backups.
 4. Use **ChatGPT** in the Start menu afterward. A visible verification window appears briefly before the app starts.
@@ -64,7 +66,7 @@ The installation directory is **%LOCALAPPDATA%\ChatGPT-PerformanceFix**. Backups
 
 ## Compatibility and known issues
 
-See the [1.1.6 release notes](docs/UPDATES_1_1_6.md), [compatibility and testing](docs/VALIDATION.md) for supported versions and local checks, and [known issues](docs/AUDIT.md) for problems this repair does not fully resolve.
+See the [1.1.6 release notes](docs/UPDATES_1_1_7.md), [compatibility and testing](docs/VALIDATION.md) for supported versions and local checks, and [known issues](docs/AUDIT.md) for problems this repair does not fully resolve.
 
 Some long-session delays and system-wide freezes remain unresolved. If the backend is unresponsive, Stop may still wait for a response. After an unexpected exit, keep the separate draft file and its backup; save unsent text before returning to an older version.
 

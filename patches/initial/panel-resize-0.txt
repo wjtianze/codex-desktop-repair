@@ -1,0 +1,1 @@
+if(!b)return;let __resizeFrame=null,__resizeSize;const __queueResize=value=>{__resizeSize=value;if(__resizeFrame===null)__resizeFrame=requestAnimationFrame(()=>{__resizeFrame=null;m(__resizeSize)})},__cancelResize=()=>{if(__resizeFrame!==null)cancelAnimationFrame(__resizeFrame);__resizeFrame=null};let e=e=>({x:e.clientX/y,y:e.clientY/y})

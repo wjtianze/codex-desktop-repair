@@ -42,3 +42,9 @@ Real-client integration checks also exercised editing and regeneration consecuti
 The 1.1.6 regressions cover nested Quick Chat padding and all 25 Latest start/preview combinations, explicit model labels, and cancellation. The installed Quick Chat window measured a 32 CSS-pixel text inset and a 4-pixel marker gap without horizontal overflow.
 
 The Quick Chat search failure was reproduced from a captured renderer snapshot. That same snapshot passes the installed 1.1.6 conversion with streaming enabled and disabled, in both conversation and sidebar modes. The regression also verifies that the old search-metadata function binding throws and the corrected native parser preserves available sources. These checks do not start a paid model turn.
+
+## 1.1.7 panel checks
+
+458 checks against the official source cover frame-coalesced dragging, immediate toggle layout, final coordinates, bounds, zoom, cleanup and native full-width/close protections. Full and sidebar-free builds verify 9,030 and 9,029 resources. Long-conversation smoothness still requires real-use feedback; this is not a claim that all stutters are resolved.
+
+Chinese 1.1.7 was installed with the existing profile and passed page/module loading checks. Live native-handler development tests updated panel width from about 330 to 350, 370 and 390 CSS pixels before release, preserving content. Toggle measurements reached final layout in the first sampled frame; original width and open state were restored. This is not a complete manual pointer-performance acceptance test.
