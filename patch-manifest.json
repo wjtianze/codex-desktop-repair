@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
-  "releaseVersion": "1.1.6",
-  "performanceRevision": 28,
+  "releaseVersion": "1.1.7",
+  "performanceRevision": 31,
   "sidebarVersion": "1.1.0",
   "packageName": "OpenAI.Codex",
   "packageVersion": "26.908.4834.0",
@@ -94,7 +94,7 @@
       "id": "initial",
       "entry": "webview/assets/app-initial-d9bed9d614d8.js",
       "originalSHA256": "7c3a89e7e224f76031b45a88f72af8cd60f0c3d47aac9ca34b2c70e11dfe9867",
-      "patchedSHA256": "0944405f2712a68a48d583425eb1631991eb57ef9014494ef9777f9b17ac7eac",
+      "patchedSHA256": "d6713ff14f6249a57736141d8f6a05896c85a2ce0a334f700433f1f29b398cbb",
       "preprocess": null,
       "operations": [
         {
@@ -392,6 +392,27 @@
           "insertSHA256": "f35c5074a4eee2a517c638c7ff309f62dbac77874838b1b7225d1a68dbf22f2b"
         },
         {
+          "offset": 4938289,
+          "deleteBytes": 18,
+          "removedSHA256": "2141327be3500c7cb468bb905c714e41ee68e011709910f268d6966176fd9f44",
+          "insert": "patches/initial/left-panel-toggle.txt",
+          "insertSHA256": "83eea307f27a51a06f999147fb661f91d2f760369d2a84b268d799cab62c09d2"
+        },
+        {
+          "offset": 4939313,
+          "deleteBytes": 18,
+          "removedSHA256": "2141327be3500c7cb468bb905c714e41ee68e011709910f268d6966176fd9f44",
+          "insert": "patches/initial/bottom-panel-toggle.txt",
+          "insertSHA256": "83eea307f27a51a06f999147fb661f91d2f760369d2a84b268d799cab62c09d2"
+        },
+        {
+          "offset": 4939629,
+          "deleteBytes": 18,
+          "removedSHA256": "2141327be3500c7cb468bb905c714e41ee68e011709910f268d6966176fd9f44",
+          "insert": "patches/initial/panel-toggle.txt",
+          "insertSHA256": "83eea307f27a51a06f999147fb661f91d2f760369d2a84b268d799cab62c09d2"
+        },
+        {
           "offset": 5809059,
           "deleteBytes": 35,
           "removedSHA256": "09a2e442e379495f619d9cdb0b772808e52613638d772920dd5a46f1dcd97d0b",
@@ -446,6 +467,27 @@
           "removedSHA256": "188550442d53b3049e9704827dc708a68664c23a67c660b6644540d6fc686609",
           "insert": "patches/initial/037.txt",
           "insertSHA256": "9207d3a0e77812ea715c7d9236739d2bad4a43c1392c5c5810e4cc34f08aad5b"
+        },
+        {
+          "offset": 6426575,
+          "deleteBytes": 53,
+          "removedSHA256": "0765bfb4c26bb61565d8dd1df57df2a1a4d955cdf7292a6ad642be91d51b3391",
+          "insert": "patches/initial/panel-resize-0.txt",
+          "insertSHA256": "abcf9fe7a772e9d8671fbd28d1ccb9b9e1ad5a61e3f6baf862d1b2cfc2c2c8ff"
+        },
+        {
+          "offset": 6426935,
+          "deleteBytes": 67,
+          "removedSHA256": "67c6dc7f7a8c1757c05999a8f7134a01f650b9a5af3cd70cafce31d6399d84bf",
+          "insert": "patches/initial/panel-resize-1.txt",
+          "insertSHA256": "d6d9dfabfec472c961c53c550e36d6f981379da32f93c4464c7350f90d27a922"
+        },
+        {
+          "offset": 6427283,
+          "deleteBytes": 137,
+          "removedSHA256": "9857c6bad3d22c7471b488fd6ae1eaa498f80b5e6f2c8f61fbc5f83e3ebf7025",
+          "insert": "patches/initial/panel-resize-2.txt",
+          "insertSHA256": "36cb680cd549057e6045355bd805cadbdd671ce6fd7a9c3c621533722921cb9a"
         },
         {
           "offset": 7671919,
@@ -1681,15 +1723,15 @@
   "owlAppConfigSHA256": "c2c26df89f551a8f37922583230c587f1079504d588252e3bbc2b020dda11ae7",
   "expectedBuilds": {
     "full": {
-      "archiveSHA256": "09b0278ec8de1ffa1134b8d17ab7e4a17ac866b6ed5971b76ee87086c5ebe425",
+      "archiveSHA256": "0a1fec0b2ec25544e98989a0b1ab278a06e16f2d17fc02f596996251be28e4cb",
       "executableSHA256": "ca98461fd573f8b9912f48080b0f40f3b44788d1074493f4285e68169503fc23",
-      "archiveHeaderSHA256": "1b85082b1dc0e862c5c998061a6edc4df3d13f7c0c1ec25eeda78560283514aa",
+      "archiveHeaderSHA256": "c166a30a4603016729a7c96f945c6762dd36774abd63b6d9a3649807c157d20f",
       "verifiedPackedEntries": 9030
     },
     "performanceOnly": {
-      "archiveSHA256": "5f02d0a986d8bb842acd45e42ea0f4b78a0bd65129522b11ad797af809054f8b",
+      "archiveSHA256": "468555483c3f5e8ef23f4d3c58272b6e00a8a39b4cb934f8251cd1d015092168",
       "executableSHA256": "ca98461fd573f8b9912f48080b0f40f3b44788d1074493f4285e68169503fc23",
-      "archiveHeaderSHA256": "adf37a9dc46190db55355db550fecdf84d79cff94384b29e922a33ac2710e9b5",
+      "archiveHeaderSHA256": "fbf7d75af18e3306e8f0b42e6a6c389b3157258f7dfd4fdfae7e2b83e66ba39c",
       "verifiedPackedEntries": 9029
     }
   }
