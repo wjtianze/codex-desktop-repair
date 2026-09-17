@@ -1,6 +1,6 @@
 # Known issues and repair scope
 
-Version 1.1.8 supports package 26.911.7940.0 and UI 26.911.61220. See the [upstream issue review](ISSUES_2026_09_17.md) for the verified backend-selection fix and investigation boundaries.
+Version 1.1.9 fixes the 1.1.8 navigation, scroll and local-conversation binding regressions that could show an error page when opening a conversation or after sending. It also gives repaired desktop windows and shortcuts a consistent taskbar identity. Real history pages and native entry points were checked. Support remains package 26.911.7940.0 and UI 26.911.61220. See the [upstream issue review](ISSUES_2026_09_17.md) for the earlier backend-selection fix and investigation boundaries.
 
 Updated September 9, 2026.
 

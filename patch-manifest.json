@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
-  "releaseVersion": "1.1.8-en.1",
-  "performanceRevision": 32,
+  "releaseVersion": "1.1.9-en.1",
+  "performanceRevision": 33,
   "sidebarVersion": "1.1.0",
   "packageName": "OpenAI.Codex",
   "packageVersion": "26.911.7940.0",
@@ -15,7 +15,7 @@
       "id": "main",
       "entry": ".vite/build/main-CkwLGrvo.js",
       "originalSHA256": "a509a763f6e70e5076c7907ef3871418b47dc6adcd6b47692ffac5c8e0e1c266",
-      "patchedSHA256": "0f6dc739e9e103a7a6877a1cc9f5378adb92bcaa0e768bb6c3d3c1c41273ce97",
+      "patchedSHA256": "65c2bc3c1302097b2aa82386230e9286b099809b209a702d02505cd040c50498",
       "preprocess": null,
       "operations": [
         {
@@ -23,7 +23,7 @@
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/main/000.txt",
-          "insertSHA256": "3b5eeff1700778f7e3bc7b9fdf671cb9844dd01eba24288fef6e4ac78458f0f2"
+          "insertSHA256": "e0329bb953b62e4b9df05de3bd543aab952dfd13bd9089839f8efb782ebfb7e0"
         },
         {
           "offset": 523421,
@@ -891,7 +891,7 @@
       "id": "conversation",
       "entry": "webview/assets/chatgpt-conversation-page-4475c8be597c.js",
       "originalSHA256": "a89acd335f7f68634605f2a547750f4c04d9c0ac4a6d6e4a203f147008149a32",
-      "patchedSHA256": "1207047186f52bbca107c9b2f8b1865a57706420011dca962f7e44d7f936257f",
+      "patchedSHA256": "98a792de28aae358540412d0f2ca1e021c85ad8bbdaecd494be9a864d9aeef77",
       "preprocess": null,
       "operations": [
         {
@@ -927,7 +927,7 @@
           "deleteBytes": 6470,
           "removedSHA256": "973d9eff5be8fab6dc732911fd0f1edb43ece020657a4f2e2f6a667a013242cb",
           "insert": "patches/conversation/scroll-11.txt",
-          "insertSHA256": "46f743454e22aedc7cfefb9f6719c8a18b5ebc9545bb47277512fd2980e23fcb"
+          "insertSHA256": "3914a05aad97a79216481b58c17989a665a69ed21f5ac5e491d5cadaa755c89c"
         },
         {
           "offset": 77121,
@@ -1406,7 +1406,7 @@
       "id": "local-thread",
       "entry": "webview/assets/local-conversation-thread-4c7e5839137d.js",
       "originalSHA256": "bb2572858ec30f8857de20adfd44d3ce4284724bbf5160f49404277453d65b6c",
-      "patchedSHA256": "54a94a0969ac403e7b9e9ea0e2b30942dc49d9a91b356358bc8196586f484267",
+      "patchedSHA256": "cb04700d7e664fce6e4b240b977a587ee192baec68a5ff63511979b273919cc1",
       "preprocess": null,
       "operations": [
         {
@@ -1414,7 +1414,7 @@
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/local-thread/actions-rail-0.txt",
-          "insertSHA256": "526c94efe77320a356ead407d88bccc0814c1a21ecd6d40bfa668e1bee8f3999"
+          "insertSHA256": "21b2888e98ef73c89d09f90245ccccd77d5d9871f4a3e6d170f54ec8f4fe61c1"
         },
         {
           "offset": 299935,
@@ -1428,14 +1428,14 @@
           "deleteBytes": 13834,
           "removedSHA256": "7eded06b67aaf97f5bddc780326543210bd5989a9507985915be7c8c24a2c2d9",
           "insert": "patches/local-thread/side-controls.txt",
-          "insertSHA256": "53c310f508e014b630f0348af2a7c813e8dc46b4c582300976d6f12736c923e6"
+          "insertSHA256": "3ebf6f71cc011d0ae954925985554d4c95aa62a92b8391aed144837b2357cf5e"
         },
         {
           "offset": 377271,
           "deleteBytes": 13,
           "removedSHA256": "d55f265091b4d4b630d15ace09510014599f6d82a4da75402e1d6bbc02daf317",
           "insert": "patches/local-thread/actions-rail-8.txt",
-          "insertSHA256": "c5ce4f2b836300dceae9e4d06ee78535a0066bfc04a5b37af694b5900172d220"
+          "insertSHA256": "4cd0d717f1238d836996c6ce49404ad6be707a20527931a952b63de61d6af16f"
         }
       ]
     },
@@ -1556,7 +1556,9 @@
     "assets/local-side-chat-actions-v1.mjs": "514adc52c3f5b909e5a8324846bc35a00b03e7a76dff9ada052b739f01541abe",
     "assets/local-chat-prompt-rail-v1.mjs": "c9bdb16b8e46b2509ae6154651e040ecb4abf4e8173c6f3dafe1709061bc6d7e",
     "assets/local-side-chat-projects-v1.mjs": "a6149b913e08e9f17758c89ebac53c1c15fe842ea687a3a8194001e556f31b40",
-    "assets/local-side-chat-tab-update-v1.mjs": "2e4922bfb87c4ec9c8ea998f2bb2954350f34f66f35fd8a0dab170f858bd2869"
+    "assets/local-side-chat-tab-update-v1.mjs": "2e4922bfb87c4ec9c8ea998f2bb2954350f34f66f35fd8a0dab170f858bd2869",
+    "assets/local-taskbar-v1.cjs": "32eda7883cc90a88ea6b06deda87a675da9db46bc30e082f32c2824ad78932a2",
+    "assets/local-taskbar-interop.cjs": "9326f244b3bd104037ab98d3be99d002edb7a36f7a13c5ddca6fae64024f9087"
   },
   "addedArchiveEntries": {
     "webview/assets/local-composer-recovery-v1.js": "assets/local-composer-recovery-v1.mjs",
@@ -1581,7 +1583,9 @@
     "webview/assets/local-side-chat-actions-v1.js": "assets/local-side-chat-actions-v1.mjs",
     "webview/assets/local-chat-prompt-rail-v1.js": "assets/local-chat-prompt-rail-v1.mjs",
     "webview/assets/local-side-chat-projects-v1.js": "assets/local-side-chat-projects-v1.mjs",
-    "webview/assets/local-side-chat-tab-update-v1.js": "assets/local-side-chat-tab-update-v1.mjs"
+    "webview/assets/local-side-chat-tab-update-v1.js": "assets/local-side-chat-tab-update-v1.mjs",
+    ".vite/build/local-taskbar-v1.cjs": "assets/local-taskbar-v1.cjs",
+    ".vite/build/local-taskbar-interop.cjs": "assets/local-taskbar-interop.cjs"
   },
   "testedCodexCliVersion": "0.154.0",
   "bundledCodexCliVersion": "0.155.0-alpha.2.6",
@@ -1591,16 +1595,16 @@
   "bundledCodexCliSHA256": "be793ab45adbcbd9fa716df04cb6bc68eb9e353c6e6af20886af45c11abc2413",
   "expectedBuilds": {
     "full": {
-      "archiveSHA256": "0893571f15e8e9d95be20a949a2769de78a3e8cccf7e54928ad6c3c6f97a451f",
+      "archiveSHA256": "cc9971cbaad10e4876ed7b39fe538c90bc5fbbb68a40b5fb11410dbba748842d",
       "executableSHA256": "f28e7d55de4ee465747e252741218bf5a58c33620d014598e01bddb9189abaca",
-      "archiveHeaderSHA256": "e59edc3a2a792a27a12c190bde473cb2df19eb8af9871dbf27c513ac892eab68",
-      "verifiedPackedEntries": 14926
+      "archiveHeaderSHA256": "6ae1d8da48c1b7ce4085b1130777707223c25cfb97faa9ac4ae643c3d863f39d",
+      "verifiedPackedEntries": 14928
     },
     "performanceOnly": {
-      "archiveSHA256": "bf447d0483c73328a9a33bb6dec6f99fc7bc263d7ac3c2be42a07434be2dddff",
+      "archiveSHA256": "7a09edbe6c546c235c29641cf27800c8ec64c80be4afeadb4bbadcb69e68e332",
       "executableSHA256": "f28e7d55de4ee465747e252741218bf5a58c33620d014598e01bddb9189abaca",
-      "archiveHeaderSHA256": "bd220a2f2ea5a94cac0a550a51a7152ef3e4666536dddc4be9371a5d69cdcde3",
-      "verifiedPackedEntries": 14925
+      "archiveHeaderSHA256": "e9fcfea07af113a5009e4c7bc85c338da4718e35d078e7159aa7b0da32f93876",
+      "verifiedPackedEntries": 14927
     }
   }
 }

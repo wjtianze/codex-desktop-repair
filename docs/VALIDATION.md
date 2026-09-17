@@ -33,6 +33,14 @@ node tests/run.cjs --installed
 
 The second command requires the supported Windows App, regenerates native fixtures and runs the modified native functions and browser-layout tests. Results and generated resources stay under ignored build/ directories. Account files, conversations and complete official resources are not published.
 
+## 1.1.9 hotfix verification
+
+Both editions passed 469 checks. New regressions use the official React/JSX runtime and invoke navigation, scroll and local-conversation action entry points, covering bindings missed in 1.1.8.
+
+The isolated app opened actual local Codex and Chat history pages with existing messages and composers, without an error boundary or runtime exception. No messages were sent or replayed. Chinese 1.1.9 was installed with the existing profile and passed actual page/module loading.
+
+Taskbar verification covers shortcut and native window properties, including the Owl fallback. Full and sidebar-free builds verify 14,928 and 14,927 resources. Home-page loading and successful imports alone do not establish conversation-path correctness.
+
 ## 1.1.8 release verification
 
 Both editions passed 461 native and helper checks. Full and sidebar-free builds verify 14,926 and 14,925 packed resources. Installer and launcher checks pin the matching bundled backend instead of inheriting a stale CODEX_CLI_PATH.
