@@ -8,6 +8,7 @@ if(process.argv.includes('--installed')){
 }
 if(process.argv.includes('--installed'))tests.push('web-search-native.mjs','panel-resize-native.cjs');
 tests.push('visualization-reference.mjs');
+tests.push('launcher-backend.cjs');
 const results=[];
 for(const test of tests){const result=spawnSync(process.execPath,[path.join(__dirname,test)],{encoding:'utf8',cwd:root,maxBuffer:8*1024*1024});const text=(result.stdout||'')+(result.stderr||'');fs.writeFileSync(path.join(output,test+'.log'),text);const passed=result.status===0;results.push({test,passed,cases:(text.match(/^PASS /gm)||[]).length});console.log((passed?'PASS ':'FAIL ')+test+' ('+results.at(-1).cases+' cases)');if(!passed){console.error(text);process.exitCode=1}}
 fs.writeFileSync(path.join(output,'summary.json'),JSON.stringify({node:process.version,installedSource:process.argv.includes('--installed'),passed:results.every(r=>r.passed),suites:results,cases:results.reduce((sum,r)=>sum+r.cases,0)},null,2));

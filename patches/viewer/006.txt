@@ -1,1 +1,1 @@
-let __localLatestPlan=d.findLastIndex(e=>e.type===`todo-list`);for(let[e,t]of d.entries())if(!(t.type===`todo-list`&&e!==__localLatestPlan)&&!(
+let __localLatestPlan=d.findLastIndex(t=>t.type===`todo-list`);for(let[t,s]of d.entries())if(!(s.type===`todo-list`&&t!==__localLatestPlan)&&!(

@@ -4,12 +4,12 @@ const root=path.resolve(__dirname,'..'),api=require('../scripts/patcher.cjs'),ra
 const take=(source,a,b)=>{const start=source.indexOf(a),end=source.indexOf(b,start);assert.ok(start>=0&&end>start,a);return source.slice(start,end)};
 async function verifyHook(){
   const calls=[],controller=new AbortController(),progressive=await import('../assets/local-visualization-progressive-v1.mjs');
-  const run=vm.runInNewContext(take(patched,'async function*x$i(','async function S$i(')+';x$i',{__localBindNativePreview:progressive.bindNativePreview,dQi:{safeParse:()=>({success:false})},w$i:()=> 'light',v$i:{sandbox:true},GQi:(html)=>{calls.push(['wrap',html]);return html},__localPrepareVisualization:async html=>{calls.push(['prepare',html]);return 'prepared:'+html},C$i:()=>({}),T$i:()=>({}),E$i:()=>({}),crypto:{randomUUID:()=> 'synthetic-test-id'}});
-  const sandboxApi={async *runWidgetCode(input){calls.push(['run',input]);yield {ok:true}}};
+  const run=vm.runInNewContext(take(patched,'async function*Rja(','async function zja(')+';Rja',{__localBindNativePreview:progressive.bindNativePreview,OAa:{safeParse:()=>({success:false})},Vja:()=> 'light',Fja:{sandbox:true},cja:(html)=>{calls.push(["wrap",html]);return html},__localPrepareVisualization:async html=>{calls.push(['prepare',html]);return 'prepared:'+html},Bja:()=>({}),Hja:()=>({}),Uja:()=>({}),crypto:{randomUUID:()=> 'synthetic-test-id'}});
+  const sandboxApi={async *runWidgetCode(input){calls.push(["run",input]);yield {ok:true}}};
   const output=[];for await(const item of run({fragment:'original',sandboxApi,signal:controller.signal}))output.push(item);
   assert.deepEqual(calls.map(x=>x[0]),['prepare','wrap','run']);assert.equal(calls[2][1].html,'prepared:original');assert.equal(calls[2][1].isFirstParty,false);assert.equal(calls[2][1].hostHandlesFollowUpMessageAuthorization,true);assert.deepEqual(output,[{ok:true}]);console.log('PASS Native sandbox receives prepared HTML and preserves authorization');
 }
-const builder=vm.runInNewContext(take(raw,'function GQi(','function KQi(')+';GQi',{s$i:'__CONTAINER__',p$i:'',o$i:'',Dya:''});
+const builder=vm.runInNewContext(take(raw,'function cja(','function lja(')+';cja',{wja:'__CONTAINER__',Aja:'',Cja:'',R5a:''});
 const nativeCSS=builder('',{innerKit:'__CONTAINER__',reportToHost:false,lockDocumentOverflow:false}).match(/<style[^>]*>[\s\S]*?<\/style>/g).join('');
 const literal=value=>JSON.stringify(value).replaceAll('<','\\u003c');
 const fragment=fs.readFileSync(path.join(__dirname,'fixtures-support/visualization-legacy.html'),'utf8');

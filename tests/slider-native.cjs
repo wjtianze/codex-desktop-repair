@@ -1,16 +1,16 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');
 const read=kind=>fs.readFileSync('build/fixtures/render/'+kind+'/slider.js','utf8');
 function harness(kind){
- const source=read(kind),cache=Array(200).fill(Symbol.for('react.memo_cache_sentinel')),slots=[];let cursor=0,view,props;
+ const source=read(kind),cache=Array(240).fill(Symbol.for('react.memo_cache_sentinel')),slots=[];let cursor=0,view,props;
  const selections=[],commits=[],previews=[];
  const React={useState(value){const i=cursor++;if(!(i in slots))slots[i]=value;return[slots[i],v=>slots[i]=typeof v==='function'?v(slots[i]):v]},useReducer(fn,value){const i=cursor++;if(!(i in slots))slots[i]=value;return[slots[i],v=>slots[i]=fn(slots[i],v)]},useRef(value){const i=cursor++;return slots[i]??=( {current:value})},useEffect(){},useEffectEvent(fn){return fn}};
- const jsx=(type,props)=>({type,props}),ctx={nt:{c:()=>cache},J:React,Y:{jsx,jsxs:jsx},c:()=>false,a:()=>({jump(){}}),u:()=>0,i:{span:'span'},o:'presence',l:'presence',f:'track',te:'slider-part',ne:'thumb',ee:'root',be:'canvas',De:'particles',ce:'fast',pe:'burst',p:'lock',W:new Proxy({},{get:(_,key)=>key}),window:{setTimeout:()=>1,clearTimeout(){}},queueMicrotask:()=>{},st:new Set(),wt:{previewIndex:null,previewBaseOptionId:null,previewOptionIds:[],maxBurstKey:0},Ct:30,St:160,WheelEvent:{DOM_DELTA_PIXEL:0}};
- for(const key of ['X','Z','ot','ct','lt','it','at','rt'])ctx[key]=1;
- for(const key of ['xt','ut','ht','ft','gt','mt','vt','pt','_t','yt','bt'])ctx[key]={};
- const end=source.indexOf('var nt,J,Y');vm.createContext(ctx);vm.runInContext(source.slice(source.indexOf('function K('),end)+';this.component=K',ctx);
+ const jsx=(type,props)=>({type,props}),ctx={ft:28,pt:1,te:()=>0,at:{c:()=>cache},Z:React,Q:{jsx,jsxs:jsx},s:()=>false,L:()=>({jump(){}}),a:()=>0,c:{span:'span'},d:'presence',l:'presence',ot:'track',ee:'slider-part',ie:'thumb',f:'root',xe:'canvas',Ee:'particles',le:'fast',me:'burst',p:'lock',X:new Proxy({},{get:(_,key)=>key}),window:{setTimeout:()=>1,clearTimeout(){}},queueMicrotask:()=>{},dt:new Set(),At:{previewIndex:null,previewBaseOptionId:null,previewOptionIds:[],maxBurstKey:0},kt:30,Ot:160,WheelEvent:{DOM_DELTA_PIXEL:0}};
+ for(const key of ['X','Z',"ut","mt","ht","ct","lt","st"])ctx[key]??=1;
+ for(const key of ["Dt","gt","xt","vt","St","bt","wt","yt","Ct","Tt","Et"])ctx[key]??={};
+ const end=source.indexOf('var at,Z,Q');vm.createContext(ctx);vm.runInContext(source.slice(source.indexOf('function Je('),end)+';this.component=Je',ctx);
  props={active:true,options:[{id:'a'},{id:'b'},{id:'c',isMax:true},{id:'locked',isLocked:true}],selectedOptionId:'a',onSelectOption:v=>selections.push(v.id),onCommitOption:(v,b)=>commits.push([v.id,b.id]),onDragToMax(){},onPreviewOption:v=>previews.push(v)};
  const render=()=>{cursor=0;view=ctx.component(props);return view.props.children.props};
- return {render,props,selections,commits,previews,wheel:e=>cache[41](e)};
+ return {render,props,selections,commits,previews,wheel:e=>cache[53](e)};
 }
 const event={stopPropagation(){},clientX:0,clientY:0,buttons:1};
 function test(name,fn){fn();console.log('PASS '+name)}

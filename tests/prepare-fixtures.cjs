@@ -9,11 +9,11 @@ function prepare(source){
   const main=read('main.'+kind+'.js'),initial=read('initial.'+kind+'.js');
   for(const[name,text]of[['main.js',main],['initial.js',initial],['browser-service.mjs',read('browser.'+kind+'.js')]])write('core/'+(kind==='original'?'raw':'patches')+'/'+name,text);
   write('cold/main.'+kind+'.js',main);
-  write('host-title/title-'+kind+'.js',slice(main,kind==='original'?'function lv(':'const __localCatalogPreviewCache=','var Jde='));
-  write('title/title-'+kind+'.js',slice(initial,kind==='original'?'function FHt(e,t){':'function __localRepairTitlePreview(e){','var IHt='));
-  const fragment=slice(initial,'Gdn=class{','function qdn()').slice(4).trim();assert.ok(fragment.endsWith('}));'));
-  const helpers=slice(initial,'function Hdn(','var Udn,');
-  write('tracker/tracker-'+kind+'.cjs',helpers+'\nconst Udn={default:values=>values.length?values.reduce((a,b)=>Math.max(a,b)):undefined};const Wdn={default:values=>values.reduce((a,b)=>a+b,0)};module.exports='+fragment.slice(0,-4)+';\n');
+  write('host-title/title-'+kind+'.js',slice(main,kind==='original'?'function Sh(':'const __localCatalogPreviewCache=','var Ch='));
+  write('title/title-'+kind+'.js',slice(initial,kind==='original'?'function Bun(e,t){':'function __localRepairTitlePreview(e){','var Vun='));
+  const fragment=slice(initial,'ZVn=class{','function $Vn()').slice(4).trim();assert.ok(fragment.endsWith('}));'));
+  const helpers=slice(initial,'function JVn(','var YVn,');
+  write('tracker/tracker-'+kind+'.cjs',helpers+'\nconst YVn={default:values=>values.length?values.reduce((a,b)=>Math.max(a,b)):undefined};const XVn={default:values=>values.reduce((a,b)=>a+b,0)};module.exports='+fragment.slice(0,-4)+';\n');
  }
  const guards=fs.readFileSync(path.join(__dirname,'fixtures-support','main-guards.js'),'utf8');
  assert.ok(read('main.patched.js').includes(guards.trim()),'Core fixture must match the shipped guard');

@@ -78,7 +78,7 @@ function installWork(config){
    add(path.join(output,'external','browser-service.mjs'),browser,true);add(path.join(output,'external','bounded-rollout-reader.mjs'),helper,true);
   }
  }
- const metadata={AppVersion:manifest.appVersion,PackageVersion:manifest.packageVersion,PackageName:manifest.packageName,Runtime:runtime,Profile:path.resolve(config.profile),ArchiveSHA256:report.archiveSHA256,ExecutableSHA256:report.executableSHA256,LocalExecutableModified:manifest.runtimeKind!=='owl',RuntimeKind:manifest.runtimeKind||'electron',ArchiveHeaderSHA256:report.archiveHeaderSHA256,PerformancePatchRevision:manifest.performanceRevision,RepairRelease:manifest.releaseVersion,ExternalRuntimeHashes:externalHashes};
+ const metadata={AppVersion:manifest.appVersion,PackageVersion:manifest.packageVersion,PackageName:manifest.packageName,Runtime:runtime,Profile:path.resolve(config.profile),ArchiveSHA256:report.archiveSHA256,ExecutableSHA256:report.executableSHA256,LocalExecutableModified:manifest.runtimeKind!=='owl',RuntimeKind:manifest.runtimeKind||'electron',ArchiveHeaderSHA256:report.archiveHeaderSHA256,PerformancePatchRevision:manifest.performanceRevision,RepairRelease:manifest.releaseVersion,BundledCodexCliVersion:manifest.bundledCodexCliVersion,BundledCodexCliSHA256:manifest.bundledCodexCliSHA256,ExternalRuntimeHashes:externalHashes};
  if(report.sidebarVersion)metadata.SidebarPlugin={id:'local.chatgpt.sidebar-history-filter',version:report.sidebarVersion};
  const nextMeta=path.join(config.staging,'installation.json');writeJson(nextMeta,metadata);
  add(path.join(output,'app.asar'),path.join(runtime,'resources','app.asar'));add(path.join(output,'ChatGPT.exe'),path.join(runtime,'ChatGPT.exe'));

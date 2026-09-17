@@ -2,14 +2,15 @@ const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');
 function load(kind,fn,context){const s=fs.readFileSync('build/fixtures/render/'+kind+'/chat-code.js','utf8'),a=s.indexOf('function '+fn+'('),b=s.indexOf('function ',a+10);return vm.runInNewContext(s.slice(a,b)+';'+fn,context)}
 const jsx=(type,props)=>({type,props}),compiler={c:n=>Array(n).fill(Symbol.for('react.memo_cache_sentinel'))};
 for(const kind of ['raw','patches']){
- const render=load(kind,"hr",{yr:compiler,$:{jsx},gr:'native-chat-code',j:'lazy-placeholder',Kn:()=>null});
+ const render=load(kind,"ar",{lr:compiler,$:{jsx},or:'native-chat-code',Fe:'lazy-placeholder',j:'mermaid-placeholder',Bn:()=>null,ze:()=>false});
  const props={content:'int x = 1;',language:'cpp',codeBlockIndex:0,turnContext:{codeBlocks:{}}};
  assert.equal(render(props).type,kind==='raw'?'lazy-placeholder':'native-chat-code');
  assert.equal(render({...props,turnContext:{codeBlocks:{0:{render_mode:'app_block'}}}}).type,'lazy-placeholder');
  console.log('PASS '+kind+' actual Chat code route distinguishes ordinary code from interactive app blocks');
 }
-const state={useState:value=>[value,()=>{}],useRef:value=>({current:value}),useEffect(){},useRef:value=>({current:value}),useEffect(){}},format={formatMessage:spec=>spec.defaultMessage};
-const context={yr:compiler,br:state,$:{jsx,jsxs:jsx,Fragment:'fragment'},se:()=>({get(){},set(){}}),he:'scope',ae:()=>format,ne:()=>null,Ae:'server-id',w:()=>false,qe:'wrap',we:()=>({get:()=>false}),Vt:()=>false,Me:()=>false,Kn:()=>null,pr:{},ye:l=>({value:l,label:l==='cpp'?'C++':l}),re:'snippet',St:'spinner',tn:{InlineCodePane:'inline'},ue:{CodeBlock:'block'},We:(...v)=>v.filter(Boolean).join(' ')};
-const gr=load('patches',"gr",context),props={content:'int x = 1;',language:'cpp',codeBlockIndex:0,turnContext:{conversationId:'test',codeBlocks:{},isStreaming:false}};
+const state={useId:()=> 'code-id',useState:value=>[value,()=>{}],useRef:value=>({current:value}),useEffect(){}},format={formatMessage:spec=>spec.defaultMessage};
+const context={Lt:()=>false,lr:compiler,ur:state,$:{jsx,jsxs:jsx,Fragment:'fragment'},G:()=>({get(){},set(){}}),k:'scope',me:()=>format,Ee:()=>null,fe:'server-id',ye:()=>false,Je:'wrap',de:()=>({get:()=>false}),ee:()=>false,Bn:()=>null,ze:()=>false,rr:{},re:l=>({value:l,label:l==='cpp'?'C++':l}),Be:'snippet',yt:'spinner',Mt:{InlineCodePane:'inline'},we:{CodeBlock:'block'},Ge:(...v)=>v.filter(Boolean).join(' ')};
+function snippet(node){if(!node||typeof node!=='object')return null;if(node?.type==='snippet')return node;for(const c of [node?.props?.children].flat(Infinity)){const s=snippet(c);if(s)return s}return null}
+const native=load('patches',"or",context),gr=props=>snippet(native(props)),props={content:'int x = 1;',language:'cpp',codeBlockIndex:0,turnContext:{conversationId:'test',codeBlocks:{},isStreaming:false}};
 const result=gr(props);assert.equal(result.type,'snippet');assert.equal(result.props.title,'C++');assert.equal(result.props.deferEnhancementsUntilVisible,true);assert.equal(result.props.content,props.content);assert.equal(result.props.showCopyButton,true);console.log('PASS Full native Chat code component keeps title and copy action immediately while deferring highlighting');
 const wrap=gr({...props,forceCodeBlockWordWrap:true});assert.equal(wrap.props.shouldWrapCode,true);const stream=gr({...props,isCodeFenceOpen:true});assert.equal(stream.props.showCopyButton,false);console.log('PASS Native Chat code keeps explicit wrapping and streaming copy-button restrictions');

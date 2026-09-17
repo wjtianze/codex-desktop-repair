@@ -20,7 +20,7 @@ function main(){
  const info=windows.packageInfo();assert.ok(info,'请先安装微软商店中的官方 OpenAI.Codex 客户端。');
  assert.ok(info.Version===manifest.packageVersion&&info.Architecture.toLowerCase()==='x64','版本不匹配。本补丁仅适配 Windows x64 商店包 '+manifest.packageVersion+'，未修改客户端。');
  const source=path.join(info.InstallLocation,'app');
- for(const [relative,hash]of[['ChatGPT.exe',manifest.originalExecutableSHA256],['resources/app.asar',manifest.originalArchiveSHA256],['resources/cua_node/bin/node.exe',manifest.bundledNodeSHA256]])assert.equal(fileHash(path.join(source,relative)),hash,'官方文件版本或完整性不匹配：'+relative);
+ for(const [relative,hash]of[['ChatGPT.exe',manifest.originalExecutableSHA256],['resources/app.asar',manifest.originalArchiveSHA256],['resources/cua_node/bin/node.exe',manifest.bundledNodeSHA256],['resources/codex.exe',manifest.bundledCodexCliSHA256]])assert.equal(fileHash(path.join(source,relative)),hash,'官方文件版本或完整性不匹配：'+relative);
  assert.equal(windows.signature(path.join(source,'ChatGPT.exe')),'Valid','官方客户端签名校验失败。');
  const browserSpec=manifest.files.find(f=>f.id==='browser');
  for(const kind of['browser','chrome'])assert.equal(fileHash(path.join(source,'resources','plugins','openai-bundled','plugins',kind,'scripts','browser-service.mjs')),browserSpec.originalSHA256);

@@ -1,1 +1,1 @@
-let __history=r===`tpp`?null:__localHistoricalChoice(t(YNr,e),s);if(__history!=null&&(a.data==null||$M(a.data,__history)!=null))return {...__history,versionId:eN(a.data,__history.slug)};
+const __history=r===`tpp`?null:__localHistoricalChoice(t(Fai,e),s);if(__history!=null&&(a.data==null||uF(a.data,__history)!=null))return {...__history,versionId:dF(a.data,__history.slug)};return{slug:s,thinkingEffort:null,versionId:dF(a.data,s)}}),Kdi=

@@ -1,1 +1,1 @@
-let B=z,V;if(B!=null&&g!=null){g=B.sliderLabel??B.modelLabel;_=C||o.onResetToDefault!=null||B.isMaximum?(0,m4.jsx)(I1,{model:B.model,displayName:B.modelLabel,stripGptPrefix:!0}):void 0}t[6]===m
+let B=z,V;if(B!=null&&g!=null){g=B.sliderLabel??B.modelLabel;_=C||o.onResetToDefault!=null||B.isMaximum?(0,I3.jsx)(i2,{model:B.model,displayName:B.modelLabel,stripGptPrefix:!0}):void 0}t[6]===m

@@ -1,1 +1,1 @@
-async function nE(e,t,checkpoint=!1){try{await (checkpoint?__localDraftPersistence.checkpoint:__localDraftPersistence.persist)(e,t,aE,$T)}catch(e){RT().warning(`Failed to persist global state`,{safe:{},sensitive:{error:e}})}}
+async function sE(e,t,checkpoint=!1){await(checkpoint?__localDraftPersistence.checkpoint:__localDraftPersistence.persist)(e,t,uE,aE)}
