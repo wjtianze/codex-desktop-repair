@@ -1,8 +1,8 @@
 const fs=require('fs'),vm=require('vm'),path=require('path'),crypto=require('crypto'),assert=require('assert/strict');
 const root=path.resolve('build/results/native-drafts-'+Date.now());fs.mkdirSync(root,{recursive:true});
-function native(kind){const s=fs.readFileSync('build/fixtures/render/'+kind+'/state-store.js','utf8'),writes=[],warnings=[];const context={__localDraftPersistence:require('../assets/local-draft-persistence-v1.cjs'),XT:()=>false,YT:new Set(),KT:{},f:fs,p:{...fs.promises,writeFile:async(file,text,...rest)=>{writes.push(Buffer.byteLength(text));return fs.promises.writeFile(file,text,...rest)}},l:path,d:crypto,RT:()=>({warning:(...args)=>warnings.push(args)})};const a=s.indexOf('function ZT('),b=s.indexOf('function oE(',a);return {...vm.runInNewContext(s.slice(a,b)+';({read:ZT,write:nE,strict:tE})',context),writes,warnings}}
+function native(kind){const s=fs.readFileSync('build/fixtures/render/'+kind+'/state-store.js','utf8'),writes=[],warnings=[];const context={__localDraftPersistence:require('../assets/local-draft-persistence-v1.cjs'),nE:()=>false,tE:new Set(),QT:{},p:fs,m:{...fs.promises,writeFile:async(file,text,...rest)=>{writes.push(Buffer.byteLength(text));return fs.promises.writeFile(file,text,...rest)}},d:path,f:crypto,WT:()=>({warning:(...args)=>warnings.push(args)})};const a=s.indexOf('function rE('),b=s.indexOf('function dE(',a);return {...vm.runInNewContext(s.slice(a,b)+';({read:rE,write:oE,strict:sE})',context),writes,warnings}}
 (async()=>{
- for(const kind of ['raw','patches']){
+ for(const kind of ["raw",'patches']){
   const n=native(kind),file=path.join(root,kind+'.json');
   fs.writeFileSync(file,JSON.stringify({'prompt-history':'x'.repeat(1024*1024),'electron-persisted-atom-state':{'composer-prompt-drafts-v2':{chat:'old'}}}));
   const state=n.read(file);for(let i=0;i<20;i++){state.set('electron-persisted-atom-state',{'composer-prompt-drafts-v2':{chat:'new-'+i}});await n.write(file,state)}
@@ -10,5 +10,5 @@ function native(kind){const s=fs.readFileSync('build/fixtures/render/'+kind+'/st
   await n.write(file,state,true);assert.equal(JSON.parse(fs.readFileSync(file))['electron-persisted-atom-state']['composer-prompt-drafts-v2'].chat,'new-19');assert.equal(fs.readFileSync(file,'utf8'),fs.readFileSync(file+'.bak','utf8'));
   console.log('PASS '+kind+' native save, cold reload and explicit flush; bytes='+bytes);
  }
- const n=native('patches'),file=path.join(root,'strict.json'),state=new Map([['electron-persisted-atom-state',{'composer-prompt-drafts-v2':{chat:'strict'}}]]);n.strict(file,state);assert.equal(n.read(file).get('electron-persisted-atom-state')['composer-prompt-drafts-v2'].chat,'strict');console.log('PASS Native strict writer and reader retain native format');
+ const n=native('patches'),file=path.join(root,'strict.json'),state=new Map([['electron-persisted-atom-state',{'composer-prompt-drafts-v2':{chat:'strict'}}]]);await n.strict(file,state,true);assert.equal(n.read(file).get('electron-persisted-atom-state')['composer-prompt-drafts-v2'].chat,'strict');console.log('PASS Native strict writer and reader retain native format');
 })().catch(error=>{console.error(error);process.exitCode=1});

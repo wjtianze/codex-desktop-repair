@@ -5,9 +5,9 @@
 | Component | Version |
 | --- | --- |
 | Platform | Windows x64 |
-| Microsoft Store package | OpenAI.Codex 26.908.4834.0 |
-| ChatGPT App | 26.908.40834, Owl runtime |
-| App-bundled Codex backend | 0.154.0-alpha.6.2 |
+| Microsoft Store package | OpenAI.Codex 26.911.7940.0 |
+| ChatGPT App | 26.911.61220, Owl runtime |
+| App-bundled Codex backend | 0.155.0-alpha.2.6 |
 | Standalone Codex CLI | 0.154.0 |
 
 The App and standalone CLI use separate executables. Installing this repair does not replace the standalone CLI or downgrade the App's bundled backend. The installer verifies the official signature, exact version and file hashes. Other App versions are rejected.
@@ -18,7 +18,7 @@ Automated checks cover patch boundaries, full and sidebar-free builds, complete 
 
 Installation and recovery checks also cover cross-version runtimes, the pinned taskbar shortcut, the existing profile path, backup integrity and resuming an interrupted rollback. The new official browser no longer contains the legacy rollout watcher, so those patches are retired; unchanged official browser files are still hash-verified.
 
-Protocol schemas are generated separately from both actual executables. Live compatibility checks cover initialization, account reading, model listing and policy requirements. Semantics follow the [OpenAI App Server documentation](https://learn.chatgpt.com/docs/app-server); version-specific interfaces are checked against the generated schemas. These compatibility checks did not start real model turns.
+The exact App and standalone CLI executables were checked separately for initialization, account reading, model listing and policy requirements. Semantics follow the [OpenAI App Server documentation](https://learn.chatgpt.com/docs/app-server); version-specific behavior is verified against each executable. These compatibility checks did not start real model turns.
 
 Isolated module/page loading and installation acceptance using the existing profile are recorded separately. Automated checks cannot replace every real conversation, device or long-running session. See [known issues](AUDIT.md) for remaining limitations.
 
@@ -33,18 +33,10 @@ node tests/run.cjs --installed
 
 The second command requires the supported Windows App, regenerates native fixtures and runs the modified native functions and browser-layout tests. Results and generated resources stay under ignored build/ directories. Account files, conversations and complete official resources are not published.
 
-## Release verification
+## 1.1.8 release verification
 
-Both editions passed 447 checks against the installed official source. Full and sidebar-free builds verified 9,030 and 9,029 packed resources respectively. The Chinese 1.1.6 build was installed using the existing profile and passed a real page/module-loading check without a login gate or error boundary. The English edition was independently built and tested; it was not installed over the user's Chinese edition.
+Both editions passed 461 native and helper checks. Full and sidebar-free builds verify 14,926 and 14,925 packed resources. Installer and launcher checks pin the matching bundled backend instead of inheriting a stale CODEX_CLI_PATH.
 
-Real-client integration checks also exercised editing and regeneration consecutively in the same tab, preserving its identifier and title. Project selection applied the maintenance working directory without changing the main route. Only new temporary test threads were used; the final native model dispatch was intercepted.
+The Chinese edition was transactionally installed with its existing profile. The running page and all patched modules loaded without an error boundary or sign-in gate. The English edition is built and tested independently; it does not overwrite the local Chinese installation.
 
-The 1.1.6 regressions cover nested Quick Chat padding and all 25 Latest start/preview combinations, explicit model labels, and cancellation. The installed Quick Chat window measured a 32 CSS-pixel text inset and a 4-pixel marker gap without horizontal overflow.
-
-The Quick Chat search failure was reproduced from a captured renderer snapshot. That same snapshot passes the installed 1.1.6 conversion with streaming enabled and disabled, in both conversation and sidebar modes. The regression also verifies that the old search-metadata function binding throws and the corrected native parser preserves available sources. These checks do not start a paid model turn.
-
-## 1.1.7 panel checks
-
-458 checks against the official source cover frame-coalesced dragging, immediate toggle layout, final coordinates, bounds, zoom, cleanup and native full-width/close protections. Full and sidebar-free builds verify 9,030 and 9,029 resources. Long-conversation smoothness still requires real-use feedback; this is not a claim that all stutters are resolved.
-
-Chinese 1.1.7 was installed with the existing profile and passed page/module loading checks. Live native-handler development tests updated panel width from about 330 to 350, 370 and 390 CSS pixels before release, preserving content. Toggle measurements reached final layout in the first sampled frame; original width and open state were restored. This is not a complete manual pointer-performance acceptance test.
+The bundled App Server and standalone CLI separately passed initialization, account reading, model listing and configuration-requirement reads. No model turns were started. Native conversation, Side chat, search, code-block and interactive-preview regressions are distinct from every possible live or long-running scenario.

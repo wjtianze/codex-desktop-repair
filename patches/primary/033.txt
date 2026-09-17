@@ -1,1 +1,1 @@
-Kge(__localHistoryFilter.filterItems(Ze,__historyMode),{chatOrder:H,chatSortMode:D,customSectionItemKeys:q,includeChatGptProjects:b,
+Kt(__localHistoryFilter.filterItems(Ze,__historyMode),{chatOrder:W,chatSortMode:D,customSectionItemKeys:te,includeChatGptProjects:b,

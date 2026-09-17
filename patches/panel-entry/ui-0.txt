@@ -1,1 +1,1 @@
-import{n as init,t as ThreadAppShellChrome,l as UniversalPanelControls}from"./thread-app-shell-chrome-1bcfafac1d77.js";init();export{ThreadAppShellChrome,UniversalPanelControls};
+import{n as init,t as ThreadAppShellChrome,__localPanelControls as UniversalPanelControls}from"./thread-app-shell-chrome-9d25effe949f.js";init();export{ThreadAppShellChrome,UniversalPanelControls};

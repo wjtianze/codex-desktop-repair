@@ -1,1 +1,1 @@
-function hr(e){let t=(0,yr.c)(7),n;let block=e.turnContext.codeBlocks?.[String(e.codeBlockIndex)];if(block?.render_mode!==`app_block`&&Kn(e.language,block?.content??e.content)==null)return(0,$.jsx)(gr,{...e});
+function ar(e){let t=(0,lr.c)(11),n;let block=e.turnContext.codeBlocks?.[String(e.codeBlockIndex)];if(block?.render_mode!==`app_block`&&Bn(e.language,block?.content??e.content)==null&&!ze(e.language,e.isCodeFenceOpen))return(0,$.jsx)(or,{...e});

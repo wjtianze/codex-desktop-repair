@@ -1,0 +1,21 @@
+'use strict';
+const assert=require('node:assert/strict'),path=require('node:path');
+const {manifest}=require('../scripts/patcher.cjs'),{launchEnvironment}=require('../scripts/launch.cjs');
+const originalHash=manifest.bundledCodexCliSHA256;
+try{
+ manifest.bundledCodexCliSHA256='verified-bundled-backend';
+ const runtime=path.resolve('build','launcher-fixture'),profile=path.resolve('build','existing-profile');
+ const inherited={Path:'preserved',CODEX_HOME:'custom-home',CODEX_CLI_PATH:'old-backend.exe',codex_cli_path:'other-old.exe',Codex_Electron_User_Data_Path:'old-profile'};
+ const before={...inherited};let checked;
+ const env=launchEnvironment(runtime,profile,inherited,file=>(checked=file,'verified-bundled-backend'));
+ assert.equal(checked,path.join(runtime,'resources','codex.exe'));
+ assert.equal(env.CODEX_CLI_PATH,checked);assert.equal(env.CODEX_ELECTRON_USER_DATA_PATH,profile);
+ assert.deepEqual(Object.keys(env).filter(k=>k.toUpperCase()==='CODEX_CLI_PATH'),['CODEX_CLI_PATH']);
+ assert.equal(env.Path,inherited.Path);assert.equal(env.CODEX_HOME,inherited.CODEX_HOME);assert.deepEqual(inherited,before);
+ console.log('PASS Desktop launch pins its verified backend without changing parent environment or profile');
+ assert.throws(()=>launchEnvironment(runtime,profile,inherited,()=> 'stale-same-sized-file'),/Bundled backend integrity check failed/);
+ console.log('PASS Stale or modified bundled backends fail before process creation');
+ delete manifest.bundledCodexCliSHA256;
+ assert.throws(()=>launchEnvironment(runtime,profile,inherited,()=> 'anything'),/bundled backend hash is missing/);
+ console.log('PASS Missing backend integrity metadata cannot silently fall back to an inherited executable');
+}finally{if(originalHash===undefined)delete manifest.bundledCodexCliSHA256;else manifest.bundledCodexCliSHA256=originalHash;}

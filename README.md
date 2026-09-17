@@ -4,13 +4,13 @@ An unofficial local repair package for the Windows desktop app. It addresses ver
 
 This is the English edition of [wjtianze/codex-desktop-repair](https://github.com/wjtianze/codex-desktop-repair). The original main branch remains in Chinese.
 
-**Supported target only: Windows x64, Microsoft Store package OpenAI.Codex 26.908.4834.0, application version 26.908.40834. Other versions are rejected before patching.**
+**Supported target only: Windows x64, Microsoft Store package OpenAI.Codex 26.911.7940.0, application version 26.911.61220. Other versions are rejected before patching.**
 
 Panel resizing updates live while dragging. The left navigation, right panel and Codex bottom panel now open and close directly at their final size, avoiding repeated transcript layout during size animations.
 
 ## Installation
 
-1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.1.7-en.1) and extract the ZIP.
+1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.1.8-en.1) and extract the ZIP.
 2. Save any unsent content and quit ChatGPT.
 3. Double-click **Install-Repair.cmd**. The installer checks the official signature, version, and file hashes, then builds the repair and keeps rollback backups.
 4. Use **ChatGPT** in the Start menu afterward. A visible verification window appears briefly before the app starts.
@@ -56,7 +56,7 @@ Run **Check-Environment.cmd** to check compatibility first. To install without s
 
 Composer recovery preserves the native submit, archive, sharing, and access checks. Idle cleanup protects active, viewed, observed, approval-blocked, and history-loading tasks.
 
-See [what's new in 1.0.11](docs/UPDATES_1_0_11.md). Earlier side-panel, preview, and search improvements are also included.
+See [what's new in 1.1.8](docs/UPDATES_1_1_8.md). Earlier side-panel, preview, and search improvements are also included.
 
 ## Restore
 

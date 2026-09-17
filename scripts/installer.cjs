@@ -20,7 +20,7 @@ function main(){
  const info=windows.packageInfo();assert.ok(info,'Install the official OpenAI.Codex app from the Microsoft Store first.');
  assert.ok(info.Version===manifest.packageVersion&&info.Architecture.toLowerCase()==='x64','Unsupported version. This patch supports only Windows x64 Store package '+manifest.packageVersion+'; the client was not modified.');
  const source=path.join(info.InstallLocation,'app');
- for(const [relative,hash]of[['ChatGPT.exe',manifest.originalExecutableSHA256],['resources/app.asar',manifest.originalArchiveSHA256],['resources/cua_node/bin/node.exe',manifest.bundledNodeSHA256]])assert.equal(fileHash(path.join(source,relative)),hash,'Official file version or integrity mismatch: '+relative);
+ for(const [relative,hash]of[['ChatGPT.exe',manifest.originalExecutableSHA256],['resources/app.asar',manifest.originalArchiveSHA256],['resources/cua_node/bin/node.exe',manifest.bundledNodeSHA256],['resources/codex.exe',manifest.bundledCodexCliSHA256]])assert.equal(fileHash(path.join(source,relative)),hash,'Official file version or integrity mismatch: '+relative);
  assert.equal(windows.signature(path.join(source,'ChatGPT.exe')),'Valid','The official client signature check failed.');
  const browserSpec=manifest.files.find(f=>f.id==='browser');
  for(const kind of['browser','chrome'])assert.equal(fileHash(path.join(source,'resources','plugins','openai-bundled','plugins',kind,'scripts','browser-service.mjs')),browserSpec.originalSHA256);

@@ -33,7 +33,7 @@ function ordinary(Type){
 function test(name,fn){fn();tests.push({name,status:'passed'});console.log('PASS',name);}
 test('Normal, overlapping, backfilled and clipped spans preserve original metrics',()=>assert.deepEqual(ordinary(Patched),ordinary(Original)));
 test('Empty and unsupported measurements preserve original metrics',()=>{
- for(const unsupported of ['longtask','long-animation-frame','none']){
+ for(const unsupported of ['longtask','long-animation-frame',"none"]){
   const results=[Original,Patched].map(Type=>{const h=harness(Type,{unsupported});const token=h.tracker.start();h.setTime(100);return h.finish(token)});
   assert.deepEqual(results[1],results[0]);
  }

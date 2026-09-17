@@ -1,5 +1,7 @@
 # Known issues and repair scope
 
+Version 1.1.8 supports package 26.911.7940.0 and UI 26.911.61220. See the [upstream issue review](ISSUES_2026_09_17.md) for the verified backend-selection fix and investigation boundaries.
+
 Updated September 9, 2026.
 
 ## Addressed in 1.0.10

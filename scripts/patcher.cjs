@@ -59,6 +59,7 @@ function build(source,output,{sidebar=true,fixtures=false}={}){
  const archive=path.join(source,'resources','app.asar'),exe=path.join(source,'ChatGPT.exe');
  assert.equal(fileHash(archive),manifest.originalArchiveSHA256,'Unsupported official archive');
  assert.equal(fileHash(exe),manifest.originalExecutableSHA256,'Unsupported official executable');
+ assert.equal(fileHash(path.join(source,'resources','codex.exe')),manifest.bundledCodexCliSHA256,'Unsupported bundled backend');
  const externalSpec=manifest.files.find(x=>x.id==='browser');
  assert.equal(fileHash(inside(source,externalSpec.entry)),externalSpec.originalSHA256,'Unsupported bundled browser');
  fs.mkdirSync(output,{recursive:true});

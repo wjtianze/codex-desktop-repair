@@ -1,1 +1,1 @@
-useQuickChatActions as __localUseQuickChatActions}from"./local-quick-chat-actions-v1.js";import{hXt as __localToast,Udt as __localSubmitting,bqt as __localChatFeature,yqt as __localReadOnly}from"./app-initial-d9bed9d614d8.js";import{
+useQuickChatActions as __localUseQuickChatActions}from"./local-quick-chat-actions-v1.js";import{G0t as __localToast,bmt as __localSubmitting,RQt as __localChatFeature,LQt as __localReadOnly}from"./app-initial-9aa16c63159e.js";import{

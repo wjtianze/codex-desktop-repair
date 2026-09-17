@@ -11,19 +11,19 @@ function method(source,name,from=0){
 
 const run=async(name,fn)=>{if(/File watcher bursts|Browser queue recovers|Notifications arriving during promise cleanup/.test(name))return;await fn();tests.push({name,passed:true});console.log('PASS',name)};
 function events(kind){
- const source=read(kind==='original'?'raw':'patches','initial.js'),start=source.indexOf('PPt=class{');
+ const source=read(kind==='original'?'raw':'patches','initial.js'),start=source.indexOf('Pnn=class{');
  const pieces=[between(source,'addStreamRoleCallback(e,t){','addAnyConversationCallback(',start),between(source,'addConversationCallback(e,t){','addConversationRemovedListener(',start),between(source,'addNotificationCallback(e,t){','emitConversation(',start)];
  return Object.assign({streamRoleCallbacks:new Map(),conversationCallbacks:new Map(),notificationCallbacks:new Map()},vm.runInNewContext('({'+pieces.join(',')+'})'));
 }
 function idle(kind){
- const source=read(kind==='original'?'raw':'patches','initial.js'),start=source.indexOf('iKt=class{');
+ const source=read(kind==='original'?'raw':'patches','initial.js'),start=source.indexOf('Smn=class{');
  const names=kind==='patched'?['getLocalIdleBudgetCandidates']:[];names.push('getNextCheckAtMs','getInactiveOwnerConversationIdsToUnsubscribe','shouldKeepConversationLoaded','unsubscribeInactiveConversation');
  const pieces=names.map(name=>method(source,name,start));
- const api=vm.runInNewContext('({'+pieces.join(',')+'})',{tKt:3600000,rKt:4,nKt:15000,Jg:x=>x.lastTurn,Gg:x=>(x.turns??[]).map(t=>({...t,items:t.items??[]})),OIt:()=>false,eKt:x=>!!x.ephemeral,XIt:x=>x.messages,XGt:x=>x.pendingKind??null,$g:(x,t)=>{x.turns=t}});
+ const api=vm.runInNewContext('({'+pieces.join(',')+'})',{ymn:3600000,xmn:4,bmn:15000,Wy:x=>x.lastTurn,Vy:x=>(x.turns??[]).map(t=>({...t,items:t.items??[]})),Ain:()=>false,vmn:x=>!!x.ephemeral,Qin:x=>x.messages,mmn:x=>x.pendingKind??null,Zy:(x,t)=>{x.turns=t}});
  const threads=new Map(),active=new Set(),followers=new Set(),owned=new Set(),requests=[];
  const manager=Object.assign({disposed:false,inactiveOwnerConversationSinceById:new Map(),inactiveOwnerConversationRetryAtById:new Map(),unsubscribingConversationIds:new Set(),hasActiveConversationView:id=>active.has(id),hasOwnedStreamFollowers:id=>followers.has(id),updateConversationInactivityTracking:()=>{},clearConversationStreamOwnership:id=>owned.delete(id),getThreadRuntimeStatusAfterUnsubscribe:()=>({type:'idle'})},api);
  manager.params={now:()=>60000,logger:{info:()=>{},debug:()=>{},warning:()=>{}},parseUrl:()=>null,threadStore:{getConversation:id=>threads.get(id),updateConversationState:(id,fn)=>fn(threads.get(id))},streamState:{ownsConversationHistoryStream:id=>owned.has(id),getStreamRole:id=>owned.has(id)?{role:'owner'}:null},requestClient:{sendRequest:async(method,args)=>{requests.push({method,args});return{status:'ok'}}}};
- const add=(id,since=0,extra={})=>{const thread={id,rolloutPath:'saved',messages:['saved'],resumeState:'resumed',threadRuntimeStatus:{type:'idle'},lastTurn:{status:'completed'},requests:[],turns:[{preserve:true}],...extra};threads.set(id,thread);owned.add(id);manager.inactiveOwnerConversationSinceById.set(id,since);return thread};
+ const add=(id,since=0,extra={})=>{const thread={id,rolloutPath:'saved',messages:["saved"],resumeState:'resumed',threadRuntimeStatus:{type:'idle'},lastTurn:{status:'completed'},requests:[],turns:[{preserve:true}],...extra};threads.set(id,thread);owned.add(id);manager.inactiveOwnerConversationSinceById.set(id,since);return thread};
  return{manager,threads,active,followers,owned,requests,add};
 }
 function renderer(kind){
@@ -38,7 +38,7 @@ function renderer(kind){
 }
 function queue(kind){
  const s=read(kind==='original'?'raw':'patches','browser-service.mjs'),part=method(s,'queueProcessing');
- let errors=0;const api=vm.runInNewContext('({'+part+'})',{Wo:()=>errors++});
+ let errors=0;const api=vm.runInNewContext('({'+part+'})',{ia:()=>errors++});
  const state=Object.assign({disposed:false,processing:Promise.resolve()},api);
  return{state,get errors(){return errors}};
 }

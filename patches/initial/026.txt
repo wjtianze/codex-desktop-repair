@@ -1,1 +1,1 @@
-map(item=>({...item,searchResultSources:(L_r(),D_r(e.metadata,IN(e))??[])})).
+map(item=>({...item,searchResultSources:($Xr(),UXr(e.metadata,eF(e))??[])})).
