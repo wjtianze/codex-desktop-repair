@@ -6,8 +6,9 @@ function launchEnvironment(runtime,profile,inherited=process.env,verifyHash=file
  assert.equal(typeof manifest.bundledCodexCliSHA256,'string','修复包缺少内置后端摘要，请重新安装。');
  assert.equal(verifyHash(backend),manifest.bundledCodexCliSHA256,'内置后端校验失败，请重新安装修复版。');
  const env={...inherited};
- for(const key of Object.keys(env))if(['CODEX_CLI_PATH','CODEX_ELECTRON_USER_DATA_PATH'].includes(key.toUpperCase()))delete env[key];
- return{...env,CODEX_CLI_PATH:backend,CODEX_ELECTRON_USER_DATA_PATH:profile};
+ for(const key of Object.keys(env))if(['CODEX_CLI_PATH','CODEX_ELECTRON_USER_DATA_PATH','CODEX_DESKTOP_REPAIR_ROOT','CODEX_DESKTOP_REPAIR_NODE'].includes(key.toUpperCase()))delete env[key];
+ const root=path.resolve(runtime,'..','..');
+ return{...env,CODEX_DESKTOP_REPAIR_ROOT:root,CODEX_DESKTOP_REPAIR_NODE:path.join(root,'tools','node-'+manifest.bundledNodeSHA256.slice(0,12)+'.exe'),CODEX_CLI_PATH:backend,CODEX_ELECTRON_USER_DATA_PATH:profile};
 }
 function launch({checkOnly=false,diagnose=false}={}){
  const base=path.join(process.env.LOCALAPPDATA,'ChatGPT-PerformanceFix'),metadata=JSON.parse(fs.readFileSync(path.join(base,'installation.json'),'utf8').replace(/^\uFEFF/,''));

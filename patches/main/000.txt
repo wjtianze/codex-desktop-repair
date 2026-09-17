@@ -1,4 +1,5 @@
 __localDeferredSaveCopy=require("./local-deferred-save-copy.cjs");
+require("electron").app.on("browser-window-created",(_event,window)=>{Promise.resolve().then(()=>require("./local-taskbar-v1.cjs").configure(window)).catch(error=>console.error("Repair taskbar metadata failed",error))});
 const __localRendererRecoveryHistory=new WeakMap();
 function __localClaimRendererRecovery(owner,id){
  const now=Date.now();let windows=__localRendererRecoveryHistory.get(owner);

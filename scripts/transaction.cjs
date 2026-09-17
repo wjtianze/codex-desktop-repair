@@ -94,7 +94,8 @@ function installWork(config){
   const pureMetaFile=path.join(config.staging,'performance-installation.json');writeJson(pureMetaFile,pureMeta);
   add(path.join(config.performanceOutput,'app.asar'),path.join(legacyBackup,'app.asar'));add(path.join(config.performanceOutput,'ChatGPT.exe'),path.join(legacyBackup,'ChatGPT.exe'));add(pureMetaFile,path.join(legacyBackup,'installation.json'));
  }
- for(const name of['patcher.cjs','transaction.cjs','windows.cjs','launch.cjs','installer.cjs'])add(path.join(config.repo,'scripts',name),path.join(base,'repair-tools','scripts',name));
+ for(const name of['patcher.cjs','transaction.cjs','windows.cjs','shortcut-identity.cjs','launch.cjs','installer.cjs'])add(path.join(config.repo,'scripts',name),path.join(base,'repair-tools','scripts',name));
+ add(path.join(config.repo,'assets','local-taskbar-interop.cjs'),path.join(base,'repair-tools','assets','local-taskbar-interop.cjs'));
  add(path.join(config.repo,'patch-manifest.json'),path.join(base,'repair-tools','patch-manifest.json'));
  add(path.join(config.repo,'scripts','Uninstall-Fixed.cmd'),path.join(base,'Uninstall-Fixed.cmd'));
  const stateSource=path.join(config.staging,'repair-state.json');writeJson(stateSource,{releaseVersion:manifest.releaseVersion,transaction:journalFile,base});
