@@ -1,0 +1,1 @@
+footer:(0,q.jsxs)(q.Fragment,{children:[(0,q.jsx)(__localQuickControls,{}),va]}),children:Ca

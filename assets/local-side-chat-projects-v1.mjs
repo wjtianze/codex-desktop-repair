@@ -18,7 +18,14 @@ export function sideProjectLocation(project) {
 export async function openProjectSideChat(project,{open}) {
   const location=sideProjectLocation(project);
   if(!location)throw Error('This project has no supported working directory.');
-  return await open({sourceConversationId:null,cwd:location.cwd,hostId:location.hostId,displayTitle:location.title,target:'right'});
+  return await open({sourceConversationId:null,projectId:project.projectId,cwd:location.cwd,hostId:location.hostId,displayTitle:location.title,target:'right'});
+}
+
+export async function openSavedSideSelection(projectId,{projects=[],open}) {
+  if(projectId==null||projectId==='')return open({sourceConversationId:null,hostId:'local',target:'right'});
+  const project=projects.find(item=>item.projectId===projectId);
+  if(!project)throw Error('The selected project is no longer available.');
+  return openProjectSideChat(project,{open});
 }
 
 export function createSideProjectCommand({projects=[],busy=false,locale='en',currentCwd,Icon,onSelect}) {

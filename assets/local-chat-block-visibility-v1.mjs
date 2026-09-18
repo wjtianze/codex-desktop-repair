@@ -10,6 +10,13 @@ export function boundedTurnRange(compute,options) {
   const nearby=compute({...options,overscanCount:0,distanceFromBottomPx:Math.max(0,distance-padding),viewportHeightPx:viewport+padding+Math.min(distance,padding)});
   return{startIndex:Math.max(0,visible.startIndex-count,nearby.startIndex),endIndex:Math.min(options.layout.turnKeys.length,visible.endIndex+count,nearby.endIndex)};
 }
+export function retainTurnRange(current,next,layout,viewport) {
+  if(current.startIndex>next.startIndex||current.endIndex<next.endIndex||current.startIndex<0||current.endIndex>layout.turnKeys.length)return false;
+  const top=index=>layout.topOffsetsPx[index]??layout.totalHeightPx;
+  const end=range=>range.endIndex===0?0:(layout.topOffsetsPx[range.endIndex-1]??layout.totalHeightPx)+(layout.heightsPx[range.endIndex-1]??0);
+  const limit=Math.max(400,Math.min(1200,Number.isFinite(viewport)?viewport:0));
+  return top(next.startIndex)-top(current.startIndex)<=limit&&end(current)-end(next)<=limit;
+}
 export function attachChatBlockVisibility(getScrollElement,view=globalThis) {
   let frame=null,disposed=false,cleanup=()=>{};
   const attach=()=>{
