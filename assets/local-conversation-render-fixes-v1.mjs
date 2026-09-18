@@ -1,6 +1,9 @@
 export function isInternalRetrievalImageMessage(message){
  const author=message?.author;
- return author?.role==="tool"&&typeof author.name==="string"&&/^file_search(?:[./]|$)/.test(author.name);
+ return author?.role==="tool"&&typeof author.name==="string"&&(
+  /^file_search(?:[./]|$)/.test(author.name)||
+  author.name==="api_tool"&&message?.metadata?.command==="context_stuff"
+ );
 }
 export function isCompactFileCitation(reference,presentation="auto"){
  if(presentation==="artifact-card"||presentation==="artifact-row"||reference?.type!=="file"||reference.source_type==="library_folder")return false;

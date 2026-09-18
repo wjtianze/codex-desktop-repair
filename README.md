@@ -10,7 +10,7 @@ Panel resizing updates live while dragging. The left navigation, right panel and
 
 ## Installation
 
-1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.1.9-en.1) and extract the ZIP.
+1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.1.12-en.1) and extract the ZIP.
 2. Save any unsent content and quit ChatGPT.
 3. Double-click **Install-Repair.cmd**. The installer checks the official signature, version, and file hashes, then builds the repair and keeps rollback backups.
 4. Use **ChatGPT** in the Start menu afterward. A visible verification window appears briefly before the app starts.
@@ -56,7 +56,7 @@ Run **Check-Environment.cmd** to check compatibility first. To install without s
 
 Composer recovery preserves the native submit, archive, sharing, and access checks. Idle cleanup protects active, viewed, observed, approval-blocked, and history-loading tasks.
 
-See [what's new in 1.1.9](docs/UPDATES_1_1_9.md). Earlier side-panel, preview, and search improvements are also included.
+See [what's new in 1.1.12](docs/UPDATES_1_1_12.md) for long-conversation rendering, false textbook galleries and retry-menu fixes. Some first menu openings still have a short delay; this release does not claim to eliminate all lag.
 
 ## Restore
 

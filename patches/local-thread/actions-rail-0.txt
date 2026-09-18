@@ -4,3 +4,4 @@ import{getOwnedSideChatManager as __localGetOwnedSideManager,useSideChatMessageA
 import{createChatPromptRail as __localCreatePromptRail}from"./local-chat-prompt-rail-v1.js";
 import{t as __localRepairReactFactory}from"./react-d6ffadc57208.js";
 import{t as __localRepairJsxFactory}from"./jsx-runtime-a96621a2647a.js";
+import{attachChatBlockVisibility as __localAttachBlockVisibility,boundedTurnRange as __localBoundedTurnRange}from"./local-chat-block-visibility-v1.mjs";

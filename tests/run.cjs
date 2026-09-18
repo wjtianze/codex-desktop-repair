@@ -6,7 +6,7 @@ if(process.argv.includes('--installed')){
  const info=require('../scripts/windows.cjs').packageInfo();if(!info)throw Error('Official Windows client is required for installed-source tests');
  require('./prepare-fixtures.cjs').prepare(path.join(info.InstallLocation,'app'));tests.push('core.cjs','tracker.cjs','cold.cjs','title.cjs','host-title.cjs');tests.push('render-first-fixes.mjs','render-model-fixes.mjs','render-performance-fixes.mjs','render-gallery-layout.mjs','render-citation-component.mjs','render-desktop-logger.cjs','render-state-store.cjs','render-mention-search.mjs','render-draft-save.cjs','quickchat-modes.cjs','project-settings.mjs','work-activity.mjs','chat-live-thinking.mjs','quick-native.mjs','work-progress-native.mjs','download-native.mjs','visualization-native.cjs','visualization-progressive-native.mjs','visualization-progressive-browser.cjs','visualization-host-native.mjs','slider-native.cjs','code-header-native.cjs','request-scheduler-native.cjs','draft-persistence-native.cjs','model-preview-native.cjs','chat-code-native.cjs','panel-native.cjs','side-chat-native.cjs','parse-native.cjs','chat-scroll-native.cjs','side-actions-native.mjs','prompt-rail-browser.cjs');
 }
-if(process.argv.includes('--installed'))tests.push('web-search-native.mjs','panel-resize-native.cjs');
+if(process.argv.includes('--installed'))tests.push('web-search-native.mjs','panel-resize-native.cjs','chat-block-visibility-browser.cjs','chat-block-integration-browser.cjs','turn-window-native.mjs');
 tests.push('visualization-reference.mjs');
 tests.push('launcher-backend.cjs','taskbar-identity.cjs');if(process.argv.includes('--installed'))tests.push('prompt-rail-runtime.mjs');
 const results=[];

@@ -1,5 +1,11 @@
 # Known issues and repair scope
 
+## 1.1.12 long conversations and textbook galleries
+
+The shared turn list bounds offscreen buffers by viewport distance, skips offscreen Markdown blocks and caches unchanged message conversion. Visible coverage, geometry, cleanup and installed history pages were checked. First menu openings, network requests and streaming updates can still have short delays; not every device or workload is guaranteed to be lag-free.
+
+Textbook pages can arrive as `api_tool` output with `command=context_stuff`. The earlier filter covered `file_search` only, so these pages became empty galleries and selected the image-specific one-click retry path. Exact tool/command classification now retains ordinary images and answer text while restoring the normal response retry menu.
+
 Version 1.1.9 fixes the 1.1.8 navigation, scroll and local-conversation binding regressions that could show an error page when opening a conversation or after sending. It also gives repaired desktop windows and shortcuts a consistent taskbar identity. Real history pages and native entry points were checked. Support remains package 26.911.7940.0 and UI 26.911.61220. See the [upstream issue review](ISSUES_2026_09_17.md) for the earlier backend-selection fix and investigation boundaries.
 
 Updated September 9, 2026.

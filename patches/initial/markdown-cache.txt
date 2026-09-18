@@ -1,0 +1,1 @@
+function kqr(e,{isStreaming:t=!1}={}){return __localMemoObject(__localUncachedMessageMarkdown,e,t)}function __localUncachedMessageMarkdown(e,t){return vzr(yzr(jqr(Aqr(e),e.metadata),{isStreaming:t}),hzr(e.metadata))}

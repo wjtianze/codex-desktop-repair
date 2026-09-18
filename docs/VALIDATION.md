@@ -1,5 +1,15 @@
 # Compatibility and validation
 
+## 1.1.12 validation
+
+Both editions pass 481 checks, including native virtual-list coverage, real React ref timing, offscreen block geometry and cleanup, and `api_tool/context_stuff` classification.
+
+A real-history replay removed 49 false generated-image items while preserving assistant text exactly. The installed page displays the answer and citations and mounts the normal retry-menu component, with no image-retry component or error notice. No model turn was started during validation.
+
+One long Chat page changed from about 18,100 nodes and three mounted turns to about 9,073 nodes and one mounted turn. Separate measurements after settling gave about 76–86 ms for opening the plus menu and about 125 ms for the first model-menu opening. These measurements apply to one device and page state, not all conversations. Cache state, concurrent checks and diagnostic full-text reads affect results; measurements under different conditions are not presented as an overall speedup ratio.
+
+The upstream review included [#46249](https://github.com/openai/codex/issues/46249) and the Windows long-thread layout report [#41166](https://github.com/openai/codex/issues/41166). Local changes follow local reproduction and profiling; they do not establish that every upstream performance issue is resolved.
+
 ## Verified version combination
 
 | Component | Version |
