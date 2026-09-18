@@ -1,1 +1,1 @@
-onEditLastTurnMessage:O.kind==='local'&&O.placement==='side'?__localSideActions.onEdit:!r&&$e?ot:void 0
+onEditLastTurnMessage:__localIsTemporarySide(y,n,e,O)?__localSideActions.onEdit:!r&&$e?ot:void 0

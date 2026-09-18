@@ -10,7 +10,7 @@ Panel resizing updates live while dragging. The left navigation, right panel and
 
 ## Installation
 
-1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.1.12-en.1) and extract the ZIP.
+1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.1.16-en.1) and extract the ZIP.
 2. Save any unsent content and quit ChatGPT.
 3. Double-click **Install-Repair.cmd**. The installer checks the official signature, version, and file hashes, then builds the repair and keeps rollback backups.
 4. Use **ChatGPT** in the Start menu afterward. A visible verification window appears briefly before the app starts.
@@ -20,6 +20,8 @@ No separate Python, Node.js, or package installation is required. The installer 
 Run **Check-Environment.cmd** to check compatibility first. To install without sidebar filtering, run:
 
     Install-Repair.cmd --without-sidebar
+
+See [1.1.16 release notes](docs/UPDATES_1_1_16.md) for Chat / cloud Work / local Work in compact surfaces, project or no-project side chats, and persistent history.
 
 ## Included changes
 
@@ -41,7 +43,7 @@ Run **Check-Environment.cmd** to check compatibility first. To install without s
 | Save As downloads | Choose the destination before downloading, show a busy state, transfer bounded chunks, and commit only after completion. |
 | Models and reasoning effort | Preview the model and reasoning level while dragging; save on release and remember choices per conversation. |
 | Code block scrolling | Keep headers in place from the first render, including ChatGPT code blocks; load syntax highlighting as needed. |
-| Side panel | Open Browser, Files, and temporary Side chats; start a Side chat in a project working directory. |
+| Side panel | Chat, cloud Work, and local Work; choose a project or no project, keep new side-chat history, and search or open existing conversations. |
 | State and drafts | Save draft-only edits in a small separate file and backup; retain the native complete state format for other changes and explicit flushes. |
 | Stop and steering | Reserve request capacity for Stop and steering without replaying operations whose outcome is unknown. |
 | Layout and background work | Combine frequent layout notifications and pause hidden slider decorations. |
@@ -56,7 +58,7 @@ Run **Check-Environment.cmd** to check compatibility first. To install without s
 
 Composer recovery preserves the native submit, archive, sharing, and access checks. Idle cleanup protects active, viewed, observed, approval-blocked, and history-loading tasks.
 
-See [what's new in 1.1.12](docs/UPDATES_1_1_12.md) for long-conversation rendering, false textbook galleries and retry-menu fixes. Some first menu openings still have a short delay; this release does not claim to eliminate all lag.
+See [what's new in 1.1.16](docs/UPDATES_1_1_16.md) for compact modes, saved project side chats, existing history, and further rendering improvements. Some first menu openings still have a short delay; this release does not claim to eliminate all lag.
 
 ## Restore
 

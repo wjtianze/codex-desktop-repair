@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {retainedQuickTurns} from '../assets/local-quick-turn-window-v1.mjs';
+const row=(turnKey,items=[],extra={})=>({turnKey,turn:{items},...extra});
+assert.deepEqual(retainedQuickTurns([]),[]);
+assert.deepEqual(retainedQuickTurns([row('old'),row('latest')]),['latest']);
+console.log('PASS Plain Quick Chat retains only the latest turn beyond the native visible window');
+for(const type of ['chatgpt-writing-block-patch','chatgpt-hosted-widget','mcp-tool-call'])assert.deepEqual(retainedQuickTurns([row('interactive',[{type}]),row('plain'),row('latest')]),['interactive','latest']);
+for(const name of ['visualization','writing-block'])assert.deepEqual(retainedQuickTurns([row('embedded',[{type:'assistant-message',content:'::'+name+'{src="fixture"}'}]),row('latest')]),['embedded','latest']);
+assert.deepEqual(retainedQuickTurns([row('comparison',[],{paragen:{}}),row('latest')]),['comparison','latest']);
+console.log('PASS Writing blocks, embedded apps and comparisons remain mounted while reading other turns');

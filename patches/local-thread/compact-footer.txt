@@ -1,0 +1,1 @@
+footer:(0,PM.jsxs)(PM.Fragment,{children:[(0,PM.jsx)(__localCompactControls,{}),vt]}),initialOffset:ye

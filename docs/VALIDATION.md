@@ -1,5 +1,10 @@
 # Compatibility and validation
 
+## 1.1.16 validation
+
+Both editions pass 511 checks. New coverage includes native saved-thread creation, enabled no-project selection, project and host boundaries, close-without-discard behavior, mode isolation, and composer geometry. A real empty project conversation was reported as non-ephemeral by the backend, had an existing history file, and remained readable after its side tab closed. The native composer and both cloud modes were loaded without sending a model turn. This does not claim end-to-end model response acceptance.
+
+
 ## 1.1.12 validation
 
 Both editions pass 481 checks, including native virtual-list coverage, real React ref timing, offscreen block geometry and cleanup, and `api_tool/context_stuff` classification.

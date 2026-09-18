@@ -1,4 +1,12 @@
-export function sideProjectLabels(){return{title:"Work in a project",description:"Open a new project side chat and keep this conversation",empty:"No project working directories are available",failed:"The project side chat could not be opened. Please try again."}}
+export function sideProjectLabels(locale='en') {
+  return /^zh\b/i.test(locale)?{
+    title:'在项目中工作',description:'在所选项目中新建侧聊，保留当前对话',
+    empty:'没有可用的项目工作目录',failed:'未能打开项目侧聊，请稍后重试。'
+  }:{
+    title:'Work in a project',description:'Open a new project side chat and keep this conversation',
+    empty:'No project working directories are available',failed:'The project side chat could not be opened. Please try again.'
+  };
+}
 
 export function sideProjectLocation(project) {
   if(typeof project?.path!=='string'||!project.path.trim())return null;
@@ -10,7 +18,14 @@ export function sideProjectLocation(project) {
 export async function openProjectSideChat(project,{open}) {
   const location=sideProjectLocation(project);
   if(!location)throw Error('This project has no supported working directory.');
-  return await open({sourceConversationId:null,cwd:location.cwd,hostId:location.hostId,displayTitle:location.title,target:'right'});
+  return await open({sourceConversationId:null,projectId:project.projectId,cwd:location.cwd,hostId:location.hostId,displayTitle:location.title,target:'right'});
+}
+
+export async function openSavedSideSelection(projectId,{projects=[],open}) {
+  if(projectId==null||projectId==='')return open({sourceConversationId:null,hostId:'local',target:'right'});
+  const project=projects.find(item=>item.projectId===projectId);
+  if(!project)throw Error('The selected project is no longer available.');
+  return openProjectSideChat(project,{open});
 }
 
 export function createSideProjectCommand({projects=[],busy=false,locale='en',currentCwd,Icon,onSelect}) {
