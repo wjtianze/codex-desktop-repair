@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
-  "releaseVersion": "1.1.9",
-  "performanceRevision": 33,
+  "releaseVersion": "1.1.12",
+  "performanceRevision": 36,
   "sidebarVersion": "1.1.0",
   "packageName": "OpenAI.Codex",
   "packageVersion": "26.911.7940.0",
@@ -94,7 +94,7 @@
       "id": "initial",
       "entry": "webview/assets/app-initial-9aa16c63159e.js",
       "originalSHA256": "9dec8549e9ec5773f6d4bf4e4f9cbdc84032b38531751ce8e91c87fdddb693b3",
-      "patchedSHA256": "32ef2a92ced1537718c58add96dcaa72fda50dde82bfbf9faa6dca9262ab8a17",
+      "patchedSHA256": "a8f0f684c8542ab1fb312559e5b2ffc623d2762993f05fa58aa0fcaf59796c47",
       "preprocess": null,
       "operations": [
         {
@@ -299,6 +299,13 @@
           "removedSHA256": "e3b98a4da31a127d4bde6e43033f66ba274cab0eb7eb1c70ec41402bf6273dd8",
           "insert": "patches/initial/019.txt",
           "insertSHA256": "3a16c67d6bea5d51bb9fa7087a3b295b40290e7c8e293b67e5a96550fbed5e8c"
+        },
+        {
+          "offset": 4351506,
+          "deleteBytes": 110,
+          "removedSHA256": "1f2efd6235333fb1c3561e2a6c3f9cb23398bfc31dc046060c054911b9db20b5",
+          "insert": "patches/initial/markdown-cache.txt",
+          "insertSHA256": "cf03ae88214fbd52293cfb8162690702c292547be507140eee1ade44ea089805"
         },
         {
           "offset": 4365968,
@@ -891,7 +898,7 @@
       "id": "conversation",
       "entry": "webview/assets/chatgpt-conversation-page-4475c8be597c.js",
       "originalSHA256": "a89acd335f7f68634605f2a547750f4c04d9c0ac4a6d6e4a203f147008149a32",
-      "patchedSHA256": "98a792de28aae358540412d0f2ca1e021c85ad8bbdaecd494be9a864d9aeef77",
+      "patchedSHA256": "670d19dd63ceb1598ef4f96c8ae5b9caeb718fd239e797f91af4cde198e9b981",
       "preprocess": null,
       "operations": [
         {
@@ -942,6 +949,13 @@
           "removedSHA256": "a729eb5aeccb843e7e22e88491d36e52b7db89689f1c881a021436ec5a9bee7d",
           "insert": "patches/conversation/ui-9.txt",
           "insertSHA256": "7ebd57610192746ddba8af22feec8f60b89292f01dc97d797460ee0fd9d9c3da"
+        },
+        {
+          "offset": 85510,
+          "deleteBytes": 34,
+          "removedSHA256": "566b911cc78443b04ff4bad524890e0143a42b0b6d2c6e6fddf49f4125476ce2",
+          "insert": "patches/conversation/keep-loading-plus.txt",
+          "insertSHA256": "331f96236cccca73f4f16c4355fd3732ab008052c04f60bd52d816a035fba14b"
         },
         {
           "offset": 94063,
@@ -1406,7 +1420,7 @@
       "id": "local-thread",
       "entry": "webview/assets/local-conversation-thread-4c7e5839137d.js",
       "originalSHA256": "bb2572858ec30f8857de20adfd44d3ce4284724bbf5160f49404277453d65b6c",
-      "patchedSHA256": "cb04700d7e664fce6e4b240b977a587ee192baec68a5ff63511979b273919cc1",
+      "patchedSHA256": "e76395d7912ef8705c6e05ba2684766aaf0fce733a8fcee5d5afdb4fa059e043",
       "preprocess": null,
       "operations": [
         {
@@ -1414,7 +1428,7 @@
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/local-thread/actions-rail-0.txt",
-          "insertSHA256": "21b2888e98ef73c89d09f90245ccccd77d5d9871f4a3e6d170f54ec8f4fe61c1"
+          "insertSHA256": "0c49f5442c0a77d0440ef4014875f53cf53b99217940c148b99e185be60e2831"
         },
         {
           "offset": 299935,
@@ -1422,6 +1436,34 @@
           "removedSHA256": "8b0c654683d8a753c0091e8b132df102de0b8d1f2f3ad90af9cac1e7f816715a",
           "insert": "patches/local-thread/actions-rail-3.txt",
           "insertSHA256": "346615de30c9bbc504093bea7cbd8dcfc0a1801c188d573759378e5bfcc413bd"
+        },
+        {
+          "offset": 306600,
+          "deleteBytes": 15,
+          "removedSHA256": "57c737dcc50b951cbb2c8adaa40b34184c4d9de1858c1790c863cc39345b1069",
+          "insert": "patches/local-thread/block-visibility.txt",
+          "insertSHA256": "df2b6d75bbe46b9e569bead53844152a1c7d3b7efd4ec5acfdafe15539ca7d0a"
+        },
+        {
+          "offset": 309097,
+          "deleteBytes": 3,
+          "removedSHA256": "08a96338c69b17c4bcb32ec3e36bee7b715709977bc27cf85565581d642f9afc",
+          "insert": "patches/local-thread/bounded-range.txt",
+          "insertSHA256": "3459b44cc6384147e752a73d48a2d7349b605c89c0e4e26fce2cd79e6558cbf3"
+        },
+        {
+          "offset": 322993,
+          "deleteBytes": 3,
+          "removedSHA256": "08a96338c69b17c4bcb32ec3e36bee7b715709977bc27cf85565581d642f9afc",
+          "insert": "patches/local-thread/bounded-range.txt",
+          "insertSHA256": "3459b44cc6384147e752a73d48a2d7349b605c89c0e4e26fce2cd79e6558cbf3"
+        },
+        {
+          "offset": 323444,
+          "deleteBytes": 3,
+          "removedSHA256": "08a96338c69b17c4bcb32ec3e36bee7b715709977bc27cf85565581d642f9afc",
+          "insert": "patches/local-thread/bounded-range.txt",
+          "insertSHA256": "3459b44cc6384147e752a73d48a2d7349b605c89c0e4e26fce2cd79e6558cbf3"
         },
         {
           "offset": 363308,
@@ -1536,7 +1578,7 @@
     "assets/bounded-rollout-reader.mjs": "ff522dd98b367f5c80e35992ed943f2571bd33f62c308ebbe9c1b1db26990a1e",
     "assets/local-composer-recovery-v1.mjs": "f52f7a81f26f34f1af7d9f19a6ee8db9c5e13b8b65d53e21e85611bda4a78b78",
     "assets/chat-history-filter-1.1.0.mjs": "df76f09a4f7180b350a695f81d1694e2974e4a79af0b3d70c5458107493c62b3",
-    "assets/local-conversation-render-fixes-v1.mjs": "28f34c89ab11ebd42c775ebcdc7b8d771ce112fc31353ac7258e55931a199a73",
+    "assets/local-conversation-render-fixes-v1.mjs": "9c9ea2f75a387203193baf1f9ac386f44e0a8605550fccbf155f8ddc1d10b7b8",
     "assets/local-conversation-model-preferences-v1.mjs": "fe505f78a305da817917c76e7b2de560ceebda0f964f94be8a1f49ee1f77b1b1",
     "assets/local-conversation-performance-v1.mjs": "1b655d2e413476aed5f9cf8936cc7964bf6b8fd3209014d48abdfc0d481a6d2c",
     "assets/local-mention-search-v1.mjs": "eae22b4e4765feaa59a8ae0ddb885c7d2ffc79e8fdba3206f0a6d7db95c52789",
@@ -1558,7 +1600,8 @@
     "assets/local-side-chat-projects-v1.mjs": "3d070918ac55e31827020eed97860076d9d3a0e2f42b05e6fdfa29ac314333e1",
     "assets/local-side-chat-tab-update-v1.mjs": "2e4922bfb87c4ec9c8ea998f2bb2954350f34f66f35fd8a0dab170f858bd2869",
     "assets/local-taskbar-v1.cjs": "32eda7883cc90a88ea6b06deda87a675da9db46bc30e082f32c2824ad78932a2",
-    "assets/local-taskbar-interop.cjs": "9326f244b3bd104037ab98d3be99d002edb7a36f7a13c5ddca6fae64024f9087"
+    "assets/local-taskbar-interop.cjs": "9326f244b3bd104037ab98d3be99d002edb7a36f7a13c5ddca6fae64024f9087",
+    "assets/local-chat-block-visibility-v1.mjs": "7e6221e3de099e5e9a7afbfdc1af7df32cd6aa18525588707cc8afe4bf6b1ec6"
   },
   "addedArchiveEntries": {
     "webview/assets/local-composer-recovery-v1.js": "assets/local-composer-recovery-v1.mjs",
@@ -1585,7 +1628,8 @@
     "webview/assets/local-side-chat-projects-v1.js": "assets/local-side-chat-projects-v1.mjs",
     "webview/assets/local-side-chat-tab-update-v1.js": "assets/local-side-chat-tab-update-v1.mjs",
     ".vite/build/local-taskbar-v1.cjs": "assets/local-taskbar-v1.cjs",
-    ".vite/build/local-taskbar-interop.cjs": "assets/local-taskbar-interop.cjs"
+    ".vite/build/local-taskbar-interop.cjs": "assets/local-taskbar-interop.cjs",
+    "webview/assets/local-chat-block-visibility-v1.mjs": "assets/local-chat-block-visibility-v1.mjs"
   },
   "testedCodexCliVersion": "0.154.0",
   "bundledCodexCliVersion": "0.155.0-alpha.2.6",
@@ -1595,16 +1639,16 @@
   "bundledCodexCliSHA256": "be793ab45adbcbd9fa716df04cb6bc68eb9e353c6e6af20886af45c11abc2413",
   "expectedBuilds": {
     "full": {
-      "archiveSHA256": "beefeda15570dc1fe9c77b93ce0d00e320e12bf32cb719548ada62c28df704d1",
+      "archiveSHA256": "3c824801ae4cfa014bc6f00d506173fd30962c1ec0684f71b5e74bb39cb9d648",
       "executableSHA256": "f28e7d55de4ee465747e252741218bf5a58c33620d014598e01bddb9189abaca",
-      "archiveHeaderSHA256": "5084a316b31a9c6faee8b9affa7cccf81d1a13d92332bf286a0382014831e313",
-      "verifiedPackedEntries": 14928
+      "archiveHeaderSHA256": "b88e35a9acefdeb526bce9dd552a0114a64c4834539fbdbdf60d14d191252c94",
+      "verifiedPackedEntries": 14929
     },
     "performanceOnly": {
-      "archiveSHA256": "c448b2b5ebddb040af1fd1a2f69f1dd993e4fe169dc105a8cd50388e34913c26",
+      "archiveSHA256": "928c7d60ce0423980fccf251e63871cdf329c3643233ead12385437948a51b3d",
       "executableSHA256": "f28e7d55de4ee465747e252741218bf5a58c33620d014598e01bddb9189abaca",
-      "archiveHeaderSHA256": "30f16fa8da35a738ba1030dc51b120bf1722752dccd477682106ab1d0b697a54",
-      "verifiedPackedEntries": 14927
+      "archiveHeaderSHA256": "075cad192c56a3747bb7f1113d0ca615c0df7b15d79169715df5006d3ac23caf",
+      "verifiedPackedEntries": 14928
     }
   }
 }

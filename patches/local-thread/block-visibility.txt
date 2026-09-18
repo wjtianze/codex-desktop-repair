@@ -1,0 +1,1 @@
+function NA(e){let __localScroll=Nv();__localRepairReactFactory().useLayoutEffect(()=>__localAttachBlockVisibility(__localScroll.getScrollElement),[__localScroll.getScrollElement]);

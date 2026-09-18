@@ -1,6 +1,6 @@
 'use strict';
 const assert=require('node:assert/strict'),path=require('node:path');
-const {manifest}=require('../scripts/patcher.cjs'),{launchEnvironment}=require('../scripts/launch.cjs');
+const {manifest}=require('../scripts/patcher.cjs'),{launchEnvironment,runningClientState}=require('../scripts/launch.cjs');
 const originalHash=manifest.bundledCodexCliSHA256;
 try{
  manifest.bundledCodexCliSHA256='verified-bundled-backend';
@@ -19,3 +19,8 @@ try{
  assert.throws(()=>launchEnvironment(runtime,profile,inherited,()=> 'anything'),/缺少内置后端摘要/);
  console.log('PASS Missing backend integrity metadata cannot silently fall back to an inherited executable');
 }finally{if(originalHash===undefined)delete manifest.bundledCodexCliSHA256;else manifest.bundledCodexCliSHA256=originalHash;}
+const repaired='C:/repair/runtime/ChatGPT.exe',official='C:/official/ChatGPT.exe';
+assert.deepEqual(runningClientState([{ExecutablePath:repaired,CommandLine:'ChatGPT.exe'}],repaired,official),{repaired:true,official:false});
+assert.deepEqual(runningClientState([{ExecutablePath:official,CommandLine:'ChatGPT.exe --type=renderer'},{ExecutablePath:'C:/CLI/codex.exe'}],repaired,official),{repaired:false,official:false});
+assert.deepEqual(runningClientState([{ExecutablePath:official,CommandLine:'ChatGPT.exe'}],repaired,official),{repaired:false,official:true});
+console.log('PASS Same-runtime activation is separated from official main processes, renderer remnants and unrelated CLI sessions');
