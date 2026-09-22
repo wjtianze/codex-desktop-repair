@@ -4,10 +4,10 @@ function harness(kind){
  const source=read(kind),cache=Array(240).fill(Symbol.for('react.memo_cache_sentinel')),slots=[];let cursor=0,view,props;
  const selections=[],commits=[],previews=[];
  const React={useState(value){const i=cursor++;if(!(i in slots))slots[i]=value;return[slots[i],v=>slots[i]=typeof v==='function'?v(slots[i]):v]},useReducer(fn,value){const i=cursor++;if(!(i in slots))slots[i]=value;return[slots[i],v=>slots[i]=fn(slots[i],v)]},useRef(value){const i=cursor++;return slots[i]??=( {current:value})},useEffect(){},useEffectEvent(fn){return fn}};
- const jsx=(type,props)=>({type,props}),ctx={ft:28,pt:1,te:()=>0,at:{c:()=>cache},Z:React,Q:{jsx,jsxs:jsx},s:()=>false,L:()=>({jump(){}}),a:()=>0,c:{span:'span'},d:'presence',l:'presence',ot:'track',ee:'slider-part',ie:'thumb',f:'root',xe:'canvas',Ee:'particles',le:'fast',me:'burst',p:'lock',X:new Proxy({},{get:(_,key)=>key}),window:{setTimeout:()=>1,clearTimeout(){}},queueMicrotask:()=>{},dt:new Set(),At:{previewIndex:null,previewBaseOptionId:null,previewOptionIds:[],maxBurstKey:0},kt:30,Ot:160,WheelEvent:{DOM_DELTA_PIXEL:0}};
+ const jsx=(type,props)=>({type,props}),ctx={ft:1,Q:1,_t:28,pt:1,ne:()=>0,ut:{c:()=>cache},X:React,Z:{jsx,jsxs:jsx},te:()=>false,L:()=>({jump(){}}),m:()=>0,g:{span:'span'},ie:'presence',l:'presence',dt:'track',ee:'slider-part',l:'thumb',i:'root',be:'canvas',Ae:'particles',de:'fast',me:'burst',p:'lock',q:new Proxy({},{get:(_,key)=>key}),window:{setTimeout:()=>1,clearTimeout(){}},queueMicrotask:()=>{},gt:new Set(),Pt:{previewIndex:null,previewBaseOptionId:null,previewOptionIds:[],maxBurstKey:0},Nt:30,Mt:160,WheelEvent:{DOM_DELTA_PIXEL:0}};
  for(const key of ['X','Z',"ut","mt","ht","ct","lt","st"])ctx[key]??=1;
- for(const key of ["Dt","gt","xt","vt","St","bt","wt","yt","Ct","Tt","Et"])ctx[key]??={};
- const end=source.indexOf('var at,Z,Q');vm.createContext(ctx);vm.runInContext(source.slice(source.indexOf('function Je('),end)+';this.component=Je',ctx);
+ for(const key of ["Dt","gt","xt","vt","St","bt","wt","yt","Ct","Tt","Et","At","kt","Et","St","Ot","Ct","Dt","wt","bt"])ctx[key]??={};
+ const end=source.indexOf('var ut,X,Z');vm.createContext(ctx);vm.runInContext(source.slice(source.indexOf('function tt('),end)+';this.component=tt',ctx);
  props={active:true,options:[{id:'a'},{id:'b'},{id:'c',isMax:true},{id:'locked',isLocked:true}],selectedOptionId:'a',onSelectOption:v=>selections.push(v.id),onCommitOption:(v,b)=>commits.push([v.id,b.id]),onDragToMax(){},onPreviewOption:v=>previews.push(v)};
  const render=()=>{cursor=0;view=ctx.component(props);return view.props.children.props};
  return {render,props,selections,commits,previews,wheel:e=>cache[53](e)};

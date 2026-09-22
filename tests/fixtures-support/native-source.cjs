@@ -10,4 +10,15 @@ function nativeFunction(source,name){
  const node=moduleState.exports.parseExpressionAt(source,at,{ecmaVersion:'latest'});
  return source.slice(node.start,node.end);
 }
-module.exports={nativeFunction};
+function nativeClass(source,name){
+ const marker=name+'=class',at=source.indexOf(marker);
+ assert.ok(at>=0,'Missing native class '+name);
+ const start=at+name.length+1,node=moduleState.exports.parseExpressionAt(source,start,{ecmaVersion:'latest'});
+ return source.slice(start,node.end);
+}
+function nativeExpression(source,marker){
+ const at=source.indexOf(marker);assert.ok(at>=0,'Missing native expression '+marker);
+ const start=at+marker.length,node=moduleState.exports.parseExpressionAt(source,start,{ecmaVersion:'latest'});
+ return source.slice(start,node.end);
+}
+module.exports={nativeFunction,nativeClass,nativeExpression};

@@ -1,15 +1,15 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),http=require('node:http'),assert=require('node:assert/strict'),{spawn}=require('node:child_process');
 const root=path.resolve(__dirname,'..'),api=require('../scripts/patcher.cjs'),raw=fs.readFileSync(root+'/build/fixtures/render/raw/initial.js','utf8'),patched=fs.readFileSync(root+'/build/fixtures/render/patches/initial.js','utf8');
-const take=(source,a,b)=>{const start=source.indexOf(a),end=source.indexOf(b,start);assert.ok(start>=0&&end>start,a);return source.slice(start,end)};
+const {nativeFunction}=require('./fixtures-support/native-source.cjs');const take=(source,a,b)=>nativeFunction(source,/function\s*\*?([\w$]+)\(/.exec(a)[1]);
 async function verifyHook(){
   const calls=[],controller=new AbortController(),progressive=await import('../assets/local-visualization-progressive-v1.mjs');
-  const run=vm.runInNewContext(take(patched,'async function*Rja(','async function zja(')+';Rja',{__localBindNativePreview:progressive.bindNativePreview,OAa:{safeParse:()=>({success:false})},Vja:()=> 'light',Fja:{sandbox:true},cja:(html)=>{calls.push(["wrap",html]);return html},__localPrepareVisualization:async html=>{calls.push(['prepare',html]);return 'prepared:'+html},Bja:()=>({}),Hja:()=>({}),Uja:()=>({}),crypto:{randomUUID:()=> 'synthetic-test-id'}});
+  const run=vm.runInNewContext(take(patched,'async function*nna(','async function rna(')+';nna',{__localBindNativePreview:progressive.bindNativePreview,OAa:{safeParse:()=>({success:false})},ana:()=> 'light',Ita:{sandbox:true},dta:(html)=>{calls.push(["wrap",html]);return html},__localPrepareVisualization:async html=>{calls.push(['prepare',html]);return 'prepared:'+html},ina:()=>({}),ona:()=>({}),sna:()=>({}),crypto:{randomUUID:()=> 'synthetic-test-id'}});
   const sandboxApi={async *runWidgetCode(input){calls.push(["run",input]);yield {ok:true}}};
   const output=[];for await(const item of run({fragment:'original',sandboxApi,signal:controller.signal}))output.push(item);
   assert.deepEqual(calls.map(x=>x[0]),['prepare','wrap','run']);assert.equal(calls[2][1].html,'prepared:original');assert.equal(calls[2][1].isFirstParty,false);assert.equal(calls[2][1].hostHandlesFollowUpMessageAuthorization,true);assert.deepEqual(output,[{ok:true}]);console.log('PASS Native sandbox receives prepared HTML and preserves authorization');
 }
-const builder=vm.runInNewContext(take(raw,'function cja(','function lja(')+';cja',{wja:'__CONTAINER__',Aja:'',Cja:'',R5a:''});
+const builder=vm.runInNewContext(take(raw,'function dta(','function lja(')+';dta',{Eta:'__CONTAINER__',Nta:'',Tta:'',rja:''});
 const nativeCSS=builder('',{innerKit:'__CONTAINER__',reportToHost:false,lockDocumentOverflow:false}).match(/<style[^>]*>[\s\S]*?<\/style>/g).join('');
 const literal=value=>JSON.stringify(value).replaceAll('<','\\u003c');
 const fragment=fs.readFileSync(path.join(__dirname,'fixtures-support/visualization-legacy.html'),'utf8');
@@ -28,7 +28,7 @@ const out=document.createElement('pre');out.id='result';out.textContent=JSON.str
 async function browserTest(){
   const tIe=path.join(process.env['ProgramFiles(x86)']||'C:/Program Files (x86)','Microsoft/Edge/Application/msedge.exe');assert.ok(fs.existsSync(tIe),'Microsoft Edge is required for installed-source visualization tests');
   const source=path.join(require('../scripts/windows.cjs').packageInfo().InstallLocation,'app/resources/app.asar'),yl=fs.openSync(source,'r'),routes={'/helper.js':fs.readFileSync(root+'/assets/local-visualization-compat-v1.mjs')};
-  try{const h=api.archiveHeader(yl);for(const name of['katex-b55de29d0a06.js','rolldown-runtime-c05d78c594d1.js']){const e=api.getEntry(h.tree,'webview/assets/'+name);routes['/'+name]=api.readExact(yl,e.size,h.offset+Number(e.offset))}}finally{fs.closeSync(yl)}
+  try{const h=api.archiveHeader(yl);for(const name of['katex-b62b0c0d6a07.js','rolldown-runtime-2d059c5e81f4.js']){const e=api.getEntry(h.tree,'webview/assets/'+name);routes['/'+name]=api.readExact(yl,e.size,h.offset+Number(e.offset))}}finally{fs.closeSync(yl)}
   const server=http.createServer((req,res)=>{if(req.url==='/'){res.writeHead(200,{'Content-Type':'text/html; charset=utf-8'});res.end(entry)}else if(Object.hasOwn(routes,req.url)){res.writeHead(200,{'Content-Type':'text/javascript; charset=utf-8'});res.end(routes[req.url])}else{res.writeHead(404);res.end()}});
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
   const destination=path.join(root,'build/results/visualization-browser-'+Date.now());fs.mkdirSync(destination,{recursive:true});
