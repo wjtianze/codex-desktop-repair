@@ -103,7 +103,7 @@ export function mathSegments(text) {
 
 let mathLibrary;
 async function loadMath() {
-  mathLibrary ??= import('./katex-b55de29d0a06.js').then(module => {module.c(); return module.p;}).catch(error => {mathLibrary = null; throw error;});
+  mathLibrary ??= import('./katex-b62b0c0d6a07.js').then(module => {module.c(); return module.p;}).catch(error => {mathLibrary = null; throw error;});
   return mathLibrary;
 }
 

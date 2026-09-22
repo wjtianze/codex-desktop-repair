@@ -21,7 +21,7 @@ export function renderConversationCached(compute, conversation, options = {}) {
   if (!isObject(mapping)) return {conversation,turns:compute(conversation,options)};
   let cache = renderCaches.get(compute);
   if (!cache) renderCaches.set(compute, cache = new WeakMap());
-  const dependencies = [conversation.current_node ?? null, options.isStreaming ?? false, options.mode ?? 'conversation', normalizeRecord(options.moderationDisclaimersByMessageId), options.getRenderTelemetry,options.enableImageGenerationLoadingState??false];
+  const dependencies = [conversation.current_node ?? null, options.isStreaming ?? false, options.mode ?? 'conversation', normalizeRecord(options.moderationDisclaimersByMessageId), options.getRenderTelemetry,options.enableImageGenerationLoadingState??false,options.clinicalSearchEnabled??false,options.clinicalCitationsEnabled??false];
   const prior = cache.get(mapping);
   if (prior && dependencies.every((value,index)=>Object.is(value,prior.dependencies[index]))) {
     const viewOnly = value => Object.keys(value).every(key=>key === "mapping" || key === "current_node");

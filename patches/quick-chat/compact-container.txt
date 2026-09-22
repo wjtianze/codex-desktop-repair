@@ -1,1 +1,1 @@
-children:[ji,Zi,(0,q.jsx)(__localQuickModes,{conversationId:T,children:wa},T)]
+children:[ji,Zi,(0,J.jsx)(__localQuickModes,{conversationId:T,children:wa},T)]

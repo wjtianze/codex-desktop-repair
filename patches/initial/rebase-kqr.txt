@@ -1,0 +1,1 @@
+function $lr(e,{isStreaming:t=!1}={}){return __localMemoObject(__localUncachedMessageMarkdown,e,t)}function __localUncachedMessageMarkdown(e,t){let n=Clr(nur(tur(e),e.metadata,{isStreaming:t}),{isStreaming:t});return Slr(n,eur(n,e))}

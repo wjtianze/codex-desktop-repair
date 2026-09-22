@@ -1,5 +1,14 @@
 # Compatibility and validation
 
+## 1.1.17 verification scope
+
+The version adaptation passed a complete 512-case regression run. Subsequent side-tab activation and existing-history reuse changes passed six targeted native checks. An additional full rerun was stopped to avoid worsening memory paging on the test machine; that interrupted run is not counted as passing.
+
+The isolated client loaded its real home screen and patched modules. Local, Chat, and cloud Work history opened by the original IDs, with history search and a no-project option, without sending model turns. Existing-tab reuse has additional targeted coverage. Live composer/control geometry has not been verified, and final installation acceptance in the daily profile is pending. One isolated cold start was blank and recovered after reload without a captured exception; this does not establish reliable cold-start behavior in every case.
+
+A system-wide lag investigation found searches continuing after their orchestration code discarded command-session metadata. The user confirmed substantial improvement after the searches stopped and other ended tasks released memory. This supports resource contention; it does not establish or fix every desktop memory leak. Source releases exclude local diagnostics, private chats, and machine-specific global task rules.
+
+
 ## 1.1.16 validation
 
 Both editions pass 511 checks. New coverage includes native saved-thread creation, enabled no-project selection, project and host boundaries, close-without-discard behavior, mode isolation, and composer geometry. A real empty project conversation was reported as non-ephemeral by the backend, had an existing history file, and remained readable after its side tab closed. The native composer and both cloud modes were loaded without sending a model turn. This does not claim end-to-end model response acceptance.
@@ -20,10 +29,10 @@ The upstream review included [#46249](https://github.com/openai/codex/issues/462
 | Component | Version |
 | --- | --- |
 | Platform | Windows x64 |
-| Microsoft Store package | OpenAI.Codex 26.911.7940.0 |
-| ChatGPT App | 26.911.61220, Owl runtime |
-| App-bundled Codex backend | 0.155.0-alpha.2.6 |
-| Standalone Codex CLI | 0.154.0 |
+| Microsoft Store package | OpenAI.Codex 26.915.4065.0 |
+| ChatGPT App | 26.915.31945, Owl runtime |
+| App-bundled Codex backend | 0.155.0-alpha.9.2 |
+| Standalone Codex CLI | 0.155.1 |
 
 The App and standalone CLI use separate executables. Installing this repair does not replace the standalone CLI or downgrade the App's bundled backend. The installer verifies the official signature, exact version and file hashes. Other App versions are rejected.
 

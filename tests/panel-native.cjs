@@ -1,13 +1,13 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert/strict'),{nativeFunction}=require('./fixtures-support/native-source.cjs');
-const source=fs.readFileSync('build/fixtures/render/patches/panel-actions.js','utf8');
+const source=fs.readFileSync('build/fixtures/render/patches/panel-toggle.js','utf8');
 function scene(routeKind,roots=[]){
- const calls=[],scope={value:{routeKind,conversationId:'source'},get:key=>key==="Bn"?'local':({danger(){}})};
- const values={right:[],bottom:[],u:{id:'local',display_name:'Local'},Te:{kind:'none',cwd:null},Je:roots};
- const ctx={Xo:{c:n=>Array(n).fill(Symbol.for('react.memo_cache_sentinel'))},Jn:()=>scope,V:'scope',Xt:()=>({formatMessage:p=>p.defaultMessage}),U:key=>values[key]??null,W:key=>key==="On"?{isCapable:true}:["Qo","Ua","Wo"].includes(key)?[]:key==="Un"?'projectless':key==="oi"?'local':null,ui:()=>({status:'allowed'}),H:{tabs$:'right'},ri:{tabs$:'bottom'},ht:()=>false,Fr:true,I:()=>null,ei:()=>false,Oa:()=>true,Yo:()=>false,Jo:()=>false,qo(){},E:()=> 'file',Zo:{jsx:(type,props)=>({type,props})},i:{error(){}},console,
-  Ja:(...args)=>{calls.push(["chat",...args]);return Promise.resolve('new')},Ia:(...args)=>{calls.push(['browser',...args]);return'tab'},we:(...args)=>calls.push(["file",...args]),__localPanelRpc:async()=>({file:{path:'C:/synthetic.txt'}})};
- for(const key of ["zt","u","Te","Je","On","Un","Lt","Wn","Kn","oi","Qt","Hn","Tn","Qo","Ua","Wo","Bn","pe","ko","Gi","Qi","Ui","Ji","ra","Ne"])ctx[key]=key;
- for(const key of ["Mt","Ka","Ra","ne","Se","ba"])ctx[key]={dropDestinations:["right"]};
- const render=vm.runInNewContext(nativeFunction(source,"Ko")+';Ko',ctx);
+ const calls=[],scope={value:{routeKind,conversationId:'source'},get:key=>key==="Xn"?'local':({danger(){}})};
+ const values={right:[],bottom:[],Ot:{id:'local',display_name:'Local'},qr:{kind:'none',cwd:null},Qt:roots};
+ const ctx={ao:{c:n=>Array(n).fill(Symbol.for('react.memo_cache_sentinel'))},Xr:()=>scope,br:'scope',ee:()=>({formatMessage:p=>p.defaultMessage}),G:key=>values[key]??null,W:key=>key==='Li'?{isCapable:true}:key==='so'?[]:key==='Ye'?'local':null,ui:()=>({status:'allowed'}),K:{tabs$:'right'},Mi:{tabs$:'bottom'},Cn:()=>false,nr:true,di:()=>null,ii:()=>false,ta:()=>false,io:()=>false,ro:()=>false,no(){},lt:()=> 'file',oo:{jsx:(type,props)=>({type,props})},d:{error(){}},console,
+ va:(...args)=>{calls.push(['chat',...args]);return Promise.resolve('new')},Hr:(...args)=>{calls.push(['browser',...args]);return'tab'},mi:(...args)=>calls.push(['file',...args]),__localPanelRpc:async()=>({file:{path:'C:/synthetic.txt'}})};
+ for(const key of ['St','Ot','so','Li','qr','Qt','ci','Gn','Zr','Ri','Ye','cr','ur','$a','pa','Sn','Xn','Ya','o','B','de','ae','Gi','Ce'])ctx[key]=key;
+ for(const key of ['Et','ga','wr','Ut','et','Qi'])ctx[key]={dropDestinations:['right']};
+ const render=vm.runInNewContext(nativeFunction(source,"to")+';to',ctx);
  return{result:render({surface:'panel-launcher',target:'right'}),calls,scope,ctx};
 }
 (async()=>{

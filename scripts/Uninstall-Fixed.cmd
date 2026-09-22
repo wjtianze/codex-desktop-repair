@@ -1,3 +1,3 @@
 @echo off
-"%~dp0tools\node-ea15f4a5b83b.exe" "%~dp0repair-tools\scripts\installer.cjs" uninstall
+"%~dp0tools\node-50c8bb8ab835.exe" "%~dp0repair-tools\scripts\installer.cjs" uninstall
 pause

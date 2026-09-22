@@ -1,6 +1,7 @@
+import{nativeFunction}from'./fixtures-support/native-source.cjs';
 import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';
-const root=new URL('../build/fixtures/render/',import.meta.url),cases=[];function factory(file){const s=fs.readFileSync(new URL(file,root),'utf8'),a=s.indexOf('function $Lt('),b=s.indexOf('var eRt',a);assert.ok(a>=0&&b>a);return vm.runInNewContext(s.slice(a,b)+';$Lt')}
-const before=factory('raw/primary.js'),after=factory('patches/primary.js'),plain=factory('patches/primary-performance.js');const normalize=x=>JSON.parse(JSON.stringify(x));function test(name,fn){fn();cases.push(name);console.log('PASS '+name)}
+const root=new URL('../build/fixtures/render/',import.meta.url),cases=[];function factory(file){const s=fs.readFileSync(new URL(file,root),'utf8'),a=s.indexOf('function Z5o('),b=s.indexOf('var eRt',a);return vm.runInNewContext(nativeFunction(s,'Z5o')+';Z5o')}
+const before=factory('raw/initial.js'),after=factory('patches/initial.js'),plain=factory('patches/initial-performance.js');const normalize=x=>JSON.parse(JSON.stringify(x));function test(name,fn){fn();cases.push(name);console.log('PASS '+name)}
 const ratio=1055/1491,input={containerWidthPx:400,imageAspectRatios:[ratio]};
 test('The exact poster no longer enters square crop because of floating-point roundoff',()=>{assert.equal(before(input).aspectRatio,'natural');const r=after(input);assert.equal(r.aspectRatio,'natural');assert.ok(Math.abs(r.heightPx*ratio-400)<1e-8);assert.ok(r.heightPx>400)});
 test('Portrait, square and landscape single images retain their full original aspect ratios',()=>{for(const width of[240,319,375,400,480,736,1000])for(const ratio of[1055/1491,2/3,3/4,1,4/3,16/9,3]){const r=after({containerWidthPx:width,imageAspectRatios:[ratio]});assert.equal(r.aspectRatio,'natural');assert.ok(Math.abs(r.heightPx*ratio-width)<1e-7);assert.equal(r.maxStartIndex,0)}});
