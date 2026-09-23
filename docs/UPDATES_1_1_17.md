@@ -14,6 +14,11 @@ Download and extract the release ZIP, save unsent drafts, exit the desktop app, 
 - Connect draft checkpoints to the current explicit flush entry, retain native write coalescing, and cover both current logging entry points.
 - Update native virtual-list and progressive visualization mounting checks.
 
+## Conversation loading fixes
+
+- Fix a null route-scope binding that could show an error page when opening Chat or cloud Work.
+- Initialize the current native search-source parser before rendering web-search results, fixing errors in conversations with active search.
+
 ## Scope and limits
 
 This package does not replace the standalone Codex CLI or modify the command-runner binary. An outer script returning does not mean its child command has exited. Dropping session_id or failing to track background searches can still leave resource-consuming commands running. This release does not claim to fix every process-lifecycle issue or eliminate all long-session latency.
