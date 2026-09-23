@@ -1,9 +1,10 @@
+import{nativeFunction}from'./fixtures-support/native-source.cjs';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import {isInternalRetrievalImageMessage,isCompactPdfCitation} from '../assets/local-conversation-render-fixes-v1.mjs';
 const root=new URL('../build/fixtures/render/',import.meta.url),cases=[];
-function factory(folder){const s=fs.readFileSync(new URL(folder+'/initial.js',root),'utf8'),a=s.indexOf('function L1r('),b=s.indexOf('var U1r',a);assert.ok(a>=0&&b>a);return vm.runInNewContext(s.slice(a,b)+';L1r',{b8n:e=>e==null?undefined:/(?:360|equirectangular|panorama)/i.test(e),ZF:v=>v&&typeof v==='object'&&!Array.isArray(v)?v:null,QF:v=>typeof v==='string'&&v.trim()?v:null,eF:e=>e.id,WVr:e=>e.output??[],__localIsRetrievalImage:isInternalRetrievalImageMessage})}
+function factory(folder){const s=fs.readFileSync(new URL(folder+'/initial.js',root),'utf8'),a=s.indexOf('function Mar('),b=s.indexOf('var $ur',a);assert.ok(a>=0&&b>a);return vm.runInNewContext(nativeFunction(s,'Oar')+nativeFunction(s,'kar')+s.slice(a,b)+';Mar',{O0t:e=>e==null?undefined:/(?:360|equirectangular|panorama)/i.test(e),bO:v=>v&&typeof v==='object'&&!Array.isArray(v)?v:null,xO:v=>typeof v==='string'&&v.trim()?v:null,gO:e=>e.id,gar:e=>e.output??[],__localIsRetrievalImage:isInternalRetrievalImageMessage})}
 const before=factory('raw'),after=factory('patches');
 const asset=(metadata=null)=>({content_type:'image_asset_pointer',asset_pointer:'sediment://fixture/page',width:512,height:512,size_bytes:123,metadata});
 const message=(name,role='tool',count=1)=>({id:'fixture-message',author:{role,name},metadata:{is_visually_hidden_from_conversation:false,model_slug:'fixture-thinking'},content:{content_type:'multimodal_text',parts:Array.from({length:count},()=>asset())}});

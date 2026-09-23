@@ -1,0 +1,1 @@
+const{boundLogLine:__localBoundLogLine,MAX_PENDING_LOG_BYTES:__localLogQueueLimit}=require("./bounded-desktop-log.cjs");

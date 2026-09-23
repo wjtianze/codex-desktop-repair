@@ -1,5 +1,16 @@
 # Compatibility and validation
 
+## 1.1.17 verification scope
+
+The final source adds two focused checks for Chat/cloud route scope and search-source initialization. Both editions pass 218 standalone checks. Earlier adaptation passed a complete 512-case regression run, followed by six targeted native side-tab checks. An additional full rerun was stopped to avoid worsening memory paging and is not counted as passing.
+
+The isolated client loaded its real home screen and patched modules. Local, Chat, and cloud Work history opened by the original IDs, with history search and a no-project option, without sending model turns. Existing-tab reuse has additional targeted coverage. On 2026-09-23 the Chinese 1.1.17 build was transactionally installed in the daily profile, with matching runtime hashes and an unchanged profile path. Its real side-chat composer, mode controls, and no-project option mounted. The gap between the controls and the current contenteditable node measured 50 CSS pixels, within the under-60-pixel check. First launch after installation displayed correctly; the check sent no messages and returned to the home screen. The earlier isolated blank cold start remains a limitation for other startup scenarios. The English build shares these patches but was not installed into the daily profile.
+
+The initial home/empty-thread checks did not cover full Chat and cloud Work rendering. Subsequent live failures identified a null queryClient scope and an obsolete search-source initializer. Both bindings were corrected and reinstalled on 2026-09-23; the user then confirmed ordinary Chat, web-search Chat, and cloud Work work again. This confirmation is separate from automated checks and does not establish all-day performance or search freshness.
+
+A system-wide lag investigation found searches continuing after their orchestration code discarded command-session metadata. The user confirmed substantial improvement after the searches stopped and other ended tasks released memory. This supports resource contention; it does not establish or fix every desktop memory leak. Source releases exclude local diagnostics, private chats, and machine-specific global task rules.
+
+
 ## 1.1.16 validation
 
 Both editions pass 511 checks. New coverage includes native saved-thread creation, enabled no-project selection, project and host boundaries, close-without-discard behavior, mode isolation, and composer geometry. A real empty project conversation was reported as non-ephemeral by the backend, had an existing history file, and remained readable after its side tab closed. The native composer and both cloud modes were loaded without sending a model turn. This does not claim end-to-end model response acceptance.
@@ -20,10 +31,10 @@ The upstream review included [#46249](https://github.com/openai/codex/issues/462
 | Component | Version |
 | --- | --- |
 | Platform | Windows x64 |
-| Microsoft Store package | OpenAI.Codex 26.911.7940.0 |
-| ChatGPT App | 26.911.61220, Owl runtime |
-| App-bundled Codex backend | 0.155.0-alpha.2.6 |
-| Standalone Codex CLI | 0.154.0 |
+| Microsoft Store package | OpenAI.Codex 26.915.4065.0 |
+| ChatGPT App | 26.915.31945, Owl runtime |
+| App-bundled Codex backend | 0.155.0-alpha.9.2 |
+| Standalone Codex CLI | 0.155.1 |
 
 The App and standalone CLI use separate executables. Installing this repair does not replace the standalone CLI or downgrade the App's bundled backend. The installer verifies the official signature, exact version and file hashes. Other App versions are rejected.
 
