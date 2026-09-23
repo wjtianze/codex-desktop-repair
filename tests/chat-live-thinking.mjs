@@ -7,19 +7,20 @@ function section(s,a,b){const name=/function\s*\*?([\w$]+)\(/.exec(a)?.[1];if(na
 function memo(size){return Array(size).fill(Symbol.for("react.memo_cache_sentinel"))}
 function fixture(patched=true){
  const source=fs.readFileSync(path.join(root,patched?'patches':'raw','viewer.js'),'utf8');
- const cache=new Map();const context={ef:'NativeSearch',vh:'reasoning',Ro:'statuses',wx:{c:n=>{if(!cache.has(n))cache.set(n,memo(n));return cache.get(n)}},Q:{jsx,jsxs:jsx,Fragment:'Fragment'},J:()=>({data:undefined}),q:()=>({data:undefined}),gt:"gt",Sf:()=>null,__localWebSearchProgress:renderWebSearchProgress,qe:()=>{},Au:"NativeSearch",__localOpenSearchLink:()=>{},Go:'NativeSearch',Ci:()=>{}};
+ const cache=new Map();const context={Qf:'NativeSearch',d_:'reasoning',Cr:'statuses',AC:{c:n=>{if(!cache.has(n))cache.set(n,memo(n));return cache.get(n)}},Q:{jsx,jsxs:jsx,Fragment:'Fragment'},X:()=>({data:undefined}),q:()=>({data:undefined}),gt:"gt",xp:()=>null,__localWebSearchProgress:renderWebSearchProgress,ot:()=>{},Au:"NativeSearch",__localOpenSearchLink:()=>{},le:'NativeSearch',pi:()=>{}};
  for(const name of["Ld","hx","Qo","Gn","ma","dc","dp","tx"])context[name]=name;
- const render=vm.runInNewContext(section(source,'function px(','function mx(')+';px',context);
- const hidden=vm.runInNewContext(section(source,'function ux(','function px(')+';ux',{...context,px:render});
+ const render=vm.runInNewContext(section(source,'function bC(','function xC(')+';bC',context);
+ context.Ff='Ld';context.SC='hx';context.Bc='Qo';context.qt='ma';context.kn='dc';context.rs='dp';context.lC='tx';
+ const hidden=vm.runInNewContext(section(source,'function _C(','function bC(')+';_C',{...context,bC:render});
  const activity=fs.readFileSync(path.join(root,'raw','activity.js'),'utf8');
- const native=section(activity,'function Rx(','function Vx(')+nativeFunction(activity,"zx")+nativeFunction(activity,"Bx");
+ const native=section(activity,'function fv(','function hv(')+nativeFunction(activity,"pv")+nativeFunction(activity,"mv");
  let key,instance;
  function disclose(node){
   if(node.type!=="Ld")return{node,body:null};
   if(key!==node.key){key=node.key;instance={cache:memo(37),initialized:false};
-   const ctx={Ux:{c:()=>instance.cache},Wx:{useState:init=>{if(!instance.initialized){instance.state=typeof init==='function'?init():init;instance.initialized=true}return[instance.state,value=>{instance.state=typeof value==='function'?value(instance.state):value}]}},Gx:{jsx},Mr:{div:'Motion'},Ns:{},requestAnimationFrame:fn=>fn()};
-   for(const name of["Vx","gr","js","Me"])ctx[name]=name;
-   instance.render=vm.runInNewContext(native+';Rx',ctx);
+   const ctx={_v:{c:()=>instance.cache},vv:{useState:init=>{if(!instance.initialized){instance.state=typeof init==='function'?init():init;instance.initialized=true}return[instance.state,value=>{instance.state=typeof value==='function'?value(instance.state):value}]}},yv:{jsx},Ii:{div:'Motion'},Ll:{},requestAnimationFrame:fn=>fn()};
+   for(const name of['hv','Nu','si','Dn'])ctx[name]=name;
+   instance.render=vm.runInNewContext(native+';fv',ctx);
   }
   const tree=instance.render(node.props);
   return{node,tree,body:tree.props.body,header:tree.props.header,state:instance.state};

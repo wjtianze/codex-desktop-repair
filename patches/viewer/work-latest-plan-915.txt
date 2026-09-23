@@ -1,0 +1,1 @@
+let __localLatestPlan=p.findLastIndex(item=>item.type===`todo-list`);for(let[t,n]of p.entries())if(n.type!==`todo-list`||t===__localLatestPlan)

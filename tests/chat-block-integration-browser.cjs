@@ -1,15 +1,15 @@
 const fs=require('fs'),path=require('path'),http=require('http'),assert=require('assert/strict'),{spawn}=require('child_process'),p=require('../scripts/patcher.cjs');
 const root=path.resolve('build/results/chat-block-integration-'+Date.now());fs.mkdirSync(root,{recursive:true});
 const modules=new Map(),archive=path.join(require('../scripts/windows.cjs').packageInfo().InstallLocation,'app/resources/app.asar'),fd=fs.openSync(archive,'r');
-try{const h=p.archiveHeader(fd);for(const name of ['rolldown-runtime-c05d78c594d1.js','react-d6ffadc57208.js','react-dom-2c70d35283e7.js','client-d8dffccad60c.js']){const e=p.getEntry(h.tree,'webview/assets/'+name);modules.set('/'+name,p.readExact(fd,e.size,h.offset+Number(e.offset)))}}finally{fs.closeSync(fd)}
-const patched=fs.readFileSync('build/fixtures/render/patches/local-thread.js','utf8'),hook=patched.slice(patched.indexOf('function NA(e){'),patched.indexOf('let t=(0,JA.c)(170)',patched.indexOf('function NA(e){')));
+try{const h=p.archiveHeader(fd);for(const name of ['rolldown-runtime-2d059c5e81f4.js','app-shared-8f4fbb856ceb.js']){const e=p.getEntry(h.tree,'webview/assets/'+name);modules.set('/'+name,p.readExact(fd,e.size,h.offset+Number(e.offset)))}}finally{fs.closeSync(fd)}
+const patched=fs.readFileSync('build/fixtures/render/patches/virtual-list.js','utf8'),hook=patched.slice(patched.indexOf('function De(e){'),patched.indexOf('let r=(0,Be.c)(172)',patched.indexOf('function De(e){')));
 assert.ok(hook.includes('__localAttachBlockVisibility'));
 const page=`<!doctype html><meta charset="utf-8"><div id="app"></div><script type="module">
-import {t as __localRepairReactFactory} from '/react-d6ffadc57208.js';import {t as domFactory} from '/client-d8dffccad60c.js';import {attachChatBlockVisibility as __localAttachBlockVisibility} from '/helper.mjs';
-const React=__localRepairReactFactory(),Context=React.createContext(null);const Nv=()=>React.useContext(Context);let initiallyMissing=false;
+import {qB as __localRepairReactFactory} from '/app-shared-8f4fbb856ceb.js';import {AB as domFactory} from '/app-shared-8f4fbb856ceb.js';import {attachChatBlockVisibility as __localAttachBlockVisibility} from '/helper.mjs';
+const React=__localRepairReactFactory(),Context=React.createContext(null);const Y=React,pe=()=>React.useContext(Context);let initiallyMissing=false;
 ${hook}return React.createElement('div',{className:'_MarkdownRoot_fixture'},Array.from({length:60},(_,i)=>React.createElement('p',{key:i},'Actual React mount '+i+' '+('Long paragraph '.repeat(30)))))}
-function Parent(){const ref=React.useRef(null),controller=React.useMemo(()=>({getScrollElement:()=>ref.current}),[]);return React.createElement(Context.Provider,{value:controller},React.createElement('div',{ref,style:{width:500,height:400,overflow:'auto'}},React.createElement(Verify),React.createElement(NA)))}
-function Verify(){const controller=Nv();React.useLayoutEffect(()=>{initiallyMissing=controller.getScrollElement()===null},[]);return null}
+function Parent(){const ref=React.useRef(null),controller=React.useMemo(()=>({getScrollElement:()=>ref.current}),[]);return React.createElement(Context.Provider,{value:controller},React.createElement('div',{ref,style:{width:500,height:400,overflow:'auto'}},React.createElement(Verify),React.createElement(De)))}
+function Verify(){const controller=pe();React.useLayoutEffect(()=>{initiallyMissing=controller.getScrollElement()===null},[]);return null}
 const root=domFactory().createRoot(document.getElementById('app'));root.render(React.createElement(Parent));await new Promise(r=>setTimeout(r,400));const blocks=[...document.querySelectorAll('p')],count=blocks.filter(e=>e.style.contentVisibility==='auto').length;root.unmount();window.result={initiallyMissing,count,clean:blocks.every(e=>!e.style.contentVisibility)};
 </script>`;
 const server=http.createServer((q,r)=>{const module=modules.get(q.url),helper=q.url==='/helper.mjs';r.setHeader('Content-Type',module||helper?'text/javascript;charset=utf-8':'text/html;charset=utf-8');r.end(module??(helper?fs.readFileSync('assets/local-chat-block-visibility-v1.mjs'):page))});

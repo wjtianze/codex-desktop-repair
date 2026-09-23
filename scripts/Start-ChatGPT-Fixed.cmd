@@ -1,3 +1,3 @@
 @echo off
-"%~dp0tools\node-ea15f4a5b83b.exe" "%~dp0repair-tools\scripts\launch.cjs"
+"%~dp0tools\node-50c8bb8ab835.exe" "%~dp0repair-tools\scripts\launch.cjs"
 if errorlevel 1 pause

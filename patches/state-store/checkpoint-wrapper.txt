@@ -1,1 +1,1 @@
-async function oE(e,t,checkpoint=!1){try{await sE(e,t,checkpoint)}catch(e){WT().warning(`Failed to persist global state`,{safe:{},sensitive:{error:e}})}}
+async function sD(e,t,checkpoint=!1){try{await cD(e,t,checkpoint)}catch(e){GE().warning(`Failed to persist global state`,{safe:{},sensitive:{error:e}})}}

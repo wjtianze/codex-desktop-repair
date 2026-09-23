@@ -1,1 +1,1 @@
-e===`webview`&&t.startsWith(`visualization-`)&&(n.style.transform=`translateZ(0)`),
+e===`webview`&&t.startsWith(`visualization-`)&&(r.style.transform=`translateZ(0)`),

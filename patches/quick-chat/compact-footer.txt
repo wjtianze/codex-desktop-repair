@@ -1,1 +1,1 @@
-footer:(0,q.jsxs)(q.Fragment,{children:[(0,q.jsx)(__localQuickControls,{}),va]}),children:Ca
+footer:(0,J.jsxs)(J.Fragment,{children:[(0,J.jsx)(__localQuickControls,{}),va]}),children:Ca
