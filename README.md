@@ -10,7 +10,7 @@ Panel resizing updates live while dragging. The left navigation, right panel and
 
 ## Installation
 
-1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.1.17-en.1) and extract the ZIP.
+1. Download the [English release](https://github.com/wjtianze/codex-desktop-repair/releases/tag/v1.1.18-en.1) and extract the ZIP.
 2. Save any unsent content and quit ChatGPT.
 3. Double-click **Install-Repair.cmd**. The installer checks the official signature, version, and file hashes, then builds the repair and keeps rollback backups.
 4. Use **ChatGPT** in the Start menu afterward. A visible verification window appears briefly before the app starts.
@@ -21,7 +21,7 @@ Run **Check-Environment.cmd** to check compatibility first. To install without s
 
     Install-Repair.cmd --without-sidebar
 
-See [1.1.17 release notes](docs/UPDATES_1_1_17.md) for Chat / cloud Work / local Work in compact surfaces, project or no-project side chats, and persistent history.
+See [1.1.18 release notes](docs/UPDATES_1_1_18.md) for the cloud Work image-reference fix.
 
 ## Included changes
 
@@ -31,7 +31,7 @@ See [1.1.17 release notes](docs/UPDATES_1_1_17.md) for Chat / cloud Work / local
 | Long sessions | Bound performance records, release empty listener collections and consumed log records, and enforce the existing idle-history capacity target. |
 | Conversation rendering | Reuse unchanged history conversions and metadata parsing; avoid computing an unused Work summary in ordinary chats. |
 | Reading position | Restore where you left off together with measured message heights; measure the latest long reply earlier and let user scrolling take priority. |
-| Messages and images | Identify internal retrieval images correctly, retain streaming content, and preserve the natural aspect ratio of a single image. |
+| Messages and images | Identify internal retrieval images correctly, retain streaming content, and preserve the natural aspect ratio of a single image, and remove orphan exclamation marks from cloud Work image references. |
 | File citations | Use compact chips for uploaded PDF, Markdown, HTML, spreadsheet, and other references; retain full cards for generated downloads. |
 | Project settings | Successful reference-file-only changes enable Save; pending operations block saving and failed changes retain the native error path. |
 | Work activity | Keep thought summaries in native process disclosures and ordinary progress reports visible; show only the latest plan snapshot in each group. |
@@ -58,7 +58,7 @@ See [1.1.17 release notes](docs/UPDATES_1_1_17.md) for Chat / cloud Work / local
 
 Composer recovery preserves the native submit, archive, sharing, and access checks. Idle cleanup protects active, viewed, observed, approval-blocked, and history-loading tasks.
 
-See [what's new in 1.1.17](docs/UPDATES_1_1_17.md) for compact modes, saved project side chats, existing history, and further rendering improvements. Some first menu openings still have a short delay; this release does not claim to eliminate all lag.
+See [what's new in 1.1.18](docs/UPDATES_1_1_18.md) for the image-reference repair. Earlier compact modes, saved history and performance improvements remain included. Some first menu openings still have a short delay; this release does not claim to eliminate all lag.
 
 ## Restore
 

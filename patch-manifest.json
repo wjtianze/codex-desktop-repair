@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
-  "releaseVersion": "1.1.17-en.1",
-  "performanceRevision": 41,
+  "releaseVersion": "1.1.18-en.1",
+  "performanceRevision": 42,
   "sidebarVersion": "1.1.0",
   "packageName": "OpenAI.Codex",
   "packageVersion": "26.915.4065.0",
@@ -314,11 +314,25 @@
           "insertSHA256": "6f5efc56f643c23abfc40ae8149e10cc754ae80b1fd277ceea88b79cc30b917f"
         },
         {
+          "offset": 3819352,
+          "deleteBytes": 706,
+          "removedSHA256": "9359c2614963fa91f884f18b62f31d615e8f51383b6642df4653ca6e5da9c2e6",
+          "insert": "patches/initial/sandbox-image-ranges.txt",
+          "insertSHA256": "c97bbf872c75f8db3b9fd98c81278088f1c3d67deeaf092e035e695401582aa9"
+        },
+        {
           "offset": 3826567,
           "deleteBytes": 0,
           "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "insert": "patches/initial/022.txt",
           "insertSHA256": "7d8fbd21b325262c974f48030f69dbcd49bdd206cf2591a42f029314ca439761"
+        },
+        {
+          "offset": 3826844,
+          "deleteBytes": 464,
+          "removedSHA256": "8fe3f3b9630b73f7b61736c5bde61f9530ad586e2eabc285c6269a7488c22e16",
+          "insert": "patches/initial/sandbox-image-links.txt",
+          "insertSHA256": "620d3199a42f2ce163e0dfa4a1d307d84dcd0925e6a13f7f00d104877e92b4cb"
         },
         {
           "offset": 3968658,
@@ -587,7 +601,7 @@
           "insertSHA256": "73cbd157cd01d4d63fa45e01f84fc6be596061f1de38826303b67d5161962ed8"
         }
       ],
-      "patchedSHA256": "379f2ef9fc6af656462b0ac250184e4dd8a8ca428a76716ad5b74a3862e80cc4",
+      "patchedSHA256": "55cd9e5d96bc9469919c181017b3e2d926db10606ac851e84c63c7d94f7224f3",
       "withoutSidebar": {
         "id": "initial",
         "entry": "webview/assets/app-initial-6c4523b43a11.js",
@@ -812,11 +826,25 @@
             "insertSHA256": "6f5efc56f643c23abfc40ae8149e10cc754ae80b1fd277ceea88b79cc30b917f"
           },
           {
+            "offset": 3819352,
+            "deleteBytes": 706,
+            "removedSHA256": "9359c2614963fa91f884f18b62f31d615e8f51383b6642df4653ca6e5da9c2e6",
+            "insert": "patches/initial/sandbox-image-ranges.txt",
+            "insertSHA256": "c97bbf872c75f8db3b9fd98c81278088f1c3d67deeaf092e035e695401582aa9"
+          },
+          {
             "offset": 3826567,
             "deleteBytes": 0,
             "removedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
             "insert": "patches/initial/022.txt",
             "insertSHA256": "7d8fbd21b325262c974f48030f69dbcd49bdd206cf2591a42f029314ca439761"
+          },
+          {
+            "offset": 3826844,
+            "deleteBytes": 464,
+            "removedSHA256": "8fe3f3b9630b73f7b61736c5bde61f9530ad586e2eabc285c6269a7488c22e16",
+            "insert": "patches/initial/sandbox-image-links.txt",
+            "insertSHA256": "620d3199a42f2ce163e0dfa4a1d307d84dcd0925e6a13f7f00d104877e92b4cb"
           },
           {
             "offset": 3968658,
@@ -1057,7 +1085,7 @@
             "insertSHA256": "73cbd157cd01d4d63fa45e01f84fc6be596061f1de38826303b67d5161962ed8"
           }
         ],
-        "patchedSHA256": "b8b8ec3e4639baf54a13ea039226ab522422f5c92de71bef8f28e3a312b2473a"
+        "patchedSHA256": "2765290c8baef32f2cff27ccd5cd1f28dcdbb778a4e6009a52aefdcb919db384"
       }
     },
     {
@@ -2122,15 +2150,15 @@
   "bundledCodexCliSHA256": "bc45017e8239dc150258f69309ced9df6bbcdf5b8e4f346decf780ac0999e226",
   "expectedBuilds": {
     "full": {
-      "archiveSHA256": "505109e56456af08407e78e4e7c22d3af93f3a0232a4f1a7fe78c8feac8e9a74",
+      "archiveSHA256": "f95ec86514e49822427fbbfcb43013f7729a9b057442fab6375a263bac7c3da8",
       "executableSHA256": "0d27aef4010466bd8d2a95f6483938cfdb8926f6668ecc1182facec9b85b75d2",
-      "archiveHeaderSHA256": "18ce0ff572501a242c0dcfdcab30ff59ee86f6b90c9c3184cfa8702f486b7c95",
+      "archiveHeaderSHA256": "6bbca6397a3defafcd0e8785b2dd634a5adc2c93cd96cd98b9d2ae6baa1d6bc8",
       "verifiedPackedEntries": 15316
     },
     "performanceOnly": {
-      "archiveSHA256": "746c454ebcf38dc8cc5497b846d136d16c14729eec30e4e72d6e1c8936a94b63",
+      "archiveSHA256": "f03ceaaf22ba25890682487cec1b40bf53a61aa794f6c8b85bfc9034b92df5fa",
       "executableSHA256": "0d27aef4010466bd8d2a95f6483938cfdb8926f6668ecc1182facec9b85b75d2",
-      "archiveHeaderSHA256": "441cbbf962e0abcd20d0bb66e500852c3a4e657678e53c80b8f25c3bd1c310c8",
+      "archiveHeaderSHA256": "23794b0de8e4558a53ab5a5f6076f74fd31b89627c3e0de9ba934cb9d265606f",
       "verifiedPackedEntries": 15315
     }
   }

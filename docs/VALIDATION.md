@@ -1,5 +1,11 @@
 # Compatibility and validation
 
+## 1.1.18 verification scope
+
+232 standalone checks pass in each edition. Fourteen synthetic inputs were checked against the running client's actual Markdown parser. Native full and no-sidebar variants cover complete image syntax in both fallback extraction and server reference ranges. Existing image-message and file-reference component checks and module syntax checks also pass. The complete --installed suite was not rerun.
+
+The Chinese edition was transactionally installed on 2026-09-23 with matching archive hashes and the same profile directory. The reported cloud Work history opened without an error boundary: the orphan exclamation mark was absent, its PNG attachment card remained, and the composer loaded. No message was sent or regenerated. The other reported history pages were not individually opened; SVG/JPG behavior has targeted coverage. The English edition was separately built and tested, but not installed into the daily profile.
+
 ## 1.1.17 verification scope
 
 The final source adds two focused checks for Chat/cloud route scope and search-source initialization. Both editions pass 218 standalone checks. Earlier adaptation passed a complete 512-case regression run, followed by six targeted native side-tab checks. An additional full rerun was stopped to avoid worsening memory paging and is not counted as passing.

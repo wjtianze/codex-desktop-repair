@@ -1,0 +1,16 @@
+[
+  {"name":"PNG figure","text":"第6题\n\n![习题6图](sandbox:/mnt/data/习题6图.png)\n\n第9题","images":1,"links":1},
+  {"name":"SVG plus download","text":"![北巡](sandbox:/mnt/data/北巡.svg)\n\n[下载](sandbox:/mnt/data/北巡.svg) · 纯矢量。","images":1,"links":2},
+  {"name":"JPG with Unicode offsets","text":"🧪 已生成结构图！\n\n![结构[局部]](sandbox:/mnt/data/molecule(2).jpg)\n\n正文！","images":1,"links":1},
+  {"name":"Empty alt","text":"![](sandbox:/mnt/data/result.svg)","images":1,"links":1},
+  {"name":"Angle path and title","text":"![预览](<sandbox:/mnt/data/a b.png> \"image title\")","images":1,"links":1},
+  {"name":"Escaped parentheses","text":"![预览](sandbox:/mnt/data/a\\(2\\).png)","images":1,"links":1},
+  {"name":"Repeated same image","text":"![图](sandbox:/mnt/data/a.png)\n\n![图](sandbox:/mnt/data/a.png)","images":2,"links":2},
+  {"name":"Ordinary file link","text":"完成！[下载](sandbox:/mnt/data/report.pdf)","images":0,"links":1},
+  {"name":"Escaped literal bang","text":"\\![下载](sandbox:/mnt/data/a.png)","images":0,"links":1},
+  {"name":"Inline example","text":"示例：`![图](sandbox:/mnt/data/a.png)`！","images":0,"links":0},
+  {"name":"Fenced example","text":"```markdown\n![图](sandbox:/mnt/data/a.png)\n```\n正常！","images":0,"links":0},
+  {"name":"Indented code","text":"    ![图](sandbox:/mnt/data/a.png)","images":0,"links":0},
+  {"name":"External image and literal punctuation","text":"![图](https://example.com/a.png)\n\n!\n\n好了！","images":0,"links":0},
+  {"name":"Incomplete streaming image","text":"![图](sandbox:/mnt/data/a.png","images":0,"links":0}
+]
