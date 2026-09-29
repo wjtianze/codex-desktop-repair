@@ -5,9 +5,9 @@ import assert from 'node:assert/strict';
 // These contain no conversation data or official program source.
 const cases=JSON.parse(fs.readFileSync(new URL('fixtures-support/sandbox-image-cases.json',import.meta.url)));
 const asts=JSON.parse(fs.readFileSync(new URL('fixtures-support/sandbox-image-asts.json',import.meta.url)));
-export const context={cc:text=>{assert.ok(asts[text],'Missing native-parser fixture');return structuredClone(asts[text])},xy:url=>url.startsWith('sandbox:')?url.slice(8):null,fwt:()=>null,LYt:'codex-file-citation'};
-const code=['sandbox-image-links','upgrade-aur'].map(name=>fs.readFileSync(new URL('../patches/initial/'+name+'.txt',import.meta.url),'utf8')).join('\n');
-const api=vm.runInNewContext(code+';({Iur:PQn,aur:nQn})',context);
+export const context={lf:text=>{assert.ok(asts[text],'Missing native-parser fixture');return structuredClone(asts[text])},Fn:()=>null};
+const code=['v120-PQn','v120-nQn'].map(name=>fs.readFileSync(new URL('../patches/initial/'+name+'.txt',import.meta.url),'utf8')).join('\n');
+const api=vm.runInNewContext(code+';({Iur:zNt,aur:text=>ePt(text,[])})',context);
 for(const item of cases){
  const links=api.Iur(item.text),ranges=api.aur(item.text),points=Array.from(item.text);
  assert.equal(links.length,item.links,item.name);assert.equal(ranges.length,item.links,item.name);
