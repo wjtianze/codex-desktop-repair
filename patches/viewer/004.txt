@@ -1,1 +1,1 @@
- ){E(!0),k.push((0,Q.jsx)(kn,{messages:o.renderTelemetryMessages,children:__localWebSearchProgress({jsx:Q.jsx,NativeSearch:Qf,item:o,blocked:v,openLink:__localOpenSearchLink})},`web-search-${String(t)}`));continue}if(o.type===`mcp-tool-call
+ ){D(!0),M.push((0,Q.jsx)(Vc,{messages:o.renderTelemetryMessages,children:__localWebSearchProgress({jsx:Q.jsx,NativeSearch:Lf,item:o,blocked:b,openLink:__localOpenSearchLink})},`web-search-${String(t)}`));continue}if(o.type===`mcp-tool-call

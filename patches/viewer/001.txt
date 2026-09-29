@@ -1,1 +1,1 @@
-at(-1)?.turn.items.some(Em)??!1}function Em(e
+e.at(-1)?.turn.items.some(it)??!1

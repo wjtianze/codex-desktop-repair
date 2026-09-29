@@ -6,21 +6,21 @@ const jsx=(type,props,key)=>({type,props,key});
 function section(s,a,b){const name=/function\s*\*?([\w$]+)\(/.exec(a)?.[1];if(name)return nativeFunction(s,name);const start=s.indexOf(a),end=s.indexOf(b,start);assert.ok(start>=0&&end>start,a);return s.slice(start,end)}
 function memo(size){return Array(size).fill(Symbol.for("react.memo_cache_sentinel"))}
 function fixture(patched=true){
- const source=fs.readFileSync(path.join(root,patched?'patches':'raw','viewer.js'),'utf8');
- const cache=new Map();const context={Qf:'NativeSearch',d_:'reasoning',Cr:'statuses',AC:{c:n=>{if(!cache.has(n))cache.set(n,memo(n));return cache.get(n)}},Q:{jsx,jsxs:jsx,Fragment:'Fragment'},X:()=>({data:undefined}),q:()=>({data:undefined}),gt:"gt",xp:()=>null,__localWebSearchProgress:renderWebSearchProgress,ot:()=>{},Au:"NativeSearch",__localOpenSearchLink:()=>{},le:'NativeSearch',pi:()=>{}};
+ const source=fs.readFileSync(path.join(root,patched?'patches':'raw','turn-content.js'),'utf8');
+ const cache=new Map();const context={Z:()=>({data:undefined}),$r:{},oh:'NativeSearch',Jb:'reasoning',Cr:'statuses',hk:{c:n=>{if(!cache.has(n))cache.set(n,memo(n));return cache.get(n)}},$:{jsx,jsxs:jsx,Fragment:'Fragment'},X:()=>({data:undefined}),q:()=>({data:undefined}),vt:"gt",Oh:()=>null,__localWebSearchProgress:renderWebSearchProgress,st:()=>{},un:"NativeSearch",__localOpenSearchLink:()=>{},le:'NativeSearch',Fl:()=>{}};
  for(const name of["Ld","hx","Qo","Gn","ma","dc","dp","tx"])context[name]=name;
- const render=vm.runInNewContext(section(source,'function bC(','function xC(')+';bC',context);
- context.Ff='Ld';context.SC='hx';context.Bc='Qo';context.qt='ma';context.kn='dc';context.rs='dp';context.lC='tx';
- const hidden=vm.runInNewContext(section(source,'function _C(','function bC(')+';_C',{...context,bC:render});
+ const render=vm.runInNewContext(section(source,'function ik(','function ak(')+';ik',context);
+ context.Jm='Ld';context.ok='hx';context.Rc='Qo';context.Al='ma';context.Tm='dc';context.Nh='dp';context.KO='tx';
+ const hidden=vm.runInNewContext(section(source,'function tk(','function ik(')+';tk',{...context,ik:render});
  const activity=fs.readFileSync(path.join(root,'raw','activity.js'),'utf8');
- const native=section(activity,'function fv(','function hv(')+nativeFunction(activity,"pv")+nativeFunction(activity,"mv");
+ const native=section(activity,'function yv(','function W_(')+nativeFunction(activity,"bv")+nativeFunction(activity,"xv");
  let key,instance;
  function disclose(node){
   if(node.type!=="Ld")return{node,body:null};
   if(key!==node.key){key=node.key;instance={cache:memo(37),initialized:false};
-   const ctx={_v:{c:()=>instance.cache},vv:{useState:init=>{if(!instance.initialized){instance.state=typeof init==='function'?init():init;instance.initialized=true}return[instance.state,value=>{instance.state=typeof value==='function'?value(instance.state):value}]}},yv:{jsx},Ii:{div:'Motion'},Ll:{},requestAnimationFrame:fn=>fn()};
-   for(const name of['hv','Nu','si','Dn'])ctx[name]=name;
-   instance.render=vm.runInNewContext(native+';fv',ctx);
+   const ctx={wv:{c:()=>instance.cache},Tv:{useState:init=>{if(!instance.initialized){instance.state=typeof init==='function'?init():init;instance.initialized=true}return[instance.state,value=>{instance.state=typeof value==='function'?value(instance.state):value}]}},Ev:{jsx},Kr:{div:'Motion'},$t:{},requestAnimationFrame:fn=>fn()};
+   Object.assign(ctx,{Sv:'E_',op:'Un',rp:'Ca',sp:'Ki'});
+   instance.render=vm.runInNewContext(native+';yv',ctx);
   }
   const tree=instance.render(node.props);
   return{node,tree,body:tree.props.body,header:tree.props.header,state:instance.state};
@@ -30,7 +30,7 @@ function fixture(patched=true){
 }
 const thought=(content='',completed=false)=>({type:'reasoning',presentation:'thought',content,completed});
 const cases=[];function test(name,fn){fn();cases.push(name);console.log('PASS '+name)}
-test('The supported official Chat disclosure now expands when the first summary arrives',()=>{const f=fixture(false);assert.equal(f.render([thought()]).body,null);const r=f.render([thought('First summary')]);assert.equal(r.node.props.canExpand,true);assert.equal(r.state,'expanded');assert.ok(r.body)});
+test('The native single-thought path is inline; the repair keeps the streaming disclosure',()=>{const r=fixture(false).render([thought('First summary')]);assert.equal(r.body,null)});
 test('The repaired Chat disclosure expands on the first available summary',()=>{const f=fixture();assert.equal(f.render([thought()]).body,null);const r=f.render([thought('First summary')]);assert.equal(r.state,'expanded');assert.equal(r.body.props.animate.height,'auto');assert.equal(r.body.props.children.props.children[0].props.children.props.item.content,'First summary')});
 test('A conversation mounted with an available summary starts expanded',()=>{const r=fixture().render([thought('Already available')]);assert.equal(r.state,'expanded');assert.ok(r.body)});
 test('Manual collapse persists while later summary text streams in',()=>{const f=fixture();f.render([thought()]);let r=f.render([thought('First')]);r.header.props.disclosure.onToggle();r=f.render([thought('First')]);assert.equal(r.state,'closing');r.body.props.onAnimationComplete();r=f.render([thought('First plus more')]);assert.equal(r.state,'collapsed');assert.equal(r.body,null);r.header.props.disclosure.onToggle();r=f.render([thought('First plus more')]);assert.equal(r.state,'expanded')});

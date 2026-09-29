@@ -1,1 +1,1 @@
-d){__localLogQueueState.clear();return}if(C+=t.bytes,E+=1,__localLogQueueState.bytes-=t.bytes,E===T.length?(T=[],E=0,__localLogQueueState.bytes=0):E>=256&&E*2>=T.length&&(T=T.slice(E),E=0),!n){e=!0,w.once(`drain`,()=>{D=!1,ne()});return}}T=[],E=0,__localLogQueueState.bytes=0}catch(e
+d){__localLogQueueState.clear();return}if(C+=t.bytes,E+=1,__localLogQueueState.bytes-=t.bytes,E===T.length?(T=[],E=0,__localLogQueueState.bytes=0):E>=256&&E*2>=T.length&&(T=T.slice(E),E=0),!n){e=!0,w.once(`drain`,()=>{D=!1,te()});return}}T=[],E=0,__localLogQueueState.bytes=0}catch(e

@@ -75,7 +75,11 @@ function build(source,output,{sidebar=true,fixtures=false}={}){
  if(manifest.runtimeKind==='owl'){
   assert.equal(fileHash(path.join(source,'owl-shell-runtime.json')),manifest.owlRuntimeDescriptorSHA256,'Unsupported Owl runtime descriptor');
   assert.equal(fileHash(path.join(source,'resources','owl-app.ini')),manifest.owlAppConfigSHA256,'Unsupported Owl app configuration');
-  assert.equal(offset,-1,'Unexpected legacy executable integrity record in Owl runtime');
+  if(manifest.owlExecutableArchiveRecordSHA256!=null){
+   assert.equal(built.oldHeader,manifest.owlExecutableArchiveRecordSHA256,'Unsupported Owl executable archive record');
+   assert.ok(offset>=0&&binary.indexOf(needle,offset+1)<0,'Unexpected Owl executable archive record');
+   Buffer.from(built.header).copy(binary,offset);
+  }else assert.equal(offset,-1,'Unexpected legacy executable integrity record in Owl runtime');
  }else{
   assert.ok(offset>=0&&binary.indexOf(needle,offset+1)<0,'Unexpected executable integrity record');Buffer.from(built.header).copy(binary,offset);
  }

@@ -35,7 +35,7 @@ function main(){
   if(action==='build'){console.log('构建完成：'+output);return}
   let performanceOutput=null;
   if(fs.existsSync(path.join(base,'backups','before-sidebar-filter-v1','installation.json'))){performanceOutput=path.join(staging,'performance-only');build(source,performanceOutput,{sidebar:false})}
-  const shortcutSource=path.join(staging,'ChatGPT.lnk'),shortcut=path.join(process.env.APPDATA,'Microsoft','Windows','Start Menu','Programs','ChatGPT.lnk');
+  const shortcutSource=path.join(staging,'ChatGPT.lnk'),shortcut=path.join(process.env.APPDATA,'Microsoft','Windows','Start Menu','Programs','ChatGPT 修复版.lnk');
   windows.shortcut(shortcutSource,path.join(base,'Start-ChatGPT-Fixed.cmd'),path.join(base,manifest.appVersion,'runtime','ChatGPT.exe'));
   const shortcutPeers=[],pinned=path.join(process.env.APPDATA,'Microsoft','Internet Explorer','Quick Launch','User Pinned','TaskBar','Codex.lnk');
   if(fs.existsSync(pinned))shortcutPeers.push({source:shortcutSource,target:pinned});

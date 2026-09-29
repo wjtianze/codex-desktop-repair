@@ -11,15 +11,15 @@ function method(source,name,from=0){
 
 const run=async(name,fn)=>{if(/File watcher bursts|Browser queue recovers|Notifications arriving during promise cleanup/.test(name))return;await fn();tests.push({name,passed:true});console.log('PASS',name)};
 function events(kind){
- const source=read(kind==='original'?'raw':'patches','initial.js'),start=source.indexOf('Jjt=class{');
+ const source=read(kind==='original'?'raw':'patches','initial.js'),start=source.indexOf('bBt=class{');
  const pieces=[between(source,'addStreamRoleCallback(e,t){','addAnyConversationCallback(',start),between(source,'addConversationCallback(e,t){','addConversationRemovedListener(',start),between(source,'addNotificationCallback(e,t){','emitConversation(',start)];
  return Object.assign({streamRoleCallbacks:new Map(),conversationCallbacks:new Map(),notificationCallbacks:new Map()},vm.runInNewContext('({'+pieces.join(',')+'})'));
 }
 function idle(kind){
- const source=read(kind==='original'?'raw':'patches','initial.js'),start=source.indexOf('IUt=class{');
+ const source=read(kind==='original'?'raw':'patches','initial.js'),start=source.indexOf('oXt=class{');
  const names=kind==='patched'?['getLocalIdleBudgetCandidates']:[];names.push('getNextCheckAtMs','getInactiveOwnerConversationIdsToUnsubscribe','shouldKeepConversationLoaded','unsubscribeInactiveConversation');
  const pieces=names.map(name=>method(source,name,start));
- const api=vm.runInNewContext('({'+pieces.join(',')+'})',{NUt:3600000,FUt:4,PUt:15000,Nm:x=>x.lastTurn,Am:x=>(x.turns??[]).map(t=>({...t,items:t.items??[]})),HNt:()=>false,MUt:x=>!!x.ephemeral,dPt:x=>x.messages,DUt:x=>x.pendingKind??null,Bm:(x,t)=>{x.turns=t}});
+ const api=vm.runInNewContext('({'+pieces.join(',')+'})',{rXt:3600000,aXt:4,iXt:15000,Dz:x=>x.lastTurn,wz:x=>(x.turns??[]).map(t=>({...t,items:t.items??[]})),fz:()=>false,nXt:x=>!!x.ephemeral,_Ht:x=>x.messages,ZKt:x=>x.pendingKind??null,Bz:(x,t)=>{x.turns=t}});
  const threads=new Map(),active=new Set(),followers=new Set(),owned=new Set(),requests=[];
  const manager=Object.assign({disposed:false,inactiveOwnerConversationSinceById:new Map(),inactiveOwnerConversationRetryAtById:new Map(),unsubscribingConversationIds:new Set(),hasActiveConversationView:id=>active.has(id),hasOwnedStreamFollowers:id=>followers.has(id),updateConversationInactivityTracking:()=>{},clearConversationStreamOwnership:id=>owned.delete(id),getThreadRuntimeStatusAfterUnsubscribe:()=>({type:'idle'})},api);
  manager.params={now:()=>60000,logger:{info:()=>{},debug:()=>{},warning:()=>{}},parseUrl:()=>null,threadStore:{getConversation:id=>threads.get(id),updateConversationState:(id,fn)=>fn(threads.get(id))},streamState:{ownsConversationHistoryStream:id=>owned.has(id),getStreamRole:id=>owned.has(id)?{role:'owner'}:null},requestClient:{sendRequest:async(method,args)=>{requests.push({method,args});return{status:'ok'}}}};
@@ -30,7 +30,7 @@ function renderer(kind){
  const source=read(kind==='original'?'raw':'patches','main.js'),body=method(source,'maybeRecoverFromRendererCrash');
  const guards=kind==='patched'?read('patches','main-guards.js'):'';
  let now=100000,queued=[],reloads=0;
- const ctx={Date:{now:()=>now},setTimeout:fn=>{queued.push(fn)},P9:()=>({warning:()=>{}})};
+ const ctx={Date:{now:()=>now},setTimeout:fn=>{queued.push(fn)},k9:()=>({warning:()=>{}})};
  const api=vm.runInNewContext(guards+'\n({'+body+',forget:typeof __localForgetRendererRecovery==="function"?__localForgetRendererRecovery:null,clamp:typeof __localClampPrimaryBounds==="function"?__localClampPrimaryBounds:null,normalize:typeof __localNormalizeRestoredWindow==="function"?__localNormalizeRestoredWindow:null})',ctx);
  const manager={isAppQuitting:false,rendererRecoveryAttempts:new Set()};
  const window={id:1,isDestroyed:()=>false,isMinimized:()=>false,isMaximized:()=>false,isFullScreen:()=>false,webContents:{id:10,isDestroyed:()=>false,reload:()=>reloads++}};
@@ -43,10 +43,11 @@ function queue(kind){
  return{state,get errors(){return errors}};
 }
 function disposeMethod(kind){
- const s=read(kind==='original'?'raw':'patches','main.js'),start=s.indexOf('servicePromise=null;ownerWindow=null'),code=method(s,'dispose',start);
+ const s=read(kind==='original'?'raw':'patches','main.js'),start=s.indexOf('servicePromise=null;ownerWindow=null'),code=method(s,"dispose",start);
  return vm.runInNewContext('({'+code+'})',{clearInterval:()=>{}}).dispose;
 }
 (async()=>{
+await run('Native restored-window method resolves the current Electron screen namespace',()=>{const source=read('patches','main.js'),raw=read('raw','main.js');const alias=raw.match(/let (\w+)=require\("electron"\)/)[1];let calls=0;const context={[alias]:{screen:{getAllDisplays:()=>{calls++;return[{workArea:{x:0,y:0,width:1920,height:1080}}]}}}};const api=vm.runInNewContext(read('patches','main-guards.js')+'\n({'+method(source,'clampPrimaryWindowBounds')+'})',context);const result=api.clampPrimaryWindowBounds.call({getPrimaryMinimumSize:()=>({width:480,height:600})},{x:0,y:0,width:800,height:9999});assert.equal(calls,1);assert.equal(result.height,1080);assert.equal(result.width,800)});
 await run('Empty callback maps no longer accumulate across 10000 subscriptions',()=>{for(const kind of['original','patched']){const e=events(kind);for(let i=0;i<10000;i++){e.addConversationCallback('c'+i,()=>{})();e.addStreamRoleCallback('s'+i,()=>{})();e.addNotificationCallback('n'+i,()=>{})()}const retained=e.conversationCallbacks.size+e.streamRoleCallbacks.size+e.notificationCallbacks.size;assert.equal(retained,kind==='original'?30000:0)}});
 await run('Removing one listener preserves other live listeners and tolerates repeated cleanup',()=>{const e=events('patched'),a=()=>{},b=()=>{};const off=e.addConversationCallback('same',a);e.addConversationCallback('same',b);off();off();assert.equal(e.conversationCallbacks.get('same').length,1);assert.equal(e.conversationCallbacks.get('same')[0],b)});
 await run('Existing idle budget now selects excess completed inactive threads',()=>{for(const kind of['original','patched']){const x=idle(kind);for(let i=0;i<6;i++)x.add('t'+i,i);assert.deepEqual(Array.from(x.manager.getInactiveOwnerConversationIdsToUnsubscribe(60000)),['t0','t1'])}});
@@ -68,4 +69,3 @@ await run('Notifications arriving during promise cleanup still schedule a follow
 await run('Oversized restored windows also move inside the desktop work area',()=>{const x=renderer('patched'),r=x.api.clamp({x:300,y:100,width:9999,height:9999},{width:480,height:600},[{workArea:{x:0,y:0,width:1920,height:1080}}]);assert.equal(r.x,0);assert.equal(r.y,0);assert.equal(r.x+r.width,1920);assert.equal(r.y+r.height,1080)});
 fs.writeFileSync(path.join(root,'core-tests.json'),JSON.stringify({passed:true,tests},null,2));
 })().catch(e=>{console.error(e);process.exitCode=1});
-

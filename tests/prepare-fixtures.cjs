@@ -6,12 +6,12 @@ function prepare(source){
  const vm=require('node:vm'),am={exports:{}};vm.runInNewContext(process.binding('natives')['internal/deps/acorn/acorn/dist/acorn'],{exports:am.exports,module:am});const acorn=am.exports;function expression(text,at){const node=acorn.parseExpressionAt(text,at,{ecmaVersion:'latest'});return text.slice(at,node.end)}const destination=path.join(ROOT,'build','fixtures'),read=name=>fs.readFileSync(path.join(out,'fixtures',name),'utf8');
  function write(rel,text){const file=path.join(destination,rel);fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,text)}
  for(const kind of['original','patched']){
-  const main=read('main.'+kind+'.js'),initial=read('initial.'+kind+'.js');
-  for(const[name,text]of[['main.js',main],['initial.js',initial],['browser-service.mjs',read('browser.'+kind+'.js')]])write('core/'+(kind==='original'?'raw':'patches')+'/'+name,text);
+  const main=read('main.'+kind+'.js'),initial=read('initial.'+kind+'.js'),shared=read('shared.'+kind+'.js');
+  for(const[name,text]of[['main.js',main],['initial.js',shared+'\n'+initial],['browser-service.mjs',read('browser.'+kind+'.js')]])write('core/'+(kind==='original'?'raw':'patches')+'/'+name,text);
   write('cold/main.'+kind+'.js',main);
-  write('host-title/title-'+kind+'.js',slice(main,kind==='original'?'function Bh(':'const __localCatalogPreviewCache=','var Dme='));
-  write('title/title-'+kind+'.js',slice(initial,kind==='original'?'function nBt(e,t){':'function __localRepairTitlePreview(e){','function rBt('));
-  const fragment=expression(initial,initial.indexOf('dcn=class{')+4);const helpers=slice(initial,'function ccn(','var lcn,');write('tracker/tracker-'+kind+'.cjs',helpers+'\nconst lcn={default:values=>values.length?values.reduce((a,b)=>Math.max(a,b)):undefined};const ucn={default:values=>values.reduce((a,b)=>a+b,0)};module.exports='+fragment+';\n');
+  write('host-title/title-'+kind+'.js',slice(main,kind==='original'?'function Om(':'const __localCatalogPreviewCache=','var Khe='));
+  write('title/title-'+kind+'.js',(kind==='patched'?require('./fixtures-support/native-source.cjs').nativeFunction(shared,'__localRepairTitlePreview'):'')+require('./fixtures-support/native-source.cjs').nativeFunction(shared,'Aqt'));
+  const fragment=expression(shared,shared.indexOf('Jdn=class{')+4);const helpers=require('./fixtures-support/native-source.cjs').nativeFunction(shared,'qdn');write('tracker/tracker-'+kind+'.cjs',helpers+'\nconst nq={default:values=>values.length?values.reduce((a,b)=>Math.max(a,b)):undefined};const rq={default:values=>values.reduce((a,b)=>a+b,0)};module.exports='+fragment+';\n');
  }
  const guards=fs.readFileSync(path.join(__dirname,'fixtures-support','main-guards.js'),'utf8');
  assert.ok(read('main.patched.js').includes(guards.trim()),'Core fixture must match the shipped guard');
@@ -19,11 +19,11 @@ function prepare(source){
  assert.ok(read('initial.patched.js').includes('__localHistoryFilter.useSelectionContext'),'Native menu must retain the tested filter helper');
 
  const api=require('../scripts/patcher.cjs');
- for(const kind of ['original','patched'])for(const id of ['main','initial','primary','conversation','viewer','logger','state-store','quick-chat','quick-transcript','slider','app-server','chat-code','panel-shell','panel-entry','side-chat','local-thread','local-turn','activity','virtual-list','panel-toggle','shared','visualization-doc'])write('render/'+(kind==='original'?'raw':'patches')+'/'+id+'.js',read(id+'.'+kind+'.js'));
- const cssFd=fs.openSync(path.join(source,'resources','app.asar'),'r');try{const header=api.archiveHeader(cssFd),name=[...api.entries(header.tree)].map(([name])=>name).find(name=>/^webview\/assets\/app-initial-[\w]+\.css$/.test(name));assert.ok(name);const entry=api.getEntry(header.tree,name);write('render/raw/code-style.css',api.readExact(cssFd,entry.size,header.offset+Number(entry.offset)));write('render/dependencies/package.json',JSON.stringify({type:'module'}));for(const file of ['app-shared-8f4fbb856ceb.js','rolldown-runtime-2d059c5e81f4.js']){const dep=api.getEntry(header.tree,'webview/assets/'+file);write('render/dependencies/'+file,api.readExact(cssFd,dep.size,header.offset+Number(dep.offset)))}}finally{fs.closeSync(cssFd)}
+ for(const kind of ['original','patched'])for(const id of api.manifest.files.filter(x=>x.id!=='browser').map(x=>x.id))write('render/'+(kind==='original'?'raw':'patches')+'/'+id+'.js',read(id+'.'+kind+'.js'));
+ const cssFd=fs.openSync(path.join(source,'resources','app.asar'),'r');try{const header=api.archiveHeader(cssFd),name=[...api.entries(header.tree)].map(([name])=>name).find(name=>/^webview\/assets\/app-initial-[\w]+\.css$/.test(name));assert.ok(name);const entry=api.getEntry(header.tree,name);write('render/raw/code-style.css',api.readExact(cssFd,entry.size,header.offset+Number(entry.offset)));write('render/dependencies/package.json',JSON.stringify({type:'module'}));for(const file of ['app-shared-c568b0b98683.js','rolldown-runtime-2d059c5e81f4.js']){const dep=api.getEntry(header.tree,'webview/assets/'+file);write('render/dependencies/'+file,api.readExact(cssFd,dep.size,header.offset+Number(dep.offset)))};for(const [id,file]of [['gallery-layout','generated-image-gallery-layout-500947a6d6c9.js'],['sandbox-html','visualization-sandbox-html-cdf0d4054073.js'],['sidecar','sidecar-analytics-eb3fcdebc267.js']]){const e=api.getEntry(header.tree,'webview/assets/'+file),text=api.readExact(cssFd,e.size,header.offset+Number(e.offset));for(const kind of ['raw','patches'])write('render/'+kind+'/'+id+'.js',text)}}finally{fs.closeSync(cssFd)}
  const rawPrimary=fs.readFileSync(path.join(out,'fixtures','primary.original.js'));
  const primarySpec=api.manifest.files.find(item=>item.id==='primary');
- write('render/patches/primary-performance.js',api.applyPatch(rawPrimary,primarySpec.withoutSidebar));
+ write('render/patches/primary-composer-at-mention-list-48c28f8d7d4b.js',api.applyPatch(rawPrimary,primarySpec.withoutSidebar));
  const initialSpec=api.manifest.files.find(item=>item.id==='initial');write('render/patches/initial-performance.js',api.applyPatch(fs.readFileSync(path.join(out,'fixtures','initial.original.js')),initialSpec.withoutSidebar));
  write('render/raw/citation-broken.js',read('initial.patched.js'));
  return out;

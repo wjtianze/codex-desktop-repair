@@ -12,5 +12,6 @@ tests.push('conversation-recovery-scope.mjs');
 tests.push('sandbox-image-patches.mjs');if(process.argv.includes('--installed'))tests.push('sandbox-image-native.mjs');
 tests.push('launcher-backend.cjs','taskbar-identity.cjs');if(process.argv.includes('--installed'))tests.push('prompt-rail-runtime.mjs');
 const results=[];
+if(process.argv.includes('--installed'))tests.push('catalog-scope-native.cjs');
 for(const test of tests){const result=spawnSync(process.execPath,[path.join(__dirname,test)],{encoding:'utf8',cwd:root,maxBuffer:8*1024*1024});const text=(result.stdout||'')+(result.stderr||'');fs.writeFileSync(path.join(output,test+'.log'),text);const passed=result.status===0;results.push({test,passed,cases:(text.match(/^PASS /gm)||[]).length});console.log((passed?'PASS ':'FAIL ')+test+' ('+results.at(-1).cases+' cases)');if(!passed){console.error(text);process.exitCode=1}}
 fs.writeFileSync(path.join(output,'summary.json'),JSON.stringify({node:process.version,installedSource:process.argv.includes('--installed'),passed:results.every(r=>r.passed),suites:results,cases:results.reduce((sum,r)=>sum+r.cases,0)},null,2));

@@ -1,1 +1,1 @@
-let __localNoticeBytes=Buffer.byteLength(e);T.push({text:e,bytes:__localNoticeBytes}),__localLogQueueState.bytes+=__localNoticeBytes,O=0},ne=()=>{if(d){T=[],E=0,__localLogQueueState.bytes=0,O=0;return
+let __localNoticeBytes=Buffer.byteLength(e);T.push({text:e,bytes:__localNoticeBytes}),__localLogQueueState.bytes+=__localNoticeBytes,O=0},te=()=>{if(d){T=[],E=0,__localLogQueueState.bytes=0,O=0;return

@@ -31,5 +31,4 @@ function __localNormalizeRestoredWindow(manager,window){
  if(['x','y','width','height'].some(key=>current[key]!==next[key])){window.setBounds(next);manager.persistPrimaryWindowBounds(window)}
 }
 
-
 const 

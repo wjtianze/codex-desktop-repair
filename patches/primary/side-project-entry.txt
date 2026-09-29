@@ -1,1 +1,1 @@
-if(v.value.kind===`local`&&v.value.placement===`side`)ke=(0,T8.jsx)(__localSideProjectCommand,{conversationId:A,hostId:I,cwd:m});
+if(S.value.kind===`local`&&S.value.placement===`side`)Fe=(0,V5.jsx)(__localSideProjectCommand,{conversationId:P,hostId:B,cwd:g});

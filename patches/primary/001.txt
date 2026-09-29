@@ -1,1 +1,1 @@
-e===`webview`&&t.startsWith(`visualization-`)&&(r.style.transform=`translateZ(0)`),
+return e===`webview`&&t.startsWith(`visualization-`)&&(r.style.transform=`translateZ(0)`),r.setAttribute(`partition`,n),r

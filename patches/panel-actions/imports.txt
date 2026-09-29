@@ -1,1 +1,1 @@
-import{Zrn as __localPanelRpc}from"./app-initial-6c4523b43a11.js";;
+import{mft as __localPanelRpc}from"./app-shared-c568b0b98683.js";;
