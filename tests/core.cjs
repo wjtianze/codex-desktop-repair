@@ -11,15 +11,15 @@ function method(source,name,from=0){
 
 const run=async(name,fn)=>{if(/File watcher bursts|Browser queue recovers|Notifications arriving during promise cleanup/.test(name))return;await fn();tests.push({name,passed:true});console.log('PASS',name)};
 function events(kind){
- const source=read(kind==='original'?'raw':'patches','initial.js'),start=source.indexOf('bBt=class{');
+ const source=read(kind==='original'?'raw':'patches','initial.js'),start=source.indexOf("cfn=class{");
  const pieces=[between(source,'addStreamRoleCallback(e,t){','addAnyConversationCallback(',start),between(source,'addConversationCallback(e,t){','addConversationRemovedListener(',start),between(source,'addNotificationCallback(e,t){','emitConversation(',start)];
  return Object.assign({streamRoleCallbacks:new Map(),conversationCallbacks:new Map(),notificationCallbacks:new Map()},vm.runInNewContext('({'+pieces.join(',')+'})'));
 }
 function idle(kind){
- const source=read(kind==='original'?'raw':'patches','initial.js'),start=source.indexOf('oXt=class{');
+ const source=read(kind==='original'?'raw':'patches','initial.js'),start=source.indexOf('p8t=class{');
  const names=kind==='patched'?['getLocalIdleBudgetCandidates']:[];names.push('getNextCheckAtMs','getInactiveOwnerConversationIdsToUnsubscribe','shouldKeepConversationLoaded','unsubscribeInactiveConversation');
  const pieces=names.map(name=>method(source,name,start));
- const api=vm.runInNewContext('({'+pieces.join(',')+'})',{rXt:3600000,aXt:4,iXt:15000,Dz:x=>x.lastTurn,wz:x=>(x.turns??[]).map(t=>({...t,items:t.items??[]})),fz:()=>false,nXt:x=>!!x.ephemeral,_Ht:x=>x.messages,ZKt:x=>x.pendingKind??null,Bz:(x,t)=>{x.turns=t}});
+ const api=vm.runInNewContext('({'+pieces.join(',')+'})',{u8t:3600000,f8t:4,d8t:15000,VR:x=>x.lastTurn,RR:x=>(x.turns??[]).map(t=>({...t,items:t.items??[]})),Gm:()=>false,l8t:x=>!!x.ephemeral,qQt:x=>x.messages,c4t:x=>x.pendingKind??null,nh:(x,t)=>{x.turns=t}});
  const threads=new Map(),active=new Set(),followers=new Set(),owned=new Set(),requests=[];
  const manager=Object.assign({disposed:false,inactiveOwnerConversationSinceById:new Map(),inactiveOwnerConversationRetryAtById:new Map(),unsubscribingConversationIds:new Set(),hasActiveConversationView:id=>active.has(id),hasOwnedStreamFollowers:id=>followers.has(id),updateConversationInactivityTracking:()=>{},clearConversationStreamOwnership:id=>owned.delete(id),getThreadRuntimeStatusAfterUnsubscribe:()=>({type:'idle'})},api);
  manager.params={now:()=>60000,logger:{info:()=>{},debug:()=>{},warning:()=>{}},parseUrl:()=>null,threadStore:{getConversation:id=>threads.get(id),updateConversationState:(id,fn)=>fn(threads.get(id))},streamState:{ownsConversationHistoryStream:id=>owned.has(id),getStreamRole:id=>owned.has(id)?{role:'owner'}:null},requestClient:{sendRequest:async(method,args)=>{requests.push({method,args});return{status:'ok'}}}};

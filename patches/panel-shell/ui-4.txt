@@ -1,2 +1,2 @@
 
-export function __localPanelControls(){return(0,$.jsxs)($.Fragment,{children:[(0,$.jsx)(St,{}),(0,$.jsx)(Ct,{})]})}
+export function __localPanelControls(){return(0,$.jsxs)($.Fragment,{children:[(0,$.jsx)(rm,{}),(0,$.jsx)(im,{})]})}

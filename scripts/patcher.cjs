@@ -66,7 +66,7 @@ function build(source,output,{sidebar=true,fixtures=false}={}){
  const replacements=new Map(),input=fs.openSync(archive,'r');
  try{const header=archiveHeader(input);
   for(const candidate of manifest.files){if(candidate.id==='browser'||(!sidebar&&candidate.id==='primary'&&!candidate.withoutSidebar))continue;const spec=!sidebar&&candidate.withoutSidebar?candidate.withoutSidebar:candidate;const item=getEntry(header.tree,spec.entry),raw=readExact(input,item.size,header.offset+Number(item.offset)),patched=applyPatch(raw,spec);replacements.set(spec.entry,patched);
-   if(fixtures){const folder=path.join(output,'fixtures');fs.mkdirSync(folder,{recursive:true});fs.writeFileSync(path.join(folder,spec.id+'.original.js'),raw);fs.writeFileSync(path.join(folder,spec.id+'.patched.js'),patched)}
+   if(fixtures){const folder=path.join(output,'fixtures');fs.mkdirSync(folder,{recursive:true});for(const id of [spec.id,...(spec.fixtureAliases||[])]){fs.writeFileSync(path.join(folder,id+'.original.js'),raw);fs.writeFileSync(path.join(folder,id+'.patched.js'),patched)}}
   }
  }finally{fs.closeSync(input)}
  for(const [entry,file]of Object.entries(manifest.addedArchiveEntries))if(sidebar||!entry.includes('chat-history-filter'))replacements.set(entry,asset(file));

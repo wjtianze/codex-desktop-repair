@@ -1,16 +1,16 @@
 
-export{__localRepairTitleFromPreview,__localRepairParseTitle,__localRepairTitlePreview,__localSeedSideActionTurn}from"./app-shared-c568b0b98683.js";
+export{__localRepairTitleFromPreview,__localRepairParseTitle,__localRepairTitlePreview,__localSeedSideActionTurn}from"./app-shared-6472dfc83b38.js";
 
 export async function __localReadWorkProgress(scope,conversationId,signal){
  if(signal?.aborted)return null;
- const id=Hl(scope.get,conversationId),before=id==null?null:BD(scope.get,id);
- if(before?.conversationOrigin!==`tpp`||!MD(scope.get(DO,conversationId)))return null;
- const snapshot=await scope.get(hT).get(conversationId,signal);
+ const id=gp(scope.get,conversationId),before=id==null?null:VD(scope.get,id);
+ if(before?.conversationOrigin!==`tpp`||!GE(scope.get(rD,conversationId)))return null;
+ const snapshot=await scope.get(aO).get(conversationId,signal);
  if(signal?.aborted)return null;
  return{apply(){
-  const after=BD(scope.get,id);
-  if(signal?.aborted||after?.conversationOrigin!==`tpp`||!MD(scope.get(DO,conversationId))||!__localCanApplyWorkSnapshot(before,after,snapshot))return null;
-  ND(scope,snapshot,{mergeActiveBranch:!0});
-  return{mapping:scope.get(TO,conversationId)};
+  const after=VD(scope.get,id);
+  if(signal?.aborted||after?.conversationOrigin!==`tpp`||!GE(scope.get(rD,conversationId))||!__localCanApplyWorkSnapshot(before,after,snapshot))return null;
+  H_n(scope,snapshot,{mergeActiveBranch:!0});
+  return{mapping:scope.get(tD,conversationId)};
  }};
 }

@@ -1,1 +1,1 @@
-async function Ar(e,t,checkpoint=!1){try{await jr(e,t,checkpoint)}catch(e){Y().warning(`Failed to persist global state`,{safe:{},sensitive:{error:e}})}}
+async function Wr(e,t,checkpoint=!1){try{await Gr(e,t,checkpoint)}catch(e){Or().warning(`Failed to persist global state`,{safe:{},sensitive:{error:e}})}}

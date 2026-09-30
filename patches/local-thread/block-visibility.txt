@@ -1,1 +1,1 @@
-function We(e){const __localScroll=_e();(0,Q.useLayoutEffect)(()=>__localAttachBlockVisibility(__localScroll.getScrollElement),[__localScroll.getScrollElement]);
+function _e(e){const __localScroll=ae();(0,z.useLayoutEffect)(()=>__localAttachBlockVisibility(__localScroll.getScrollElement),[__localScroll.getScrollElement]);

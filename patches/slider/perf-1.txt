@@ -1,1 +1,1 @@
-function Ce(e,t){return __localSliderCanvas(e,t,M,R)}
+function be(e,t){return __localSliderCanvas(e,t,xe,z)}

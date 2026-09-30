@@ -1,0 +1,1 @@
+function Et({open:e}){return mt(We,St,{getId:(e,{conversationId:t})=>t==null?void 0:`${Ge}${t}`,isAvailable:()=>!0,renderThumbnail:(e,t)=>(0,U.jsx)(jt,{conversationId:e.conversationId,title:t.title}),open:e})}

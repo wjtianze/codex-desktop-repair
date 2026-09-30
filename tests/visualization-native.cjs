@@ -4,12 +4,12 @@ const root=path.resolve(__dirname,'..'),api=require('../scripts/patcher.cjs'),ra
 const {nativeFunction}=require('./fixtures-support/native-source.cjs');const take=(source,a,b)=>nativeFunction(source,/function\s*\*?([\w$]+)\(/.exec(a)[1]);
 async function verifyHook(){
   const calls=[],controller=new AbortController(),progressive=await import('../assets/local-visualization-progressive-v1.mjs');
-  const run=vm.runInNewContext(nativeFunction(patched,'p').replaceAll('import.meta.url','"fixture:runtime"')+';p',{__localBindNativePreview:progressive.bindNativePreview,aHi:{safeParse:()=>({success:false})},g:()=> 'light',u:{sandbox:true},__vite__mapDeps:()=>[],n:async()=>({getVisualizationSandboxHtml:html=>{calls.push(['wrap',html]);return html}}),__localPrepareVisualization:async html=>{calls.push(['prepare',html]);return 'prepared:'+html},h:()=>({}),_:()=>({}),v:()=>({}),crypto:{randomUUID:()=> 'synthetic-test-id'}});
+  const run=vm.runInNewContext(nativeFunction(patched,'p').replaceAll('import.meta.url','"fixture:runtime"')+';p',{__localBindNativePreview:progressive.bindNativePreview,$0o:{safeParse:()=>({success:false})},g:()=> 'light',u:{sandbox:true},__vite__mapDeps:()=>[],n:async()=>({getVisualizationSandboxHtml:html=>{calls.push(['wrap',html]);return html}}),__localPrepareVisualization:async html=>{calls.push(['prepare',html]);return 'prepared:'+html},h:()=>({}),_:()=>({}),v:()=>({}),crypto:{randomUUID:()=> 'synthetic-test-id'}});
   const sandboxApi={async *runWidgetCode(input){calls.push(["run",input]);yield {ok:true}}};
   const output=[];for await(const item of run({fragment:'original',sandboxApi,signal:controller.signal}))output.push(item);
   assert.deepEqual(calls.map(x=>x[0]),['prepare','wrap','run']);assert.equal(calls[2][1].html,'prepared:original');assert.equal(calls[2][1].isFirstParty,false);assert.equal(calls[2][1].hostHandlesFollowUpMessageAuthorization,true);assert.deepEqual(output,[{ok:true}]);console.log('PASS Native sandbox receives prepared HTML and preserves authorization');
 }
-const builder=vm.runInNewContext(nativeFunction(raw,'g')+';g',{l:'',p:'__INLINE_VISUALIZATION_FRAGMENT__',w:'',T:'',E:'__CONTAINER__',N:'',D:'',s:'',d:'',_:()=>''});
+const builder=vm.runInNewContext(nativeFunction(raw,"v")+';v',{k:'__INLINE_VISUALIZATION_FRAGMENT__',j:'',M:'',N:'',P:'',I:'',L:'',F:'',O:'',l:'',h:'__INLINE_VISUALIZATION_FRAGMENT__',b:'',x:'',S:'',C:'',w:'',T:'',E:'',D:'',d:'',p:'',y:()=>'',c:()=>false});
 const nativeCSS=builder('',{innerKit:'__CONTAINER__',reportToHost:false,lockDocumentOverflow:false}).match(/<style[^>]*>[\s\S]*?<\/style>/g).join('');
 const literal=value=>JSON.stringify(value).replaceAll('<','\\u003c');
 const fragment=fs.readFileSync(path.join(__dirname,'fixtures-support/visualization-legacy.html'),'utf8');

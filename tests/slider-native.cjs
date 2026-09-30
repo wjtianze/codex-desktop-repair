@@ -4,10 +4,10 @@ function harness(kind){
  const source=read(kind),cache=Array(240).fill(Symbol.for('react.memo_cache_sentinel')),slots=[];let cursor=0,view,props;
  const selections=[],commits=[],previews=[];
  const React={useState(value){const i=cursor++;if(!(i in slots))slots[i]=value;return[slots[i],v=>slots[i]=typeof v==='function'?v(slots[i]):v]},useReducer(fn,value){const i=cursor++;if(!(i in slots))slots[i]=value;return[slots[i],v=>slots[i]=fn(slots[i],v)]},useRef(value){const i=cursor++;return slots[i]??=( {current:value})},useEffect(){},useEffectEvent(fn){return fn}};
- const jsx=(type,props)=>({type,props}),ctx={mt:1,Q:1,X:1,yt:28,ht:1,d:()=>0,ft:{c:()=>cache},J:React,Y:{jsx,jsxs:jsx},te:()=>false,L:()=>({jump(){}}),ie:()=>0,p:{span:'span'},oe:'presence',ee:'presence',pt:'track',ae:'slider-part',ee:'thumb',s:'root',Se:'canvas',je:'particles',de:'fast',ge:'burst',p:'lock',q:new Proxy({},{get:(_,key)=>key}),window:{setTimeout:()=>1,clearTimeout(){}},queueMicrotask:()=>{},vt:new Set(),It:{previewIndex:null,previewBaseOptionId:null,previewOptionIds:[],maxBurstKey:0},Ft:30,Pt:160,WheelEvent:{DOM_DELTA_PIXEL:0}};
- for(const key of ["J","Y","ft","gt","_t","ct","lt","st"])ctx[key]??=1;
- for(const key of ["kt","vt","Ct","bt","wt","St","Et","xt","Tt","Dt","Ot","Mt","jt","Ot","wt","At","Tt","kt","Et","St"])ctx[key]??={};
- const end=source.indexOf('var ft,J,Y');vm.createContext(ctx);vm.runInContext(source.slice(source.indexOf('function tt('),end)+';this.component=tt',ctx);
+ const jsx=(type,props)=>({type,props}),ctx={xt:{},At:1,pt:1,Q:1,Z:1,vt:28,mt:1,s:()=>0,dt:{c:()=>cache},Y:React,X:{jsx,jsxs:jsx},t:()=>false,L:()=>({jump(){}}),f:()=>0,n:{span:'span'},a:'presence',ne:'presence',ft:'track',p:'slider-part',ne:'thumb',ee:'root',ye:'canvas',Ae:'particles',ce:'fast',pe:'burst',n:'lock',J:new Proxy({},{get:(_,key)=>key}),window:{setTimeout:()=>1,clearTimeout(){}},queueMicrotask:()=>{},_t:new Set(),Ft:{previewIndex:null,previewBaseOptionId:null,previewOptionIds:[],maxBurstKey:0},Pt:30,Nt:160,WheelEvent:{DOM_DELTA_PIXEL:0}};
+ for(const key of ["J","Y","ft","gt","_t","st","ct","ot"])ctx[key]??=1;
+ for(const key of ["kt","vt","Ct","yt","wt","St","Et","bt","Tt","Dt","Ot","Mt","jt","Ot","wt","kt","Tt","kt","Et","St"])ctx[key]??={};
+ const end=source.indexOf("var dt,Y,X");vm.createContext(ctx);vm.runInContext(source.slice(source.indexOf("function et("),end)+";this.component=et",ctx);
  props={active:true,options:[{id:'a'},{id:'b'},{id:'c',isMax:true},{id:'locked',isLocked:true}],selectedOptionId:'a',onSelectOption:v=>selections.push(v.id),onCommitOption:(v,b)=>commits.push([v.id,b.id]),onDragToMax(){},onPreviewOption:v=>previews.push(v)};
  const render=()=>{cursor=0;view=ctx.component(props);return view.props.children.props};
  return {render,props,selections,commits,previews,wheel:e=>cache[53](e)};

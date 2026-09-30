@@ -1,1 +1,1 @@
-import{renderWebSearchProgress as __localWebSearchProgress}from"./local-web-search-progress-v1.js";import{Mkt as __localOpenSearchLink}from"./app-initial-ff48311587c5.js";
+import{renderWebSearchProgress as __localWebSearchProgress}from"./local-web-search-progress-v1.js";import{Lon as __localOpenSearchLink}from"./app-initial-7e7a15e7e995.js";

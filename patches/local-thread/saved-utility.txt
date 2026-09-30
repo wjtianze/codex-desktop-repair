@@ -1,1 +1,1 @@
-isResuming:!1,showUtilityBar:e.__localPersistent===true,footerContent:S
+isResuming:!1,showUtilityBar:e.__localPersistent===true,footerContent:w

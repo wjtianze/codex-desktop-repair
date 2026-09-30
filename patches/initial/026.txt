@@ -1,1 +1,1 @@
-map(item=>({...item,searchResultSources:(Czt(),fzt(e.metadata,QC(e))??[])})).
+map(item=>({...item,searchResultSources:(sdn(),Xun(e.metadata,Kd(e))??[])})).

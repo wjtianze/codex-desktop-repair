@@ -1,7 +1,7 @@
 import{createSideChatTabUpdate as __localCreateSideTabUpdate}from"./local-side-chat-tab-update-v1.js";
-import{_C as __localSideManagerAtom}from"./app-shared-c568b0b98683.js";import{__localSeedSideActionTurn}from"./app-initial-ff48311587c5.js";
+import{oA as __localSideManagerAtom}from"./app-shared-6472dfc83b38.js";import{__localSeedSideActionTurn}from"./app-initial-7e7a15e7e995.js";
 import{getOwnedSideChatManager as __localGetOwnedSideManager,useSideChatMessageActions as __localUseSideActions,branchSideChatTurn as __localBranchSideTurn,createRegenerateControl as __localCreateRegenerate,sideChatActionLabels as __localSideLabels}from"./local-side-chat-actions-v1.js";
 import{createChatPromptRail as __localCreatePromptRail}from"./local-chat-prompt-rail-v1.js";
-import{t0t as __localRepairReactFactory}from"./app-shared-c568b0b98683.js";
-import{L1t as __localRepairJsxFactory}from"./app-shared-c568b0b98683.js";
+import{vdn as __localRepairReactFactory}from"./app-shared-6472dfc83b38.js";
+import{mcn as __localRepairJsxFactory}from"./app-shared-6472dfc83b38.js";
 import{attachChatBlockVisibility as __localAttachBlockVisibility,boundedTurnRange as __localBoundedTurnRange,retainTurnRange as __localRetainTurnRange}from"./local-chat-block-visibility-v1.mjs";

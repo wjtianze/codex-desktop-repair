@@ -1,6 +1,6 @@
 import{nativeFunction}from'./fixtures-support/native-source.cjs';
 import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';
-const root=new URL('../build/fixtures/render/',import.meta.url),cases=[];function factory(file){const s=fs.readFileSync(new URL(file,root),'utf8'),a=s.indexOf('function t('),b=s.indexOf('var eRt',a);return vm.runInNewContext(nativeFunction(s,"t")+';t')}
+const root=new URL('../build/fixtures/render/',import.meta.url),cases=[];function factory(file){const s=fs.readFileSync(new URL(file,root),'utf8'),a=s.indexOf('function t('),b=s.indexOf("var BWe",a);return vm.runInNewContext(nativeFunction(s,"t")+';t')}
 const before=factory('raw/gallery-layout.js'),after=factory('patches/gallery-layout.js'),plain=factory('patches/gallery-layout.js');const normalize=x=>JSON.parse(JSON.stringify(x));function test(name,fn){fn();cases.push(name);console.log('PASS '+name)}
 const ratio=1055/1491,input={containerWidthPx:400,imageAspectRatios:[ratio]};
 test('The exact poster no longer enters square crop because of floating-point roundoff',()=>{assert.equal(before(input).aspectRatio,'natural');const r=after(input);assert.equal(r.aspectRatio,'natural');assert.ok(Math.abs(r.heightPx*ratio-400)<1e-8);assert.ok(r.heightPx>400)});
